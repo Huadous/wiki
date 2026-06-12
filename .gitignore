@@ -51,3 +51,6 @@
 node_modules/
 *.log
 *.tmp
+
+# ── Quartz 4 build output ──
+public/

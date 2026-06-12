@@ -1,0 +1,655 @@
+# Wiki 操作日志
+
+
+
+## [2026-06-12 02:15] Wiki 维护报告
+
+
+> Wiki 状态概览：共 0 个页面，0 个缺失别名，重复 0 个，断链 0 个（其中 0 个涉及重复页面），孤立 0 个（其中 0 个是重复页面），空洞 0 个。本次 Lint 耗时 2 秒
+
+未检测到重复、断链、空洞或孤立页面。
+
+### LLM 分析
+
+✅ 未发现明显问题。
+
+- 当前 Wiki 页面数量为 0，不存在任何页面内容，因此无法检测到页面间的矛盾、过时声明、缺失页面或结构性问题。建议在添加内容后重新进行健康检查。
+
+
+## [2026-06-12] ingest | Overview | Protocol Buffers Documentation
+
+**创建页面**：[[sources/overview.md]], [[entities/grpc.md]], [[entities/google.md]], [[entities/protocol-buffers.md]], [[entities/protoc.md]], [[entities/github.md]], [[entities/envoy-proxy.md]], [[entities/google-cloud.md]], [[concepts/serialization.md]], [[concepts/backward-compatibility.md]], [[concepts/forward-compatibility.md]], [[concepts/proto-file.md]], [[concepts/field-number.md]], [[concepts/cross-language-compatibility.md]], [[concepts/field-cardinality.md]], [[concepts/proto3.md]], [[concepts/proto2.md]], [[concepts/scalar-value-types.md]], [[concepts/edition-2023.md]], [[concepts/message-type.md]], [[concepts/enum-type.md]], [[concepts/oneof-type.md]], [[concepts/field-number.md]], [[concepts/extensions.md]], [[concepts/map-type.md]]
+
+**更新页面**：
+
+
+
+## [2026-06-12] ingest | Redis Client (brpc)
+
+**创建页面**：[[sources/en_redis_client.md]], [[entities/redis.md]], [[entities/brpc.md]], [[entities/hiredis.md]], [[entities/redis_cli.md]], [[entities/redisrequest.md]], [[entities/twemproxy.md]], [[entities/redisauthenticator.md]], [[entities/redisresponse.md]], [[entities/redisreply.md]], [[concepts/bthread.md]], [[concepts/一致性哈希.md]], [[concepts/redis协议.md]], [[concepts/连接池.md]], [[concepts/批量命令.md]], [[concepts/单线程反应器.md]], [[concepts/qps.md]], [[concepts/延迟.md]], [[concepts/redis_verbose.md]], [[concepts/短字符串优化-sso.md]], [[concepts/parallelchannel.md]], [[concepts/on-时间复杂度.md]], [[concepts/位置对应-positional-correspondence.md]]
+
+**更新页面**：
+
+
+
+## [2026-06-12] ingest | LALB (Locality-aware load balancing)
+
+**创建页面**：[[sources/lalb.md]], [[entities/dp系统.md]], [[entities/brpc.md]], [[concepts/lalb.md]], [[concepts/base_weight.md]], [[concepts/doublybuffereddata.md]], [[concepts/weight-tree.md]], [[concepts/inflight-delay.md]], [[concepts/weightedstrategy.md]]
+
+**更新页面**：[[brpc]]
+
+
+
+## [2026-06-12] ingest | Techniques
+
+**创建页面**：[[sources/techniques.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[entities/protocol-buffers.md]], [[concepts/streaming-multiple-messages.md]], [[concepts/self-describing-messages.md]], [[concepts/large-data-sets.md]], [[concepts/wire-format.md]], [[concepts/filedescriptorset.md]], [[concepts/dynamicmessage.md]], [[concepts/text-format.md]], [[concepts/codedinputstream.md]], [[concepts/json-format.md]], [[concepts/google-protobuf-any.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoc]]
+
+
+
+## [2026-06-12] ingest | LALB: Locality-aware load balancing
+
+**创建页面**：[[sources/lalb.md]], [[entities/dp系统.md]], [[concepts/lalb.md]], [[entities/brpc.md]], [[concepts/doublybuffereddata.md]], [[concepts/weight-tree.md]], [[concepts/base_weight.md]], [[concepts/inflight-delay.md]], [[concepts/weightedstrategy.md]]
+
+**更新页面**：[[brpc]], [[lalb]], [[doublybuffereddata]], [[weight-tree]], [[base_weight]]
+
+
+
+## [2026-06-12] ingest | brpc RDMA支持
+
+**创建页面**：[[sources/en_rdma.md]], [[entities/iobuf.md]], [[entities/rdmaendpoint.md]], [[entities/brpc.md]], [[entities/block-pool.md]], [[concepts/零拷贝.md]], [[concepts/rdma.md]], [[concepts/事件抑制.md]], [[concepts/握手.md]], [[concepts/滑动窗口流控.md]], [[concepts/appconnect.md]], [[concepts/qp.md]], [[concepts/rc模式.md]], [[concepts/内存注册.md]], [[concepts/cq.md]]
+
+**更新页面**：[[brpc]]
+
+
+
+## [2026-06-12] ingest | LALB：Locality-aware load balancing
+
+**创建页面**：[[sources/lalb.md]], [[entities/dp系统.md]], [[entities/ub.md]], [[entities/brpc.md]], [[concepts/lalb.md]], [[concepts/weight-tree.md]], [[concepts/doublybuffereddata.md]], [[concepts/base_weight.md]], [[concepts/inflight-delay.md]]
+
+**更新页面**：[[brpc]], [[dp系统]], [[lalb]], [[doublybuffereddata]], [[weight-tree]], [[base_weight]], [[inflight-delay]]
+
+
+
+## [2026-06-12] ingest | LALB 概述
+
+**创建页面**：[[sources/lalb.md]], [[entities/dp系统.md]], [[entities/ub.md]], [[entities/brpc.md]], [[concepts/lalb.md]], [[concepts/doublybuffereddata.md]], [[concepts/weight-tree.md]], [[concepts/base_weight.md]], [[concepts/inflight-delay.md]], [[concepts/weightedstrategy.md]], [[concepts/备份请求.md]], [[concepts/base_weight.md]], [[concepts/cpu-idle-paradox.md]], [[concepts/再选一次.md]]
+
+**更新页面**：[[brpc]], [[dp系统]], [[lalb]], [[doublybuffereddata]], [[weight-tree]], [[base_weight]]
+
+
+
+## [2026-06-12] ingest | 单线程反应器
+
+**创建页面**：[[sources/单线程反应器.md]], [[entities/redis.md]], [[entities/hiredis.md]], [[entities/brpc.md]], [[entities/twemproxy.md]], [[entities/nginx.md]], [[entities/node-js.md]], [[concepts/延迟.md]], [[concepts/bthread.md]], [[concepts/qps.md]], [[concepts/连接池.md]], [[concepts/单线程反应器.md]], [[concepts/单线程反应器.md]], [[concepts/单线程反应器.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/kqueue.md]]
+
+**更新页面**：[[redis]], [[hiredis]], [[brpc]], [[twemproxy]], [[qps]], [[延迟]], [[bthread]], [[连接池]], [[单线程反应器]]
+
+
+
+## [2026-06-12] ingest | Feature Settings for Editions (Protocol Buffers 文档)
+
+**创建页面**：[[sources/features.md]], [[entities/prototiller.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/features-default_symbol_visibility.md]], [[concepts/enum-type.md]], [[concepts/features-field_presence.md]], [[concepts/edition-2023.md]], [[concepts/edition-2023.md]], [[concepts/feature-setting-scope.md]], [[concepts/edition-2024.md]], [[concepts/proto2.md]], [[concepts/features-default_symbol_visibility.md]], [[concepts/proto3.md]], [[concepts/local-keyword.md]]
+
+**更新页面**：[[edition-2023]], [[proto2]], [[proto3]]
+
+
+
+## [2026-06-12] ingest | Streaming RPC 概述
+
+**创建页面**：[[sources/en_streaming_rpc.md]], [[entities/brpc.md]], [[concepts/streaming-rpc.md]], [[concepts/stream.md]], [[concepts/head-of-line-blocking.md]], [[concepts/streamoptions.md]], [[concepts/滑动窗口流控.md]], [[concepts/baidu_std-protocol.md]], [[concepts/streaminputhandler.md]], [[concepts/stream.md]], [[concepts/streaming-rpc.md]], [[concepts/消息边界.md]], [[concepts/空闲超时.md]], [[concepts/head-of-line-blocking.md]]
+
+**更新页面**：[[brpc]]
+
+
+
+## [2026-06-12 02:24] Wiki 维护报告
+
+
+> Wiki 状态概览：共 107 个页面，0 个缺失别名，重复 0 个，断链 69 个（其中 0 个涉及重复页面），孤立 1 个（其中 0 个是重复页面），空洞 0 个。本次 Lint 耗时 13 秒
+
+### 断链（程序检测）[共 69 个]
+
+- [[sources/en_streaming_rpc]] → **concepts/全双工**（页面不存在）
+- [[sources/en_streaming_rpc]] → **concepts/flow-control**（页面不存在）
+- [[sources/en_streaming_rpc]] → **concepts/自动分段**（页面不存在）
+- [[sources/en_streaming_rpc]] → **concepts/stream-api**（页面不存在）
+- [[sources/en_streaming_rpc]] → **entities/apache-brpc**（页面不存在）
+- [[sources/features]] → **concepts/protobuf-editions**（页面不存在）
+- [[sources/features]] → **concepts/features-enum_type**（页面不存在）
+- [[sources/features]] → **concepts/export-keyword**（页面不存在）
+- [[sources/单线程反应器]] → **concepts/事件驱动架构模式**（页面不存在）
+- [[sources/单线程反应器]] → **concepts/非阻塞io**（页面不存在）
+- [[sources/lalb]] → **concepts/locality-aware-load-balancing**（页面不存在）
+- [[sources/techniques]] → **entities/selfdescribingmessage**（页面不存在）
+- [[sources/overview]] → **concepts/reserved-field-number**（页面不存在）
+- [[entities/node-js]] → **concepts/非阻塞IO**（页面不存在）
+- [[entities/node-js]] → **concepts/事件驱动架构**（页面不存在）
+- [[entities/nginx]] → **concepts/非阻塞IO**（页面不存在）
+- [[entities/nginx]] → **concepts/事件驱动架构模式**（页面不存在）
+- [[entities/block-pool]] → **概念的占位符**（页面不存在）
+- [[entities/rdmaendpoint]] → **concepts/EventDispatcher**（页面不存在）
+- [[entities/rdmaendpoint]] → **concepts/PollCq**（页面不存在）
+- [[entities/rdmaendpoint]] → **concepts/IOBuf**（页面不存在）
+- [[entities/rdmaendpoint]] → **concepts/Verbs API**（页面不存在）
+- [[entities/iobuf]] → **concepts/内存池**（页面不存在）
+- [[entities/redisresponse]] → **concepts/positional-correspondence**（页面不存在）
+- [[entities/redisrequest]] → **concepts/位置对应**（页面不存在）
+- [[entities/redis_cli]] → **concepts/redis-protocol**（页面不存在）
+- [[entities/brpc]] → **concepts/流式RPC**（页面不存在）
+- [[entities/brpc]] → **concepts/流控制**（页面不存在）
+- [[entities/brpc]] → **concepts/baidu_std协议**（页面不存在）
+- [[entities/brpc]] → **concepts/全双工**（页面不存在）
+- [[entities/brpc]] → **concepts/自动分段**（页面不存在）
+- [[entities/redis]] → **concepts/redis-protocol**（页面不存在）
+- [[entities/redis]] → **concepts/single-threaded-reactor**（页面不存在）
+- [[entities/redis]] → **concepts/latency**（页面不存在）
+- [[entities/protoc]] → **entities/file-descriptor-set**（页面不存在）
+- [[entities/protoc]] → **entities/dynamic-message**（页面不存在）
+- [[concepts/local-keyword]] → **concepts/export-keyword**（页面不存在）
+- [[concepts/edition-2024]] → **concepts/protobuf-editions**（页面不存在）
+- [[concepts/stream]] → **concepts/流控**（页面不存在）
+- [[concepts/features-enforce_naming_style]] → **concepts/protobuf风格指南**（页面不存在）
+- [[concepts/features-enforce_naming_style]] → **concepts/features.default_symbol_visibility**（页面不存在）
+- [[concepts/features-enforce_naming_style]] → **concepts/features.enum_type**（页面不存在）
+- [[concepts/features-enforce_naming_style]] → **concepts/features.field_presence**（页面不存在）
+- [[concepts/kqueue]] → **concepts/非阻塞io**（页面不存在）
+- [[concepts/kqueue]] → **concepts/redis**（页面不存在）
+- [[concepts/kqueue]] → **concepts/nginx**（页面不存在）
+- [[concepts/epoll]] → **concepts/非阻塞IO**（页面不存在）
+- [[concepts/io多路复用]] → **concepts/非阻塞IO**（页面不存在）
+- [[concepts/io多路复用]] → **concepts/事件驱动架构模式**（页面不存在）
+- [[concepts/内存注册]] → **concepts/Block Pool**（页面不存在）
+- [[concepts/事件抑制]] → **概念/recv-block-size**（页面不存在）
+- [[concepts/零拷贝]] → **concepts/内存池**（页面不存在）
+- [[concepts/weightedstrategy]] → **concepts/负载均衡**（页面不存在）
+- [[concepts/weightedstrategy]] → **concepts/权值分流**（页面不存在）
+- [[concepts/weightedstrategy]] → **concepts/权值树**（页面不存在）
+- [[concepts/weightedstrategy]] → **concepts/双重缓冲数据**（页面不存在）
+- [[concepts/self-describing-messages]] → **concepts/file-descriptor**（页面不存在）
+- [[concepts/self-describing-messages]] → **concepts/any-type**（页面不存在）
+- [[concepts/self-describing-messages]] → **concepts/dynamic-message**（页面不存在）
+- [[concepts/on-时间复杂度]] → **concepts/短字符串优化**（页面不存在）
+- [[concepts/单线程反应器]] → **concepts/事件驱动架构模式**（页面不存在）
+- [[concepts/redis协议]] → **concepts/pooling**（页面不存在）
+- [[concepts/一致性哈希]] → **sources/brpc/en_redis_client**（页面不存在）
+- [[concepts/一致性哈希]] → **concepts/redis-protocol**（页面不存在）
+- [[concepts/一致性哈希]] → **concepts/parallel-channel**（页面不存在）
+- [[concepts/一致性哈希]] → **sources/brpc/en_redis_client.md**（页面不存在）
+- [[concepts/proto2]] → **concepts/protobuf-editions**（页面不存在）
+- [[concepts/proto3]] → **concepts/protobuf-editions**（页面不存在）
+- [[concepts/backward-compatibility]] → **concepts/Protocol Buffers**（页面不存在）
+
+### Pages with out-of-vocabulary tags [8]
+
+- [[sources/单线程反应器]] — invalid: theory
+- [[sources/en_rdma]] — invalid: RDMA, 零拷贝, 滑动窗口流控, 事件抑制, 握手, AppConnect, RC模式, QP, CQ, 内存注册
+- [[sources/en_redis_client]] — invalid: Redis协议, bthread, 一致性哈希, 单线程反应器, 连接池, 批量命令, QPS, 延迟, redis_verbose, ParallelChannel, O(N) 时间复杂度, 短字符串优化 (SSO), 位置对应 (positional correspondence)
+- [[sources/en_streaming_rpc]] — invalid: Streaming RPC, Stream, Flow Control, Head-of-line blocking, StreamOptions, StreamInputHandler, Stream API, baidu_std protocol, 消息边界, 全双工, 空闲超时, 自动分段
+- [[sources/features]] — invalid: features.default_symbol_visibility, features.enforce_naming_style, features.enum_type, features.field_presence, Protobuf Editions, Feature setting scope, Edition 2024, Edition 2023, proto2, proto3, export keyword, local keyword
+- [[sources/lalb]] — invalid: LALB, DoublyBufferedData, weight tree, base_weight, inflight delay, WeightedStrategy
+- [[sources/overview]] — invalid: Serialization, Backward compatibility, Forward compatibility, .proto file, Field number, Field cardinality, Proto3, Cross-language compatibility, Proto2, Edition 2023, Scalar Value Types, Message type, Enum type, Oneof type, Map type, Extensions, Reserved field number
+- [[sources/techniques]] — invalid: Streaming Multiple Messages, Large Data Sets, Self-describing Messages, Wire Format, FileDescriptorSet, DynamicMessage, CodedInputStream, Text Format, JSON Format, google.protobuf.Any
+
+### Sources 已归一化（自动修复）[共 {files} 个文件 / {entries} 处]
+
+清理了 92 个文件中的 92 处 sources 条目（已移除外部路径、.md 后缀、别名管道，并去重）。
+
+### 孤立页面（程序检测）[共 1 个]
+
+- [[concepts/cq]] — 无其他 Wiki 页面链接至此
+
+### LLM 分析
+
+#### 1. 矛盾
+- ✅ 未发现明显矛盾。所有页面内容在事实陈述上保持一致，未见冲突。
+
+#### 2. 过时
+- ✅ 未发现明显过时声明。所有文档均标注了创建/更新日期（2026-06-12），内容与当前技术状态基本一致。
+
+#### 3. 缺失
+- **[[concepts/全双工]]** — 被多个源页面（`en_streaming_rpc`、`brpc`）引用，但页面缺失。这是一个中等重要度的概念，建议补充。
+- **[[concepts/自动分段]]** — 被多个页面引用（`en_streaming_rpc`、`brpc`），缺失。该概念与流式RPC的队头阻塞处理相关，建议创建。
+- **[[concepts/流控]]/[[concepts/flow-control]]** — 被 `en_streaming_rpc`、`brpc`、`stream` 等多个页面引用（形式包括“Flow Control”、“流控制”、“流控”），缺失。这是流式RPC的核心机制，建议创建统一页面。
+- **[[concepts/非阻塞IO]]/[[concepts/非阻塞io]]** — 被 `node-js`、`nginx`、`kqueue`、`epoll`、`io多路复用`、`单线程反应器` 等多个页面引用（大小写形式不一致），缺失。这是IO多路复用的前置概念，建议创建并统一别名。
+- **[[concepts/事件驱动架构模式]]** — 被 `单线程反应器`、`nginx`、`io多路复用` 等多个页面引用，缺失。建议创建。
+- **[[concepts/baidu_std协议]]/[[concepts/baidu_std-protocol]]** — 被 `brpc`、`en_streaming_rpc` 引用，缺失。百度标准协议是brpc的核心协议，概念页面缺失。
+- **[[concepts/redis-protocol]]/[[concepts/redis协议]]** — 被 `redis_cli`、`redis`、`一致性哈希` 等多个实体引用，但当前 `redis协议` 页面未建立有效双向链接（程序检测为孤立页面 `cq`）。
+- **[[concepts/内存池]]** — 被 `iobuf`、`零拷贝` 引用，缺失。内存池是性能优化的关键基础设施。
+- **[[concepts/负载均衡]]** — 被 `weightedstrategy` 引用，建议创建作为 `lalb`、`一致性哈希` 等算法的共同父概念。
+- **[[concepts/protobuf-editions]]** — 被 `features`、`edition-2024`、`proto2`、`proto3` 等多个概念页面引用，缺失。该概念是理解Protobuf版本演进的核心，虽在index中有 `edition-2024` 和 `edition-2023`，但缺少统括性的“Protobuf Editions”页面。
+- **[[concepts/export-keyword]]** — 被 `features`、`local-keyword` 引用，缺失。该关键词与可见性设置相关，建议创建。
+- **[[concepts/位置对应]]** — 被 `redisresponse`、`redisrequest` 引用，当前页面 `位置对应-positional-correspondence` 存在，但引用使用了不完整的别名 `positional-correspondence` 和 `位置对应`，需统一链接目标。
+
+#### 4. 结构
+- **断链修复优先级建议**：程序检测到的69个断链中，以下应优先修复（高频引用且概念重要）：
+  - `concepts/全双工`（被2个页面引用，流式RPC核心概念）
+  - `concepts/自动分段`（被2个页面引用）
+  - `concepts/流控`/`flow-control`（被3个页面引用）
+  - `concepts/非阻塞IO`（被6个页面引用，交叉引用密集）
+  - `concepts/事件驱动架构模式`（被3个页面引用）
+  - `concepts/baidu_std协议`（brpc核心协议）
+  - `concepts/protobuf-editions`（被4个概念页面引用）
+
+- **标签规范问题**：8个source页面的tags中使用了非词汇表的术语（如 `RDMA`、`LALB`、`Theory` 等）。建议将标签统一为现有概念/实体页面的别名或标题，或更新词汇表允许这些术语。
+
+- **交叉引用改进**：
+  - `concepts/事件抑制` 引用了一个不存在的页面 `概念/recv-block-size`（路径格式错误，应为 `concepts/recv-block-size`）。
+  - 索引中 `concepts/io多路复用` 页面存在，但 `io多路复用` 与 `IO多路复用`、`I/O多路复用` 等形式需统一别名策略。
+  - 建议在 `concepts/位置对应-positional-correspondence` 页面中添加别名 `positional correspondence` 和 `位置对应`，以修复来自 `redisresponse` 和 `redisrequest` 的断链。
+
+- **孤立页面处理**：`concepts/cq` 页面无入链，建议在 `concepts/rdma`、`concepts/qp` 或 `entities/rdmaendpoint` 页面中补充引用，说明完成队列（CQ）是RDMA通信的核心组件。
+
+
+## [2026-06-12] ingest | Language Guide (editions) | Protocol Buffers Documentation
+
+**创建页面**：[[sources/editions.md]], [[entities/protoc.md]], [[concepts/edition.md]], [[entities/protocol-buffers.md]], [[concepts/field-number.md]], [[concepts/field-cardinality.md]], [[concepts/packed-encoding.md]], [[concepts/features-field_presence.md]], [[concepts/well-formed-messages.md]], [[concepts/field-number.md]], [[concepts/wire-format.md]], [[concepts/enum-type.md]], [[concepts/scalar-value-types.md]], [[concepts/message-type.md]], [[concepts/map-type.md]], [[concepts/extension-declaration.md]], [[concepts/wire-format.md]], [[concepts/dependency-bloat.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoc]], [[field-number]], [[field-cardinality]], [[wire-format]], [[message-type]]
+
+
+
+## [2026-06-12] ingest | BRPC中的RDMA支持
+
+**创建页面**：[[sources/rdma.md]], [[entities/blockpool.md]], [[entities/rdmaendpoint.md]], [[entities/brpc.md]], [[entities/iobuf.md]], [[concepts/零拷贝.md]], [[concepts/rdma.md]], [[concepts/内存注册.md]], [[concepts/事件抑制.md]], [[concepts/滑动窗口流控.md]], [[concepts/事件驱动架构模式.md]], [[concepts/轮询模式.md]], [[concepts/内存池.md]], [[concepts/qp.md]], [[concepts/rc模式.md]], [[concepts/cq.md]], [[concepts/appconnect.md]], [[concepts/握手.md]], [[concepts/verbs-api.md]], [[concepts/lid.md]], [[concepts/gid.md]], [[concepts/solicited标志.md]], [[concepts/maxsge.md]]
+
+**更新页面**：[[brpc]], [[rdmaendpoint]], [[iobuf]], [[rdma]], [[零拷贝]], [[滑动窗口流控]], [[内存注册]], [[qp]], [[cq]], [[握手]], [[appconnect]]
+
+
+
+## [2026-06-12] ingest | brpc Server 使用文档
+
+**创建页面**：[[sources/en_server.md]], [[entities/myechoservice.md]], [[entities/echoservice.md]], [[entities/brpc.md]], [[entities/hulu_pbrpc.md]], [[entities/datafactory.md]], [[entities/certinfo.md]], [[entities/public_pbrpc.md]], [[entities/sofa_pbrpc.md]], [[entities/nova_pbrpc.md]], [[entities/nshead_mcpack.md]], [[concepts/brpcserver.md]], [[concepts/brpccontroller.md]], [[concepts/closureguard.md]], [[concepts/authenticator.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/bthread-local.md]], [[concepts/session-local-data.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/compression.md]], [[concepts/ssl-tls.md]], [[concepts/bthread.md]], [[concepts/brpcserver.md]], [[concepts/protobuf-arena.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/pthread模式.md]], [[concepts/healthreporter.md]], [[concepts/baidu_std-protocol.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/内置服务.md]], [[concepts/streaming-rpc.md]], [[concepts/h2c.md]], [[concepts/rtmp.md]], [[concepts/max_body_size.md]], [[concepts/流控.md]], [[concepts/stacksize.md]], [[concepts/attachment.md]], [[concepts/延迟.md]], [[concepts/internal_port.md]], [[concepts/butilendpoint.md]], [[concepts/elogoff.md]], [[concepts/ssl-tls.md]], [[concepts/reuse_port.md]], [[concepts/pb_enum_as_number.md]], [[concepts/pid_file.md]], [[concepts/asynchronous-service.md]], [[concepts/空闲超时.md]], [[concepts/fork-without-exec.md]], [[concepts/同步服务.md]], [[concepts/协议自动检测.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[bthread]], [[baidu_std-protocol]]
+
+
+
+## [2026-06-12 02:27] Smart Fix All (Causality-Aware with Aliases)
+
+## Fix Dead Links
+- [[sources/en_streaming_rpc]]: `[[concepts/全双工]]` → pre-check corrected (alias match): [[concepts/streaming-rpc|streaming-rpc]]
+- [[sources/en_streaming_rpc]]: `[[concepts/flow-control]]` → stub created and expanded: wiki/concepts/流控.md
+- [[sources/en_streaming_rpc]]: `[[concepts/自动分段]]` → pre-check corrected (alias match): [[concepts/head-of-line-blocking|head-of-line-blocking]]
+- [[sources/en_streaming_rpc]]: `[[concepts/stream-api]]` → corrected: [[concepts/stream-api|Stream API]]
+- [[sources/en_streaming_rpc]]: `[[entities/apache-brpc]]` → corrected: [[entities/brpc|Apache BRPC]]
+- [[sources/features]]: `[[concepts/protobuf-editions]]` → corrected: [[concepts/protobuf-editions|Protobuf Editions]]
+- [[sources/features]]: `[[concepts/features-enum_type]]` → safety-net corrected (alias match for stub): [[concepts/enum-type|enum-type]]
+- [[sources/features]]: `[[concepts/export-keyword]]` → stub created and expanded: wiki/concepts/export-关键字.md
+- [[sources/单线程反应器]]: `[[concepts/事件驱动架构模式]]` → corrected: [[concepts/事件驱动架构模式|事件驱动架构模式]]
+- [[sources/单线程反应器]]: `[[concepts/非阻塞io]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[sources/lalb]]: `[[concepts/locality-aware-load-balancing]]` → corrected: [[concepts/locality-aware-load-balancing|Locality-aware load balancing]]
+- [[sources/techniques]]: `[[entities/selfdescribingmessage]]` → pre-check corrected (alias match): [[entities/protocol-buffers|protocol-buffers]]
+- [[sources/overview]]: `[[concepts/reserved-field-number]]` → safety-net corrected (alias match for stub): [[concepts/field-number|field-number]]
+- [[entities/node-js]]: `[[concepts/非阻塞IO]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[entities/node-js]]: `[[concepts/事件驱动架构]]` → stub created and expanded: wiki/concepts/事件驱动架构.md
+- [[entities/nginx]]: `[[concepts/非阻塞IO]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[entities/nginx]]: `[[concepts/事件驱动架构模式]]` → corrected: [[concepts/事件驱动架构|事件驱动架构]]
+- [[entities/block-pool]]: `[[概念的占位符]]` → corrected: [[concepts/零拷贝|零拷贝]]
+- [[entities/rdmaendpoint]]: `[[concepts/EventDispatcher]]` → corrected: [[concepts/事件驱动架构|事件驱动架构]]
+- [[entities/rdmaendpoint]]: `[[concepts/PollCq]]` → stub created and expanded: wiki/concepts/pollcq.md
+- [[entities/rdmaendpoint]]: `[[concepts/IOBuf]]` → pre-check corrected (alias match): [[entities/iobuf|iobuf]]
+- [[entities/rdmaendpoint]]: `[[concepts/Verbs API]]` → corrected: [[concepts/Verbs API|Verbs API]]
+- [[entities/iobuf]]: `[[concepts/内存池]]` → corrected: [[concepts/内存池|内存池]]
+- [[entities/redisresponse]]: `[[concepts/positional-correspondence]]` → safety-net corrected (alias match for stub): [[concepts/位置对应-positional-correspondence|位置对应-positional-correspondence]]
+- [[entities/redisrequest]]: `[[concepts/位置对应]]` → corrected: [[concepts/位置对应|位置对应]]
+- [[entities/redis_cli]]: `[[concepts/redis-protocol]]` → safety-net corrected (alias match for stub): [[concepts/redis协议|redis协议]]
+- [[entities/brpc]]: `[[concepts/流式RPC]]` → corrected: [[concepts/流式 RPC|流式 RPC]]
+- [[entities/brpc]]: `[[concepts/流控制]]` → corrected: [[concepts/流控|流控]]
+- [[entities/brpc]]: `[[concepts/baidu_std协议]]` → corrected: [[concepts/baidu_std协议|baidu_std协议]]
+- [[entities/brpc]]: `[[concepts/全双工]]` → pre-check corrected (alias match): [[concepts/streaming-rpc|streaming-rpc]]
+- [[entities/brpc]]: `[[concepts/自动分段]]` → pre-check corrected (alias match): [[concepts/head-of-line-blocking|head-of-line-blocking]]
+- [[entities/redis]]: `[[concepts/redis-protocol]]` → corrected: [[concepts/redis-protocol|Redis协议]]
+- [[entities/redis]]: `[[concepts/single-threaded-reactor]]` → corrected: [[concepts/单线程反应器|单线程反应器]]
+- [[entities/redis]]: `[[concepts/latency]]` → pre-check corrected (alias match): [[concepts/延迟|延迟]]
+- [[entities/protoc]]: `[[entities/file-descriptor-set]]` → corrected: [[entities/file-descriptor-set|FileDescriptorSet]]
+- [[entities/protoc]]: `[[entities/dynamic-message]]` → corrected: [[entities/dynamic-message|DynamicMessage]]
+- [[concepts/local-keyword]]: `[[concepts/export-keyword]]` → corrected: [[concepts/export-keyword|export keyword]]
+- [[concepts/edition-2024]]: `[[concepts/protobuf-editions]]` → corrected: [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/stream]]: `[[concepts/流控]]` → pre-check corrected (alias match): [[concepts/流控|流控]]
+- [[concepts/features-enforce_naming_style]]: `[[concepts/protobuf风格指南]]` → corrected: [[concepts/protobuf-style-guide|protobuf风格指南]]
+- [[concepts/features-enforce_naming_style]]: `[[concepts/features.default_symbol_visibility]]` → corrected: [[concepts/features.default_symbol_visibility|features.default_symbol_visibility]]
+- [[concepts/features-enforce_naming_style]]: `[[concepts/features.enum_type]]` → pre-check corrected (alias match): [[concepts/enum-type|enum-type]]
+- [[concepts/features-enforce_naming_style]]: `[[concepts/features.field_presence]]` → pre-check corrected (alias match): [[concepts/features-field_presence|features-field_presence]]
+- [[concepts/kqueue]]: `[[concepts/非阻塞io]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[concepts/kqueue]]: `[[concepts/redis]]` → pre-check corrected (alias match): [[entities/redis|redis]]
+- [[concepts/kqueue]]: `[[concepts/nginx]]` → pre-check corrected (alias match): [[entities/nginx|nginx]]
+- [[concepts/epoll]]: `[[concepts/非阻塞IO]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[concepts/io多路复用]]: `[[concepts/非阻塞IO]]` → pre-check corrected (alias match): [[concepts/单线程反应器|单线程反应器]]
+- [[concepts/io多路复用]]: `[[concepts/事件驱动架构模式]]` → stub created and expanded: wiki/concepts/事件驱动架构模式.md
+- [[concepts/内存注册]]: `[[concepts/Block Pool]]` → corrected: [[entities/block-pool|Block Pool]]
+- [[concepts/事件抑制]]: `[[概念/recv-block-size]]` → corrected: [[concepts/recv-block-size|recv_block_size]]
+- [[concepts/零拷贝]]: `[[concepts/内存池]]` → corrected: [[entities/blockpool|BlockPool]]
+- [[concepts/weightedstrategy]]: `[[concepts/负载均衡]]` → corrected: [[concepts/负载均衡|负载均衡]]
+- [[concepts/weightedstrategy]]: `[[concepts/权值分流]]` → corrected: [[concepts/权值分流|权值分流]]
+- [[concepts/weightedstrategy]]: `[[concepts/权值树]]` → pre-check corrected (alias match): [[concepts/weight-tree|weight-tree]]
+- [[concepts/weightedstrategy]]: `[[concepts/双重缓冲数据]]` → pre-check corrected (alias match): [[concepts/doublybuffereddata|doublybuffereddata]]
+- [[concepts/self-describing-messages]]: `[[concepts/file-descriptor]]` → corrected: [[concepts/file-descriptor|FileDescriptor]]
+- [[concepts/self-describing-messages]]: `[[concepts/any-type]]` → corrected: [[concepts/any-type|Any 类型]]
+- [[concepts/self-describing-messages]]: `[[concepts/dynamic-message]]` → stub created and expanded: wiki/concepts/dynamic-message.md
+- [[concepts/on-时间复杂度]]: `[[concepts/短字符串优化]]` → corrected: [[concepts/短字符串优化|短字符串优化 (SSO)]]
+- [[concepts/单线程反应器]]: `[[concepts/事件驱动架构模式]]` → pre-check corrected (alias match): [[concepts/事件驱动架构模式|事件驱动架构模式]]
+- [[concepts/redis协议]]: `[[concepts/pooling]]` → corrected: [[concepts/连接池|连接池]]
+- [[concepts/一致性哈希]]: `[[sources/brpc/en_redis_client]]` → pre-check corrected (alias match): [[sources/en_redis_client|en_redis_client]]
+- [[concepts/一致性哈希]]: `[[concepts/redis-protocol]]` → safety-net corrected (alias match for stub): [[concepts/redis协议|redis协议]]
+- [[concepts/一致性哈希]]: `[[concepts/parallel-channel]]` → corrected: [[concepts/parallel-channel|ParallelChannel]]
+- [[concepts/一致性哈希]]: `[[sources/brpc/en_redis_client.md]]` → corrected: [[sources/en_redis_client|en_redis_client]]
+- [[concepts/proto2]]: `[[concepts/protobuf-editions]]` → corrected: [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/proto3]]: `[[concepts/protobuf-editions]]` → corrected: [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/backward-compatibility]]: `[[concepts/Protocol Buffers]]` → pre-check corrected (alias match): [[entities/protocol-buffers|protocol-buffers]]
+
+## Link Orphan Pages
+- [[concepts/cq]] linked from: [[wiki/entities/rdmaendpoint.md]], [[wiki/entities/block-pool.md]], [[wiki/entities/brpc.md]]
+
+
+## [2026-06-12] ingest | brpc Server 使用指南
+
+**创建页面**：[[sources/en_server.md]], [[entities/hulu_pbrpc.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/public_pbrpc.md]], [[entities/nova_pbrpc.md]], [[entities/sofa_pbrpc.md]], [[concepts/closureguard.md]], [[concepts/session-local-data.md]], [[concepts/asynchronous-service.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/bthread-local.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/authenticator.md]], [[concepts/ssl-tls.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/compression.md]], [[concepts/attachment.md]], [[concepts/pthread模式.md]], [[concepts/protobuf-arena.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/流控.md]], [[concepts/brpccontroller.md]], [[concepts/fork-without-exec.md]], [[concepts/server-security-practices.md]], [[concepts/bthread.md]], [[concepts/brpcserver.md]], [[concepts/max_body_size.md]], [[concepts/内置服务.md]], [[concepts/baidu_std-protocol.md]], [[concepts/eovercrowded.md]], [[concepts/healthreporter.md]], [[concepts/json-format.md]], [[concepts/internal_port.md]], [[concepts/json-format.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[hulu_pbrpc]], [[nova_pbrpc]], [[public_pbrpc]], [[closureguard]], [[session-local-data]], [[thread-local-data-server-thread-local]], [[bthread-local]], [[authenticator]], [[brpccontroller]], [[bthread]], [[baidu_std-protocol]], [[datafactory]], [[nshead_mcpack]]
+
+
+
+## [2026-06-12] ingest | brpc server 端编程指南（中文版）
+
+**创建页面**：[[sources/en_server.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/certinfo.md]], [[entities/authcontext.md]], [[entities/serviceoptions.md]], [[concepts/closureguard.md]], [[concepts/异步服务.md]], [[concepts/closureguard.md]], [[concepts/session-local-data.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/bthread-local.md]], [[concepts/baidu_std-protocol.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/ssl-tls.md]], [[concepts/protobuf-arena.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/closure.md]], [[concepts/pthread模式.md]], [[concepts/authenticator.md]], [[concepts/brpcserver.md]], [[concepts/attachment.md]], [[concepts/compression.md]], [[concepts/bthread.md]], [[concepts/elogoff.md]], [[concepts/内置服务.md]], [[concepts/json-format.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/流控.md]], [[concepts/healthreporter.md]], [[concepts/max_body_size.md]], [[concepts/streaming-rpc.md]], [[concepts/空闲超时.md]], [[concepts/minloglevel.md]], [[concepts/free_memory_to_system.md]], [[concepts/延迟.md]], [[concepts/internal_port.md]], [[concepts/ignore_eovercrowded.md]], [[concepts/reuse_port.md]], [[concepts/bthread_concurrency.md]], [[concepts/协议自动检测.md]], [[concepts/fork-without-exec.md]], [[concepts/stacksize.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[brpccontroller]], [[certinfo]], [[closureguard]], [[session-local-data]], [[thread-local-data-server-thread-local]], [[baidu_std-protocol]], [[authenticator]], [[bthread]], [[datafactory]], [[hulu_pbrpc]], [[sofa_pbrpc]], [[nova_pbrpc]]
+
+
+
+## [2026-06-12] ingest | brpc Server文档
+
+**创建页面**：[[sources/en_server.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/echoservice.md]], [[entities/nginx.md]], [[entities/bvar.md]], [[entities/curl.md]], [[concepts/异步服务.md]], [[concepts/closureguard.md]], [[concepts/同步服务.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/bthread-local.md]], [[concepts/session-local-data.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/流控.md]], [[concepts/协议自动检测.md]], [[concepts/ssl-tls.md]], [[concepts/setfailed.md]], [[concepts/closure.md]], [[concepts/brpccontroller.md]], [[concepts/服务器生命周期管理.md]], [[concepts/brpcserver.md]], [[concepts/compression.md]], [[concepts/attachment.md]], [[concepts/json-format.md]], [[concepts/pthread模式.md]], [[concepts/internal_port.md]], [[concepts/streaming-rpc.md]], [[concepts/healthreporter.md]], [[concepts/protobuf-arena.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/max_body_size.md]], [[concepts/bthread.md]], [[concepts/fork-without-exec.md]], [[concepts/elogoff.md]], [[concepts/流控.md]], [[concepts/reuse_port.md]], [[concepts/rtmp.md]], [[concepts/minloglevel.md]], [[concepts/空闲超时.md]], [[concepts/webescape.md]], [[concepts/free_memory_to_system.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[closureguard]], [[brpcserver]], [[brpccontroller]], [[authenticator]], [[echoservice]], [[baidu_std-protocol]], [[nginx]], [[session-local-data]], [[thread-local-data-server-thread-local]], [[datafactory]], [[hulu_pbrpc]], [[sofa_pbrpc]], [[nova_pbrpc]], [[public_pbrpc]], [[nshead_mcpack]], [[bthread]], [[grpc]]
+
+
+
+## [2026-06-12] ingest | Style Guide | Protocol Buffers Documentation
+
+**创建页面**：[[sources/style.md]], [[entities/protocol-buffers.md]], [[concepts/proto-file.md]], [[concepts/standard-file-formatting.md]], [[concepts/message-names.md]], [[concepts/package.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/oneof-type.md]], [[concepts/field-names.md]], [[concepts/enum-type.md]], [[concepts/groups.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/field-cardinality.md]], [[concepts/field-names.md]], [[concepts/avoid-confusing-relative-packages-on-field-types.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/enum-value-prefixing.md]]
+
+**更新页面**：[[protocol-buffers]]
+
+
+
+## [2026-06-12] ingest | brpc Server Documentation
+
+**创建页面**：[[sources/en_server.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/curl.md]], [[entities/bvar.md]], [[entities/hulu_pbrpc.md]], [[concepts/同步服务.md]], [[concepts/closureguard.md]], [[concepts/closureguard.md]], [[concepts/asynchronous-service.md]], [[concepts/bthread-local.md]], [[concepts/session-local-data.md]], [[concepts/流控.md]], [[concepts/ssl-tls.md]], [[concepts/authenticator.md]], [[concepts/协议自动检测.md]], [[concepts/attachment.md]], [[concepts/内置服务.md]], [[concepts/compression.md]], [[concepts/version.md]], [[concepts/协议自动检测.md]], [[concepts/空闲超时.md]], [[concepts/healthreporter.md]], [[concepts/minloglevel.md]], [[concepts/server-security-practices.md]], [[concepts/fork-without-exec.md]], [[concepts/pthread模式.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/protobuf-arena.md]], [[concepts/bthread.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/max_body_size.md]], [[concepts/stacksize.md]], [[concepts/服务器生命周期管理.md]], [[concepts/internal_port.md]], [[concepts/流控.md]], [[concepts/json-format.md]], [[concepts/baidu_std-protocol.md]], [[concepts/setfailed.md]], [[concepts/streaming-rpc.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/littles-law-利特尔法则.md]], [[concepts/bthread.md]], [[concepts/reuse_port.md]], [[concepts/ignore_eovercrowded.md]], [[concepts/延迟.md]]
+
+**更新页面**：[[brpc]], [[brpcserver]], [[brpccontroller]], [[curl]], [[hulu_pbrpc]], [[bvar]], [[asynchronous-service]], [[closureguard]], [[bthread-local]], [[内置服务]], [[compression]], [[healthreporter]], [[autoconcurrencylimiter]], [[protobuf-arena]], [[bthread]], [[流控]], [[baidu_std-protocol]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | LALB（Locality-aware load balancing）算法介绍
+
+**创建页面**：[[sources/lalb.md]], [[entities/ub.md]], [[entities/dp系统.md]], [[entities/brpc.md]], [[concepts/weight-tree.md]], [[concepts/doublybuffereddata.md]], [[concepts/lalb.md]], [[concepts/base_weight.md]], [[concepts/inflight-delay.md]], [[concepts/round-robin.md]], [[concepts/weightedstrategy.md]]
+
+**更新页面**：[[brpc]], [[ub]], [[lalb]], [[doublybuffereddata]], [[weight-tree]], [[base_weight]], [[inflight-delay]], [[weightedstrategy]]
+
+
+
+## [2026-06-12] ingest | brpc Redis客户端使用指南
+
+**创建页面**：[[sources/redis_client.md]], [[entities/redis.md]], [[entities/hiredis.md]], [[entities/brpc.md]], [[entities/redisauthenticator.md]], [[entities/twemproxy.md]], [[entities/redis_cli.md]], [[concepts/redis协议.md]], [[concepts/一致性哈希.md]], [[concepts/单线程反应器.md]], [[concepts/redis_verbose.md]], [[concepts/短字符串优化-sso.md]], [[concepts/连接方式.md]], [[concepts/redis_verbose.md]]
+
+**更新页面**：[[brpc]], [[redis]], [[hiredis]], [[twemproxy]], [[redisauthenticator]], [[redis协议]], [[redisrequest]], [[redisresponse]], [[redisreply]], [[redis_verbose]]
+
+
+
+## [2026-06-12] ingest | Encoding
+
+**创建页面**：[[sources/encoding.md]], [[entities/protoscope.md]], [[concepts/wire-format.md]], [[entities/protocol-buffers.md]], [[concepts/wire-format.md]], [[concepts/zigzag-encoding.md]], [[concepts/wire-format.md]], [[concepts/wire-format.md]], [[concepts/wire-format.md]], [[concepts/wire-format.md]], [[concepts/field-number.md]], [[concepts/packed-encoding.md]], [[concepts/wire-format.md]]
+
+**更新页面**：[[protocol-buffers]], [[wire-format]], [[field-number]]
+
+
+
+## [2026-06-12] ingest | RPC与brpc概述
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/bns.md]], [[entities/grpc.md]], [[entities/memcached.md]], [[entities/thrift.md]], [[entities/redis.md]], [[concepts/serialization.md]], [[concepts/rpc.md]], [[concepts/lalb.md]], [[concepts/naming-service.md]], [[concepts/一致性哈希.md]], [[concepts/raft.md]], [[concepts/bthread.md]], [[concepts/combo-channel.md]], [[concepts/streaming-rpc.md]], [[concepts/profiler.md]], [[concepts/内置服务.md]], [[concepts/lalb.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[grpc]], [[redis]], [[serialization]], [[一致性哈希]], [[bthread]], [[bvar]], [[streaming-rpc]], [[lalb]]
+
+
+
+## [2026-06-12] ingest | What is RPC? (Apache brpc 文档概述)
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/bns.md]], [[entities/grpc.md]], [[entities/redis.md]], [[entities/memcached.md]], [[entities/thrift.md]], [[concepts/tcpip.md]], [[concepts/rpc.md]], [[concepts/json-format.md]], [[concepts/serialization.md]], [[concepts/naming-service.md]], [[concepts/lalb.md]], [[concepts/bthread.md]], [[concepts/raft.md]], [[concepts/streaming-rpc.md]], [[concepts/一致性哈希.md]], [[concepts/combo-channel.md]], [[concepts/rtmp.md]], [[concepts/profiling.md]], [[concepts/h2c.md]], [[concepts/timeout.md]], [[concepts/retry.md]], [[concepts/wait-free-algorithm.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[grpc]], [[redis]], [[serialization]], [[bthread]], [[bvar]], [[一致性哈希]], [[streaming-rpc]], [[rtmp]]
+
+
+
+## [2026-06-12] ingest | Style Guide | Protocol Buffers Documentation
+
+**创建页面**：[[sources/style.md]], [[entities/protocol-buffers.md]], [[concepts/lower_snake_case.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/proto-file.md]], [[concepts/enum-type.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/message-names.md]], [[concepts/field-names.md]], [[concepts/package.md]], [[concepts/field-cardinality.md]], [[concepts/service-naming.md]], [[concepts/enum-type.md]], [[concepts/groups.md]], [[concepts/enum-value-prefixing.md]], [[concepts/avoid-confusing-relative-packages-on-field-types.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/message_encoding-feature.md]], [[concepts/field-presence-feature-legacy_required.md]], [[concepts/field-names.md]]
+
+**更新页面**：[[protocol-buffers]], [[proto-file]], [[package]], [[message-names]], [[field-names]], [[field-cardinality]], [[groups]], [[enum-value-prefixing]], [[features-enforce_naming_style]]
+
+
+
+## [2026-06-12] ingest | brpc Server 使用教程
+
+**创建页面**：[[sources/en_server.md]], [[entities/nginx.md]], [[entities/brpc.md]], [[entities/curl.md]], [[entities/hulu_pbrpc.md]], [[concepts/同步服务.md]], [[entities/sofa_pbrpc.md]], [[concepts/closureguard.md]], [[concepts/closureguard.md]], [[concepts/异步服务.md]], [[concepts/session-local-data.md]], [[concepts/baidu_std-protocol.md]], [[concepts/流控.md]], [[concepts/authenticator.md]], [[concepts/bthread.md]], [[concepts/ssl-tls.md]], [[concepts/pthread模式.md]], [[concepts/protobuf-arena.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/brpcserver.md]], [[concepts/h2c.md]], [[concepts/healthreporter.md]], [[concepts/butilendpoint.md]], [[concepts/compression.md]], [[concepts/streaming-rpc.md]], [[concepts/json-format.md]], [[concepts/内置服务.md]], [[concepts/attachment.md]], [[concepts/serviceownership.md]], [[concepts/max_body_size.md]], [[concepts/空闲超时.md]], [[concepts/协议自动检测.md]], [[concepts/version.md]], [[concepts/流控.md]], [[concepts/multiple-ports.md]], [[concepts/fork-without-exec.md]], [[concepts/server-security-practices.md]], [[concepts/closure.md]], [[concepts/elogoff.md]], [[concepts/eovercrowded.md]], [[concepts/reuse_port.md]], [[concepts/rtmp.md]]
+
+**更新页面**：[[brpc]], [[brpcserver]], [[nginx]], [[curl]], [[brpccontroller]], [[protocol-buffers]], [[同步服务]], [[asynchronous-service]], [[closureguard]], [[bthread]], [[authenticator]], [[pthread模式]], [[autoconcurrencylimiter]], [[protobuf-arena]], [[grpc]], [[datafactory]], [[healthreporter]], [[json-format]], [[streaming-rpc]], [[compression]], [[attachment]], [[内置服务]], [[max_body_size]], [[空闲超时]], [[协议自动检测]], [[version]], [[流控]], [[closure]], [[fork-without-exec]], [[elogoff]], [[eovercrowded]], [[reuse_port]], [[nova_pbrpc]], [[nshead_mcpack]], [[rtmp]], [[public_pbrpc]], [[bvar]]
+
+
+
+## [2026-06-12] ingest | What is RPC?
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/grpc.md]], [[entities/bns.md]], [[entities/zookeeper.md]], [[entities/thrift.md]], [[entities/etcd.md]], [[concepts/tcpip.md]], [[concepts/serialization.md]], [[concepts/rpc.md]], [[concepts/naming-service.md]], [[concepts/一致性哈希.md]], [[concepts/bthread.md]], [[concepts/wait-free-algorithm.md]], [[concepts/h2c.md]], [[concepts/baidu_std-protocol.md]], [[concepts/streaming-rpc.md]], [[concepts/raft.md]], [[concepts/combo-channel.md]], [[concepts/profiler.md]], [[concepts/heap-profiler.md]], [[concepts/contention-profiler.md]]
+
+**更新页面**：[[protocol-buffers]], [[baidu]], [[braft]], [[grpc]], [[thrift]], [[tcpip]], [[bthread]], [[bvar]], [[h2c]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | What is RPC?
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/bns.md]], [[entities/zookeeper.md]], [[entities/memcached.md]], [[entities/redis.md]], [[entities/etcd.md]], [[entities/thrift.md]], [[entities/grpc.md]], [[entities/curl.md]], [[concepts/tcpip.md]], [[concepts/rpc.md]], [[concepts/serialization.md]], [[concepts/一致性哈希.md]], [[concepts/lalb.md]], [[concepts/raft.md]], [[concepts/naming-service.md]], [[concepts/bthread.md]], [[concepts/h2c.md]], [[concepts/rdma.md]], [[concepts/json-format.md]], [[concepts/baidu_std-protocol.md]], [[concepts/rtmp.md]], [[concepts/streaming-rpc.md]]
+
+**更新页面**：[[brpc]], [[baidu]], [[protocol-buffers]], [[bns]], [[braft]], [[redis]], [[memcached]], [[grpc]], [[thrift]], [[rpc]], [[tcpip]], [[serialization]], [[lalb]], [[一致性哈希]], [[bthread]], [[bvar]], [[h2c]], [[rdma]], [[streaming-rpc]], [[baidu_std-protocol]], [[rtmp]]
+
+
+
+## [2026-06-12] ingest | brpc组合Channel文档
+
+**创建页面**：[[sources/combo_channel.md]], [[concepts/parallelchannel.md]], [[concepts/combo-channel.md]], [[entities/brpc.md]], [[concepts/parallelchannel.md]], [[concepts/combo-channel.md]], [[concepts/selectivechannel.md]], [[concepts/callmapper.md]], [[concepts/subcall.md]], [[concepts/responsemerger.md]], [[concepts/brpcchannelbase.md]], [[concepts/fail_limit和success_limit.md]], [[concepts/partitionparser.md]], [[concepts/容量计算规则.md]], [[concepts/负载均衡算法（Load Balancer）.md]], [[concepts/naming-service.md]], [[concepts/channelownership.md]], [[concepts/文件命名服务file-naming-service.md]]
+
+**更新页面**：[[brpc]], [[parallelchannel]]
+
+
+
+## [2026-06-12] ingest | brpc的IO机制
+
+**创建页面**：[[sources/en_io.md]], [[entities/socket.md]], [[entities/eventdispatcher.md]], [[entities/brpc.md]], [[entities/inputmessenger.md]], [[entities/socketid.md]], [[entities/socketuniqueptr.md]], [[entities/subchannel.md]], [[concepts/epoll.md]], [[concepts/asynchronous-io.md]], [[concepts/blocking-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/bthread.md]], [[concepts/streaming-rpc.md]], [[concepts/wait-free-algorithm.md]], [[concepts/健康检查.md]]
+
+**更新页面**：[[brpc]], [[brpccontroller]], [[selectivechannel]], [[io多路复用]], [[epoll]], [[bthread]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | Overview of brpc
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/redis.md]], [[entities/grpc.md]], [[entities/zookeeper.md]], [[entities/memcached.md]], [[entities/etcd.md]], [[entities/thrift.md]], [[concepts/rpc.md]], [[entities/bns.md]], [[concepts/tcpip.md]], [[concepts/serialization.md]], [[concepts/lalb.md]], [[concepts/raft.md]], [[concepts/naming-service.md]], [[concepts/bthread.md]], [[concepts/h2c.md]], [[concepts/一致性哈希.md]], [[concepts/naming-service.md]], [[concepts/profiler.md]], [[concepts/json-format.md]], [[concepts/heap-profiler.md]], [[concepts/contention-profiler.md]], [[concepts/streaming-rpc.md]], [[concepts/wait-free-algorithm.md]], [[concepts/rtmp.md]], [[concepts/combo-channel.md]]
+
+**更新页面**：[[brpc]], [[baidu]], [[braft]], [[grpc]], [[redis]], [[memcached]], [[zookeeper]], [[etcd]], [[bns]], [[thrift]], [[rpc]], [[tcpip]], [[serialization]], [[lalb]], [[naming-service]], [[bthread]], [[raft]], [[一致性哈希]], [[h2c]], [[json-format]], [[bvar]], [[profiler]], [[streaming-rpc]], [[combo-channel]], [[rtmp]]
+
+
+
+## [2026-06-12] ingest | brpc Overview
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/zookeeper.md]], [[entities/braft.md]], [[entities/bns.md]], [[entities/memcached.md]], [[entities/etcd.md]], [[entities/redis.md]], [[entities/thrift.md]], [[entities/grpc.md]], [[entities/curl.md]], [[concepts/tcpip.md]], [[concepts/rpc.md]], [[concepts/serialization.md]], [[concepts/naming-service.md]], [[concepts/负载均衡算法（Load Balancer）.md]], [[concepts/bthread.md]], [[concepts/一致性哈希.md]], [[concepts/raft.md]], [[concepts/naming-service.md]], [[concepts/h2c.md]], [[concepts/json-format.md]], [[concepts/json-format.md]], [[concepts/rtmp.md]], [[concepts/rdma.md]], [[concepts/streaming-rpc.md]], [[concepts/combo-channel.md]]
+
+**更新页面**：[[brpc]], [[baidu]], [[protocol-buffers]], [[braft]], [[bns]], [[zookeeper]], [[etcd]], [[redis]], [[memcached]], [[grpc]], [[thrift]], [[curl]], [[rpc]], [[tcpip]], [[naming-service]], [[bthread]], [[一致性哈希]], [[raft]], [[json-format]], [[h2c]], [[rtmp]], [[rdma]], [[bvar]], [[combo-channel]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | I/O
+
+**创建页面**：[[sources/en_io.md]], [[entities/inputmessenger.md]], [[entities/eventdispatcher.md]], [[entities/brpc.md]], [[concepts/blocking-io.md]], [[entities/socketid.md]], [[entities/socket.md]], [[concepts/asynchronous-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/wait-free-algorithm.md]], [[concepts/work-stealing.md]], [[concepts/edge-triggered-mode.md]], [[concepts/lock-free.md]], [[concepts/wait-free-algorithm.md]], [[concepts/bthread.md]], [[concepts/streaming-rpc.md]], [[concepts/keepwrite-bthread.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[socket]], [[io多路复用]], [[bthread]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | Encoding
+
+**创建页面**：[[sources/encoding.md]], [[entities/protoscope.md]], [[concepts/wire-format.md]], [[entities/protocol-buffers.md]], [[concepts/zigzag-encoding.md]], [[concepts/wire-format.md]], [[concepts/wire-format.md]], [[concepts/wire-format.md]], [[concepts/non-varint-numeric-types-fixed-size.md]], [[concepts/scalar-value-types.md]], [[concepts/packed-encoding.md]], [[concepts/submessage-encoding.md]], [[concepts/wire-format.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoscope]], [[wire-format]], [[zigzag-encoding]], [[packed-encoding]]
+
+
+
+## [2026-06-12] ingest | Protocol Buffers 语言指南（proto 3）
+
+**创建页面**：[[sources/proto3.md]], [[entities/protoc.md]], [[concepts/proto3.md]], [[entities/protocol-buffers.md]], [[concepts/message-type.md]], [[concepts/field-number.md]], [[concepts/field.md]], [[concepts/field-cardinality.md]], [[concepts/field-cardinality.md]], [[concepts/field-cardinality.md]], [[concepts/packed-encoding.md]], [[concepts/features-field_presence.md]], [[concepts/field-number.md]], [[concepts/proto2.md]], [[concepts/scalar-value-types.md]], [[concepts/wire-format.md]], [[concepts/map-type.md]], [[concepts/composite-type.md]], [[concepts/enum-type.md]], [[concepts/service-naming.md]], [[concepts/edition.md]], [[concepts/code-generation.md]], [[concepts/well-formed-messages.md]], [[concepts/wire-format.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoc]], [[proto3]], [[field-number]], [[field-cardinality]], [[packed-encoding]], [[wire-format]], [[proto2]], [[scalar-value-types]], [[enum-type]], [[map-type]], [[editions]]
+
+
+
+## [2026-06-12] ingest | 熔断功能
+
+**创建页面**：[[sources/circuit_breaker.md]], [[entities/connections-监控页面.md]], [[entities/circuitbreaker.md]], [[entities/brpc.md]], [[concepts/可选熔断策略.md]], [[concepts/默认熔断策略.md]], [[concepts/熔断.md]], [[concepts/连接超时.md]], [[concepts/timeout.md]], [[concepts/ema.md]], [[concepts/健康检查.md]], [[concepts/隔离时间.md]], [[concepts/长窗口.md]], [[concepts/naming-service.md]], [[concepts/connectiongroup.md]], [[concepts/短窗口.md]], [[concepts/一致性哈希.md]], [[concepts/连接池.md]], [[concepts/gflag.md]], [[concepts/max_error_cost-最大出错时长.md]], [[concepts/acc_error_cost-累计出错时长.md]]
+
+**更新页面**：[[brpc]], [[健康检查]], [[naming-service]], [[一致性哈希]]
+
+
+
+## [2026-06-12] ingest | What is RPC?
+
+**创建页面**：[[sources/en_overview.md]], [[entities/baidu.md]], [[entities/protocol-buffers.md]], [[entities/brpc.md]], [[entities/braft.md]], [[entities/grpc.md]], [[entities/bns.md]], [[entities/thrift.md]], [[entities/memcached.md]], [[entities/redis.md]], [[entities/bvar.md]], [[entities/zookeeper.md]], [[entities/etcd.md]], [[concepts/rpc.md]], [[concepts/tcpip.md]], [[concepts/serialization.md]], [[concepts/naming-service.md]], [[concepts/一致性哈希.md]], [[concepts/lalb.md]], [[concepts/raft.md]], [[concepts/naming-service.md]], [[concepts/bthread.md]], [[concepts/retry.md]], [[concepts/连接池.md]], [[concepts/io-thread-model.md]], [[concepts/timeout.md]], [[concepts/wait-free-algorithm.md]], [[concepts/lalb.md]], [[concepts/内置服务.md]], [[concepts/parallel-message-processing.md]]
+
+**更新页面**：[[brpc]], [[baidu]], [[protocol-buffers]], [[bns]], [[braft]], [[grpc]], [[redis]], [[memcached]], [[thrift]], [[zookeeper]], [[etcd]], [[bvar]], [[rpc]], [[tcpip]], [[serialization]], [[naming-service]], [[lalb]], [[一致性哈希]], [[raft]], [[bthread]], [[retry]], [[timeout]], [[wait-free-algorithm]], [[内置服务]]
+
+
+
+## [2026-06-12] ingest | HTTP/h2 Services
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/rapidjson.md]], [[entities/nginx.md]], [[entities/brpc.md]], [[entities/http_parser.md]], [[concepts/compression.md]], [[concepts/restful-url.md]], [[concepts/progressive-sending.md]], [[concepts/http-chunked-mode.md]], [[concepts/server-sent-events-sse.md]], [[concepts/h2c.md]], [[concepts/content-type.md]], [[concepts/status-code.md]], [[concepts/brpccontroller.md]], [[concepts/unresolved_path.md]], [[concepts/query-string.md]], [[concepts/ssl-tls.md]]
+
+**更新页面**：[[brpc]], [[nginx]], [[h2c]], [[brpccontroller]]
+
+
+
+## [2026-06-12] ingest | brpc IO
+
+**创建页面**：[[sources/en_io.md]], [[entities/inputmessenger.md]], [[entities/eventdispatcher.md]], [[entities/brpc.md]], [[entities/socket.md]], [[entities/tcmalloc.md]], [[entities/subchannel.md]], [[concepts/blocking-io.md]], [[concepts/asynchronous-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/edge-triggered-mode.md]], [[concepts/wait-free-algorithm.md]], [[concepts/work-stealing.md]], [[concepts/keepwrite-bthread.md]], [[concepts/io-thread-model.md]], [[concepts/atomic-variable.md]], [[concepts/bthread.md]], [[concepts/streaming-rpc.md]], [[concepts/健康检查.md]], [[concepts/epoll_ctl.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[inputmessenger]], [[socket]], [[epoll]], [[selectivechannel]], [[subchannel]], [[blocking-io]], [[asynchronous-io]], [[io多路复用]], [[edge-triggered-mode]], [[wait-free-algorithm]], [[socketid]], [[socketuniqueptr]], [[work-stealing]], [[bthread]], [[streaming-rpc]], [[健康检查]]
+
+
+
+## [2026-06-12] ingest | brpc Backup Request机制
+
+**创建页面**：[[sources/backup_request.md]], [[concepts/备份请求.md]], [[concepts/selectivechannel.md]], [[entities/brpc.md]], [[concepts/latency_cdf.md]], [[concepts/latencyrecorder.md]]
+
+**更新页面**：[[brpc]], [[备份请求]], [[selectivechannel]]
+
+
+
+## [2026-06-12] ingest | IO
+
+**创建页面**：[[sources/en_io.md]], [[entities/inputmessenger.md]], [[entities/eventdispatcher.md]], [[entities/brpc.md]], [[entities/socket.md]], [[concepts/blocking-io.md]], [[entities/subchannel.md]], [[concepts/asynchronous-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/work-stealing.md]], [[concepts/edge-triggered-mode.md]], [[concepts/wait-free-algorithm.md]], [[concepts/健康检查.md]], [[concepts/wait-free-algorithm.md]], [[concepts/keepwrite-bthread.md]], [[concepts/epoll.md]], [[concepts/parse-callback.md]], [[concepts/process-callback.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[inputmessenger]], [[socket]], [[bthread]], [[brpccontroller]], [[selectivechannel]], [[subchannel]], [[blocking-io]], [[epoll]], [[asynchronous-io]], [[io多路复用]], [[wait-free-algorithm]], [[work-stealing]], [[socketid]], [[健康检查]], [[socketuniqueptr]], [[keepwrite-bthread]]
+
+
+
+## [2026-06-12] ingest | IO
+
+**创建页面**：[[sources/en_io.md]], [[entities/inputmessenger.md]], [[entities/eventdispatcher.md]], [[entities/brpc.md]], [[entities/socket.md]], [[concepts/asynchronous-io.md]], [[concepts/blocking-io.md]], [[concepts/epoll.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/work-stealing.md]], [[concepts/wait-free-algorithm.md]], [[concepts/mpsc-list.md]], [[concepts/edge-triggered-mode.md]], [[concepts/keepwrite-bthread.md]], [[concepts/parse-callback.md]], [[concepts/process-callback.md]], [[concepts/streaming-rpc.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[inputmessenger]], [[socket]], [[bthread]], [[selectivechannel]], [[blocking-io]], [[epoll]], [[asynchronous-io]], [[io多路复用]], [[work-stealing]], [[wait-free-algorithm]], [[socketid]], [[socketuniqueptr]], [[edge-triggered-mode]], [[subchannel]], [[keepwrite-bthread]], [[streaming-rpc]]
+
+
+
+## [2026-06-12] ingest | Language Guide (proto 3) | Protocol Buffers Documentation
+
+**创建页面**：[[sources/proto3.md]], [[concepts/proto3.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[concepts/field-number.md]], [[concepts/proto2.md]], [[concepts/field-cardinality.md]], [[concepts/field-number.md]], [[concepts/packed-encoding.md]], [[concepts/features-field_presence.md]], [[concepts/scalar-value-types.md]], [[concepts/edition-2023.md]], [[concepts/enum-type.md]], [[concepts/map-type.md]], [[concepts/wire-format.md]], [[concepts/json-format.md]], [[concepts/well-formed-messages.md]], [[concepts/wire-format.md]], [[concepts/default-values.md]], [[concepts/implicit-field.md]], [[concepts/field-cardinality.md]], [[concepts/field-cardinality.md]], [[concepts/code-generation.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoc]], [[proto3]], [[proto2]], [[field-number]], [[field-cardinality]], [[features-field_presence]], [[packed-encoding]], [[edition-2023]], [[scalar-value-types]], [[enum-type]], [[wire-format]], [[well-formed-messages]]
+
+
+
+## [2026-06-12] ingest | brpc I/O机制
+
+**创建页面**：[[sources/en_io.md]], [[entities/eventdispatcher.md]], [[entities/inputmessenger.md]], [[entities/brpc.md]], [[entities/socket.md]], [[entities/subchannel.md]], [[entities/tcmalloc.md]], [[concepts/blocking-io.md]], [[concepts/epoll.md]], [[concepts/asynchronous-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/work-stealing.md]], [[concepts/edge-triggered-mode.md]], [[concepts/bthread.md]], [[concepts/wait-free-algorithm.md]], [[concepts/keepwrite-bthread.md]], [[concepts/streaming-rpc.md]], [[concepts/iocp.md]], [[concepts/健康检查.md]], [[concepts/asynchronous-io.md]], [[concepts/atomic-instructions.md]], [[concepts/parse-callback.md]], [[concepts/process-callback.md]], [[concepts/bounded-binary-data.md]], [[concepts/bthread.md]], [[concepts/multi-tenancy.md]], [[concepts/long-tail.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[inputmessenger]], [[socket]], [[selectivechannel]], [[subchannel]], [[tcmalloc]], [[blocking-io]], [[epoll]], [[asynchronous-io]], [[io多路复用]], [[bthread]], [[work-stealing]], [[edge-triggered-mode]], [[socketid]], [[socketuniqueptr]], [[wait-free-algorithm]], [[streaming-rpc]], [[keepwrite-bthread]], [[健康检查]]
+
+
+
+## [2026-06-12] ingest | IO
+
+**创建页面**：[[sources/en_io.md]], [[entities/eventdispatcher.md]], [[entities/socket.md]], [[entities/brpc.md]], [[entities/inputmessenger.md]], [[entities/socketuniqueptr.md]], [[concepts/blocking-io.md]], [[concepts/epoll.md]], [[concepts/asynchronous-io.md]], [[concepts/io多路复用.md]], [[concepts/epoll.md]], [[concepts/bthread.md]], [[concepts/work-stealing.md]], [[concepts/wait-free-algorithm.md]], [[concepts/streaming-rpc.md]], [[concepts/edge-triggered-mode.md]], [[concepts/健康检查.md]]
+
+**更新页面**：[[brpc]], [[eventdispatcher]], [[socket]], [[inputmessenger]], [[socketuniqueptr]], [[selectivechannel]], [[keepwrite-bthread]], [[blocking-io]], [[epoll]], [[asynchronous-io]], [[io多路复用]], [[bthread]], [[work-stealing]], [[wait-free-algorithm]], [[socketid]], [[edge-triggered-mode]], [[streaming-rpc]], [[健康检查]]
+
+
+
+## [2026-06-12] ingest | HTTP/h2服务（brpc）
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/brpc.md]], [[entities/http_parser.md]], [[entities/brpc.md]], [[entities/rapidjson.md]], [[entities/progressiveattachment.md]], [[concepts/restful-url.md]], [[concepts/servicename-url模式.md]], [[concepts/servicenamemethodname-url模式.md]], [[concepts/status-code.md]], [[concepts/content-type.md]], [[concepts/http头部.md]], [[concepts/query-string.md]], [[concepts/progressive-sending.md]], [[concepts/compression.md]], [[concepts/h2c.md]], [[concepts/http_verbose.md]], [[concepts/gzip解压缩.md]], [[concepts/query-string.md]], [[concepts/http-chunked-mode.md]], [[concepts/ssl-tls.md]], [[concepts/progressive-sending.md]], [[concepts/brpc-http性能优化实现.md]], [[concepts/http_body_compress_threshold.md]], [[concepts/unresolved_path.md]], [[concepts/nginx-final-fail.md]], [[concepts/百分比编码percent-encoding.md]]
+
+**更新页面**：[[brpc]], [[rapidjson]], [[server-sent-events-sse]], [[content-type]], [[status-code]], [[query-string]], [[h2c]], [[unresolved_path]]
+
+
+
+## [2026-06-12] ingest | 内置服务
+
+**创建页面**：[[sources/builtin_service.md]], [[entities/rpc_view.md]], [[entities/dir.md]], [[entities/brpc.md]], [[entities/threads.md]], [[concepts/内置服务.md]], [[concepts/安全模式.md]], [[concepts/connections.md]], [[concepts/vars.md]], [[concepts/status.md]], [[concepts/profiler.md]], [[concepts/gflag.md]], [[concepts/rpcz.md]], [[concepts/heap-profiler.md]], [[concepts/contention-profiler.md]], [[concepts/version.md]], [[concepts/健康检查.md]], [[concepts/vlog.md]], [[concepts/protobufs.md]]
+
+**更新页面**：[[brpc]], [[内置服务]], [[profiler]], [[heap-profiler]], [[contention-profiler]], [[version]]
+
+
+
+## [2026-06-12] ingest | http_service.md
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/nginx.md]], [[entities/brpc.md]], [[entities/brpc.md]], [[entities/rapidjson.md]], [[entities/http_parser.md]], [[entities/curl.md]], [[concepts/restful-url.md]], [[concepts/h2c.md]], [[concepts/http-chunked-mode.md]], [[concepts/query-string.md]], [[concepts/compression.md]], [[concepts/brpccontroller.md]], [[concepts/query-string.md]], [[concepts/url映射规则.md]], [[concepts/server-sent-events-sse.md]], [[concepts/单线程反应器.md]], [[concepts/百分比编码percent-encoding.md]], [[concepts/http_body_compress_threshold.md]], [[concepts/default_method.md]], [[concepts/http_verbose.md]]
+
+**更新页面**：[[brpc]], [[nginx]], [[curl]], [[rapidjson]], [[http_parser]], [[restful-url]], [[progressiveattachment]], [[brpccontroller]], [[protocol-buffers]], [[server-sent-events-sse]], [[单线程反应器]], [[http_body_compress_threshold]], [[http_verbose]]
+
+
+
+## [2026-06-12] ingest | brpc HTTP/H2服务
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/nginx.md]], [[entities/brpc.md]], [[entities/brpc.md]], [[entities/rapidjson.md]], [[entities/node-js.md]], [[entities/protocol-buffers.md]], [[concepts/restful-url.md]], [[entities/curl.md]], [[concepts/h2c.md]], [[concepts/server-sent-events-sse.md]], [[concepts/http-chunked-mode.md]], [[concepts/compression.md]], [[concepts/http头部.md]], [[concepts/query-string.md]], [[concepts/ssl-tls.md]], [[concepts/content-type.md]], [[concepts/status-code.md]], [[concepts/query-string.md]], [[concepts/h2c.md]], [[concepts/url-types.md]], [[concepts/http_verbose.md]], [[concepts/http_body_compress_threshold.md]], [[concepts/gzip解压缩.md]]
+
+**更新页面**：[[brpc]], [[nginx]], [[node-js]], [[rapidjson]], [[protocol-buffers]], [[curl]], [[restful-url]], [[http-chunked-mode]], [[compression]], [[server-sent-events-sse]], [[ssl-tls]], [[http头部]], [[content-type]], [[status-code]], [[query-string]], [[progressiveattachment]], [[h2c]], [[http_verbose]], [[http_body_compress_threshold]]
+
+
+
+## [2026-06-12] ingest | brpc 构建指南
+
+**创建页面**：[[sources/en_getting_started.md]], [[entities/brpc.md]], [[entities/protocol-buffers.md]], [[entities/gtest.md]], [[entities/leveldb.md]], [[entities/cmake.md]], [[entities/glog.md]], [[entities/gcc.md]], [[entities/config_brpc-sh.md]], [[entities/openssl.md]], [[entities/glibc.md]], [[entities/clang.md]], [[entities/thrift.md]], [[entities/tcmalloc.md]], [[entities/valgrind.md]], [[entities/trackme_server.md]], [[entities/libunwind.md]], [[entities/docker.md]], [[entities/fedora.md]], [[entities/ubuntu.md]], [[entities/centos.md]], [[entities/vcpkg.md]], [[entities/bazel.md]], [[entities/macos.md]], [[entities/gperftools.md]], [[entities/wsl.md]], [[entities/apple-silicon.md]], [[concepts/rpc.md]], [[concepts/静态链接.md]]
+
+**更新页面**：[[brpc]], [[protocol-buffers]], [[gflag]], [[tcmalloc]], [[thrift]], [[rpc]]
+
+
+
+## [2026-06-12] ingest | HTTP/h2 Service
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/brpc.md]], [[concepts/servicenamemethodname-url模式.md]], [[concepts/h2c.md]], [[concepts/http头部.md]], [[concepts/servicename-url模式.md]], [[concepts/url映射规则.md]], [[concepts/content-type.md]], [[concepts/status-code.md]], [[concepts/query-string.md]], [[concepts/h2c.md]], [[concepts/progressive-sending.md]], [[concepts/compression.md]], [[concepts/http_verbose.md]], [[concepts/http_body_compress_threshold.md]], [[concepts/server-sent-events-sse.md]], [[concepts/http-chunked-mode.md]], [[concepts/百分比编码percent-encoding.md]], [[concepts/ssl-tls.md]], [[concepts/default_method.md]], [[concepts/unresolved_path.md]]
+
+**更新页面**：[[brpc]], [[h2c]], [[http_verbose]], [[http_body_compress_threshold]], [[default_method]], [[unresolved_path]]
+
+
+
+## [2026-06-12] ingest | HTTP/h2 Service
+
+**创建页面**：[[sources/en_http_service.md]], [[entities/rapidjson.md]], [[entities/brpc.md]], [[entities/nginx.md]], [[entities/http_parser.md]], [[concepts/h2c.md]], [[entities/protocol-buffers.md]], [[concepts/restful-url.md]], [[concepts/server-sent-events-sse.md]], [[concepts/progressive-sending.md]], [[concepts/http头部.md]], [[concepts/compression.md]], [[concepts/http-chunked-mode.md]], [[concepts/status-code.md]], [[concepts/content-type.md]], [[concepts/query-string.md]], [[concepts/http_verbose.md]], [[concepts/servicename-url模式.md]], [[concepts/servicenamemethodname-url模式.md]], [[concepts/brpccontroller.md]], [[concepts/query-string.md]], [[concepts/query-string.md]], [[concepts/unresolved_path.md]], [[concepts/h2c.md]], [[concepts/empty-requestresponse-pattern.md]], [[concepts/百分比编码percent-encoding.md]], [[concepts/progressive-sending.md]], [[concepts/http_body_compress_threshold.md]]
+
+**更新页面**：[[brpc]], [[nginx]], [[rapidjson]], [[http_parser]], [[h2c]], [[restful-url]], [[progressive-sending]], [[server-sent-events-sse]], [[compression]], [[http头部]], [[content-type]], [[status-code]], [[query-string]], [[http_verbose]], [[brpccontroller]], [[unresolved_path]], [[百分比编码percent-encoding]]
+
+
+
+## [2026-06-12] ingest | What are Protobuf Editions?
+
+**创建页面**：[[sources/editions-what-are-protobuf-editions.md]], [[entities/google.md]], [[entities/protocol-buffers.md]], [[entities/carbon.md]], [[entities/rust.md]], [[entities/protoc.md]], [[entities/protobuf-team.md]], [[entities/c++.md]], [[concepts/edition.md]], [[concepts/features.md]], [[concepts/feature-inheritance.md]], [[concepts/edition-2024.md]], [[concepts/protobuf-breaking-changes-policy.md]], [[concepts/closed-enum.md]], [[concepts/open-enum.md]], [[concepts/proto2.md]], [[concepts/proto3.md]], [[concepts/lsc.md]], [[concepts/feature-lifecycle.md]], [[concepts/language-scoped-features.md]], [[concepts/incremental-migration.md]], [[concepts/packed-encoding.md]], [[concepts/feature-deprecation-window.md]], [[concepts/reflection.md]], [[concepts/protoc-backends.md]], [[concepts/groups.md]], [[concepts/oss-strategy.md]]
+
+**更新页面**：[[protocol-buffers]], [[edition-2023]], [[google]], [[protoc]], [[carbon]], [[protobuf-team]], [[edition]], [[features]], [[feature-inheritance]], [[edition-2024]], [[protobuf-breaking-changes-policy]], [[proto2]], [[proto3]], [[feature-lifecycle]]
+
