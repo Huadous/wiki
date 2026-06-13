@@ -14,9 +14,6 @@ aliases:
   - "mcy"
 ---
 
-## Description
-@mcy 是 Protobuf Editions 系列设计文档的核心作者之一，长期在 Google protobuf 团队工作，并主导了该机制多篇重要提案与说明文档的撰写。其工作覆盖 Editions 的基础介绍、收紧 Schema 的备忘录、最低必需版本（Minimum Required Edition）提案，以及对 Editions 中"特性分类、生命周期、宣告机制与大规模变更模板"的系统性阐述。@mcy 的文档风格以设计备忘录为主，强调实用性与可操作性，是理解 Protobuf Editions 系统设计理念和演进路径的关键参考资料。2022 年下半年，多篇由 @mcy 主笔的文档陆续获批，标志着 Protobuf Editions 在语义演进机制上趋于成熟。
-
 ## Related Entities
 - [[entities/google|Google]]
 - [[entities/protobuf-runtime|protobuf-runtime]]

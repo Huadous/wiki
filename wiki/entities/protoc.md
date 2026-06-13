@@ -24,13 +24,6 @@ aliases:
   - "protoc compiler"
 ---
 
-## Description
-protoc 是 Protocol Buffers 的官方编译器，是 Protobuf Editions 机制的核心工具。在 Editions 体系中，protoc 扮演双重角色：其 frontend 与各语言后端（backend）共同理解一组 feature 的默认值集合——这就是一个 edition（"An edition is a set of default values for all features that protoc's frontend, and its backends, understand"）。其中，protoc 仅定义全局（global）feature 的 edition 默认值，而各 backend 则自行定义其语言作用域（language-scoped）feature 的默认值。
-
-protoc 在 Edition 时代提供了多种面向大规模迁移的工具能力。`protoc --gc-features` 可以计算并回收（garbage-collect）一个 .proto 文件中冗余的 feature 设置，仅保留必要的最小集合；`protoc --upgrade-edition`（Editions adopter）以及 Editions upgrader 则帮助用户将旧语法（proto2/proto3）平稳升级到指定 edition。此外，protoc 还提供 `--latest-edition` 命令以输出当前支持的最新 edition，方便外部工具（如 ProtoChangeSpec）据此生成最新的 .proto 模板。
-
-在历史演进方面，protoc 自 v3.15.0 起默认启用 proto3 字段存在性（presence）跟踪，在此之前（v3.12.0 及更早版本）需要显式传递 `--experimental_allow_proto3_optional` 标志才能使用该特性。对于 Editions，`protoc` 必须能够同时消费 proto3、proto2 与 editions 文件，并校验 .proto 定义文件的语法正确性。`protoc` 的 frontend 还承担跟踪各语法构造所需最低 edition（minimum required edition）的职责。
-
 ## Related Entities
 - [[entities/google-inc|Google Inc.]]
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -113,3 +106,4 @@ protoc 在 Edition 时代提供了多种面向大规模迁移的工具能力。`
 > **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
 > - "An edition is a set of default values for all features that protoc's frontend, and its backends, understand."
 > - "Running protoc --gc-features foo.proto on a file in editions mode will compute the minimal (or a heuristically minimal, if this proves expensive) set of features to set on things, given the edition specified in the file."
+> - "The intent is for tooling that wants to generate .proto templates externally can choose to use the latest edition for new messages."

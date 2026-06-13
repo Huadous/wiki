@@ -12,6 +12,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "standard"
 aliases:
@@ -43,6 +44,9 @@ aliases:
 - [[concepts/required|required]]
 - [[concepts/explicit-presence-discipline|Explicit presence discipline]]
 - [[concepts/wire-format-compatibility|Wire Format Compatibility]]
+- [[concepts/large-scale-change|Large-scale Change]]
+- [[concepts/editions-upgrader|Editions upgrader]]
+- [[concepts/editions-adopter|Editions adopter]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -62,9 +66,9 @@ aliases:
 > - "Default behavior per syntax/edition: proto2 -> EXPORT_ALL"
 > - "proto2 -> CLOSED (for enum_type)"
 > - "proto2 -> EXPLICIT (for field_presence)"
-> - "The following code sample shows a proto2 file: syntax \"proto2\""
+> - "The following code sample shows a proto2 file: syntax "proto2""
 > - "shows how to override the default behaviors so that your proto definition files act like proto2 or proto3 files."
-> - "The following code sample shows a proto2 file: syntax = \"proto2\""
+> - "The following code sample shows a proto2 file: syntax = "proto2""
 > - "proto2 CLOSED"
 
 > **Source: [[sources/editions|editions]]**
@@ -75,3 +79,8 @@ aliases:
 > - "The first edition (colloquially known as "Edition Zero") will use features to unify proto2 and proto3 (Edition Zero Features)."
 > - "There will be a large period of time during which `protoc` is able to consume `proto3`, `proto2`, and editions files."
 > - "The protobuf team will provide a tool that upgrades `proto2` and `proto3` files to edition zero in a fully compatible way."
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "Tooling that can take a `proto2` or `proto3` file and add `edition = "2023";` and `option features.* = ...;` as appropriate, so that each file retains its original behavior."
+> - "Running `protoc --upgrade-edition -I... file.proto` figure out how to update `file.proto` from `proto2` or `proto3` to the latest edition, adding features as necessary."
+> - "We also need to track down and upgrade (by hand) any code that is using the value of `syntax`."

@@ -6,6 +6,7 @@ sources:
   - "[[sources/http_client]]"
   - "[[brpc/en_backup_request.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "term"
 aliases:
@@ -25,9 +26,11 @@ aliases:
 - [[concepts/controller|Controller]]
 - [[concepts/connection-type|Connection Type]]
 - [[concepts/health-checking|Health Checking]]
+- [[concepts/protocol|协议]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/brpc-channel|brpc::Channel]]
 - [[entities/exampleselective_echo_c++|exampleselective_echo_c++]]
 
 ## Mentions in Source
@@ -44,3 +47,11 @@ aliases:
 > - "Channel.Init() is not thread-safe."
 > - "Channel.CallMethod() is thread-safe and a Channel can be used by multiple threads simultaneously."
 > - "Client-side of RPC sends requests. It's called Channel rather than \"Client\" in brpc. A channel represents a communication line to one server or multiple servers, which can be used for calling services."
+
+> **Source: [[sources/client]]**
+> - "Channel.Init()是线程不安全的。"
+> - "Channel.CallMethod()是线程安全的，一个Channel可以被所有线程同时使用。"
+> - "Channel可以分配在栈上。"
+> - "Channel在发送异步请求后可以析构。"
+> - "没有brpc::Client这个类。"
+> - "Channel可以**被所有线程共用**，你不需要为每个线程创建独立的Channel，也不需要用锁互斥。"

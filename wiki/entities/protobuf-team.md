@@ -13,11 +13,6 @@ aliases:
   - "Protobuf 团队"
 ---
 
-## Description
-protobuf-team 是 Google 内部负责开发与维护 Protobuf 生态系统的团队，也是 Protobuf Editions 的核心推动者。作为 Protobuf 语言的"stewards"（管理者），该团队主导移除历史上产生过不良后果的特性，并与存储提供商等高风险迁移用例合作以减少双方负担。同时，团队承诺提供将 `proto2` 和 `proto3` 文件完全兼容地升级到 edition zero 的工具。
-
-在 Editions 的生命周期管理中，protobuf-team 扮演"宣告者"而非"定义者"的角色：版本号（edition numbers）由该团队宣布，但具体版本的定义可能并非由其完成。团队承诺每个日历年至少宣告一个 edition，即使 first-party backends 暂时不会使用该版本，以此保证 Editions 时间线的连续性与有序推进。
-
 ## Related Entities
 - [[entities/google|Google]]
 - [[entities/protoc|protoc]]
@@ -32,8 +27,8 @@ protobuf-team 是 Google 内部负责开发与维护 Protobuf 生态系统的团
 - [[concepts/edition-zero|Edition Zero]]
 - [[concepts/semantic-patch|Semantic Patch]]
 - [[concepts/schema-producer|Schema Producer]]
-- Edition Proclamation
-- Total Ordering of Editions
+- [[concepts/edition-proclamation|Edition Proclamation]]
+- [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
 
 ## Mentions in Source
 > **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**

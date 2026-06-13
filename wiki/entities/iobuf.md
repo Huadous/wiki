@@ -10,6 +10,7 @@ sources:
   - "[[brpc/http_client.md]]"
   - "[[brpc/en_iobuf.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "product"
 aliases:
@@ -21,7 +22,7 @@ aliases:
 ---
 
 ## Description
-butil::IOBuf 是 brpc 中 butil 模块提供的一种非连续零拷贝缓冲数据结构，定义于 `src/butil/iobuf.h`，其接口与 `std::string` 类似但不完全相同。默认构造不分配内存，拷贝时仅复制管理结构而非底层数据，因此支持轻量级拷贝以及零拷贝 append；IOBuf 还支持从 fd 读写、与 protobuf 互操作，并可借由 IOBufBuilder 当作 `std::ostream` 使用。文档明确指出 IOBuf 不应作为程序内通用存储结构使用，较长的生命周期可能导致单个 IOBuf 锁定多个引用计数的 8K block，因此应保持较短的生命周期。在 brpc 客户端工作流中，IOBuf 是序列化数据的核心载体：Channel 根据协议选择对应的序列化回调将请求序列化写入 IOBuf，然后将 IOBuf 写入 Socket 并发送到网络；接收到的响应同样先存入 IOBuf，再由对应的协议回调进行反序列化解析，这一链路充分体现了 IOBuf 零拷贝特性对 RPC 高吞吐场景的性能贡献。在 brpc 的 RDMA 传输路径中，所有数据均以 IOBuf Block 形式承载，Block 由统一的 RDMA 内存池（见 `src/brpc/rdma/block_pool.cpp`）接管，从而在兼容 IOBuf 的前提下实现完全零拷贝；应用程序也可通过 `IOBuf::append_user_data_with_meta` 自行管理内存并使用 `rdma::RegisterMemoryForRdma`（见 `src/brpc/rdma/rdma_helper.h`）注册。IOBuf 同时是 brpc HTTP/H2 协议栈中请求与响应 body 的核心承载类型：客户端通过 `cntl.request_attachment().append(...)` 写入待 POST 的数据，回复内容则存放于 `cntl.response_attachment()`，类型均为 butil::IOBuf。在 Streaming RPC 中，IOBuf 同样作为消息载体，通过 `Stream::Write` 写入、由 `on_received_messages` 回调按写入顺序接收。需要注意的是，IOBuf 可通过 `to_string()` 转化为 std::string，但这会分配内存并拷贝全部内容，因此对性能敏感的场景应直接基于 IOBuf 处理、避免要求连续内存。此外，IOBuf 支持通过 ZeroCopyStream 接口进行零拷贝读写，进一步强化了其作为高效网络数据传输载体的定位。
+butil::IOBuf 是 brpc 中 butil 模块提供的一种非连续零拷贝缓冲数据结构，定义于 `src/butil/iobuf.h`，其接口与 `std::string` 类似但不完全相同。默认构造不分配内存，拷贝时仅复制管理结构而非底层数据，因此支持轻量级拷贝以及零拷贝 append；IOBuf 还支持从 fd 读写、与 protobuf 互操作，并可借由 IOBufBuilder 当作 `std::ostream` 使用。文档明确指出 IOBuf 不应作为程序内通用存储结构使用，较长的生命周期可能导致单个 IOBuf 锁定多个引用计数的 8K block，因此应保持较短的生命周期。在 brpc 客户端工作流中，IOBuf 是序列化数据的核心载体：Channel 根据协议选择对应的序列化回调将请求序列化写入 IOBuf，然后将 IOBuf 写入 Socket 并发送到网络；接收到的响应同样先存入 IOBuf，再由对应的协议回调进行反序列化解析，这一链路充分体现了 IOBuf 零拷贝特性对 RPC 高吞吐场景的性能贡献。IOBuf 作为 brpc 内部网络 I/O 与序列化数据的链式缓冲区，是序列化、传输及附件存储的统一数据载体，特别适合在高并发场景中通过零拷贝追加与合并避免反复内存分配带来的开销，是 brpc 实现高性能 I/O 的关键数据结构之一。在 brpc 的 RDMA 传输路径中，所有数据均以 IOBuf Block 形式承载，Block 由统一的 RDMA 内存池（见 `src/brpc/rdma/block_pool.cpp`）接管，从而在兼容 IOBuf 的前提下实现完全零拷贝；应用程序也可通过 `IOBuf::append_user_data_with_meta` 自行管理内存并使用 `rdma::RegisterMemoryForRdma`（见 `src/brpc/rdma/rdma_helper.h`）注册。IOBuf 同时是 brpc HTTP/H2 协议栈中请求与响应 body 的核心承载类型：客户端通过 `cntl.request_attachment().append(...)` 写入待 POST 的数据，回复内容则存放于 `cntl.response_attachment()`，类型均为 butil::IOBuf。在 Streaming RPC 中，IOBuf 同样作为消息载体，通过 `Stream::Write` 写入、由 `on_received_messages` 回调按写入顺序接收。需要注意的是，IOBuf 可通过 `to_string()` 转化为 std::string，但这会分配内存并拷贝全部内容，因此对性能敏感的场景应直接基于 IOBuf 处理、避免要求连续内存。此外，IOBuf 支持通过 ZeroCopyStream 接口进行零拷贝读写，进一步强化了其作为高效网络数据传输载体的定位。
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -31,6 +32,8 @@ butil::IOBuf 是 brpc 中 butil 模块提供的一种非连续零拷贝缓冲数
 - [[entities/butil|butil]]
 - [[entities/channel|Channel]]（在客户端工作流中负责将序列化数据写入 IOBuf 并写入 Socket）
 - [[entities/controller|Controller]]
+- [[entities/brpc-socket|brpc::Socket]]（承载 IOBuf 序列化数据的网络写入端点）
+- [[entities/brpc-channel|brpc::Channel]]
 
 ## Related Concepts
 - [[concepts/零拷贝|零拷贝]]
@@ -47,6 +50,9 @@ butil::IOBuf 是 brpc 中 butil 模块提供的一种非连续零拷贝缓冲数
 - [[concepts/socketmap|SocketMap]]
 - [[concepts/timeout|Timeout]]
 - [[concepts/序列化|序列化]]
+- [[concepts/协议|协议]]
+- [[concepts/压缩|压缩]]
+- [[concepts/附件|附件]]
 
 ## Mentions in Source
 
@@ -84,3 +90,7 @@ butil::IOBuf 是 brpc 中 butil 模块提供的一种非连续零拷贝缓冲数
 > **Source: [[sources/en_client|en_client]]**
 > - "According to protocol of the Channel, choose corresponding serialization callback to serialize request into IOBuf." — [[sources/en_client|en_client]]
 > - "Write IOBuf with serialized data into the Socket and add Channel::HandleSocketFailed into id_wait_list of the Socket." — [[sources/en_client|en_client]]
+
+> **Source: [[sources/client|client]]**
+> - "根据Channel的协议，选择对应的序列化函数把request序列化至[IOBuf](https://github.com/apache/brpc/blob/master/src/butil/iobuf.h)。" — [[sources/client|client]]
+> - "将之前序列化好的IOBuf写出到Socket上，同时传入回调Channel::HandleSocketFailed" — [[sources/client|client]]

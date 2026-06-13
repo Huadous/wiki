@@ -9,6 +9,7 @@ sources:
   - "[[brpc/http_service.md]]"
   - "[[brpc/http_client.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "standard"
 aliases:
@@ -1293,4 +1294,15 @@ aliases:
   - "传输层安全性协议"
 ---
 
-No update needed.
+## Related Concepts
+- [[concepts/协议|协议]]
+
+## Related Entities
+- [[entities/brpc|brpc]]
+- [[entities/brpc-channel|brpc::Channel]]
+
+## Mentions in Source
+> **Source: [[sources/client|client]]**
+> - "要开启SSL，首先确保代码依赖了最新的openssl库。如果openssl版本很旧，会有严重的安全漏洞，支持的加密算法也少，违背了开启SSL的初衷。"
+> - "options.mutable_ssl_options()->ciphers_name = "...";"
+> - "Channel.Init能自动识别`https://`前缀并自动开启SSL；开启-http_verbose也会输出证书信息。"

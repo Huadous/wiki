@@ -6,6 +6,7 @@ sources:
   - "[[sources/en_server]]"
   - "[[brpc/server.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "term"
 aliases:
@@ -53,3 +54,7 @@ aliases:
 > - "As a client, data set in Controller::request_attachment() will be received by server and response_attachment() contains attachment sent back by the server."
 > - "Attachment is not compressed by framework."
 > - "No directly relevant information"
+
+> **Source: [[sources/client|client]]**
+> - "baidu_std和hulu_pbrpc协议支持附件，这段数据由用户自定义，不经过protobuf的序列化。站在client的角度，设置在Controller::request_attachment()的附件会被server端收到，response_attachment()则包含了server端送回的附件。附件不受压缩选项影响。"
+> - "在http/h2协议中，附件对应[message body](http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html)，比如要POST的数据就设置在request_attachment()中。"

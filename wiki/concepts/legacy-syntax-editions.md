@@ -2,42 +2,38 @@
 type: concept
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/editions-readme]]"]
-tags: [term]
+sources:
+  - "[[sources/editions-readme]]"
+  - "[[protobuf/editions-legacy-syntax-editions.md]]"
+tags:
+  - "term"
 aliases:
   - "遗留语法 Edition"
   - "Legacy Syntax Editions"
 ---
 
+## Description
+Legacy Syntax Editions 是 Protobuf Editions 体系为实现向后兼容性而提出的核心迁移方案。该方案建议在 editions 枚举中新增两个特殊值 `EDITION_PROTO2 = 998` 和 `EDITION_PROTO3 = 999`，将 proto2 和 proto3 视为特殊的 edition；parser 会拒绝 proto 文件中的 `edition = "proto2"` 和 `edition = "proto3"` 声明，但内部会像处理其他 edition 一样处理它们。其核心目标是统一语法与 editions 的代码基础设施，避免维护两套不同的代码库，从而提高测试覆盖率并简化 runtimes 实现。在生态层面，Legacy Syntax Editions 保护了既有 proto2/proto3 schema 的投资，使工具链（如编译器、运行时）能够正确识别和转换遗留语法的语义，并在不破坏现有 API 与数据兼容性的前提下，允许用户逐步采用 Editions 特性。它与 Edition Lifetimes、Minimum Required Edition、FeatureSet、Feature Inference 等机制协同，共同保障迁移过程的可行性。
 
-# Legacy Syntax Editions
-
-## 定义
-Legacy Syntax Editions（遗留语法 Edition）是 Protobuf Editions 设计文档体系中关于将 proto2、proto3 等遗留语法纳入 Editions 框架的设计文档。该机制允许现有的 proto2/proto3 schema 能够被映射或迁移到 Editions 体系中，从而保护既有生态投资并提供平稳的升级路径。它是 Editions 体系保持向后兼容性和促进生态演化的关键设计，与 Edition Lifetimes、Minimum Required Edition 等机制共同保障迁移过程的可行性。
-
-## 关键特征
-- 属于 Protobuf Editions 设计文档体系下的子主题之一，位于 [[sources/editions-readme]] 所列出的文档目录中
-- 关注 proto2、proto3 等遗留语法与 Editions 框架之间的映射/迁移关系
-- 强调向后兼容性，确保已有 schema 在升级至 Editions 时不会立即失效
-- 与 Edition Lifetimes、Minimum Required Edition 等机制协同，共同保障生态演化的可行性
-- 与 Edition Evolution 和 [[concepts/editions-group-migration-issues|Editions: Group Migration Issues]] 等议题紧密相关
-
-## 应用
-- 为已有的 proto2/proto3 文件提供向 Editions 体系迁移的指导与规范
-- 帮助工具链（如编译器、运行时）正确识别和转换遗留语法的语义
-- 在不破坏现有 API 与数据兼容性的前提下，允许用户逐步采用 Editions 特性
-- 作为 Protobuf 语言演化的桥梁机制，使新特性的引入与遗留语法的退出可以平滑过渡
-
-## 相关概念
+## Related Concepts
 - [[concepts/edition-lifetimes|Edition Lifetimes]]
 - [[concepts/minimum-required-edition|Minimum Required Edition]]
 - [[concepts/editions-group-migration-issues|Editions: Group Migration Issues]]
 - [[concepts/edition-evolution|Edition Evolution]]
+- [[concepts/feature-inference|Feature Inference]] *(待确认页面存在性，建议在有对应概念页时链接)*
+- [[concepts/feature-set|FeatureSet]] *(待确认页面存在性，建议在有对应概念页时链接)*
 
-## 相关实体
+## Related Entities
 - [[entities/protobuf-editions|Protobuf Editions]]
 - [[entities/protocol-buffers|Protocol Buffers]]
+- [[entities/mkruskal-google|mkruskal-google]] *(待确认页面存在性)*
+- [[entities/prototiller|Prototiller]] *(待确认页面存在性)*
 
-## 来源提及
-- "The following topics are in this repository:" — [[sources/editions-readme]]
-- "[Legacy Syntax Editions](legacy-syntax-editions.md)" — [[sources/editions-readme]]
+## Mentions in Source
+> **Source: [[sources/editions-readme]]**
+> - "The following topics are in this repository:"
+> - "[Legacy Syntax Editions](legacy-syntax-editions.md)"
+
+> **Source: [[sources/editions-legacy-syntax-editions]]**
+> - "We recommend adding two new special editions to our current set"
+> - "These will be treated the same as any other edition, except in our parser which will reject `edition = \"proto2\"` and `edition = \"proto3\"` in proto files."

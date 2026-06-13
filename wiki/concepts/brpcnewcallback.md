@@ -2,40 +2,37 @@
 type: concept
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/en_client]]"]
-tags: [method]
+sources:
+  - "[[sources/en_client]]"
+  - "[[brpc/client.md]]"
+tags:
+  - "method"
 aliases:
   - "NewCallback"
   - "brpc::NewCallback()"
 ---
 
+## Description
+`brpc::NewCallback` 是 brpc 中将自由函数(或成员方法)与其关联的 response 对象、`brpc::Controller` 等运行时对象绑定为 `google::protobuf::Closure` 的标准方式,这些绑定对象在异步模式下通常采用堆分配。在异步 RPC 客户端发起调用时,典型用法为 `stub.some_method(cntl, &request, response, brpc::NewCallback(OnRPCDone, response, cntl));`,框架在 RPC 完成时回调 `Run()` 并在结束时自动释放该 Closure。`brpc::NewCallback` 的一个已知缺点是 response、controller、done 三者各自需要一次内存分配,共三次堆分配;为优化生命周期管理,brpc 文档建议独立 `new` response 与 Controller,再使用 `NewCallback` 装配为 done,或将 response/controller 设计为 done 的成员并一起 `new`(前者更便于控制生命周期)。由于 Protobuf 3 将 `NewCallback` 设为 `private`,brpc 在 r32035 之后将 `NewCallback` 独立到 `src/brpc/callback.h` 中并额外增加了若干重载;若代码因 `NewCallback` 编译失败,可直接用 `brpc::NewCallback` 替换 `google::protobuf::NewCallback` 作为零迁移成本的替代方案。
 
-# brpc::NewCallback
-
-## 定义
-`brpc::NewCallback` 是 brpc 框架提供的一个工具函数,定义于 `src/brpc/callback.h` 中。它用于创建一个 `google::protobuf::Closure` 对象,作为异步 RPC 调用完成时的 done 回调。`brpc::NewCallback` 是将自由函数(或成员方法)回调与其关联的响应对象与 Controller 对象绑定在一起的标准方式,这些对象在异步模式下通常采用堆分配。`brpc::NewCallback` 创建的回调对象会在 `Run()` 结束时自动 `delete` 自身。
-
-## 关键特征
-- **位置**:定义于 `src/brpc/callback.h`,由 brpc 直接提供。
-- **返回类型**:返回一个 `google::protobuf::Closure*`,可直接作为异步 RPC 的 done 参数。
-- **绑定参数**:可将任意可调用对象(自由函数或成员方法)与 response、Controller 等运行时对象绑定为一个 Closure。
-- **自销毁语义**:回调对象在 `Run()` 结束时自动 `delete` 自身,无需调用方手动释放。
-- **brpc 专属实现**:由于 Protobuf 3 将 `NewCallback` 设为 `private`,brpc 在 r32035 之后内置了自己的版本,并额外提供了更多重载;若用户的代码因 `NewCallback` 编译失败,可将 `google::protobuf::NewCallback` 替换为 `brpc::NewCallback`。
-
-## 应用
-- **异步 RPC 客户端回调**:在发起异步 RPC 时,通过 `brpc::NewCallback` 把处理函数、response 对象、Controller 对象组装成 done 闭包,在 RPC 完成时被框架回调。
-- **回调与对象生命周期解耦**:适用于 response/Controller 各自单独 `new`,再由 `NewCallback` 装配为 done 的模式;也可将 response/Controller 设计为 done 的成员并与 done 一起 `new`,前者(brpc 文档推荐)更便于控制生命周期。
-- **替换 `google::protobuf::NewCallback`**:当 Protobuf 3 之后 `google::protobuf::NewCallback` 不可见时,作为零迁移成本的替代方案,直接使用 `brpc::NewCallback` 即可使用相同的签名与重载。
-
-## 相关概念
+## Related Concepts
 - [[concepts/asynchronous-call|Asynchronous call]]
 - [[concepts/controller|Controller]]
 - [[concepts/channel|Channel]]
 - [[concepts/brpcjoin|brpc::Join]]
+- [[concepts/protobuf-closure|protobuf::Closure]]
 
-## 相关实体
-- (暂无相关实体)
+## Related Entities
+- [[entities/brpc-controller|brpc::Controller]]
+- [[entities/brpc-channel|brpc::Channel]]
 
-## 来源提及
-- "You can new these objects individually and create done by NewCallback, or make response/controller be member of done and new them together. Former one is recommended." — [[sources/en_client]]
-- "Since protobuf 3 changes NewCallback to private, brpc puts NewCallback in src/brpc/callback.h after r32035 (and adds more overloads). If your program has compilation issues with NewCallback, replace google::protobuf::NewCallback with brpc::NewCallback." — [[sources/en_client]]
+## Mentions in Source
+> **Source: [[sources/en_client|en_client]]**
+> - "You can new these objects individually and create done by NewCallback, or make response/controller be member of done and new them together. Former one is recommended."
+> - "Since protobuf 3 changes NewCallback to private, brpc puts NewCallback in src/brpc/callback.h after r32035 (and adds more overloads). If your program has compilation issues with NewCallback, replace google::protobuf::NewCallback with brpc::NewCallback."
+
+> **Source: [[sources/client|client]]**
+> - "你可以独立地创建这些对象，并使用[NewCallback](#使用NewCallback)生成done"
+> - "stub.some_method(cntl, &request, response, brpc::NewCallback(OnRPCDone, response, cntl));"
+> - "由于protobuf 3把NewCallback设置为私有，r32035后brpc把NewCallback独立于[src/brpc/callback.h]"
+> - "No directly relevant information"

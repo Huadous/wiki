@@ -9,9 +9,106 @@ sources:
   - "[[brpc/http_client.md]]"
   - "[[brpc/en_backup_request.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "method"
 aliases:
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "NamingService（命名服务）"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (naming service)"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "NamingService（命名服务）"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "NamingService"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "NamingService（命名服务）"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (naming service)"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "NamingService（命名服务）"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "DNS"
+  - "命名服务"
+  - "服务发现"
+  - "命名服务 (Naming Service)"
+  - "命名服务"
+  - "服务发现"
+  - "brpc::NamingService"
   - "命名服务"
   - "服务发现"
   - "命名服务 (Naming Service)"
@@ -111,14 +208,20 @@ aliases:
 
 ## Related Concepts
 - [[concepts/channel|Channel]]
-- [[concepts/backup_request|Backup Request]]
-- [[concepts/selectivechannel|SelectiveChannel]]
+- [[concepts/backup-request|Backup Request]]
+- [[concepts/selective-channel|SelectiveChannel]]
 - [[concepts/load-balancer|Load Balancer]]
+- [[concepts/consistent-hashing|Consistent Hashing]]
+- [[concepts/naming-service-filter|Naming Service Filter]]
+- [[concepts/health-check|Health Check]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
-- [[entities/consul|consul]]
-- [[entities/nacos|nacos]]
+- [[entities/consul|Consul]]
+- [[entities/nacos|Nacos]]
+- [[entities/bns|BNS]]
+- [[entities/brpc-channel|brpc::Channel]]
+- [[entities/brpc-naming-service|brpc::NamingService]]
 
 ## Mentions in Source
 > **Source: [[sources/en_backup_request|en_backup_request]]**
@@ -131,4 +234,10 @@ aliases:
 > - "Naming service maps a name to a modifiable list of servers."
 > - "Channels created by above Init() get server list from the NamingService specified by `naming_service_url` periodically or driven-by-events"
 > - "General form of `naming_service_url`  is \"protocol://service_name\"."
+> - "No directly relevant information"
+
+> **Source: [[sources/client|client]]**
+> - "命名服务把一个名字映射为可修改的机器列表，在client端的位置如下"
+> - "`naming_service_url`的一般形式是\"**protocol://service_name**\""
+> - "用户可以通过实现brpc::NamingService来对接更多命名服务"
 > - "No directly relevant information"

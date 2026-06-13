@@ -6,6 +6,7 @@ sources:
   - "[[sources/en_overview]]"
   - "[[brpc/load_balancing.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "product"
 aliases:
@@ -27,6 +28,7 @@ aliases:
 - [[concepts/load-balancing|load balancing]] — BNS 与 brpc 的负载均衡器配合实现机器选择
 - [[concepts/periodicservicenaming|periodic naming service]] — 因 BNS 无事件通知，brpc 通过 `PeriodicNamingService` 定期拉取最新节点列表（默认 5 秒，可通过 `-ns_access_interval` gflag 调节）
 - [[concepts/channel|channel]] — BNS 中状态位非零的机器不会被加入 Channel 的候选服务器列表
+- [[concepts/命名服务过滤器|naming service filter]] — BNS 返回的机器列表包含 status 状态位，brpc 通过命名服务过滤器机制过滤掉 status 非 0 的不可用机器
 
 ## Mentions in Source
 
@@ -46,3 +48,8 @@ aliases:
 > **来源：[[sources/en_client|en_client]]**
 - "BNS is the most common naming service inside Baidu. In `bns://rdev.matrix.all`, `bns` is protocol and `rdev.matrix.all` is service-name."
 - "If the list in BNS is non-empty, but Channel says `no servers`, the status bit of the machine in BNS is probably non-zero."
+
+> **来源：[[sources/client|client]]**
+- "BNS是百度内常用的命名服务，比如bns://rdev.matrix.all，其中"bns"是protocol，"rdev.matrix.all"是service-name。"
+- "如果BNS中显示不为空，但Channel却说找不到服务器，那么有可能BNS列表中的机器状态位（status）为非0，含义为机器不可用，所以不会被加入到server候选集中．状态位可通过命令行查看："
+- "`get_instance_by_service [bns_node_name] -s`"

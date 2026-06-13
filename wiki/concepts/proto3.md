@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "standard"
 aliases:
@@ -32,12 +33,16 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 
 根据 [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]] 的描述，proto3 在 [[concepts/edition-zero|Edition Zero]] 推出之前与 [[concepts/proto2|Proto2]] 并存；[[concepts/edition-zero|Edition Zero]] 将通过 features 机制把 proto2 与 proto3 的差异统一到一组良定义的默认值上。在过渡期内，`protoc` 必须能够同时解析 proto3、proto2 和 editions 文件，这一兼容窗口预计会持续相当长的时间。schema producers 在升级到 [[concepts/edition-zero|Edition Zero]] 时可以借助官方升级工具自动完成转换，新发布的 `.proto` 文件则应直接使用 [[concepts/edition-zero|Edition Zero]] 的默认值。在 Editions 模式下，proto2 和 proto3 中原本存在的所有功能都将继续可用，而原本不可调和的那少数差异将作为 Features 统一表达。在从 proto3 迁移到 editions 时，原有的 implicit 字段会使用 field_presence feature 并设置为 IMPLICIT 值。proto3 的语言指南是一个独立的文档，但 [[sources/editions|editions]] 指南对其迁移行为做了相应说明。当前 proto3 仍被广泛使用，但 Protobuf 团队推荐新项目使用 Editions 体系以获得更灵活的字段特性控制，避免重复 proto2/proto3 分裂的历史教训。
 
+根据 [[sources/editions-life-of-an-edition|editions-life-of-an-edition]] 的说明，与 [[concepts/proto2|Proto2]] 类似，从 proto3 到 Editions 的迁移也是通过 `protoc --upgrade-edition` 工具完成的。该工具会为文件添加适当的 edition 声明（如 `edition = "2023";`）和 `option features.* = ...;` 设置，使其保留原始行为。Editions 机制旨在统一替换 proto2 和 proto3，提供更灵活、可演进的 features 系统；[[concepts/edition-zero|Edition Zero]] 的迁移涉及同时处理这两种旧语法，升级工具能够自动判断源文件是 proto2 还是 proto3，并相应地添加 features 以维持原有语义。
+
 ## Related Concepts
 - [[concepts/proto2|Proto2]]
 - [[concepts/edition-2023|Edition 2023]]
 - [[concepts/edition-2024|Edition 2024]]
 - [[concepts/editions|Protobuf Editions]]
 - [[concepts/edition-zero|Edition Zero]]
+- [[concepts/editions-upgrader|Editions upgrader]]
+- [[concepts/large-scale-change|Large-scale Change]]
 - [[concepts/features-field_presence|features.field_presence]]
 - [[concepts/features-enum_type|features.enum_type]]
 - [[concepts/features-enforce_naming_style|features.enforce_naming_style]]
@@ -117,3 +122,7 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 > **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
 > - "The first edition (colloquially known as "Edition Zero") will use features to unify proto2 and proto3 (Edition Zero Features)."
 > - "There will be a large period of time during which `protoc` is able to consume `proto3`, `proto2`, and editions files."
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "Tooling that can take a `proto2` or `proto3` file and add `edition = "2023";` and `option features.* = ...;` as appropriate, so that each file retains its original behavior."
+> - "Running `protoc --upgrade-edition -I... file.proto` figure out how to update `file.proto` from `proto2` or `proto3` to the latest edition, adding features as necessary."

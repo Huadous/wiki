@@ -8,6 +8,7 @@ sources:
   - "[[brpc/server.md]]"
   - "[[brpc/http_service.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "method"
 aliases:
@@ -536,6 +537,7 @@ aliases:
 - [[concepts/accept-encoding|Accept-Encoding]]
 - [[concepts/附件|附件]]
 - [[concepts/https|HTTPS]]
+- [[concepts/协议|协议]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -550,6 +552,7 @@ aliases:
 - [[entities/nginx|nginx]]
 - [[entities/redis|redis]]
 - [[entities/grpc|grpc]]
+- [[entities/brpc-controller|brpc::Controller]]
 
 ## Mentions in Source
 
@@ -591,3 +594,11 @@ aliases:
 > - "set_request_compress_type() sets compress-type of the request, no compression by default. — [[brpc/en_client|en_client]]"
 > - "Supported compressions: brpc::CompressTypeSnappy : snappy, brpc::CompressTypeGzip : gzip, brpc::CompressTypeZlib : zlib — [[brpc/en_client|en_client]]"
 > - "NOTE: Attachment is not compressed by brpc. — [[brpc/en_client|en_client]]"
+
+> **Source: [[sources/client]]**
+> - "set_request_compress_type()设置request的压缩方式，默认不压缩。"
+> - "注意：附件不会被压缩。"
+> - "brpc::CompressTypeSnappy : [snappy压缩]，压缩和解压显著快于其他压缩方法，但压缩率最低。"
+> - "set_request_compress_type()设置request的压缩方式，默认不压缩。 — [[brpc/client|client]]"
+> - "注意：附件不会被压缩。 — [[brpc/client|client]]"
+> - "brpc::CompressTypeSnappy : [snappy压缩]，压缩和解压显著快于其他压缩方法，但压缩率最低。 — [[brpc/client|client]]"

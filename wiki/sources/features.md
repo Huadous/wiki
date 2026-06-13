@@ -6,6 +6,7 @@ sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
   - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "features.default_symbol_visibility"
   - "features.enforce_naming_style"
@@ -23,10 +24,6 @@ aliases:
   - "Feature Settings for Editions"
   - "Protobuf Editions 功能设置"
 ---
-
-## 关键实体
-- [[entities/protocol-buffers|Protocol Buffers]] — Google 开发的结构化数据序列化框架，Editions 功能所属的总产品
-- [[entities/prototiller|Prototiller]] — 尚未正式发布的命令行工具，用于在不同 proto 语法版本与 Editions 之间自动转换配置文件
 
 ## 关键概念
 - [[concepts/protocol-buffers-editions|Protocol Buffers Editions]] — 版本化的模式定义系统，通过特性设置替代隐式行为

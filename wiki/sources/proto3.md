@@ -9,6 +9,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "document"
 aliases:
@@ -45,3 +46,9 @@ aliases:
 - 在过渡期内,[[entities/protoc|protoc]] 必须能够同时解析 [[concepts/proto3|proto3]]、[[concepts/proto2|proto2]] 和 editions 文件。
 - [[entities/protobuf-team|Protobuf 团队]]将提供一个工具,能够以完全兼容的方式将 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 文件升级到 [[concepts/edition-zero|Edition Zero]],从而帮助 schema producers 完成迁移。
 - 对于新发布的 `.proto` 文件,schema producers 应直接使用 [[concepts/edition-zero|Edition Zero]] 的默认值,而非继续沿用 [[concepts/proto3|proto3]] 语法。
+- [[concepts/proto3|proto3]] 是 Protobuf 的第三代语法标准,在 [[concepts/protobuf-editions|Protobuf Editions]] 出现之前是 Protobuf 的最新语法版本。
+- [[concepts/protobuf-editions|Editions]] 机制旨在统一替换 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]],提供更灵活、可演进的 [[concepts/features-enum-type|features]] 系统。
+- 与 [[concepts/proto2|proto2]] 类似,从 [[concepts/proto3|proto3]] 到 [[concepts/protobuf-editions|Editions]] 的迁移也是通过 [[concepts/editions-upgrader|Editions upgrader]] 工具（即 `protoc --upgrade-edition`）完成的。
+- 该工具会为文件添加适当的 edition 声明（如 `edition = "2023";`）和 `option features.* = ...;` 选项,使其保留原始行为。
+- [[concepts/edition-zero|Edition Zero]] 的迁移涉及同时处理 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 这两种旧语法。
+- 从 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 迁移到 [[concepts/protobuf-editions|Editions]] 属于大规模变更（[[concepts/large-scale-change|Large-scale Change]]）,且这一变更可以完全自动化,无需破坏性改动。

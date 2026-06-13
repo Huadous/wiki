@@ -6,6 +6,7 @@ sources:
   - "[[sources/en_redis_client]]"
   - "[[sources/combo_channel]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "method"
 aliases:
@@ -36,6 +37,7 @@ aliases:
 
 ## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/brpc-channel|brpc::Channel]]
 
 ## Mentions in Source
 > **Source: [[sources/en_redis_client|en_redis_client]]**
@@ -53,3 +55,6 @@ aliases:
 
 > **Source: [[sources/en_client|en_client]]**
 > - "NOTE: ParallelChannel is probably more convenient to launch multiple RPCs in parallel."
+
+> **Source: [[sources/client|client]]**
+> - "注意：当你需要发起多个并发操作时，可能[ParallelChannel](combo_channel.md#parallelchannel)更方便。"

@@ -7,6 +7,7 @@ sources:
   - "[[brpc/http_client.md]]"
   - "[[brpc/en_iobuf.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "零拷贝缓冲"
   - "IOBufBuilder"
@@ -18,11 +19,6 @@ aliases:
   - "butil::IOBuf 使用指南"
   - "IOBuf 使用指南"
 ---
-
-## 关键实体
-- [[entities/brpc|brpc]]
-- [[entities/butiliobuf|butil::IOBuf]]
-- [[entities/en-client|en_client]]
 
 ## 关键概念
 - [[concepts/零拷贝缓冲|零拷贝缓冲]]
@@ -40,3 +36,4 @@ aliases:
 - 性能基准：在文件读入→12+1024 字节切割→合并→写出场景下可达 1519.99MB/s 吞吐与 1467171 QPS。
 - 相比 Kylin 的 [[concepts/bufhandle|BufHandle]]，IOBuf 封装了内部结构并自动管理引用计数，使用更安全。
 - 来源文件 [[entities/en-client|en_client]] 未提供与 IOBuf 直接相关的信息。
+- 来源文件 [[entities/client|client]] 未提供与 IOBuf 直接相关的信息。

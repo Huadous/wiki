@@ -6,6 +6,7 @@ sources:
   - "[[brpc/server.md]]"
   - "[[brpc/io.md]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/client.md]]"
 tags:
   - "Streaming RPC"
   - "Stream"
@@ -24,13 +25,6 @@ aliases:
   - "Streaming RPC"
   - "流式RPC"
 ---
-
-## 关键实体
-- [[entities/brpc|brpc]]：Apache 开源的工业级 RPC 框架，Streaming RPC 是其核心交互模型之一。
-- [[entities/brpc::server|brpc::Server]]：brpc 的服务端组件，自动协商并支持 streaming_rpc 协议，可与 http、h2c 等协议共用同一监听端口。
-- [[entities/examplestreaming_echo_c++|examplestreaming_echo_c++]]：brpc 仓库中的示例程序，用于演示 Streaming RPC 的使用方法。
-- [[entities/controller|controller]]：brpc 核心类，在 Streaming RPC 中承担 Stream 的创建、接受与状态管理职责。
-- [[entities/butiliobuf|butiliobuf]]：brpc 底层链式缓冲区，是 Stream 上消息的承载格式。
 
 ## 关键概念
 - [[concepts/streaming-rpc|streaming-rpc]]：本文档的核心主题，用于传输大块或持续数据的交互模型。

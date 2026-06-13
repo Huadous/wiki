@@ -10,6 +10,7 @@ sources:
   - "[[protobuf/proto3.md]]"
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "method"
 aliases:
@@ -36,7 +37,82 @@ aliases:
   - "Packed repeated fields"
   - "packed serialization"
   - "打包序列化"
+  - "features.packed"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated field"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "`packed` migration"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated field"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "features.packed"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated field"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed Fields"
+  - "packed serialization"
+  - "打包序列化"
+  - "Packed repeated fields"
+  - "packed serialization"
+  - "打包序列化"
 ---
+
+## Description
+Packed encoding consolidates the on-the-wire representation of repeated scalar numeric fields into one length-delimited entry, reducing both tag overhead and total byte count. In proto3 and Editions (starting with Edition 2023), repeated fields of scalar numeric types use packed encoding by default, meaning schema authors get the wire-format savings without opt-in syntax. In Editions, `features.packed` serves as a global feature that can change the serialization encoding of repeated fields to packed format; it is cited as the existence proof that wire-format-breaking changes are achievable via features, even if very expensive. The migration strategy established for `features.packed` — modifying parsers to accept both the old and new encodings so that old and new readers are both tolerant, then waiting through a long horizon so old writers and readers naturally fall out of circulation, and finally flipping the default so new code uses the new encoding — is the template now being reused for `features.group_encoding`. Because of this proven pattern, long-horizon wire-format break migrations are characterized as "not insurmountable, merely very expensive." Duplicate `repeated` fields append to the field's API representation, though serializing a packed repeated field produces only one length-delimited value in the tag stream. C++ string accessors still return `const std::string&`, and the broader goal of making all scalar `repeated` fields `packed` was adopted to improve throughput.
 
 ## Related Concepts
 - [[concepts/wire-format|wire format]]
@@ -50,6 +126,8 @@ aliases:
 - [[concepts/feature|Feature]]
 - [[concepts/edition|Edition]]
 - [[concepts/feature-lifecycle|Feature Lifecycle]]
+- [[concepts/group_encoding|group_encoding]]
+- [[concepts/group-encoded-messages-migration|Group-Encoded Messages migration]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -79,3 +157,10 @@ aliases:
 
 > **Source: [[sources/field_presence|field_presence]]**
 > - "Duplicate `repeated` fields are typically appended to the field's API representation. (Note that serializing a _packed_ repeated field produces only one, length-delimited value in the tag stream.)"
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "Changing the serialization encoding of a field (so long as it does not break readers). E.g., `features.packed`, eventually `features.group_encoding`."
+> - "We can do what we did for `packed`."
+> - "`packed` is an existence proof that this is not insurmountable, merely very expensive."
+> - "E.g., `features.packed`, eventually `features.group_encoding`."
+> - "We can do what we did for `packed`."

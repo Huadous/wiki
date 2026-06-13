@@ -6,7 +6,14 @@
 
 ## 实体
 
-- [[entities/brpcdonothing|brpcdonothing]] `aliases: DoNothing(), brpc::DoNothing()` - type: entity
+- [[entities/mbvar|mbvar]] `aliases: 多维度bvar, mbvar (multi-dimensional bvar)` - type: entity
+- [[entities/brpcchanneloptions|brpcchanneloptions]] `aliases: ChannelOptions` - type: entity
+- [[entities/abseil|abseil]] `aliases: Abseil C++ library, absl` - type: entity
+- [[entities/protochangifier|protochangifier]] `aliases: Protochangifier tool, protochangifier` - type: entity
+- [[entities/rustfix|rustfix]] `aliases: rustfix tool, cargo fix` - type: entity
+- [[entities/busy-beavers|busy-beavers]] `aliases: Google Busy Beavers, Busy Beavers` - type: entity
+- [[entities/go-fix|go-fix]] `aliases: go fix tool, Go fix` - type: entity
+- [[entities/brpcdonothing|brpcdonothing]] `aliases: DoNothing(), brpc::DoNothing(), brpc::DoNothing, DoNothing(), brpc::DoNothing()` - type: entity
 - [[entities/nacos|nacos]] `aliases: Alibaba Nacos, NacosNamingService, nacos` - type: entity
 - [[entities/consul|consul]] `aliases: HashiCorp Consul, Consul` - type: entity
 - [[entities/exampleselective_echo_c++|exampleselective_echo_c++]] `aliases: selective_echo_c++ 示例, SelectiveChannel 备份请求示例` - type: entity
@@ -174,6 +181,38 @@
 
 ## 概念
 
+- [[concepts/bvarminer|bvarminer]] `aliases: bvar::Miner<T>, Miner最小值` - type: concept
+- [[concepts/bvarmaxer|bvarmaxer]] `aliases: bvar::Maxer, Maxer最大值, bvar Maxer` - type: concept
+- [[concepts/bvaradder|bvaradder]] `aliases: Adder累加器, bvar::Adder<T>, Adder` - type: concept
+- [[concepts/bvarreducer|bvarreducer]] `aliases: Reducer模板类, bvar::Reducer 模板类` - type: concept
+- [[concepts/bvarvariable|bvarvariable]] `aliases: bvar::Variable 基类, Variable 基类` - type: concept
+- [[concepts/wire-format-migration-pattern|wire-format-migration-pattern]] `aliases: Wire format migration pattern, 线格式迁移模式, readers-first migration` - type: concept
+- [[concepts/ctype|ctype]] `aliases: proto ctype option, STRING_PIECE, ctype` - type: concept
+- [[concepts/edition-proclamation-cadence|edition-proclamation-cadence]] `aliases: 年度版本发布节奏, Edition release schedule, annual edition release` - type: concept
+- [[concepts/editionislaterthan|editionislaterthan]] `aliases: EditionIsBetween, file.EditionIsLaterThan` - type: concept
+- [[concepts/`syntax`-field|`syntax`-field]] `aliases: FileDescriptorProto.syntax, proto syntax declaration, syntax field` - type: concept
+- [[concepts/brpcsocket|brpcsocket]] `aliases: Socket, brpc Socket` - type: concept
+- [[concepts/brpccallid|brpccallid]] `aliases: CallId, RPC调用ID` - type: concept
+- [[concepts/brpcbackuprequestpolicy|brpcbackuprequestpolicy]] `aliases: BackupRequestPolicy接口, 备份请求策略接口` - type: concept
+- [[concepts/long-polling|long-polling]] `aliases: long polling, 长轮询` - type: concept
+- [[concepts/命名服务降级|命名服务降级]] `aliases: Naming Service Degradation, Consul降级, 服务降级` - type: concept
+- [[concepts/correlation_id|correlation_id]] `aliases: correlation id, 调用关联ID, bthread_id` - type: concept
+- [[concepts/集群恢复限流|集群恢复限流]] `aliases: Cluster Recovery Rate Limiting, 集群恢复客户端限流` - type: concept
+- [[concepts/brpcretrypolicy|brpcretrypolicy]] `aliases: RetryPolicy, 重试策略接口` - type: concept
+- [[concepts/la|la]] `aliases: locality-aware, 本地性感知负载均衡, la 负载均衡` - type: concept
+- [[concepts/重试退避|重试退避]] `aliases: Retry Backoff, 重试退避策略` - type: concept
+- [[concepts/always_serialize|always_serialize]] `aliases: Always Serialize, ALWAYS_SERIALIZE` - type: concept
+- [[concepts/abslstring_view-accessors-migration|abslstring_view-accessors-migration]] `aliases: string_view accessors migration, legacy_string migration, absl::string_view Accessors 迁移` - type: concept
+- [[concepts/group-encoded-messages-migration|group-encoded-messages-migration]] `aliases: group encoding migration, Group-Encoded Messages Migration` - type: concept
+- [[concepts/features-proto-cpp-legacy_string|features-proto-cpp-legacy_string]] `aliases: legacy_string feature, features.(proto.cpp)/legacy_string` - type: concept
+- [[concepts/features-group_encoded|features-group_encoded]] `aliases: group encoding feature, group_encoded` - type: concept
+- [[concepts/feature-lifetime|feature-lifetime]] `aliases: transient features, feature lifespan` - type: concept
+- [[concepts/immolation-of-`required`|immolation-of-`required`]] `aliases: required 字段移除方案, LEGACY_REQUIRED 迁移模板, ImmoLation of required, required field label, required 字段移除方案, LEGACY_REQUIRED 迁移模板, ImmoLation of required` - type: concept
+- [[concepts/global-features|global-features]] `aliases: global feature, proto.Features` - type: concept
+- [[concepts/editions-adopter|editions-adopter]] `aliases: Editions 升级工具, editions upgrade tool, Editions upgrader, Editions 升级工具, editions upgrade tool` - type: concept
+- [[concepts/features-gc|features-gc]] `aliases: Feature GC, feature garbage collection, Features GC` - type: concept
+- [[concepts/protochangespec|protochangespec]] `aliases: Proto Change Spec, Protochangifier ProtoChangeSpec` - type: concept
+- [[concepts/edition-proclamation|edition-proclamation]] `aliases: Edition 宣告, Edition announcement, Proclamation` - type: concept
 - [[concepts/负载|负载]] `aliases: Load` - type: concept
 - [[concepts/分散性|分散性]] `aliases: Spread` - type: concept
 - [[concepts/md5|md5]] `aliases: MD5, md5` - type: concept
@@ -185,7 +224,7 @@
 - [[concepts/snappy|snappy]] `aliases: Snappy 压缩算法, Snappy compression, brpc::CompressTypeSnappy` - type: concept
 - [[concepts/log_id|log_id]] `aliases: log_id, log-id, 日志标识符` - type: concept
 - [[concepts/socketmap|socketmap]] `aliases: brpc::SocketMap, global SocketMap, SocketMap` - type: concept
-- [[concepts/semi-synchronous-call|semi-synchronous-call]] `aliases: 半同步调用, Semi-synchronous call` - type: concept
+- [[concepts/semi-synchronous-call|semi-synchronous-call]] `aliases: 半同步调用, Semi-synchronous call, 半同步, 半同步调用, Semi-synchronous call` - type: concept
 - [[concepts/protocol_memcache|protocol_memcache]] `aliases: PROTOCOL_MEMCACHE, memcache, memcached binary protocol` - type: concept
 - [[concepts/protocol_redis|protocol_redis]] `aliases: PROTOCOL_REDIS, brpc Redis 协议, Redis Protocol` - type: concept
 - [[concepts/protocol_nshead|protocol_nshead]] `aliases: nshead, NsheadMessage, PROTOCOL_NSHEAD_CLIENT, PROTOCOL_NSHEAD_MCPACK` - type: concept
@@ -197,19 +236,19 @@
 - [[concepts/random|random]] `aliases: Random load balancer, random load balancing` - type: concept
 - [[concepts/wr|wr]] `aliases: Weighted Random, weighted random load balancer` - type: concept
 - [[concepts/naming-service-filter|naming-service-filter]] `aliases: brpc::NamingServiceFilter, ns_filter, 命名服务过滤器` - type: concept
-- [[concepts/cancel-rpc|cancel-rpc]] `aliases: StartCancel, RPC 取消, Cancel RPC Mechanism` - type: concept
-- [[concepts/synchronous-call|synchronous-call]] `aliases: 同步调用, Sync RPC, Synchronous RPC` - type: concept
+- [[concepts/cancel-rpc|cancel-rpc]] `aliases: StartCancel, RPC 取消, Cancel RPC Mechanism, brpc::StartCancel, StartCancel, RPC 取消, Cancel RPC Mechanism` - type: concept
+- [[concepts/synchronous-call|synchronous-call]] `aliases: 同步调用, Sync RPC, Synchronous RPC, 同步访问, 同步调用, Sync RPC, Synchronous RPC` - type: concept
 - [[concepts/breaking-changes|breaking-changes]] `aliases: Schema Breaking Changes, 破坏性变更` - type: concept
 - [[concepts/bootstrapping|bootstrapping]] `aliases: Compiler Bootstrapping, 自举问题, Bootstrapping` - type: concept
 - [[concepts/epochs-for-`descriptor-proto`|epochs-for-`descriptor-proto`]] `aliases: Epochs for descriptor.proto, Epoch Versioning` - type: concept
-- [[concepts/edition-total-order|edition-total-order]] `aliases: Edition 全序比较, edition_less_than, Edition Total Order` - type: concept
+- [[concepts/edition-total-order|edition-total-order]] `aliases: Edition 全序比较, edition_less_than, Edition Total Order, Total Ordering of Editions, Edition 全序比较, edition_less_than, Edition Total Order` - type: concept
 - [[concepts/poison-pill|poison-pill]] `aliases: Poison Pill, 毒丸机制` - type: concept
 - [[concepts/filedescriptorproto|filedescriptorproto]] `aliases: FileDescriptorProto 消息类型, FileDescriptorProto message` - type: concept
 - [[concepts/java-annotations|java-annotations]] `aliases: Java Annotation, Java 注解` - type: concept
 - [[concepts/fieldoptions|fieldoptions]] `aliases: FieldDescriptorOptions, FieldOptions message type` - type: concept
 - [[concepts/optiontargettype|optiontargettype]] `aliases: OptionTargetType, TargetType 枚举` - type: concept
 - [[concepts/options-attributes|options-attributes]] `aliases: Options Attributes, Options 属性设计, target and retention attributes` - type: concept
-- [[concepts/asynchronous-rpc|asynchronous-rpc]] `aliases: 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC` - type: concept
+- [[concepts/asynchronous-rpc|asynchronous-rpc]] `aliases: 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC, 异步访问, 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC` - type: concept
 - [[concepts/backup_request_ms|backup_request_ms]] `aliases: backup_request_ms, ChannelOptions.backup_request_ms` - type: concept
 - [[concepts/channeloptions|channeloptions]] `aliases: ChannelOptions, brpc ChannelOptions, Channel 选项` - type: concept
 - [[concepts/reference-counting|reference-counting]] `aliases: 引用计数, Reference Counting, Ref-counting` - type: concept
@@ -323,7 +362,7 @@
 - [[concepts/hazzer-methods|hazzer-methods]] `aliases: hazzers, has_foo 方法, Hazzer 方法` - type: concept
 - [[concepts/namingserviceactions|namingserviceactions]] `aliases: NamingServiceActions, brpc NamingServiceActions` - type: concept
 - [[concepts/periodicnamingservice|periodicnamingservice]] `aliases: PeriodicNamingService, 周期性命名服务基类` - type: concept
-- [[concepts/explicit-presence-discipline|explicit-presence-discipline]] `aliases: 显式存在性模式, Explicit Presence, 显式存在性` - type: concept
+- [[concepts/explicit-presence-discipline|explicit-presence-discipline]] `aliases: 显式存在性模式, Explicit Presence, 显式存在性, EXPLICIT_PRESENCE, 显式存在性模式, Explicit Presence, 显式存在性` - type: concept
 - [[concepts/no-presence-discipline|no-presence-discipline]] `aliases: No presence discipline, 无存在性模式, implicit presence` - type: concept
 - [[concepts/变长连续栈|变长连续栈]] `aliases: contiguous stacks, 变长栈, growable contiguous stack` - type: concept
 - [[concepts/bthread_attr_large|bthread_attr_large]] `aliases: BTHREAD_ATTR_LARGE 栈属性, bthread 大栈属性` - type: concept
@@ -356,10 +395,10 @@
 - [[concepts/alpn|alpn]] `aliases: Application-Layer Protocol Negotiation, 应用层协议协商, ALPN 协议` - type: concept
 - [[concepts/nshead_service|nshead_service]] `aliases: NsheadService, nshead_service 机制, 实现 NsheadService` - type: concept
 - [[concepts/serverssloptions|serverssloptions]] `aliases: ServerSSLOptions, brpc Server SSL Options, SSL options` - type: concept
-- [[concepts/协议支持|协议支持]] `aliases: 多协议支持, protocol support` - type: concept
+- [[concepts/协议支持|协议支持]] `aliases: 多协议支持, protocol support, 协议, 多协议支持, protocol support` - type: concept
 - [[concepts/brpcserveroptions|brpcserveroptions]] `aliases: ServerOptions, brpc ServerOptions, brpc::ServerOptions` - type: concept
 - [[concepts/proguard-obfuscation-rules|proguard-obfuscation-rules]] `aliases: ProGuard 混淆规则, ProGuard Rules, proguard-rules.pro 配置` - type: concept
-- [[concepts/身份验证|身份验证]] `aliases: Authenticator, Authentication, brpc 身份验证` - type: concept
+- [[concepts/身份验证|身份验证]] `aliases: Authenticator, Authentication, brpc 身份验证, 客户端认证, Authenticator, Authentication, brpc 身份验证` - type: concept
 - [[concepts/最大并发控制|最大并发控制]] `aliases: Max Concurrency Control, max_concurrency, 最大并发度控制` - type: concept
 - [[concepts/reflection-based-serialization|reflection-based-serialization]] `aliases: 反射式序列化, Reflection-based Serialization, Reflection-based algorithms, 反射式序列化, Reflection-based Serialization` - type: concept
 - [[concepts/lite_runtime-optimization-option|lite_runtime-optimization-option]] `aliases: LITE_RUNTIME, optimize_for = LITE_RUNTIME, Protobuf LITE_RUNTIME 编译选项, Code size optimization, LITE_RUNTIME, optimize_for = LITE_RUNTIME, Protobuf LITE_RUNTIME 编译选项` - type: concept
@@ -401,7 +440,7 @@
 - [[concepts/连接池|连接池]] `aliases: 连接池模式, pooled connections, 连接池, connection pooling, 连接池模式, pooled connections, 连接池, 连接池模式 (pooled mode), 连接池模式, pooled connections, 连接池, connection pooling, 连接池模式, pooled connections, 连接池` - type: concept
 - [[concepts/连接方式|连接方式]] `aliases: 连接模式, Connection Mode, 连接策略, Connection Type, 连接模式, Connection Mode, 连接策略` - type: concept
 - [[concepts/轮询模式|轮询模式]] `aliases: polling mode, 轮询工作模式` - type: concept
-- [[concepts/负载均衡算法（Load Balancer）|负载均衡算法（Load Balancer）]] `aliases: 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB, LoadBalancer, 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB` - type: concept
+- [[concepts/负载均衡算法（Load Balancer）|负载均衡算法（Load Balancer）]] `aliases: 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB, LoadBalancer, 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB, brpc::LoadBalancer, 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB, LoadBalancer, 负载均衡策略, Load Balancer, LB, 负载均衡, 负载均衡策略, Load Balancer, LB` - type: concept
 - [[concepts/空闲超时|空闲超时]] `aliases: Idle Timeout, 空闲超时机制, idle_timeout_sec, Idle Timeout, 空闲超时机制, Idle Connection Timeout, Idle Timeout, 空闲超时机制, idle_timeout_sec, Idle Timeout, 空闲超时机制` - type: concept
 - [[concepts/短窗口|短窗口]] `aliases: short window, 短熔断窗口` - type: concept
 - [[concepts/短字符串优化-sso|短字符串优化-sso]] `aliases: SSO, Short String Optimization, 短串优化(SSO), SSO, Short String Optimization` - type: concept
@@ -498,7 +537,7 @@
 - [[concepts/pthread模式|pthread模式]] `aliases: usercode_in_pthread, Pthread模式, pthread mode, usercode_in_pthread, Pthread模式, pthread Mode, usercode_in_pthread, Pthread模式, pthread mode, usercode_in_pthread, Pthread模式` - type: concept
 - [[concepts/protoc-backends|protoc-backends]] `aliases: protoc 后端, 代码生成后端, codegen backends, Codegen Backend, protoc 后端, 代码生成后端, codegen backends` - type: concept
 - [[concepts/protobufs|protobufs]] `aliases: Protobuf结构查看, Protobuf结构体查看服务` - type: concept
-- [[concepts/protobuf-breaking-changes-policy|protobuf-breaking-changes-policy]] `aliases: Breaking Changes policy, Protobuf 破坏性变更策略, Breaking Changes Policy, Breaking Changes policy, Protobuf 破坏性变更策略` - type: concept
+- [[concepts/protobuf-breaking-changes-policy|protobuf-breaking-changes-policy]] `aliases: Breaking Changes policy, Protobuf 破坏性变更策略, Breaking Changes Policy, Breaking Changes policy, Protobuf 破坏性变更策略, Breaking changes policy, Breaking Changes policy, Protobuf 破坏性变更策略, Breaking Changes Policy, Breaking Changes policy, Protobuf 破坏性变更策略` - type: concept
 - [[concepts/protobuf-arena|protobuf-arena]] `aliases: Arena分配, Protobuf Arena内存管理` - type: concept
 - [[concepts/proto3|proto3]] `aliases: Protocol Buffers version 3, protobuf 3, proto3 语法` - type: concept
 - [[concepts/proto2|proto2]] `aliases: proto2, Protocol Buffers version 2, Protobuf 2` - type: concept
@@ -514,16 +553,16 @@
 - [[concepts/parse-callback|parse-callback]] `aliases: 解析回调, Parse回调` - type: concept
 - [[concepts/parallelchannel|parallelchannel]] `aliases: 并行 Channel, 组合 Channel, Parallel Channel, PartitionChannel, 并行 Channel, 组合 Channel, Parallel Channel` - type: concept
 - [[concepts/parallel-message-processing|parallel-message-processing]] `aliases: 并行消息处理, Parallel request processing` - type: concept
-- [[concepts/packed-encoding|packed-encoding]] `aliases: packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed repeated field, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化` - type: concept
+- [[concepts/packed-encoding|packed-encoding]] `aliases: packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed repeated field, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, features.packed, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed repeated field, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, `packed` migration, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed repeated field, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, features.packed, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed repeated field, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化, Packed Fields, packed serialization, 打包序列化, Packed repeated fields, packed serialization, 打包序列化` - type: concept
 - [[concepts/package|package]] `aliases: 包命名, Package naming` - type: concept
-- [[concepts/oss-strategy|oss-strategy]] `aliases: Protobuf OSS Strategy, 开源策略` - type: concept
+- [[concepts/oss-strategy|oss-strategy]] `aliases: Protobuf OSS Strategy, 开源策略, The OSS Story, Protobuf OSS Strategy, 开源策略` - type: concept
 - [[concepts/open-enum|open-enum]] `aliases: open enum, 开放式枚举` - type: concept
 - [[concepts/oneof-type|oneof-type]] `aliases: oneof, 联合类型, Oneof Names, oneof, 联合类型, Oneof, oneof, 联合类型, Oneof Names, oneof, 联合类型` - type: concept
 - [[concepts/on-时间复杂度|on-时间复杂度]] `aliases: 线性时间复杂度, O(N) 解析` - type: concept
 - [[concepts/non-varint-numeric-types-fixed-size|non-varint-numeric-types-fixed-size]] `aliases: I64/I32 wire types, Fixed-width numeric types` - type: concept
 - [[concepts/nginx-final-fail|nginx-final-fail]] `aliases: Nginx最终失败, Nginx upstream fail, nginx final fail` - type: concept
 - [[concepts/multiple-ports|multiple-ports]] `aliases: 多端口监听, 多端口服务, Multiple Ports Architecture` - type: concept
-- [[concepts/naming-service|naming-service]] `aliases: 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现` - type: concept
+- [[concepts/naming-service|naming-service]] `aliases: 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, brpc::NamingService, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, 命名服务 (naming service), 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, NamingService（命名服务）, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现, DNS, 命名服务, 服务发现, 命名服务 (Naming Service), 命名服务, 服务发现` - type: concept
 - [[concepts/multi-tenancy|multi-tenancy]] `aliases: multi-tenant, 多租户` - type: concept
 - [[concepts/minloglevel|minloglevel]] `aliases: -minloglevel, 最小日志级别, Logging Control, -minloglevel, 最小日志级别` - type: concept
 - [[concepts/mpsc-list|mpsc-list]] `aliases: 多生产者单消费者链表, MPSC list, Multi-Producer Single-Consumer List` - type: concept
@@ -534,7 +573,7 @@
 - [[concepts/max_body_size|max_body_size]] `aliases: 最大消息体大小, 消息大小限制, max_body_size, gflags, 最大消息体大小, 消息大小限制, max_body_size, 限制最大消息, 最大消息体大小, 消息大小限制, max_body_size, gflags, 最大消息体大小, 消息大小限制, max_body_size` - type: concept
 - [[concepts/maxsge|maxsge]] `aliases: Maximum Scatter-Gather Entries, 最大SGE数量` - type: concept
 - [[concepts/map-type|map-type]] `aliases: Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Map fields, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Maps, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Map fields, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Map Field, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Map fields, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Maps, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, Map fields, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field, map, Map type, 键值对类型, map field, Map, Map type, 键值对类型, map field` - type: concept
-- [[concepts/lsc|lsc]] `aliases: Large-Scale Change, 大规模变更` - type: concept
+- [[concepts/lsc|lsc]] `aliases: Large-Scale Change, 大规模变更, Large-scale Change, Large-Scale Change, 大规模变更` - type: concept
 - [[concepts/lower_snake_case|lower_snake_case]] `aliases: 蛇形命名法, 小写加下划线` - type: concept
 - [[concepts/long-tail|long-tail]] `aliases: long tail latency, 尾部延迟, 长尾效应, 长尾时延` - type: concept
 - [[concepts/lock-free|lock-free]] `aliases: 无锁, Lock-Free算法` - type: concept
@@ -599,7 +638,7 @@
 - [[concepts/empty-requestresponse-pattern|empty-requestresponse-pattern]] `aliases: 空请求/空响应模式, HTTP service with empty messages, proto file HTTP service declaration` - type: concept
 - [[concepts/elogoff|elogoff]] `aliases: brpc::ELOGOFF, 服务关闭错误码, 优雅关闭信号` - type: concept
 - [[concepts/ema|ema]] `aliases: 指数移动平均, Exponential Moving Average` - type: concept
-- [[concepts/edition|edition]] `aliases: language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, What are Protobuf Editions?, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本` - type: concept
+- [[concepts/edition|edition]] `aliases: language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, What are Protobuf Editions?, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, What are Protobuf Editions?, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本` - type: concept
 - [[concepts/edition-2024|edition-2024]] `aliases: 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024, edition 2024, 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024` - type: concept
 - [[concepts/edition-2023|edition-2023]] `aliases: proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, edition 2023, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本` - type: concept
 - [[concepts/edge-triggered-mode|edge-triggered-mode]] `aliases: 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered 模式, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode` - type: concept
@@ -622,7 +661,7 @@
 - [[concepts/codedinputstream|codedinputstream]] `aliases: CodedInputStream 类, 编码输入流` - type: concept
 - [[concepts/code-generation|code-generation]] `aliases: 代码生成, generated code, Protobuf code generation, 代码生成, generated code` - type: concept
 - [[concepts/closureguard|closureguard]] `aliases: ClosureGuard RAII 包装, 闭包保护器, 同步服务, ClosureGuard RAII 包装, 闭包保护器, RAII, ClosureGuard RAII 包装, 闭包保护器, 同步服务, ClosureGuard RAII 包装, 闭包保护器` - type: concept
-- [[concepts/closure|closure]] `aliases: google::protobuf::Closure, 回调闭包, done (protobuf Closure), google::protobuf::Closure, 回调闭包` - type: concept
+- [[concepts/closure|closure]] `aliases: google::protobuf::Closure, 回调闭包, done (protobuf Closure), google::protobuf::Closure, 回调闭包, protobuf::Closure, google::protobuf::Closure, 回调闭包, done (protobuf Closure), google::protobuf::Closure, 回调闭包` - type: concept
 - [[concepts/closed-enum|closed-enum]] `aliases: closed enum, 封闭枚举` - type: concept
 - [[concepts/channelownership|channelownership]] `aliases: 所有权枚举, Channel Ownership` - type: concept
 - [[concepts/callmapper|callmapper]] `aliases: CallMapper接口, 调用映射器` - type: concept
@@ -652,6 +691,9 @@
 
 ## 来源
 
+- [[sources/bvar_c++|bvar_c++]] `aliases: bvar 使用文档（单维度）, bvar Documentation (Single-Dimension), bvar 单维度使用文档`
+- [[sources/client|client]] `aliases: brpc Client 文档, brpc::Channel 使用指南`
+- [[sources/editions-life-of-an-edition|editions-life-of-an-edition]] `aliases: Life of an Edition, editions-life-of-an-edition`
 - [[sources/consistent_hashing|consistent_hashing]] `aliases: brpc 一致性哈希, Consistent Hashing in brpc`
 - [[sources/en_client|en_client]] `aliases: brpc Client 文档, brpc client-side documentation`
 - [[sources/editions-minimum-required-edition|editions-minimum-required-edition]] `aliases: 最低必需版本机制, Minimum Required Edition 提案`
