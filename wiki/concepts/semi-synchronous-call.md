@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[sources/en_client]]"
   - "[[brpc/client.md]]"
+  - "[[brpc/bthread_or_not.md]]"
 tags:
   - "method"
 aliases:
@@ -15,17 +16,16 @@ aliases:
   - "Semi-synchronous call"
 ---
 
-## Description
-Semi-synchronous call 是 brpc 中通过 `brpc::Join(cntl.call_id())` 实现"等待多个异步访问完成"的访问模式，常配合 `brpc::DoNothing()`（一个什么都不做的 done）使用。在该模式下，调用方先以异步方式并发发起多个 RPC 请求，再在调用点阻塞等待，直到全部 RPC 完成并执行各自的 `done->Run()` 后才继续执行。由于调用处的代码会等到所有 RPC 都结束后再醒来，`controller` 和 `response` 都可以安全地放在栈上，而无需堆分配或额外的生命周期管理。
-
-`brpc::DoNothing()` 返回的 closure 由 brpc 负责管理其生命周期，调用方无需手动释放；同时该 `doNothing` 不会删除 `controller`，因此即便在 RPC 完成后访问 `controller.call_id()` 也是安全的。`Join()` 还具有若干额外行为：如果对应的 RPC 已经结束，则 `Join()` 会立即返回；多个线程可以同时 `Join()` 同一个 id；同步 RPC 也可以在另一个线程中被 `Join()`。这一组合特别适合在同一线程内并发发起多个 RPC 并等待其全部完成的场景，例如 fan-out 式请求分发后统一汇聚响应结果的批量处理流程。
-
 ## Related Concepts
 - [[concepts/asynchronous-call|Asynchronous call]]
 - [[concepts/synchronous-call|Synchronous call]]
 - [[concepts/brpc-join|brpc::Join]]
 - [[concepts/异步访问|异步访问]]
 - [[concepts/同步访问|同步访问]]
+- [[concepts/bthread|bthread]]
+- [[concepts/parallel-channel|ParallelChannel]]
+- [[concepts/异步接口|异步接口]]
+- [[concepts/同步接口|同步接口]]
 
 ## Related Entities
 - [[entities/channel|Channel]]
@@ -33,6 +33,7 @@ Semi-synchronous call 是 brpc 中通过 `brpc::Join(cntl.call_id())` 实现"等
 - [[entities/brpcdonothing|brpc::DoNothing]]
 - [[entities/brpcchannel|brpc::Channel]]
 - [[entities/brpccontroller|brpc::Controller]]
+- [[entities/brpc|brpc]]
 
 ## Mentions in Source
 
@@ -45,3 +46,8 @@ Semi-synchronous call 是 brpc 中通过 `brpc::Join(cntl.call_id())` 实现"等
 > - "Join可用来实现"半同步"访问：即等待多个异步访问完成。"
 > - "brpc::DoNothing()可获得一个什么都不干的done，专门用于半同步访问。"
 > - "brpc::Join(cntl1.call_id())"
+
+> **Source: [[sources/bthread_or_not|bthread_or_not]]**
+> - "有了bthread这个工具，用户甚至可以自己实现异步。以"半同步"为例，在brpc中用户有多种选择："
+> - "发起多个异步RPC后挨个Join，这个函数会阻塞直到RPC结束。"
+> - "哪种效率更高呢？显然是前者。后者不仅要付出创建bthread的代价，在RPC过程中bthread还被阻塞着，不能用于其他用途。"

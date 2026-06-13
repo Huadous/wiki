@@ -10,6 +10,7 @@ sources:
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-legacy-syntax-editions.md]]"
 tags:
   - "document"
 aliases:
@@ -52,3 +53,7 @@ aliases:
 - 该工具会为文件添加适当的 edition 声明（如 `edition = "2023";`）和 `option features.* = ...;` 选项,使其保留原始行为。
 - [[concepts/edition-zero|Edition Zero]] 的迁移涉及同时处理 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 这两种旧语法。
 - 从 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 迁移到 [[concepts/protobuf-editions|Editions]] 属于大规模变更（[[concepts/large-scale-change|Large-scale Change]]）,且这一变更可以完全自动化,无需破坏性改动。
+- 在 [[concepts/protobuf-editions|Editions]] 设计早期阶段,曾讨论过将 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 作为"特殊 edition"的方案,但该方案的具体形态和必要性当时并未确定。
+- 提案建议将 [[concepts/proto3|proto3]] 视为 [[concepts/legacy-syntax-editions|Legacy Syntax Editions]] 中的特殊 edition,具体取值为 `EDITION_PROTO3 = 999`。
+- 在 [[concepts/proto3|proto3]] 中,`optional` 关键字会将对应的 [[concepts/features-field-presence|field_presence]] feature 设置为 `EXPLICIT`,即设置显式存在性。
+- [[concepts/proto3|proto3]] 的语法元素（如 `optional` 关键字设置的 `EXPLICIT` presence）与 [[concepts/protobuf-editions|Editions]] 的 [[concepts/feature-inference|feature inference]] 之间存在映射关系,需要通过专门的 [[concepts/feature-inference|feature inference]] 逻辑来正确推断出对应的 feature 行为。

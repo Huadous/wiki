@@ -10,6 +10,7 @@ sources:
   - "[[sources/proto3]]"
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
 tags:
   - "term"
 aliases:
@@ -409,28 +410,34 @@ aliases:
 - [[concepts/closed-enum|Closed Enum]]
 - [[concepts/message-type|Message Type]]
 - [[concepts/field-number|Field Number]]
+- [[concepts/editions-zero-features|Editions Zero Features]]
+- [[concepts/java-legacy-closed-enum|java.legacy_closed_enum]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/prototiller|Prototiller]]
 
 ## Mentions in Source
-> **Source: [[editions]]**
+
+> **Source: editions**
 > - "Enum type 支持别名（`allow_alias`）特性，可在不同语义映射到相同数值时复用定义。"
 > - "在 Protocol Buffers Editions（2023 及以后）中，enum 类型行为由 `features.enum_type` 特性控制：CLOSED 模式将超出定义范围的枚举值存储在未知字段集中；OPEN 模式则将超出范围的值直接解析到字段中。"
 > - "该特性适用于 file 和 enum 范围层级。需要注意的是，该特性对 proto3 文件没有影响，proto3 对未知枚举值的处理保持自身语义不变。"
 > - "使用 Prototiller 等迁移工具时，可通过显式设置 `features.enum_type = CLOSED` 保留 proto2 的闭枚举行为。"
 > - "在 editions 版本中，推荐使用 `enum` 默认关闭 `allow_alias` 特性。"
+> - "You can also specify enumerations and composite types like other message types for your field."
+> - "While multiple message types (such as message, enum, and service) can be defined in a single .proto file, it can also lead to dependency bloat when large numbers of messages with varying dependencies are defined in a single file."
+> - "No directly relevant information"
 
-> **Source: [[proto3]]**
+> **Source: proto3**
 > - "You can also specify enumerations and composite types like other message types for your field."
 
-> **Source: [[features]]**
+> **Source: features**
 > - "This feature sets the behavior for how enum values that aren't contained within the defined set are handled."
 > - "CLOSED: Closed enums store enum values that are out of range in the unknown field set. OPEN: Open enums parse out of range values into their fields directly."
 > - "No directly relevant information"
 
-> **Source: [[editions]]**
-> - "You can also specify enumerations and composite types like other message types for your field."
-> - "While multiple message types (such as message, enum, and service) can be defined in a single .proto file, it can also lead to dependency bloat when large numbers of messages with varying dependencies are defined in a single file."
+> **Source: editions-java-lite-for-editions**
+> - "`features.enum_type` — This is not needed in Editions Zero since enum closedness in Java Lite's runtime is dictated per-field by `java.legacy_closed_enum`."
+> - "Note, this is implicitly encoded in `kLegacyEnumIsClosedBit` if `java.legacy_closed_enum` is unset."
 > - "No directly relevant information"

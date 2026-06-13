@@ -11,6 +11,7 @@ sources:
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
 tags:
   - "term"
 aliases:
@@ -271,6 +272,13 @@ aliases:
   - "Proto编辑器版本"
 ---
 
+## Description
+Editions 是 Protocol Buffers 提出的一种面向未来的演进机制，灵感直接来源于 [[entities/rust|Rust]] 的 edition 体系——通过按年份编号（如 2023、2024）的发布单元来推进语言/编译器版本的"平行棘轮"式升级。每一个 edition 形式化地等价于一组 [[concepts/features|features]] 的默认值集合，因此 editions 仅修改 features 的默认值，而不会引入新的运行时行为；proto2 与 proto3 本身也因此被理解为这种 feature 集合的两组预设配置。
+
+Editions 的核心目的在于让 [[entities/protocol-buffers|Protocol Buffers]] 能够在不破坏现有生态的前提下安全演化：通过保证同一主版本内解析器向后兼容，允许新版本以更细粒度的 features 灵活引入或废弃特定特性；这种"约每年一次、按需扩张"的设计也是 [[concepts/life-of-an-edition|Life of an Edition]] 文档中所阐述的关键原则。同时，[[concepts/minimum-required-edition|Minimum Required Edition]] 等机制为不同特性设定了最低版本门槛，确保旧实现可以安全拒绝超出能力的描述符。
+
+在工程落地上，[[concepts/edition-proclamation|Edition Proclamation]]、[[concepts/edition-defaults|Edition Defaults]]、[[concepts/edition-total-order|Edition Total Order]]、[[concepts/poison-pill|Poison Pill]] 等概念共同支撑了 editions 的声明周期与互操作性。Editions 体系还要求格式改动必须保持向后兼容——以 Java Lite 为例，其当前实现大量依赖编码中的 `is_proto3` 位，这被识别为对 editions 不友好，因此需要以 [[concepts/edition-zero|Edition Zero]] 为基线，在不破坏现有解析器的前提下用对应 features 替换 `is_proto3` 分支，逐步将 [[concepts/proto2|proto2]]、[[concepts/proto3|proto3]] 时代的硬编码判断迁移到统一的 features 模型之中。
+
 ## Related Concepts
 - [[concepts/life-of-an-edition|Life of an Edition]]
 - [[concepts/edition-proclamation|Edition Proclamation]]
@@ -290,6 +298,9 @@ aliases:
 - [[concepts/enforce-naming-style|features.enforce_naming_style]]
 - [[concepts/enum-type|features.enum_type]]
 - [[concepts/custom-options|Custom Options]]
+- [[concepts/Editions-Zero-Features|Editions Zero Features]]
+- [[concepts/ProtoSyntax|ProtoSyntax]]
+- [[concepts/message-encoding|features.message_encoding]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -298,6 +309,7 @@ aliases:
 - [[entities/carbon|Carbon]]
 - [[entities/rust|rust]]
 - [[entities/prototiller|Prototiller]]
+- [[entities/java-lite|Java Lite]]
 
 ## Mentions in Source
 > **来源: editions**
@@ -342,3 +354,7 @@ aliases:
 
 > **来源: editions-life-of-an-edition**
 > - "No directly relevant information"
+
+> **来源: [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]]**
+> - "The current implementation makes significant use of an `is_proto3` bit in the encoding, which is problematic for editions."
+> - "Note that any parser changes to the format would also need to maintain backwards compatibility, due to our guarantees for parsers to remain backwards compatible within a major version."

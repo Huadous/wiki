@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-legacy-syntax-editions.md]]"
 tags:
   - "standard"
 aliases:
@@ -27,6 +28,9 @@ aliases:
 - [[concepts/edition-2023|edition-2023]]
 - [[concepts/edition-zero|Edition Zero]]
 - [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/legacy-syntax-editions|Legacy Syntax Editions]]
+- [[concepts/feature-inference|Feature Inference]]
+- [[concepts/edition-proto2|EDITION_PROTO2]]
 - [[concepts/field-cardinality|field-cardinality]]
 - [[concepts/forward-compatibility|forward-compatibility]]
 - [[concepts/backward-compatibility|backward-compatibility]]
@@ -55,6 +59,7 @@ aliases:
 - [[entities/prototiller|prototiller]]
 - [[entities/c++|C++]]
 - [[entities/protobuf-team|Protobuf team]]
+- [[entities/mkruskal-google|mkruskal-google]]
 
 ## Mentions in Source
 
@@ -84,3 +89,8 @@ aliases:
 > - "Tooling that can take a `proto2` or `proto3` file and add `edition = "2023";` and `option features.* = ...;` as appropriate, so that each file retains its original behavior."
 > - "Running `protoc --upgrade-edition -I... file.proto` figure out how to update `file.proto` from `proto2` or `proto3` to the latest edition, adding features as necessary."
 > - "We also need to track down and upgrade (by hand) any code that is using the value of `syntax`."
+
+> **Source: [[sources/editions-legacy-syntax-editions|editions-legacy-syntax-editions]]**
+> - "Since early in the design process, we've discussed the possibility of making proto2 and proto3 "special" editions"
+> - "While the original plan was to keep editions and syntax orthogonal, that naively means we'd be supporting two very different codebases."
+> - "If the file is proto2/proto3, failure should result in a fallback to the existing hardcoded defaults."

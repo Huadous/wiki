@@ -7,6 +7,7 @@ sources:
   - "[[sources/combo_channel]]"
   - "[[brpc/en_client.md]]"
   - "[[brpc/client.md]]"
+  - "[[brpc/bthread_or_not.md]]"
 tags:
   - "method"
 aliases:
@@ -33,6 +34,9 @@ aliases:
 - [[concepts/dynamicpartitionchannel|DynamicPartitionChannel]]
 - [[concepts/brpc-join|brpc::Join]]
 - [[concepts/异步调用|异步调用]]
+- [[concepts/异步接口|异步接口]]
+- [[concepts/组合访问|组合访问]]
+- [[concepts/半同步|半同步]]
 - [[concepts/channel|Channel]]
 
 ## Related Entities
@@ -58,3 +62,8 @@ aliases:
 
 > **Source: [[sources/client|client]]**
 > - "注意：当你需要发起多个并发操作时，可能[ParallelChannel](combo_channel.md#parallelchannel)更方便。"
+
+> **Source: [[sources/bthread_or_not|bthread_or_not]]**
+> - "启动多个bthread各自执行同步RPC后挨个join bthreads。"
+> - "这儿是为了和bthread对比，实现中我们建议你使用ParallelChannel，而不是自己Join"
+> - "如果仅仅是为了并发RPC，别用bthread。"

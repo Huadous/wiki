@@ -6,6 +6,13 @@
 
 ## 实体
 
+- [[entities/distributed-process|distributed-process]] `aliases: Distributed Process, DP, 百度分布式处理项目` - type: entity
+- [[entities/ubaserver|ubaserver]] `aliases: ubaserver, uba server, ub a server` - type: entity
+- [[entities/zhangskz|zhangskz]] `aliases: @zhangskz, zhangskz` - type: entity
+- [[entities/prometheus|prometheus]] `aliases: Prometheus` - type: entity
+- [[entities/noah|noah]] `aliases: 百度noah, noah 监控系统, Baidu noah` - type: entity
+- [[entities/ubmonitor|ubmonitor]] `aliases: 百度UbMonitor, UbMonitor计数器库` - type: entity
+- [[entities/mkruskal-google|mkruskal-google]] `aliases: Mike Kruskal, mkruskal-google` - type: entity
 - [[entities/mbvar|mbvar]] `aliases: 多维度bvar, mbvar (multi-dimensional bvar)` - type: entity
 - [[entities/brpcchanneloptions|brpcchanneloptions]] `aliases: ChannelOptions` - type: entity
 - [[entities/abseil|abseil]] `aliases: Abseil C++ library, absl` - type: entity
@@ -48,7 +55,7 @@
 - [[entities/rdma_performance|rdma_performance]] `aliases: RDMA性能测试示例, rdma_performance example, brpc RDMA performance example` - type: entity
 - [[entities/android|android]] `aliases: Android platform, Android 平台` - type: entity
 - [[entities/maven|maven]] `aliases: Apache Maven, Maven 构建工具` - type: entity
-- [[entities/protobuf-java-lite-runtime|protobuf-java-lite-runtime]] `aliases: Java Lite Runtime, protobuf-javalite, Protobuf Java Lite` - type: entity
+- [[entities/protobuf-java-lite-runtime|protobuf-java-lite-runtime]] `aliases: Java Lite Runtime, protobuf-javalite, Protobuf Java Lite, Java Lite, Java Lite Runtime, protobuf-javalite, Protobuf Java Lite` - type: entity
 - [[entities/r8|r8]] `aliases: R8 Shrinker, Android R8, R8 混淆器` - type: entity
 - [[entities/defaultrpcpbmessagefactory|defaultrpcpbmessagefactory]] `aliases: Default RpcPBMessageFactory, 默认 RpcPBMessageFactory` - type: entity
 - [[entities/google-gnostic|google-gnostic]] `aliases: Gnostic, google/gnostic, Google Gnostic 工具链` - type: entity
@@ -181,6 +188,68 @@
 
 ## 概念
 
+- [[concepts/上下文切换|上下文切换]] `aliases: context switch, context switching` - type: concept
+- [[concepts/cache-locality|cache-locality]] `aliases: cache locality, 缓存局部性, 缓存亲和性` - type: concept
+- [[concepts/numa|numa]] `aliases: Non-Uniform Memory Access, 非一致性内存访问` - type: concept
+- [[concepts/lwp|lwp]] `aliases: Light-weight process, LWP` - type: concept
+- [[concepts/nptl|nptl]] `aliases: Native POSIX Thread Library, NPTL 线程库` - type: concept
+- [[concepts/fiber|fiber]] `aliases: 合作式线程, DP fiber, Distributed Process fiber` - type: concept
+- [[concepts/event-loop|event-loop]] `aliases: eventloop, 事件循环` - type: concept
+- [[concepts/pthread-worker|pthread-worker]] `aliases: worker线程, pthread worker` - type: concept
+- [[concepts/butex|butex]] `aliases: butex, bthread butex` - type: concept
+- [[concepts/mn-threading|mn-threading]] `aliases: M:N线程模型, M:N threading model` - type: concept
+- [[concepts/coroutine|coroutine]] `aliases: 协程, coroutine` - type: concept
+- [[concepts/调度延时|调度延时]] `aliases: scheduling latency, bthread 调度延时` - type: concept
+- [[concepts/树形并行计算|树形并行计算]] `aliases: tree-structured parallel computation, 树形并行` - type: concept
+- [[concepts/线程池|线程池]] `aliases: thread pool, ThreadPool` - type: concept
+- [[concepts/qps-latency决策公式|qps-latency决策公式]] `aliases: qps * latency vs cpu cores, qps-latency 同步异步决策公式` - type: concept
+- [[concepts/并行计算|并行计算]] `aliases: parallel computation, 并行处理` - type: concept
+- [[concepts/executionqueue|executionqueue]] `aliases: ExecutionQueue, bthread ExecutionQueue, 执行队列` - type: concept
+- [[concepts/getexperimentaljavafieldtype|getexperimentaljavafieldtype]] `aliases: GetExperimentalJavaFieldType 方法, Java Lite 字段类型编码方法` - type: concept
+- [[concepts/descriptormessageinfofactory-convert|descriptormessageinfofactory-convert]] `aliases: DescriptorMessageInfoFactory.convert, Java Lite Descriptor -> MessageInfo 转换方法, convertProto2/3 统一点` - type: concept
+- [[concepts/manifestschemafactory-newschema|manifestschemafactory-newschema]] `aliases: ManifestSchemaFactory.newSchema(), newSchema()` - type: concept
+- [[concepts/回调|回调]] `aliases: callback, 回调函数` - type: concept
+- [[concepts/is_proto3-bit|is_proto3-bit]] `aliases: is_proto3 bit, is_proto3 标志位` - type: concept
+- [[concepts/kismessageencodingdelimitedbit|kismessageencodingdelimitedbit]] `aliases: kIsMessageEncodingDelimitedBit, 0x1100` - type: concept
+- [[concepts/is_edition-bit|is_edition-bit]] `aliases: is_edition 标志位, is_edition flag` - type: concept
+- [[concepts/kmapwithproto2enumvalue|kmapwithproto2enumvalue]] `aliases: 0x800, kMapWithProto2EnumValue flag` - type: concept
+- [[concepts/delimited-message-encoding|delimited-message-encoding]] `aliases: DELIMITED encoding, DELIMITED 消息编码` - type: concept
+- [[concepts/group-encoding|group-encoding]] `aliases: Group wire encoding, FieldType.GROUP, Protobuf group encoding` - type: concept
+- [[concepts/khashasbit|khashasbit]] `aliases: kHasHasBit (0x1000), 0x1000, Has Has Bit` - type: concept
+- [[concepts/features-string_field_validation|features-string_field_validation]] `aliases: string_field_validation, kUtf8CheckBit, isEnforceUtf8` - type: concept
+- [[concepts/java-legacy_closed_enum|java-legacy_closed_enum]] `aliases: legacy_closed_enum, java legacy closed enum, kLegacyEnumIsClosedBit` - type: concept
+- [[concepts/minidescriptor|minidescriptor]] `aliases: MiniDescriptor 编码规范, MiniDescriptor encoding specification` - type: concept
+- [[concepts/protosyntax|protosyntax]] `aliases: ProtoSyntax 枚举, ProtoSyntax enum` - type: concept
+- [[concepts/messageschema|messageschema]] `aliases: MessageSchema 结构, Java Lite MessageSchema` - type: concept
+- [[concepts/rawmessageinfo|rawmessageinfo]] `aliases: RawMessageInfo, RawMessageInfo descriptor, MessageInfo, RawMessageInfo, RawMessageInfo descriptor` - type: concept
+- [[concepts/brpc_metrics|brpc_metrics]] `aliases: brpc Prometheus端点, brpc_metrics端点, /brpc_metrics` - type: concept
+- [[concepts/thread-local存储|thread-local存储]] `aliases: Thread Local Storage, TLS, thread local存储` - type: concept
+- [[concepts/cache-bouncing|cache-bouncing]] `aliases: cache bouncing, 缓存乒乓` - type: concept
+- [[concepts/cacheline|cacheline]] `aliases: 缓存行, Cache Line` - type: concept
+- [[concepts/serialized-descriptors|serialized-descriptors]] `aliases: Serialized Descriptor Sets, 序列化描述符集` - type: concept
+- [[concepts/feature-resolution|feature-resolution]] `aliases: feature resolution, 功能解析` - type: concept
+- [[concepts/feature-inference|feature-inference]] `aliases: Feature Inference, 特性推断, 特征推断` - type: concept
+- [[concepts/bvarwindowexadapter|bvarwindowexadapter]] `aliases: WindowExAdapter, adapter::WindowExAdapter` - type: concept
+- [[concepts/合并运算符要求|合并运算符要求]] `aliases: Reducer运算符要求, combine operator requirements, 结合律交换律无副作用` - type: concept
+- [[concepts/expose_as|expose_as]] `aliases: bvar::expose_as, expose_as曝光` - type: concept
+- [[concepts/bvar线程安全|bvar线程安全]] `aliases: bvar thread safety, bvar线程兼容` - type: concept
+- [[concepts/衍生变量|衍生变量]] `aliases: derived variable, bvar衍生变量` - type: concept
+- [[concepts/bvar命名规范|bvar命名规范]] `aliases: bvar变量命名规范, bvar naming convention` - type: concept
+- [[concepts/bvar名字归一化|bvar名字归一化]] `aliases: 名字归一化, bvar name normalization` - type: concept
+- [[concepts/dumpoptions|dumpoptions]] `aliases: bvar::DumpOptions, Variable::DumpOptions` - type: concept
+- [[concepts/butiltimer|butiltimer]] `aliases: butil计时器, butil::Timer 类` - type: concept
+- [[concepts/bvarstat|bvarstat]] `aliases: bvar::Stat, Stat` - type: concept
+- [[concepts/dumper|dumper]] `aliases: bvar::Dumper, Dumper 基类, bvar Dumper` - type: concept
+- [[concepts/bvar导出|bvar导出]] `aliases: bvar dump, Export all variables, bvar_dump, dump功能, bvar dump, Export all variables, bvar_dump` - type: concept
+- [[concepts/expose|expose]] `aliases: 曝光, bvar曝光, expose()` - type: concept
+- [[concepts/bvarpassivestatus|bvarpassivestatus]] `aliases: PassiveStatus, PassiveStatus按需显示, bvar::PassiveStatus` - type: concept
+- [[concepts/bvargflag|bvargflag]] `aliases: GFlag集成, GFlag Exporter` - type: concept
+- [[concepts/bvarstatus|bvarstatus]] `aliases: bvar::Status<T>, bvar Status, Status值显示` - type: concept
+- [[concepts/bvarpersecond|bvarpersecond]] `aliases: PerSecond, PerSecond每秒速率, bvar::PerSecond<VAR>` - type: concept
+- [[concepts/bvarpersecondex|bvarpersecondex]] `aliases: PerSecondEx, bvar::PerSecondEx<T>, PerSecondEx独立每秒速率` - type: concept
+- [[concepts/bvarwindowex|bvarwindowex]] `aliases: WindowEx, bvar::WindowEx<T>, WindowEx独立窗口` - type: concept
+- [[concepts/bvarintrecorder|bvarintrecorder]] `aliases: IntRecorder, bvar IntRecorder` - type: concept
+- [[concepts/bvarwindow|bvarwindow]] `aliases: Window时间窗口, bvar::Window<VAR>` - type: concept
 - [[concepts/bvarminer|bvarminer]] `aliases: bvar::Miner<T>, Miner最小值` - type: concept
 - [[concepts/bvarmaxer|bvarmaxer]] `aliases: bvar::Maxer, Maxer最大值, bvar Maxer` - type: concept
 - [[concepts/bvaradder|bvaradder]] `aliases: Adder累加器, bvar::Adder<T>, Adder` - type: concept
@@ -237,7 +306,7 @@
 - [[concepts/wr|wr]] `aliases: Weighted Random, weighted random load balancer` - type: concept
 - [[concepts/naming-service-filter|naming-service-filter]] `aliases: brpc::NamingServiceFilter, ns_filter, 命名服务过滤器` - type: concept
 - [[concepts/cancel-rpc|cancel-rpc]] `aliases: StartCancel, RPC 取消, Cancel RPC Mechanism, brpc::StartCancel, StartCancel, RPC 取消, Cancel RPC Mechanism` - type: concept
-- [[concepts/synchronous-call|synchronous-call]] `aliases: 同步调用, Sync RPC, Synchronous RPC, 同步访问, 同步调用, Sync RPC, Synchronous RPC` - type: concept
+- [[concepts/synchronous-call|synchronous-call]] `aliases: 同步调用, Sync RPC, Synchronous RPC, 同步访问, 同步调用, Sync RPC, Synchronous RPC, 同步接口, 同步调用, Sync RPC, Synchronous RPC, 同步访问, 同步调用, Sync RPC, Synchronous RPC` - type: concept
 - [[concepts/breaking-changes|breaking-changes]] `aliases: Schema Breaking Changes, 破坏性变更` - type: concept
 - [[concepts/bootstrapping|bootstrapping]] `aliases: Compiler Bootstrapping, 自举问题, Bootstrapping` - type: concept
 - [[concepts/epochs-for-`descriptor-proto`|epochs-for-`descriptor-proto`]] `aliases: Epochs for descriptor.proto, Epoch Versioning` - type: concept
@@ -248,12 +317,12 @@
 - [[concepts/fieldoptions|fieldoptions]] `aliases: FieldDescriptorOptions, FieldOptions message type` - type: concept
 - [[concepts/optiontargettype|optiontargettype]] `aliases: OptionTargetType, TargetType 枚举` - type: concept
 - [[concepts/options-attributes|options-attributes]] `aliases: Options Attributes, Options 属性设计, target and retention attributes` - type: concept
-- [[concepts/asynchronous-rpc|asynchronous-rpc]] `aliases: 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC, 异步访问, 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC` - type: concept
+- [[concepts/asynchronous-rpc|asynchronous-rpc]] `aliases: 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC, 异步访问, 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC, 异步接口, 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC, 异步访问, 异步 RPC, Asynchronous RPC, Asynchronous call, 异步 RPC, Asynchronous RPC` - type: concept
 - [[concepts/backup_request_ms|backup_request_ms]] `aliases: backup_request_ms, ChannelOptions.backup_request_ms` - type: concept
 - [[concepts/channeloptions|channeloptions]] `aliases: ChannelOptions, brpc ChannelOptions, Channel 选项` - type: concept
 - [[concepts/reference-counting|reference-counting]] `aliases: 引用计数, Reference Counting, Ref-counting` - type: concept
 - [[concepts/fieldpresence|fieldpresence]] `aliases: 字段存在性, FieldPresence` - type: concept
-- [[concepts/repeatedfieldencoding|repeatedfieldencoding]] `aliases: 重复字段编码, RepeatedFieldEncoding` - type: concept
+- [[concepts/repeatedfieldencoding|repeatedfieldencoding]] `aliases: 重复字段编码, RepeatedFieldEncoding, features.repeated_field_encoding, 重复字段编码, RepeatedFieldEncoding` - type: concept
 - [[concepts/inheritfrom|inheritfrom]] `aliases: InheritFrom 函数, InheritFrom` - type: concept
 - [[concepts/edition-defaults|edition-defaults]] `aliases: EditionDefault, 版本默认值算法` - type: concept
 - [[concepts/retention|retention]] `aliases: Retention, FeatureRetention` - type: concept
@@ -300,10 +369,10 @@
 - [[concepts/editions-feature-visibility|editions-feature-visibility]] `aliases: Editions 特性可见性, Editions Feature Visibility` - type: concept
 - [[concepts/edition-zero-converged-semantics|edition-zero-converged-semantics]] `aliases: Edition Zero 收敛语义, Edition Zero: Converged Semantics` - type: concept
 - [[concepts/protobuf-editions-for-schema-producers|protobuf-editions-for-schema-producers]] `aliases: Protobuf Editions for Schema Producers, 针对 Schema 生产者的 Protobuf Editions, Editions Producer Guide, Schema Producer, Protobuf Editions for Schema Producers, 针对 Schema 生产者的 Protobuf Editions, Editions Producer Guide` - type: concept
-- [[concepts/edition-zero-features|edition-zero-features]] `aliases: Edition Zero 特性集, Edition 0 Features, Edition 0 特性` - type: concept
+- [[concepts/edition-zero-features|edition-zero-features]] `aliases: Edition Zero 特性集, Edition 0 Features, Edition 0 特性, Editions Zero Features, Edition Zero 特性集, Edition 0 Features, Edition 0 特性` - type: concept
 - [[concepts/minimum-required-edition|minimum-required-edition]] `aliases: MRE, 最低必需 Edition` - type: concept
 - [[concepts/edition-lifetimes|edition-lifetimes]] `aliases: Edition 寿命, Edition Lifetimes Document` - type: concept
-- [[concepts/editions-life-of-a-featureset|editions-life-of-a-featureset]] `aliases: Editions: Life of a Featureset, 特性集生命周期, Life of a Featureset` - type: concept
+- [[concepts/editions-life-of-a-featureset|editions-life-of-a-featureset]] `aliases: Editions: Life of a Featureset, 特性集生命周期, Life of a Featureset, FeatureSet, Editions: Life of a Featureset, 特性集生命周期, Life of a Featureset` - type: concept
 - [[concepts/life-of-an-edition|life-of-an-edition]] `aliases: Edition 生命周期, Life of an Edition` - type: concept
 - [[concepts/http-body|http-body]] `aliases: HTTP 请求体, HTTP 响应体, request body, response body` - type: concept
 - [[concepts/contextual-keywords|contextual-keywords]] `aliases: 上下文关键字, contextual reserved words` - type: concept
@@ -566,7 +635,7 @@
 - [[concepts/multi-tenancy|multi-tenancy]] `aliases: multi-tenant, 多租户` - type: concept
 - [[concepts/minloglevel|minloglevel]] `aliases: -minloglevel, 最小日志级别, Logging Control, -minloglevel, 最小日志级别` - type: concept
 - [[concepts/mpsc-list|mpsc-list]] `aliases: 多生产者单消费者链表, MPSC list, Multi-Producer Single-Consumer List` - type: concept
-- [[concepts/message_encoding-feature|message_encoding-feature]] `aliases: 消息编码特性, delimited representation, message_encoding 特性, MessageEncoding, 消息编码特性, delimited representation, message_encoding 特性` - type: concept
+- [[concepts/message_encoding-feature|message_encoding-feature]] `aliases: 消息编码特性, delimited representation, message_encoding 特性, MessageEncoding, 消息编码特性, delimited representation, message_encoding 特性, features.message_encoding, 消息编码特性, delimited representation, message_encoding 特性, MessageEncoding, 消息编码特性, delimited representation, message_encoding 特性` - type: concept
 - [[concepts/message-type|message-type]] `aliases: Message type, 消息类型, 复合数据类型, message, Message type, 消息类型, 复合数据类型` - type: concept
 - [[concepts/message-names|message-names]] `aliases: Message Naming, 消息命名规范, Message naming, Message Naming, 消息命名规范` - type: concept
 - [[concepts/max_error_cost-最大出错时长|max_error_cost-最大出错时长]] `aliases: 最大出错成本, 最大错误成本阈值` - type: concept
@@ -657,7 +726,7 @@
 - [[concepts/connectiongroup|connectiongroup]] `aliases: 连接组` - type: concept
 - [[concepts/compression|compression]] `aliases: 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression (in brpc), 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, 压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression (in brpc), 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression (in brpc), 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, 压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression (in brpc), 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip compression, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, Gzip压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法, gzip响应体压缩, 响应压缩, Response Compression, 压缩算法, gzip compression, 响应压缩, Response Compression, 压缩算法` - type: concept
 - [[concepts/composite-type|composite-type]] `aliases: 复合类型, message-type field` - type: concept
-- [[concepts/combo-channel|combo-channel]] `aliases: 组合通道, combo channels, 组合Channel, 组合通道, combo channels, DynamicPartitionChannel, 组合通道, combo channels, 组合Channel, 组合通道, combo channels` - type: concept
+- [[concepts/combo-channel|combo-channel]] `aliases: 组合通道, combo channels, 组合Channel, 组合通道, combo channels, DynamicPartitionChannel, 组合通道, combo channels, 组合Channel, 组合通道, combo channels, 组合访问, 组合通道, combo channels, 组合Channel, 组合通道, combo channels, DynamicPartitionChannel, 组合通道, combo channels, 组合Channel, 组合通道, combo channels` - type: concept
 - [[concepts/codedinputstream|codedinputstream]] `aliases: CodedInputStream 类, 编码输入流` - type: concept
 - [[concepts/code-generation|code-generation]] `aliases: 代码生成, generated code, Protobuf code generation, 代码生成, generated code` - type: concept
 - [[concepts/closureguard|closureguard]] `aliases: ClosureGuard RAII 包装, 闭包保护器, 同步服务, ClosureGuard RAII 包装, 闭包保护器, RAII, ClosureGuard RAII 包装, 闭包保护器, 同步服务, ClosureGuard RAII 包装, 闭包保护器` - type: concept
@@ -691,6 +760,11 @@
 
 ## 来源
 
+- [[sources/bthread|bthread]] `aliases: bthread — brpc的M:N线程库, brpc bthread 文档`
+- [[sources/bthread_or_not|bthread_or_not]] `aliases: bthread or not, Should I use async interface or bthread?`
+- [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]] `aliases: Java Lite Editions 提案, protobuf-javalite editions migration`
+- [[sources/bvar|bvar]] `aliases: bvar介绍, What is bvar`
+- [[sources/editions-legacy-syntax-editions|editions-legacy-syntax-editions]] `aliases: Legacy Syntax Editions Proposal, 遗留语法 Editions 提案`
 - [[sources/bvar_c++|bvar_c++]] `aliases: bvar 使用文档（单维度）, bvar Documentation (Single-Dimension), bvar 单维度使用文档`
 - [[sources/client|client]] `aliases: brpc Client 文档, brpc::Channel 使用指南`
 - [[sources/editions-life-of-an-edition|editions-life-of-an-edition]] `aliases: Life of an Edition, editions-life-of-an-edition`

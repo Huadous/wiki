@@ -30,13 +30,6 @@ aliases:
   - "max_body_size"
 ---
 
-## Description
-gflags 是 brpc 生态中用于配置全局行为的基础设施。在 brpc 的 server 与 client 端，许多底层行为通过 gflags 进行调节，包括请求/响应体大小上限（`-max_body_size`）、空闲连接关闭日志（`-log_idle_connection_close`）、向系统释放空闲内存的间隔（`-free_memory_to_system_interval`），以及命名服务访问间隔（`-ns_access_interval`）等。brpc 充分利用 gflags 替代 protobuf 自带的消息尺寸限制，只要 `-max_body_size` 设置得足够大，消息就不会被拒收。
-
-在日志系统方面，brpc 使用 `--verbose` 和 `--verbose_module` 两个 gflag 来控制分层详细日志 VLOG 的输出级别（注意与 glog 的 `--v`/`--vmodule` 区别），且这两个参数可以通过 `google::SetCommandLineOption` 在运行时动态修改。构建层面，brpc 将 gflags 2.1-2.2.2 列为推荐版本，cmake 需指定特定选项以改变其默认不构建共享库的行为。
-
-在 bvar 体系中，gflags 同样关键：可通过 `-bvar_dump` 在启动时开启后台导出线程，也可通过 `-bvar_dump_file` 与 `-bvar_dump_include` 等参数控制导出行为；不想依赖命令行解析的用户可在 `main` 函数中通过 `google::ParseCommandLineFlags` 启用，或利用 `bvar::GFlag` 类将关键 gflag 公开为同名的 bvar 以便统一监控。文档特别警告：不要直接对 `FLAGS_bvar_dump_file` 等 `std::string` 类型的 gflag 赋值，因为该操作既非线程安全，也不会触发 validator 回调来启动后台导出线程。
-
 ## Related Concepts
 - [[concepts/baidu_std|baidu_std]]
 - [[concepts/ELIMIT|ELIMIT]]

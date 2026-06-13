@@ -12,6 +12,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
 tags:
   - "term"
 aliases:
@@ -93,3 +94,7 @@ aliases:
 > **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
 > - "We can use features to move fields off of `features.field_presence = LEGACY_REQUIRED` (the edition's spelling of `required`) and onto `features.field_presence = EXPLICIT_PRESENCE`."
 > - "It is always safe to turn a proto from `LEGACY_REQUIRED` to `ALWAYS_SERIALIZE`, because `required` is a constraint on initialization checking, i.e., that the value was present."
+
+> **Source: [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]]**
+> - "Fortunately, we already have corresponding bits for most Editions Zero Features in the corresponding `MessageInfo` field entry encoding."
+> - "`kHasHasBit (0x1000)` — Keep as-is."

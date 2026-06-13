@@ -14,9 +14,6 @@ aliases:
   - "prototiller"
 ---
 
-## Description
-Prototiller 是 Protocol Buffers 项目中尚未发布的命令行工具，用于在 proto 语法版本与 editions 之间更新 proto schema 配置文件，充当 proto2/proto3 向 editions 体系迁移的迁移器。在 Legacy Syntax Editions 提案中，Prototiller 面临的核心挑战在于：对于已知的特性可以硬编码默认值到转换规则中，但第三方特性所有者将无法表达 proto2/proto3 的旧行为，导致默认转换无法覆盖。该提案通过将 proto2/proto3 设为特殊 edition 来为 Prototiller 提供更丰富的迁移信息，从而解决从 syntax 到 edition 2023 等目标版本的转换支持问题。Prototiller 对 edition 的升级被归类为非破坏性变更，其迁移过程中会涉及 features.field_presence（如 LEGACY_REQUIRED）、features.enum_type（如 CLOSED）等特性设置的转换。
-
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]] — Prototiller 是 Protocol Buffers 生态系统中的工具
 - [[entities/protoc|protoc]] — 同为 Protocol Buffers 工具链中的命令行工具

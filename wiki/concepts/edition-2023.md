@@ -17,6 +17,7 @@ sources:
   - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-legacy-syntax-editions.md]]"
 tags:
   - "standard"
 aliases:
@@ -72,6 +73,8 @@ aliases:
 - [[concepts/large-scale-change|Large-scale Change]]
 - [[concepts/edition-proclamation|Edition Proclamation]]
 - [[concepts/immolation-of-required|Immolation of `required`]]
+- [[concepts/legacy-syntax-editions|Legacy Syntax Editions]]
+- [[concepts/featureset|FeatureSet]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -84,6 +87,7 @@ aliases:
 - [[entities/protobuf-team|protobuf team]]
 - [[entities/kfm|@kfm]]
 - [[entities/mcy|@mcy]]
+- [[entities/mkruskal-google|@mkruskal-google]]
 
 ## Mentions in Source
 
@@ -134,17 +138,22 @@ aliases:
 > - "An edition is formally a set of \"features\" with a default value per feature."
 > - "No directly relevant information"
 
-> **Source: [[sources/editions-protobuf-design-options-attributes|editions-protobuf-design-options-attributes]]**
+> **Source: editions-protobuf-design-options-attributes**
 > - "The [Protobuf Editions](what-are-protobuf-editions.md) project plans to use [custom options](protobuf-editions-design-features.md) to model features and encourage language bindings to build custom features off options as well."
 > - "While the proximal motivation for these options is for use with \"features\" in \"editions\", I believe they provide sufficient general utility that adding them directly to `FieldDescriptorOptions` is warranted."
 > - "No directly relevant information"
 
-> **Source: [[sources/editions-minimum-required-edition|editions-minimum-required-edition]]**
+> **Source: editions-minimum-required-edition**
 > - "[Protobuf Editions](what-are-protobuf-editions.md) intends to add the concept of an edition to Protobuf, which will be an approximately-annually incrementing value."
 > - "we can use them as a poison pill for old runtimes that try to load descriptors that are \"too new.\""
 > - "No directly relevant information"
 
-> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> **Source: editions-life-of-an-edition**
 > - "How to use Protobuf Editions to construct a large-scale change that modifies the semantics of Protobuf in some way."
 > - "This document describes how to use the Protobuf Editions mechanism (both editions, themselves, and features) for designing migrations and large-scale changes intended to solve a particular kind of defect in the language."
+> - "No directly relevant information"
+
+> **Source: editions-legacy-syntax-editions**
+> - "[Edition Zero Features](edition-zero-features.md) lays out our plan for edition 2023, which will unify proto2 and proto3."
+> - "A separate issue is how Prototiller will support the conversion of syntax to edition 2023."
 > - "No directly relevant information"

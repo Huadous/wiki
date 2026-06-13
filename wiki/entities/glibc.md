@@ -1,31 +1,35 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
-tags: [product]
+  - "[[]]"
+  - "[[brpc/bthread.md]]"
+tags:
+  - "product"
 aliases:
   - "GNU C Library"
   - "GNU glibc"
 ---
 
-
-# glibc
-
-## 基本信息
-- **类型**: product
-- **相关来源**: [[sources/en_getting_started|en_getting_started]]
-
-## 描述
-glibc（GNU C Library）是GNU项目发布的C标准库实现，是Linux系统上最核心的运行时组件之一。brpc项目明确支持glibc 2.12至2.25版本范围，并声明在此区间内无已知兼容性问题。glibc为brpc提供了底层系统调用封装与完整的标准C函数接口，是brpc编译与运行的基础依赖之一。它与[[entities/gcc|GCC]]编译器紧密配合，共同构成了brpc跨平台运行的关键底层支撑。
-
-## 相关实体
+## Related Entities
 - [[entities/gcc|GCC]] — 与glibc共同构成brpc编译运行的基础工具链
 - [[entities/brpc|brpc]] — 依赖glibc提供底层系统调用与C运行时支持
 - [[entities/cmake|CMake]] — brpc构建系统中涉及glibc版本检测的构建工具
+- [[entities/bthread|bthread]] — bthread在设计时需考虑glibc阻塞函数带来的兼容性与死锁问题
 
-## 相关概念
-无
+## Related Concepts
+- [[concepts/pthread|pthread]] — bthread非目标讨论中涉及的POSIX线程模型，与bthread的混用可能导致死锁
+- [[concepts/fiber|fiber]] — 与bthread同属协程/纤程类概念，bthread文档中作为对比概念出现
+- [[concepts/bthread|bthread]] — 与glibc阻塞函数兼容性问题直接相关的协程/线程库概念
 
-## 来源提及
-- "glibc: 2.12-2.25 no known issues." — [[sources/en_getting_started|en_getting_started]]
+## Mentions in Source
+
+> **Source: [[sources/en_getting_started|en_getting_started]]**
+> - "glibc: 2.12-2.25 no known issues."
+
+> **Source: [[sources/bthread|bthread]]**
+> - "覆盖各类可能阻塞的glibc函数和系统调用，让原本阻塞系统线程的函数改为阻塞bthread。"
+> - "bthread阻塞可能切换系统线程，依赖系统TLS的函数的行为未定义。"
+> - "和阻塞pthread的函数混用时可能死锁。"
+> - "这类hook函数本身的效率一般更差，因为往往还需要额外的系统调用，如epoll。"

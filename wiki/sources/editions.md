@@ -4,6 +4,7 @@ created: 2026-06-13
 updated: 2026-06-13
 sources:
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
 tags:
   - "edition"
   - "field number"
@@ -25,12 +26,12 @@ aliases:
   - "protobuf editions 文档"
 ---
 
-## 来源
-- Original file: [[protobuf/editions.md]]
-- Ingested: 2026-06-13
-
 ## 补充来源
 - Original file: editions-protobuf-editions-design-features
+- Ingested: 2026-06-13
+- 补充说明：未提供与本页直接相关的新信息
+
+- Original file: editions-java-lite-for-editions
 - Ingested: 2026-06-13
 - 补充说明：未提供与本页直接相关的新信息
 

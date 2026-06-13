@@ -5,9 +5,18 @@ updated: 2026-06-13
 sources:
   - "[[sources/style]]"
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
 tags:
   - "term"
 aliases:
+  - "消息编码特性"
+  - "delimited representation"
+  - "message_encoding 特性"
+  - "MessageEncoding"
+  - "消息编码特性"
+  - "delimited representation"
+  - "message_encoding 特性"
+  - "features.message_encoding"
   - "消息编码特性"
   - "delimited representation"
   - "message_encoding 特性"
@@ -22,10 +31,16 @@ message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息
 
 在实际使用层面，message_encoding 特性被广泛用于替代已废弃的 groups 语法。通过将该特性设置为 `delimited`，可以在保持有线格式兼容的前提下，使用嵌套消息定义和字段类型来替代 groups，实现从旧语法（proto2/proto3）到 edition 2023 的平滑迁移。开发者只需在字段上声明 `message_encoding = DELIMITED`，而无需修改消息的内部结构，从而逐步替换遗留的 groups 定义而无需一次性修改所有依赖的代码和数据。在需要时，该特性也可以与其他特性（如 `LEGACY_REQUIRED`）结合使用，以处理更复杂的迁移场景。
 
+在 Java Lite 的运行时实现层面，message_encoding 特性带来了额外的工程挑战。根据 editions-java-lite-for-editions 提案，Java Lite 当前的 `MessageInfo` 编码中并未直接表示该特性，提案给出了两条实现路径：方案一是编译器层将 `features.message_encoding = DELIMITED` 的消息字段类型在编码 `MessageInfo` *之前*改写为 `GROUP`（17），运行时沿用既有的 group 处理逻辑解析，嵌套消息的 `MessageInfo` 保持不变；方案二（Alternative）则是在字段条目中新增 `kIsMessageEncodingDelimitedBit`（0x1100），消息仍以 `MESSAGE` 编码，但运行时在 `MessageSchema` 的 `case Message` 分支根据该位按 group 行为解析。提案推荐方案一，以最小化编码与运行时层面的改动。
+
 ## Related Concepts
 - [[concepts/groups|groups]]
 - [[concepts/Field presence feature (LEGACY_REQUIRED)|Field presence feature (LEGACY_REQUIRED)]]
 - [[concepts/required fields|required fields]]
+- [[concepts/group-encoding|Group encoding]]
+- [[concepts/delimited-message-encoding|DELIMITED message encoding]]
+- [[concepts/kIsMessageEncodingDelimitedBit|kIsMessageEncodingDelimitedBit]]
+- [[concepts/editions-zero-features|Editions Zero Features]]
 
 ## Related Entities
 - [[entities/Protocol Buffers|Protocol Buffers]]
@@ -47,3 +62,7 @@ message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息
         edition: \"2023\", default: \"LENGTH_PREFIXED\"
       }
   ];"
+
+> **Source: [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]]**
+> - "features.message_encoding — Not present. Encode as type group. See below."
+> - "In the compiler, message fields with features.message_encoding = DELIMITED should be treated as a group *before* encoding message info."

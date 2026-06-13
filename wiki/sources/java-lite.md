@@ -2,12 +2,18 @@
 type: source
 created: 2026-06-13
 updated: 2026-06-13
-source_file: "[[protobuf/java-lite.md]]"
-tags: [LITE_RUNTIME optimization option, ABI stability, Reflection-based serialization, ProGuard obfuscation rules, Code size optimization]
-aliases: ["Protobuf Java Lite 使用指南", "Java Lite Runtime Documentation"]
+sources:
+  - "[[protobuf/editions-java-lite-for-editions.md]]"
+tags:
+  - "LITE_RUNTIME optimization option"
+  - "ABI stability"
+  - "Reflection-based serialization"
+  - "ProGuard obfuscation rules"
+  - "Code size optimization"
+aliases:
+  - "Protobuf Java Lite 使用指南"
+  - "Java Lite Runtime Documentation"
 ---
-
-# Protocol Buffers - Google's data interchange format - Summary
 
 ## 来源
 - Original file: [[protobuf/java-lite.md]]
@@ -40,3 +46,7 @@ aliases: ["Protobuf Java Lite 使用指南", "Java Lite Runtime Documentation"]
 - 解决 R8 兼容问题需要在 `proguard-rules.pro` 中添加 `-keep class * extends com.google.protobuf.GeneratedMessageLite { *; }`
 - 相关问题在 protobuf GitHub #6463 与 R8 issue tracker (144631039) 中跟踪
 - 旧版本（v3.0.0）的 Java Lite 文档位于 GitHub javalite 分支的 `java/lite.md`
+
+## 补充来源
+- Original file: editions-java-lite-for-editions
+- 补充说明：No directly relevant information

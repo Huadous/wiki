@@ -917,3 +917,51 @@
 
 **更新页面**：[[edition-2023]], [[@mcy]], [[protoc]], [[edition]], [[protobuf-team]], [[carbon]], [[features]], [[lsc]], [[edition-2024]], [[language-scoped-features]], [[features-field_presence]], [[required-field]], [[proto2]], [[proto3]], [[edition-zero-features]], [[edition-naming]], [[protobuf-breaking-changes-policy]], [[descriptor]], [[filedescriptorproto]]
 
+
+
+## [2026-06-13] ingest | bvar 使用文档（单维度）
+
+**创建页面**：[[sources/bvar_c++.md]], [[entities/bvar.md]], [[entities/mbvar.md]], [[entities/brpc.md]], [[concepts/bvarvariable.md]], [[concepts/bvarreducer.md]], [[concepts/bvaradder.md]], [[concepts/bvarmaxer.md]], [[concepts/bvarminer.md]], [[concepts/bvarwindow.md]], [[concepts/bvarintrecorder.md]], [[concepts/latencyrecorder.md]], [[concepts/bvarwindowex.md]], [[concepts/bvarpersecondex.md]], [[concepts/bvarpersecond.md]], [[concepts/bvarstatus.md]], [[concepts/bvargflag.md]], [[concepts/bvarpassivestatus.md]], [[concepts/expose.md]], [[concepts/bvar导出.md]], [[concepts/dumper.md]], [[concepts/bvarstat.md]], [[concepts/butiltimer.md]], [[concepts/dumpoptions.md]], [[concepts/bvar名字归一化.md]], [[concepts/bvar命名规范.md]], [[concepts/衍生变量.md]], [[concepts/bvar线程安全.md]], [[concepts/expose_as.md]], [[concepts/合并运算符要求.md]], [[concepts/bvarwindowexadapter.md]]
+
+**更新页面**：[[bvar]], [[brpc]], [[max_body_size]], [[latencyrecorder]]
+
+
+
+## [2026-06-13] ingest | Legacy Syntax Editions
+
+**创建页面**：[[sources/editions-legacy-syntax-editions.md]], [[entities/prototiller.md]], [[entities/mkruskal-google.md]], [[concepts/legacy-syntax-editions.md]], [[concepts/proto3.md]], [[concepts/proto2.md]], [[concepts/edition-2023.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/feature-inference.md]], [[concepts/bootstrapping.md]], [[concepts/feature-resolution.md]], [[concepts/serialized-descriptors.md]]
+
+**更新页面**：[[prototiller]], [[descriptor-proto]], [[legacy-syntax-editions]], [[proto2]], [[proto3]], [[edition-2023]], [[bootstrapping]]
+
+
+
+## [2026-06-13] ingest | 什么是bvar？
+
+**创建页面**：[[sources/bvar.md]], [[entities/ubmonitor.md]], [[entities/bvar.md]], [[entities/brpc.md]], [[entities/noah.md]], [[entities/prometheus.md]], [[entities/brpc.md]], [[concepts/cacheline.md]], [[entities/iobuf.md]], [[concepts/cache-bouncing.md]], [[concepts/thread-local存储.md]], [[concepts/vars.md]], [[concepts/atomic-instructions.md]], [[concepts/bvar导出.md]], [[concepts/brpc_metrics.md]]
+
+**更新页面**：[[bvar]], [[brpc]], [[bthread]], [[iobuf]], [[mbvar]], [[atomic-instructions]], [[vars]]
+
+
+
+## [2026-06-13] ingest | Java Lite For Editions
+
+**创建页面**：[[sources/editions-java-lite-for-editions.md]], [[entities/zhangskz.md]], [[entities/protobuf-java-lite-runtime.md]], [[concepts/edition.md]], [[concepts/rawmessageinfo.md]], [[concepts/messageschema.md]], [[concepts/edition-zero-features.md]], [[concepts/protosyntax.md]], [[concepts/minidescriptor.md]], [[concepts/rawmessageinfo.md]], [[concepts/features-field_presence.md]], [[concepts/java-legacy_closed_enum.md]], [[concepts/message_encoding-feature.md]], [[concepts/features-string_field_validation.md]], [[concepts/repeatedfieldencoding.md]], [[concepts/enum-type.md]], [[concepts/khashasbit.md]], [[concepts/group-encoding.md]], [[concepts/delimited-message-encoding.md]], [[concepts/features-string_field_validation.md]], [[concepts/java-legacy_closed_enum.md]], [[concepts/kmapwithproto2enumvalue.md]], [[concepts/is_edition-bit.md]], [[concepts/kismessageencodingdelimitedbit.md]], [[concepts/is_proto3-bit.md]], [[concepts/manifestschemafactory-newschema.md]], [[concepts/descriptormessageinfofactory-convert.md]], [[concepts/getexperimentaljavafieldtype.md]]
+
+**更新页面**：[[java-lite]], [[editions]], [[features-field_presence]], [[enum-type]]
+
+
+
+## [2026-06-13] ingest | 我应该用异步接口还是bthread？
+
+**创建页面**：[[sources/bthread_or_not.md]], [[concepts/bthread.md]], [[entities/ubaserver.md]], [[entities/brpc.md]], [[concepts/回调.md]], [[concepts/asynchronous-rpc.md]], [[concepts/synchronous-call.md]], [[concepts/parallelchannel.md]], [[concepts/executionqueue.md]], [[concepts/combo-channel.md]], [[concepts/semi-synchronous-call.md]], [[concepts/并行计算.md]], [[concepts/qps-latency决策公式.md]], [[concepts/线程池.md]], [[concepts/树形并行计算.md]], [[concepts/调度延时.md]]
+
+**更新页面**：[[brpc]], [[bthread]], [[parallelchannel]], [[semi-synchronous-call]]
+
+
+
+## [2026-06-13] ingest | bthread — brpc的M:N线程库
+
+**创建页面**：[[sources/bthread.md]], [[entities/distributed-process.md]], [[entities/brpc.md]], [[entities/baidu.md]], [[entities/ubaserver.md]], [[entities/tcmalloc.md]], [[entities/glibc.md]], [[concepts/coroutine.md]], [[concepts/mn-threading.md]], [[concepts/work-stealing.md]], [[concepts/butex.md]], [[concepts/pthread-worker.md]], [[concepts/executionqueue.md]], [[concepts/event-loop.md]], [[concepts/fiber.md]], [[concepts/nptl.md]], [[concepts/lwp.md]], [[concepts/numa.md]], [[concepts/rpc.md]], [[concepts/cache-locality.md]], [[concepts/channel.md]], [[concepts/上下文切换.md]], [[concepts/bthread.md]]
+
+**更新页面**：[[bthread]], [[brpc]], [[ubaserver]], [[baidu]], [[tcmalloc]], [[glibc]], [[work-stealing]], [[executionqueue]], [[rpc]], [[channel]]
+
