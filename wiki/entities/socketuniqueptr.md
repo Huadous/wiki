@@ -1,9 +1,10 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_io]]"
+  - "[[brpc/io.md]]"
 tags:
   - "other"
 aliases:
@@ -11,17 +12,26 @@ aliases:
   - "套接字唯一指针"
 ---
 
+## Related Entities
+- [[entities/controller|Controller]]
+- [[entities/socket|Socket]]
+- [[entities/eventdispatcher|EventDispatcher]]
+
 ## Related Concepts
-- [[concepts/wait-free|Wait-Free]]（需要创建）
-- [[concepts/lock-free|Lock-Free]]（需要创建）
-- [[concepts/bthread|Bthread]]（需要创建）
-- [[concepts/health-checking|Health Checking]]（需要创建）
-- [[concepts/non-blocking-io|Non-blocking IO]]（需要创建）
-- [[concepts/strong-reference|强引用]]（需要创建）
-- [[concepts/race-condition|竞态条件]]（需要创建）
-- [[concepts/aba-problem|ABA问题]]（需要创建）
+- [[concepts/wait-free|Wait-Free]]
+- [[concepts/lock-free|Lock-Free]]
+- [[concepts/bthread|Bthread]]
+- [[concepts/health-checking|Health Checking]]
+- [[concepts/non-blocking-io|Non-blocking IO]]
+- [[concepts/strong-reference|强引用]]
+- [[concepts/weak-reference|弱引用]]
+- [[concepts/race-condition|竞态条件]]
+- [[concepts/aba-problem|ABA问题]]
+- [[concepts/edge-triggered-mode|Edge Triggered 模式]]
+- [[concepts/wait-free-mpsc-链表|Wait-free MPSC 链表]]
 
 ## Mentions in Source
+
 > **Source: [[sources/en_io|en_io]]**
 > - "Address: retrieve Socket from an id, and wrap it into a unique_ptr(SocketUniquePtr) that will be automatically released."
 > - "As long as SocketUniquePtr is valid, the Socket enclosed will not be changed..."
@@ -31,5 +41,7 @@ aliases:
 > - "Using SocketUniquePtr or SocketId depends on if a strong reference is needed. For example, Controller is used thoroughly inside RPC and has a lot of interactions with Socket, it uses SocketUniquePtr."
 > - "As long as SocketUniquePtr is valid, the Socket enclosed will not be changed so that users have no need to care about race conditions and ABA problems, being safer to operate the shared socket."
 
-## 描述
-SocketUniquePtr 是一个智能指针包装器，用于管理 Socket 对象的生命周期。它通过 unique_ptr 语义确保对 Socket 的独占所有权，在指针有效期内保证所指向的 Socket 内容不会发生变化。使用 SocketUniquePtr 可以提供强引用语义，避免竞态条件和 ABA 问题，使得对共享 Socket 的操作更加安全。在实际使用中，选择 SocketUniquePtr 还是 SocketId 取决于是否需要强引用——例如 Controller 在 RPC 内部需要大量与 Socket 的交互，因此使用 SocketUniquePtr。
+> **Source: [[sources/io|io]]**
+> - "Address：取得id对应的Socket，包装在一个会自动释放的unique_ptr中(SocketUniquePtr)，当Socket被SetFailed后，返回指针为空。只要Address返回了非空指针，其内容保证不会变化，直到指针自动析构。这个函数是wait-free的。"
+> - "由于SocketUniquePtr只要有效，其中的数据就不会变，这个机制使用户不用关心麻烦的race condition和ABA problem，可以放心地对共享的fd进行操作。"
+> - "brpc中有大量的SocketUniquePtr和SocketId，它们确实简化了我们的开发。"

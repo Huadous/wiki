@@ -7,6 +7,7 @@ sources:
   - "[[sources/editions]]"
   - "[[sources/proto3]]"
   - "[[protobuf/proto3.md]]"
+  - "[[protobuf/editions.md]]"
 tags:
   - "term"
 aliases:
@@ -32,6 +33,7 @@ aliases:
 - [[concepts/wire-format|Wire format]]
 - [[concepts/field|Field]]
 - [[concepts/field-presence|Field presence]]
+- [[concepts/.proto-file|.proto file]]
 
 ## Related Entities
 
@@ -48,6 +50,7 @@ aliases:
 > **来源: [[sources/editions|editions]]**
 > - "First let's look at a very simple example. Let's say you want to define a search request message format, where each search request has a query string, the particular page of results you are interested in, and a number of results per page."
 > - "The SearchRequest message definition specifies three fields (name/value pairs), one for each piece of data that you want to include in this type of message."
+> - "No directly relevant information"
 
 > **来源: [[sources/proto3|proto3]]**
 > - "Here's the .proto file you use to define the message type."

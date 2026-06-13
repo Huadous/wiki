@@ -725,3 +725,59 @@
 
 **更新页面**：[[brpc]], [[tcmalloc]], [[bthread]], [[内存池]], [[socketid]]
 
+
+
+## [2026-06-13] ingest | brpc 命名服务、负载均衡与健康检查
+
+**创建页面**：[[sources/load_balancing.md]], [[entities/namingservicewatcher.md]], [[entities/namingservicethread.md]], [[entities/brpc.md]], [[entities/socket.md]], [[entities/filewatcher.md]], [[concepts/naming-service.md]], [[concepts/naming-service.md]], [[concepts/periodicnamingservice.md]], [[concepts/namingserviceactions.md]], [[concepts/负载均衡算法（Load Balancer）.md]], [[concepts/健康检查.md]], [[concepts/负载均衡算法（Load Balancer）.md]], [[concepts/doublybuffereddata.md]], [[concepts/bthread.md]], [[concepts/文件命名服务file-naming-service.md]], [[concepts/list-naming-service.md]], [[concepts/naming-service.md]]
+
+**更新页面**：[[brpc]], [[socket]], [[naming-service]], [[负载均衡算法（Load Balancer）]], [[健康检查]], [[doublybuffereddata]], [[bthread]], [[bns]], [[文件命名服务file-naming-service]]
+
+
+
+## [2026-06-13] ingest | 应用笔记：字段存在性
+
+**创建页面**：[[sources/field_presence.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[entities/protocol-buffers-v3-12-0.md]], [[entities/protocol-buffers-v3-15-0.md]], [[entities/fieldmask.md]], [[concepts/no-presence-discipline.md]], [[concepts/features-field_presence.md]], [[concepts/explicit-presence-discipline.md]], [[concepts/proto3.md]], [[concepts/proto2.md]], [[concepts/wire-format.md]], [[concepts/oneof-type.md]], [[concepts/default-values.md]], [[concepts/hazzer-methods.md]], [[concepts/json-format.md]], [[concepts/repeated-fields.md]], [[concepts/merging.md]], [[concepts/map-type.md]], [[concepts/unknown-fields.md]], [[concepts/forward-and-backward-compatibility.md]], [[concepts/dynamic-reflection.md]], [[concepts/proto3-optional-fields.md]], [[concepts/packed-encoding.md]], [[concepts/named-field-mapping-formats.md]], [[concepts/tag-value-stream.md]], [[concepts/self-delimiting-values.md]], [[concepts/change-compatibility.md]], [[concepts/empty-length-delimited-values.md]], [[concepts/wire-format.md]], [[concepts/clear-methods.md]], [[concepts/experimental_allow_proto3_optional.md]], [[concepts/unknown-enumerator.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[protoc]], [[text-format]], [[features-field_presence]], [[wire-format]], [[proto2]], [[proto3]], [[oneof-type]], [[json-format]], [[map-type]]
+
+
+
+## [2026-06-13] ingest | brpc json2pb: JSON与protobuf双向转化规则
+
+**创建页面**：[[sources/json2pb.md]], [[entities/rapidjson.md]], [[entities/brpc.md]], [[entities/protocol-buffers.md]], [[concepts/json-format.md]], [[concepts/repeated字段json编码.md]], [[concepts/unknown-fields.md]], [[concepts/json-map编码.md]], [[concepts/query-string.md]], [[concepts/pb2jsonoptions.md]], [[concepts/ieee754浮点数.md]], [[concepts/json-format.md]]
+
+**更新页面**：[[brpc]], [[json-format]], [[rapidjson]], [[protocolbuffersprotobuf]], [[brpccontroller]], [[query-string]]
+
+
+
+## [2026-06-13] ingest | Feature Settings for Editions | Protocol Buffers Documentation
+
+**创建页面**：[[sources/features.md]], [[entities/prototiller.md]], [[concepts/edition.md]], [[entities/protocol-buffers.md]], [[concepts/edition-2023.md]], [[concepts/edition-2024.md]], [[concepts/features-default_symbol_visibility.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/enum-type.md]], [[concepts/features-field_presence.md]], [[concepts/features-field_presence.md]], [[concepts/symbol-visibility.md]], [[concepts/proto2.md]], [[concepts/proto3.md]], [[concepts/closed-enum.md]], [[concepts/open-enum.md]], [[concepts/feature-setting-scope.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/required-field.md]]
+
+**更新页面**：[[prototiller]], [[protocolbuffersprotobuf]], [[edition-2024]], [[edition-2023]], [[features-default_symbol_visibility]], [[features-enforce_naming_style]], [[enum-type]], [[features-field_presence]], [[proto2]], [[proto3]], [[open-enum]], [[closed-enum]], [[feature-setting-scope]]
+
+
+
+## [2026-06-13] ingest | brpc 的 IO 模型与实现机制
+
+**创建页面**：[[sources/io.md]], [[entities/brpc.md]], [[entities/eventdispatcher.md]], [[entities/socket.md]], [[concepts/epoll.md]], [[entities/inputmessenger.md]], [[concepts/blocking-io.md]], [[concepts/asynchronous-io.md]], [[concepts/edge-triggered-mode.md]], [[concepts/wait-free-algorithm.md]], [[concepts/keepwrite-bthread.md]], [[concepts/work-stealing.md]], [[concepts/streaming-rpc.md]], [[concepts/bthread.md]], [[concepts/epoll.md]], [[concepts/selectivechannel.md]], [[concepts/brpccontroller.md]]
+
+**更新页面**：[[brpc]], [[socket]], [[eventdispatcher]], [[inputmessenger]], [[blocking-io]], [[epoll]], [[asynchronous-io]], [[keepwrite-bthread]], [[socketid]], [[bthread]], [[socketuniqueptr]], [[streaming_rpc]], [[selectivechannel]], [[brpccontroller]]
+
+
+
+## [2026-06-13] ingest | Language Guide (editions) | Protocol Buffers Documentation
+
+**创建页面**：[[sources/editions.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[entities/searchresponse.md]], [[entities/searchrequest.md]], [[concepts/message-type.md]], [[concepts/field-number.md]], [[concepts/field-cardinality.md]], [[concepts/scalar-value-types.md]], [[concepts/packed-encoding.md]], [[concepts/field-number.md]], [[concepts/wire-format.md]], [[concepts/field-cardinality.md]], [[concepts/map-type.md]], [[concepts/singular-field.md]], [[concepts/well-formed-messages.md]], [[concepts/proto-file.md]], [[concepts/features-field_presence.md]], [[concepts/extension-declaration.md]], [[concepts/builder.md]], [[concepts/enum-type.md]], [[concepts/text-format.md]], [[concepts/wire-format.md]], [[concepts/comment.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[protoc]], [[edition-2023]], [[edition-2024]], [[proto2]], [[proto3]], [[message-type]], [[field-number]], [[field-cardinality]], [[wire-format]], [[packed-encoding]], [[map-type]], [[proto-file]], [[features-field_presence]], [[well-formed-messages]], [[enum-type]], [[text-format]]
+
+
+
+## [2026-06-13] ingest | butil::IOBuf 使用指南
+
+**创建页面**：[[sources/iobuf.md]], [[entities/brpc.md]], [[concepts/零拷贝.md]], [[entities/iobuf.md]], [[concepts/iobufbuilder.md]], [[concepts/iobuf-与-protobuf-互操作.md]], [[concepts/iobufaszerocopyinputstream.md]], [[concepts/bufhandle.md]], [[concepts/iobufaszerocopyoutputstream.md]]
+
+**更新页面**：[[brpc]], [[iobuf]]
+

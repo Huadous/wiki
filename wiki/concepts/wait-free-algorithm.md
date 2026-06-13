@@ -1,10 +1,11 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_overview]]"
   - "[[sources/en_io]]"
+  - "[[brpc/io.md]]"
 tags:
   - "method"
 aliases:
@@ -31,7 +32,46 @@ aliases:
   - "wait-free"
   - "无等待算法"
   - "wait-free manner"
+  - "Wait-free MPSC 链表"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free MPSC list"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free"
+  - "无等待算法"
+  - "wait-free manner"
+  - "Wait-free MPSC list"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free MPSC list"
+  - "无等待算法"
+  - "wait-free manner"
+  - "wait-free"
+  - "无等待算法"
+  - "wait-free manner"
 ---
+
+## Description
+
+等待自由算法是并发编程中的一种非阻塞算法，保证每个线程在有限步骤内完成操作，无论其他线程的速度或行为如何。在 brpc 中，等待自由算法被用于高效处理多线程对同一个文件描述符（fd）的写入操作，以及事件分发机制。
+
+多个线程可能会同时向一个 fd 发送消息，而写 fd 又是非原子的，因此如何高效率地排队不同线程写出的数据包是 brpc IO 层的关键问题之一。brpc 使用一种 wait-free MPSC（多生产者单消费者）链表来实现这个功能。所有待写出的数据都放入单链表的节点中，next 指针初始化为一个特殊值（`Socket::WriteRequest::UNCONNECTED`）。
+
+写入线程通过与链表头原子交换（CAS）获取写权利：当一个线程想要写出数据时，它首先尝试将节点与链表头（`Socket::_write_head`）进行原子交换。未获取到写权的线程将其 next 指针指向旧的链表头，从而连入链表等待。这种方式使第一个线程可以直接进行原地写入，其他线程以等待自由的方式提交写入请求，从而实现写竞争（writing contention）的 wait-free 特性。
+
+虽然获得写权的线程理论上可能短暂地被阻塞（如系统调用级别），但在实践中很少出现。当需要处理大批量数据时，可以配合 KeepWrite 线程机制来提升吞吐。性能方面，一个 fd 每秒可被多个高竞争线程写入 5,000,000 条 16 字节消息。此外，对单个 fd 的事件分发竞争同样也是 wait-free 的。
+
+## Related Concepts
+- [[concepts/原子操作|原子操作]]
+- [[concepts/non-blocking-io|Non-blocking IO]]
+- [[concepts/keepwrite|KeepWrite]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -41,6 +81,7 @@ aliases:
 - [[entities/eventdispatcher|EventDispatcher]]
 
 ## Mentions in Source
+
 > **Source: [[sources/en_overview|en_overview]]**
 > - "the first thread directly writes in-place and other threads submit their write requests in wait-free manner."
 > - "One fd can be written into 5,000,000 16-byte messages per second by a couple of highly-contended threads."
@@ -56,18 +97,7 @@ aliases:
 > - "These methods make contentions on dispatching events of one fd wait-free."
 > - "This function is wait-free."
 
-## Description
-
-等待自由算法是并发编程中的一种非阻塞算法，保证每个线程在有限步骤内完成操作，无论其他线程的速度或行为如何。在brpc中，等待自由算法被用于高效处理多线程对同一个文件描述符的写入操作，以及事件分发机制。
-
-### 技术实现
-
-- 使用特殊的等待自由MPSC（多生产者单消费者）列表来解决多线程写入问题
-- 写入线程通过原子操作将节点与列表头(`Socket::_write_head`)交换
-- 所有待写数据放入单链表的节点中，节点的next指针指向特殊值`Socket::WriteRequest::UNCONNECTED`
-- 第一个线程直接进行原地写入，其他线程以等待自由的方式提交写入请求
-
-### 性能特点
-
-- 一个文件描述符每秒可被多个高竞争线程写入5,000,000条16字节消息
-- 对单个文件描述符的事件分发竞争也是等待自由的
+> **Source: [[sources/io|io]]**
+> - "多个线程可能会同时向一个fd发送消息，而写fd又是非原子的，所以如何高效率的排队不同线程写出的数据包是这里的关键。brpc使用一种wait-free MPSC链表来实现这个功能。"
+> - "所有待写出的数据都放在一个单链表节点中，next指针初始化为一个特殊值(Socket::WriteRequest::UNCONNECTED)。"
+> - "这套方法可以让写竞争是wait-free的。"

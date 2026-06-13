@@ -6,6 +6,7 @@ sources:
   - "[[sources/en_server]]"
   - "[[sources/en_http_service]]"
   - "[[brpc/server.md]]"
+  - "[[brpc/http_service.md]]"
 tags:
   - "product"
 aliases:
@@ -14,13 +15,11 @@ aliases:
 ---
 
 ## Related Entities
-
 - [[entities/brpc|brpc]]
 - [[entities/brpc::Server|brpc::Server]]
 - [[entities/HealthReporter|HealthReporter]]
 
 ## Related Concepts
-
 - [[concepts/单线程反应器|单线程反应器]]
 - [[concepts/事件驱动架构|事件驱动架构]]
 - [[concepts/内置服务|内置服务]]
@@ -33,6 +32,7 @@ aliases:
 - [[concepts/反向代理|反向代理]]
 - [[concepts/Proxy_method|Proxy_method]]
 - [[concepts/安全|安全]]
+- [[concepts/HTTPS|HTTPS]]
 
 ## Mentions in Source
 
@@ -53,3 +53,8 @@ aliases:
 > **Source: [[sources/server|server]]**
 > - "如果client是nginx，remote_side()是nginx的地址。要获取真实client的地址，可以在nginx里设置`proxy_header ClientIp $remote_addr;`, 在rpc中通过`controller->http_request().GetHeader("ClientIp")`获得对应的值。"
 > - "http proxy指定转发路径。nginx等可配置URL的映射关系，比如下面的配置把访问/MyAPI的外部流量映射到`target-server`的`/ServiceName/MethodName`。"
+
+> **Source: [[sources/http_service|http_service]]**
+> - "Q: brpc前的nginx报了final fail"
+> - "这个错误在于brpc server直接关闭了http连接而没有发送任何回复。"
+> - "解决方案: 在使用Nginx转发流量时，通过指定$HTTP_method只放行允许的方法或者干脆设置proxy_method为指定方法。"

@@ -1,9 +1,10 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_io]]"
+  - "[[brpc/io.md]]"
 tags:
   - "term"
 aliases:
@@ -15,6 +16,12 @@ aliases:
   - "AIO"
   - "Asynchronous I/O"
 ---
+
+## Related Concepts
+- [[concepts/blocking-io|Blocking IO]]
+- [[concepts/non-blocking-io|Non-blocking IO]]
+- [[concepts/overlapped|OVERLAPPED]]
+- [[concepts/iocp|IOCP]]
 
 ## Related Entities
 - [[entities/eventdispatcher|EventDispatcher]]
@@ -29,3 +36,6 @@ aliases:
 
 > **Source: en_io**
 > - No directly relevant information provided.
+
+> **Source: [[sources/io|io]]**
+> - "asynchronous IO: 发起IO操作后不阻塞，用户得递一个回调待IO结束后被调用。如windows下的OVERLAPPED + IOCP。linux的native AIO只对文件有效。"

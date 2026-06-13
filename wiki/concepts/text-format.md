@@ -7,6 +7,7 @@ sources:
   - "[[protobuf/proto3.md]]"
   - "[[protobuf/implementing_proto3_presence.md]]"
   - "[[protobuf/field_presence.md]]"
+  - "[[protobuf/editions.md]]"
 tags:
   - "term"
 aliases:
@@ -27,14 +28,12 @@ aliases:
   - "Protocol Buffers Text Format"
 ---
 
-## Description
-TextFormat 是 Protocol Buffers 提供的两种主要人类可读表示方式之一（另一种是 JSON），通常由生成的消息类 `DebugString` 方法输出。与 JSON 相比，TextFormat 更接近 wire format 的语义：在某些情况下提供与 wire format 相似的行为，例如在处理 `repeated` 字段时会附加名称-值映射（name-value mappings）来表达多值。由于其"仅包含已存在字段"的特性，TextFormat 在调试和反射（reflection）场景中尤为有用，例如通过文本格式进行消息的往返测试。TextFormat 与 wire format、JSON 并列为三种主要的 protobuf 数据表示方式，其推荐的现代文件扩展名为 `.txtpb`（而非较旧的 `.textproto`）。`DebugString` 输出可以使用 `printf` 风格占位符进行子消息格式化，并且该格式可通过 `--cpp_out` 标志下的 `annotate_headers` 选项让 C++ 代码生成器在输出中包含字段注释。
-
 ## Related Concepts
 - [[concepts/wire-format|Wire Format]]
 - [[concepts/json-format|JSON Format]]
 - [[concepts/textproto|TextProto]]
 - [[concepts/reserved-field-names|Reserved Field Names]]
+- [[concepts/reserved-field|Reserved Field]]
 - [[concepts/proto3|proto3]]
 - [[concepts/reflection|Reflection]]
 - [[concepts/synthetic-oneof|Synthetic Oneof]]
@@ -65,3 +64,9 @@ TextFormat 是 Protocol Buffers 提供的两种主要人类可读表示方式之
 > **Source: [[sources/field_presence|field_presence]]**
 > - "Two notable formats are TextFormat (the output format produced by generated message DebugString methods) and JSON."
 > - "TextFormat more closely mimics the semantics of the wire format, and does, in certain cases, provide similar semantics (for example, appending repeated name-value mappings to a repeated field)."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions|editions]]**
+> - "Reusing an old field name later is generally safe, except when using TextProto or JSON encodings where the field name is serialized."
+> - "you should also reserve the field name to allow JSON and TextFormat encodings of your message to continue to parse."
+> - "No directly relevant information"

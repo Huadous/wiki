@@ -13,11 +13,6 @@ aliases:
   - "双缓冲数据"
 ---
 
-## Description
-DoublyBufferedData 是 brpc 框架中用于解决 LoadBalancer 多线程并发访问互斥问题的关键技术。其核心设计思想是维护两份完全相同的数据副本——前景（foreground）和背景（background）。检索线程只读取前景数据，无需加锁；写入操作由单个写线程负责，在锁保护下修改后台数据，然后原子地切换前后台角色，并睡眠一段时间以确保所有先前持有的前景引用都已失效。这种设计使不同线程在执行负载均衡时几乎不会产生互斥竞争，读操作之间也完全无竞争。
-
-在 brpc 中，所有 LoadBalancer 都基于 DoublyBufferedData 实现，使得负载均衡决策能够高效地在多线程环境下执行。为了处理读写同步，DoublyBufferedData 还引入了 thread-local 锁机制：读操作获取对应的 thread-local 锁，而写操作则需要获取所有 thread-local 锁，从而在保证数据一致性的同时最大化并发性能。这一设计是 brpc 实现高性能 RPC 框架的重要技术支撑之一，也是其 Locality-aware load balancing 等高级特性得以高效运行的基础。
-
 ## Related Concepts
 - [[concepts/locality-aware-load-balancing|Locality-aware load balancing]]
 - [[concepts/weight-tree|Weight tree]]

@@ -4,6 +4,7 @@ created: 2026-06-13
 updated: 2026-06-13
 sources:
   - "[[brpc/server.md]]"
+  - "[[brpc/io.md]]"
 tags:
   - "Streaming RPC"
   - "Stream"
@@ -23,15 +24,12 @@ aliases:
   - "流式RPC"
 ---
 
-## 来源
-- Original file: [[brpc/streaming_rpc.md]]
-- Ingested: 2026-06-13
-- New source: [[brpc/server.md]]
-
 ## 核心内容
 本文档介绍了 [[entities/brpc|brpc]] 框架中 Streaming RPC 的设计与使用方法。Streaming RPC 是一种用于在 client 和 server 之间传输大量或持续产生数据的交互模型，解决了通过多次 RPC 切分传输大块数据时面临的顺序难以保证和串行延迟等问题。它通过在 client 与 service 之间建立用户态连接（即 [[concepts/stream|Stream]]），在同一 TCP 连接上支持多个 Stream 并存，以消息为基本单位进行流水线式传输。文档详细说明了 [[concepts/streamcreate|StreamCreate]]、[[concepts/streamaccept|StreamAccept]]、[[concepts/streamwrite|StreamWrite]]、[[concepts/streamwait|StreamWait]]、[[concepts/streamclose|StreamClose]] 等核心 API 的使用方法及 C++ 代码示例，并介绍了 [[concepts/流控|流控]] 机制与 [[concepts/head-of-line-blocking|Head-of-line blocking]] 问题的应对策略。Streaming RPC 保证消息边界、接收顺序与发送顺序严格一致、全双工通信、流控支持与超时提醒。
 
 此外，streaming_rpc 也是 brpc [[entities/brpc::server|brpc::Server]] 所支持的一种通信协议。它是 brpc 默认启用的"流式 RPC 协议"，在协议层中显示为字符串 "streaming_rpc"，与 [[concepts/baidu_std协议|baidu_std]] 等协议并列，被 server 自动协商使用。streaming_rpc 与 http、h2c 等协议共用同一个 listen 端口，server 无需为不同协议分配不同端口。
+
+新来源（io 主题）未提供与 streaming_rpc 直接相关的信息。
 
 ## 关键实体
 - [[entities/brpc|brpc]]：Apache 开源的工业级 RPC 框架，Streaming RPC 是其核心交互模型之一。

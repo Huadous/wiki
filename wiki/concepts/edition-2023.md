@@ -8,9 +8,19 @@ sources:
   - "[[sources/proto3]]"
   - "[[sources/editions-what-are-protobuf-editions]]"
   - "[[protobuf/proto3.md]]"
+  - "[[protobuf/features.md]]"
+  - "[[protobuf/editions.md]]"
 tags:
   - "standard"
 aliases:
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "edition 2023"
   - "proto edition 2023"
   - "2023 edition"
   - "Protobuf 2023 语言版本"
@@ -37,6 +47,10 @@ aliases:
 - [[concepts/features-enforce_naming_style|features-enforce_naming_style]]
 - [[concepts/features-field_presence|features-field_presence]]
 - [[concepts/google-protobuf-any|google-protobuf-any]]
+- [[concepts/edition-2024|Edition 2024]]
+- [[concepts/features-enum_type|features.enum_type]]
+- [[concepts/field-presence|Field Presence]]
+- [[concepts/message-type|Message Type]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -49,7 +63,7 @@ aliases:
 ## Mentions in Source
 
 > **来源: overview**
-> - "The following shows an example message edition '2023'." 
+> - "The following shows an example message edition '2023'."
 > - "For more information about the options available, see the language guide for proto2, proto3, or edition 2023."
 
 > **来源: features**
@@ -60,13 +74,12 @@ aliases:
 > - "edition \"2023\""
 > - "Default behavior per syntax/edition: 2023 -> EXPORT_ALL"
 > - "Features added in Edition 2023: enum_type, field_presence"
-
-> **来源: proto3**
-> - "For information on editions syntax, see the Protobuf Editions Language Guide"
-> - "If no edition/syntax is specified, the protocol buffer compiler will assume you are using proto2"
-> - "The first line of the file specifies that you're using the proto3 revision of the protobuf language spec. (Instead of edition syntax for proto2/proto3) must be the first non-empty, non-comment line of the file."
 > - "No directly relevant information"
 
-> **来源: Protobuf Editions 介绍文档**
-> - "This document is an introduction to the Protobuf Editions project, an ambitious re-imagining of how we migrate Protobuf users into the future."
-> - "Editions and features are new language features that will allow us to incrementally evolve Protobuf into the future."
+> **来源: editions**
+> - "It covers edition 2023 edition 2024 of the protocol buffers language."
+> - "The first line of the file specifies that you're using edition 2023 of the protobuf language spec."
+> - "edition syntax for proto2/proto3) must be the first non-empty, non-comment line of the file."
+
+> **来源: editions**
+> - "No directly relevant information"

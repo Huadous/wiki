@@ -6,6 +6,7 @@ sources:
   - "[[sources/en_server]]"
   - "[[sources/en_http_service]]"
   - "[[brpc/server.md]]"
+  - "[[brpc/http_service.md]]"
 tags:
   - "standard"
 aliases:
@@ -662,6 +663,8 @@ aliases:
 - [[concepts/h2c|h2c]]
 - [[concepts/身份验证|身份验证]]
 - [[concepts/sni|SNI]]
+- [[concepts/https|HTTPS]]
+- [[concepts/gzip压缩|gzip压缩]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -674,6 +677,7 @@ aliases:
 - [[entities/serverssloptions|ServerSSLOptions]]
 
 ## Mentions in Source
+
 > **Source: [[sources/en_server|en_server]]**
 > - "Turn on SSL: Update openssl to the latest version before turning on SSL."
 > - "Setup ServerOptions.ssl_options to turn on SSL."
@@ -698,3 +702,7 @@ aliases:
 > - "SSL层在协议层之下（作用在Socket层），即开启后，所有协议（如HTTP）都支持用SSL加密后传输到Server"
 > - "如果希望server能支持动态选择证书（如根据请求中域名，见[SNI](https://en.wikipedia.org/wiki/Server_Name_Indication)机制），则可以将这些证书加载到`certs`。"
 > - "CertInfo private_key; // Additional hostnames besides those inside the certificate. Wildcards are supported but it can only appear once at the beginning (i.e. *.xxx.com). std::vector<std::string> sni_filters;"
+
+> **Source: [[sources/http_service|http_service]]**
+> - "https是http over SSL的简称，SSL并不是http特有的，而是对所有协议都有效。"
+> - "开启服务端SSL的一般性方法见[这里](server.md#开启ssl)。"

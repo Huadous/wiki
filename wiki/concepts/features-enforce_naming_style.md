@@ -1,10 +1,11 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/features]]"
   - "[[sources/style]]"
+  - "[[protobuf/features.md]]"
 tags:
   - "term"
 aliases:
@@ -135,24 +136,160 @@ aliases:
   - "命名风格强制特性"
   - "naming style enforcement feature"
   - "features.enforce_naming_style"
+  - "Naming Style Enforcement"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Underscores in Identifiers"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "TitleCase"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Underscores in Identifiers"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "camelCase"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Underscores in Identifiers"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "TitleCase"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Underscores in Identifiers"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Services"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
+  - "Identifier naming styles"
+  - "命名风格强制特性"
+  - "naming style enforcement feature"
+  - "features.enforce_naming_style"
 ---
 
 ## Related Concepts
+- [[concepts/protobuf-style-guide|protobuf-style-guide]]
 - [[concepts/title-case|TitleCase]]
 - [[concepts/lower-snake-case|lower_snake_case]]
 - [[concepts/upper-snake-case|UPPER_SNAKE_CASE]]
-- [[concepts/protobuf-style-guide|protobuf-style-guide]]
-- [[concepts/features.enforce_naming_style|features.enforce_naming_style]]
 - [[concepts/identifier-naming-styles|identifier-naming-styles]]
+- [[concepts/features.enforce_naming_style|features.enforce_naming_style]]
 - [[concepts/features.default_symbol_visibility|features.default_symbol_visibility]]
 - [[concepts/enum-type|enum-type]]
 - [[concepts/enum-value-prefixing|enum-value-prefixing]]
 - [[concepts/features-field_presence|features-field_presence]]
 - [[concepts/google-protobuf-any|google-protobuf-any]]
 - [[concepts/underscore-rules|underscore-rules]]
+- [[sources/editions|Protocol Buffers Editions]]
+- [[sources/editions|Edition 2024]]
+- [[sources/editions|Edition 2023]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
 - [[entities/protoc|protoc]]
 - [[entities/grpc|grpc]]
 - [[entities/Prototiller|Prototiller]]
+
+## Mentions in Source
+> **Source: [[sources/features|features]]**
+> - "Introduced in Edition 2024, this feature enables strict naming style enforcement as defined in the style guide to ensure protos are round-trippable by default with a feature value to opt-out to use legacy naming style."
+> - "STYLE2024: Enforces strict adherence to the style guide for naming. STYLE_LEGACY: Applies the pre-Edition 2024 level of style guide enforcement."

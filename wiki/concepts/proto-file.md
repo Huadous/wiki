@@ -6,6 +6,7 @@ sources:
   - "[[sources/overview]]"
   - "[[sources/style]]"
   - "[[protobuf/proto3.md]]"
+  - "[[protobuf/editions.md]]"
 tags:
   - "term"
 aliases:
@@ -35,6 +36,7 @@ aliases:
 - [[concepts/message-type|Message Type]]
 - [[concepts/protobuf-editions|Protobuf Editions]]
 - [[concepts/well-formed-messages|Well-formed Messages]]
+- [[concepts/scalar-value-type|Scalar Value Type]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -54,4 +56,10 @@ aliases:
 > **Source: [[sources/proto3|proto3]]**
 > - "Multiple message types can be defined in a single .proto file. This is useful if you are defining multiple related messages – so, for example, if you wanted to define the reply message format that corresponds to your SearchResponse message type, you could add it to the same .proto file."
 > - "Here's the .proto file you use to define the message type."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions|editions]]**
+> - "Here's the .proto file you use to define the message type."
+> - "While multiple message types (such as message, enum, and service) can be defined in a single .proto file, it can also lead to dependency bloat when large numbers of messages with varying dependencies are defined in a single file."
+> - "C-style inline/multi-line comments /* ... */ are also accepted."
 > - "No directly relevant information"

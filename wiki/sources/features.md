@@ -1,62 +1,47 @@
 ---
 type: source
-created: 2026-06-12
-updated: 2026-06-12
-sources:
-  - "[[sources/editions-what-are-protobuf-editions]]"
-tags:
-  - "features.default_symbol_visibility"
-  - "features.enforce_naming_style"
-  - "features.enum_type"
-  - "features.field_presence"
-  - "Protobuf Editions"
-  - "Feature setting scope"
-  - "Edition 2024"
-  - "Edition 2023"
-  - "proto2"
-  - "proto3"
-  - "export keyword"
-  - "local keyword"
-aliases:
-  - "Protocol Buffers Editions 特性设置文档"
-  - "Protobuf Features 文档"
+created: 2026-06-13
+updated: 2026-06-13
+source_file: "[[protobuf/features.md]]"
+tags: [features.default_symbol_visibility, features.enforce_naming_style, features.enum_type, features.field_presence, Protobuf Editions, Feature setting scope, Edition 2024, Edition 2023, proto2, proto3, export keyword, local keyword]
+aliases: ["Feature Settings for Editions", "Protobuf Editions 功能设置"]
 ---
 
-## Feature Settings for Editions (Protocol Buffers 文档) - Summary
+# Feature Settings for Editions | Protocol Buffers Documentation - Summary
 
-### 来源
+## 来源
 - Original file: [[protobuf/features.md]]
-- New source: [[protobuf/editions-what-are-protobuf-editions]]
-- Ingested: 2026-06-12
+- Ingested: 2026-06-13
 
-### 核心内容
-本文档是 [[concepts/protobuf-editions|Protobuf Editions]] 的官方特性配置指南，详细介绍了如何通过特性设置（Feature Settings）在 Editions 中保留 [[concepts/proto2|proto2]] 或 [[concepts/proto3|proto3]] 的行为。文档重点阐述了四个核心特性：[[concepts/features-default_symbol_visibility|features-default_symbol_visibility]]（控制符号导出可见性）、[[concepts/features-enforce_naming_style|features-enforce_naming_style]]（强制命名规范）、[[concepts/enum-type|enum-type]]（枚举类型行为、开闭枚举）以及 [[concepts/features-field_presence|features-field_presence]]（字段存在性跟踪）。每个特性均详细说明了可选值、适用范围及默认变化。此外还介绍了 [[concepts/feature-setting-scope|feature-setting-scope]] 的层级结构以及 [[entities/prototiller|Prototiller]] 工具（尚未发布）在迁移中的作用。文档旨在帮助用户理解 [[concepts/edition-2024|edition-2024]] 和 [[concepts/edition-2023|edition-2023]] 的默认行为差异，并正确配置特性以避免盲目复制。
+## 核心内容
+本文档是 [[entities/protocol-buffers|Protocol Buffers]] 官方文档中关于 Editions 功能设置（feature settings）的核心参考。它系统介绍了 [[concepts/protocol-buffers-editions|Protocol Buffers Editions]] 如何通过版本化（[[concepts/edition-2023|Edition 2023]] 与 [[concepts/edition-2024|Edition 2024]]）和显式特性设置替代传统 [[concepts/proto2|proto2]] / [[concepts/proto3|proto3]] 语法，使用户能够在文件级、非嵌套级、嵌套级和最低层级等多个 [[concepts/feature-scope|作用域（Feature Scope）]] 中精确控制消息、字段、枚举等元素的行为。文档详细阐述了四个核心特性：[[concepts/features-default_symbol_visibility|features.default_symbol_visibility]]（控制符号默认可见性）、[[concepts/features-enforce_naming_style|features.enforce_naming_style]]（强制命名风格一致性）、[[concepts/features-enum_type|features.enum_type]]（[[concepts/open-enum|开放]]与[[concepts/closed-enum|封闭]]枚举）以及 [[concepts/features-field_presence|features.field_presence]]（[[concepts/field-presence|字段存在性]]跟踪方式，包含 [[concepts/required-field|LEGACY_REQUIRED]]、EXPLICIT、IMPLICIT 三种语义），并对比了各特性在不同语法版本下的默认值。文末介绍了尚未发布的迁移工具 [[entities/prototiller|Prototiller]]，用于在不同语法版本与 Edition 之间自动转换 proto 文件。
 
-### 关键实体
-- [[entities/prototiller|Prototiller]] — 用于语法版本与 Editions 之间转换的命令行工具（尚未正式发布），文档中用于演示迁移后的等效代码。
+## 关键实体
+- [[entities/protocol-buffers|Protocol Buffers]] — Google 开发的结构化数据序列化框架，Editions 功能所属的总产品
+- [[entities/prototiller|Prototiller]] — 尚未正式发布的命令行工具，用于在不同 proto 语法版本与 Editions 之间自动转换配置文件
 
-### 关键概念
-- [[concepts/features-default_symbol_visibility|features-default_symbol_visibility]] — 控制消息和枚举在导入时的可见性，值包括 EXPORT_ALL、EXPORT_TOP_LEVEL、LOCAL_ALL、STRICT
-- [[concepts/features-enforce_naming_style|features-enforce_naming_style]] — 强制命名规范以确保往返兼容性，值包括 STYLE2024、STYLE_LEGACY
-- [[concepts/enum-type|enum-type]] — 处理未定义枚举值的行为，值包括 CLOSED（闭枚举）、OPEN（开枚举）
-- [[concepts/features-field_presence|features-field_presence]] — 字段存在性跟踪，值包括 LEGACY_REQUIRED、EXPLICIT、IMPLICIT
-- [[concepts/feature-setting-scope|feature-setting-scope]] — 特性应用层级：文件级、非嵌套级、嵌套级、最低级
-- [[concepts/edition-2024|edition-2024]] — 引入 EXPORT_TOP_LEVEL 默认可见性与 STYLE2024 严格命名风格
-- [[concepts/edition-2023|edition-2023]] — 保持 legacy 命名风格与 EXPORT_ALL 默认导出
-- [[concepts/proto2|proto2]] — 默认 CLOSED 枚举、EXPLICIT 字段存在性
-- [[concepts/proto3|proto3]] — 默认 OPEN 枚举、IMPLICIT 字段存在性
-- [[concepts/export-关键字|export 关键字]] — 在定义前使用的符号导出关键字，覆盖文件级可见性
-- [[concepts/local-keyword|local-keyword]] — 限制符号私有的关键字，与 export 配合使用
+## 关键概念
+- [[concepts/protocol-buffers-editions|Protocol Buffers Editions]] — 版本化的模式定义系统，通过特性设置替代隐式行为
+- [[concepts/edition-2023|Edition 2023]] — Editions 体系的首个主要落地版本
+- [[concepts/edition-2024|Edition 2024]] — 最新已发布版本，引入了多项新特性与默认值调整
+- [[concepts/feature-scope|Feature Scope]] — 特性设置的四个作用域层级（文件级、非嵌套级、嵌套级、最低级）
+- [[concepts/features-default_symbol_visibility|features.default_symbol_visibility]] — 控制消息和枚举的默认导出可见性
+- [[concepts/features-enforce_naming_style|features.enforce_naming_style]] — 强制执行 Protobuf 风格指南的命名约定
+- [[concepts/features-enum_type|features.enum_type]] — 控制[[concepts/open-enum|开放]]与[[concepts/closed-enum|封闭]]枚举行为
+- [[concepts/features-field_presence|features.field_presence]] — 控制[[concepts/field-presence|字段存在性]]跟踪方式
+- [[concepts/field-presence|Field Presence]] — 字段存在性跟踪的核心概念
+- [[concepts/symbol-visibility|Symbol Visibility]] — 符号可见性控制机制
+- [[concepts/naming-style-enforcement|Naming Style Enforcement]] — 命名风格标准化机制
+- [[concepts/required-field|Required Field]] — features.field_presence 的 LEGACY_REQUIRED 语义
+- [[concepts/open-enum|Open Enum]] — features.enum_type 的 OPEN 取值
+- [[concepts/closed-enum|Closed Enum]] — features.enum_type 的 CLOSED 取值
+- [[concepts/proto2|proto2]] — 早期语法版本，作为功能对照基准
+- [[concepts/proto3|proto3]] — 较新的语法版本，作为功能对照基准
 
-### 要点
-- Protobuf Editions 提供了可配置的特性来覆盖默认行为，以保留 [[concepts/proto2|proto2]] 或 [[concepts/proto3|proto3]] 的兼容性
-- 四个核心特性均具有明确的可选值和适用范围，可在不同层级上覆盖设置
-- [[concepts/edition-2024|edition-2024]] 相比 [[concepts/edition-2023|edition-2023]] 改变了默认符号可见性和命名风格
-- 特性设置按层级生效：文件级 < 非嵌套级 < 嵌套级 < 最低级（字段等），下级覆盖上级
-- [[entities/prototiller|Prototiller]] 工具尚未发布，但展示了从旧语法向 Editions 的自动化迁移路径
-- export 和 local 关键字提供了对符号可见性的细粒度控制，无需修改文件级别的默认设置
-
-### 补充信息（来自 editions-what-are-protobuf-editions 文档）
-- Protobuf Editions 的核心目的是统一 proto2 和 proto3 的语法差异，通过特性设置实现向后兼容性，同时为新功能（如可选字段、开闭枚举、自定义选项等）提供统一的语法基础。
-- 特性设置不仅限于文档中列举的四个核心特性，还包括其他功能（如 map 类型、分组字段等）的配置，但文档重点覆盖了 Edition 2023 和 Edition 2024 之间默认值有变化的特性。
-- 特性设置可在多个层级上配置，包括文件级、消息级、字段级和枚举值级，这种层级结构允许用户精确控制每个元素的特定行为，而无需全局修改。
+## 要点
+- [[concepts/protocol-buffers-editions|Protocol Buffers Editions]] 通过版本化（2023、2024）和特性设置替代 [[concepts/proto2|proto2]] / [[concepts/proto3|proto3]] 语法，提供更灵活、可演进的模式定义方式
+- 特性设置可在四个 [[concepts/feature-scope|作用域]]（文件级、非嵌套级、嵌套级、最低级）中应用，低作用域设置可覆盖高作用域设置
+- [[concepts/edition-2024|Edition 2024]] 引入了 [[concepts/features-default_symbol_visibility|features.default_symbol_visibility]] 和 [[concepts/features-enforce_naming_style|features.enforce_naming_style]] 两个关键特性，分别将默认值调整为 EXPORT_TOP_LEVEL 和 STYLE2024
+- [[concepts/features-field_presence|features.field_presence]] 提供 [[concepts/required-field|LEGACY_REQUIRED]]、EXPLICIT 和 IMPLICIT 三种语义，分别对应 [[concepts/proto2|proto2]] required、proto2/2023+ 可选以及 [[concepts/proto3|proto3]] 默认行为
+- [[concepts/features-enum_type|features.enum_type]] 控制 [[concepts/open-enum|开放（OPEN，Edition 默认）]] 与 [[concepts/closed-enum|封闭（CLOSED，proto2 默认）]] 枚举行为，影响超出定义范围值的处理方式
+- [[entities/prototiller|Prototiller]] 是尚未发布的命令行工具，可自动将旧语法 proto 文件迁移到新 Edition 及其等价的特性设置
