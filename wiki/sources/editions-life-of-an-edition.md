@@ -2,57 +2,59 @@
 type: source
 created: 2026-06-13
 updated: 2026-06-13
-source_file: "[[protobuf/editions-life-of-an-edition.md]]"
+sources:
+  - "[[protobuf/editions-edition-naming.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
 tags:
-  - Edition
-  - Feature
-  - Total Ordering of Editions
-  - Edition Proclamation
-  - Large-scale Change
-  - Edition Zero
-  - ProtoChangeSpec
-  - Features GC
-  - Editions adopter
-  - Editions upgrader
-  - 'ImmoLation of `required`'
-  - Global features
-  - Language-scoped features
-  - Feature lifetime
-  - features.field_presence
-  - features.(proto.cpp).legacy_string
-  - features.group_encoded
-  - features.packed
-  - 'absl::string_view Accessors migration'
-  - Group-Encoded Messages migration
-  - LEGACY_REQUIRED
-  - EXPLICIT_PRESENCE
-  - ALWAYS_SERIALIZE
-  - proto2
-  - proto3
-  - Edition Zero Features
-  - The OSS Story
-  - Edition Naming
-  - Breaking changes policy
-  - Descriptor
-  - FileDescriptorProto
-  - EditionIsLaterThan
-  - '`syntax` field'
-  - '`packed` migration'
-  - Edition proclamation cadence
-  - required field label
-  - ctype
-  - Wire format migration pattern
-aliases: ["Life of an Edition", "editions-life-of-an-edition"]
+  - "Edition"
+  - "Feature"
+  - "Total Ordering of Editions"
+  - "Edition Proclamation"
+  - "Large-scale Change"
+  - "Edition Zero"
+  - "ProtoChangeSpec"
+  - "Features GC"
+  - "Editions adopter"
+  - "Editions upgrader"
+  - "ImmoLation of `required`"
+  - "Global features"
+  - "Language-scoped features"
+  - "Feature lifetime"
+  - "features.field_presence"
+  - "features.(proto.cpp).legacy_string"
+  - "features.group_encoded"
+  - "features.packed"
+  - "absl::string_view Accessors migration"
+  - "Group-Encoded Messages migration"
+  - "LEGACY_REQUIRED"
+  - "EXPLICIT_PRESENCE"
+  - "ALWAYS_SERIALIZE"
+  - "proto2"
+  - "proto3"
+  - "Edition Zero Features"
+  - "The OSS Story"
+  - "Edition Naming"
+  - "Breaking changes policy"
+  - "Descriptor"
+  - "FileDescriptorProto"
+  - "EditionIsLaterThan"
+  - "`syntax` field"
+  - "`packed` migration"
+  - "Edition proclamation cadence"
+  - "required field label"
+  - "ctype"
+  - "Wire format migration pattern"
+aliases:
+  - "Life of an Edition"
+  - "editions-life-of-an-edition"
 ---
-
-# Life of an Edition - Summary
-
-## 来源
-- Original file: [[protobuf/editions-life-of-an-edition.md]]
-- Ingested: 2026-06-13
 
 ## 核心内容
 本文档《Life of an Edition》由 [[entities/@mcy|@mcy]] 撰写，系统性地介绍了 [[entities/protobuf-editions|Protobuf Editions]] 机制的设计理念与使用方式。文档阐述了如何利用 Editions 机制对 [[entities/protobuf-editions|Protobuf]] 语言进行大规模语义变更与迁移，涵盖特性的定义方式（包括 [[concepts/global-features|全局特性]] 与 [[concepts/language-scoped-features|语言作用域特性]]）、[[concepts/feature-lifetime|特性的生命周期管理]]、[[concepts/edition-proclamation|Edition 宣告流程]] 与 [[concepts/total-ordering-of-editions|总序排序规则]]。文档提出了四种大规模变更模板：[[concepts/edition-zero|Edition Zero]] 语法迁移、[[concepts/immolation-of-`required`|ImmoLation of required]] 渐进淘汰、absl::string_view 访问器替换以及 Group 编码消息的线协议优化。同时介绍了 [[entities/protoc|protoc]] 提供的工具链支持，包括 [[concepts/features-gc|Features GC]] 清理器、[[concepts/editions-adopter|Editions adopter]]（将 [[concepts/proto2|proto2]]/[[concepts/proto3|proto3]] 迁移至最新 edition）和 [[concepts/editions-upgrader|Editions upgrader]]。文档最后制定了开源生态的推广策略，并借鉴 [[entities/rust-editions|Rust Editions]] 机制的设计经验进行了对比分析，强调沟通与渐进式迁移的重要性。
+
+补充说明：[[protobuf/editions-edition-naming|editions-edition-naming]] 文档未提供与本页主题直接相关的新增信息。Edition 命名约定及其全序规则的详细内容请参见独立的 [[concepts/edition-naming|Edition Naming]] 设计文档。
+
+补充说明：[[protobuf/editions-edition-lifetimes|editions-edition-lifetimes]] 文档未提供与本页主题直接相关的新增信息。Edition 生命周期的详细内容请参见独立的 [[concepts/edition-lifetimes|Edition Lifetimes]] 设计文档。
 
 ## 关键实体
 - [[entities/@mcy|@mcy]]：文档作者，Google protobuf 团队成员
@@ -83,15 +85,16 @@ aliases: ["Life of an Edition", "editions-life-of-an-edition"]
 - [[concepts/breaking-changes-policy|Breaking changes policy]]：Protobuf 在开源中处理破坏性变更的策略框架
 - [[concepts/wire-format-migration-pattern|Wire format migration pattern]]：以向后兼容方式改变线编码的方法论
 - [[concepts/edition-naming|Edition Naming]]：定义 edition 命名约定及其全序规则的单独设计文档
+- [[concepts/edition-lifetimes|Edition Lifetimes]]：定义 edition 生命周期及其相关时间线的单独设计文档
 
 ## 要点
-- **核心机制**：[Protobuf Editions 通过 [[concepts/feature|Feature]] 和默认值集合实现对语言语义的可控、可迁移式大规模修改
+- **核心机制**：Protobuf Editions 通过 [[concepts/feature|Feature]] 和默认值集合实现对语言语义的可控、可迁移式大规模修改
 - **特性分类**：特性分为 [[concepts/global-features|全局特性]]（如 features.enum）和 [[concepts/language-scoped-features|语言作用域特性]]（如 features.(proto.cpp).legacy_string）两类，添加特性本身不构成破坏性变更
 - **特性生命周期**：特性本质上是 transient（瞬态）的，引入新特性的迁移应规划在多年时间线上逐步弃用并最终移除该特性
-- **总序关系**：[Editions 之间存在严格的全序关系（按 '.' 拆分后按长度和字典序排序），后端可据此判断文件的 edition 新旧，最小化同步成本
+- **总序关系**：Editions 之间存在严格的全序关系（按 '.' 拆分后按长度和字典序排序），后端可据此判断文件的 edition 新旧，最小化同步成本
 - **宣告节奏**：protobuf-team 承诺每个日历年度至少宣告一个新 edition，紧急情况下可发布 Y.1、Y.2 等次版本
 - **变更模板**：文档提出四种大规模变更模板——[[concepts/edition-zero|Edition Zero]]（语法迁移）、[[concepts/immolation-of-`required`|ImmoLation of required]]（特性迁移）、absl::string_view Accessors（API 变更）、Group-Encoded Messages（线协议优化）
-- **工具支持**：[protoc 提供三种工具——[[concepts/features-gc|Features GC]]（计算最小特性集）、[[concepts/editions-adopter|Editions adopter]]（将 proto2/proto3 升级到最新 edition）、[[concepts/editions-upgrader|Editions upgrader]]（在 editions 文件间升级）
-- **生态推广**：[开源推广策略依赖于沟通、新特性作为激励、明确宣告的破坏性变更政策，借鉴 Rust editions 的 rustfix 工具和 Carbon 团队的升级理念
-- **设计灵感**：[Rust Editions 是 Protobuf Editions 的直接灵感来源，但 Protobuf 计划比 Rust 更激进，会预先宣告 EOL 时间线
+- **工具支持**：protoc 提供三种工具——[[concepts/features-gc|Features GC]]（计算最小特性集）、[[concepts/editions-adopter|Editions adopter]]（将 proto2/proto3 升级到最新 edition）、[[concepts/editions-upgrader|Editions upgrader]]（在 editions 文件间升级）
+- **生态推广**：开源推广策略依赖于沟通、新特性作为激励、明确宣告的破坏性变更政策，借鉴 Rust editions 的 rustfix 工具和 Carbon 团队的升级理念
+- **设计灵感**：Rust Editions 是 Protobuf Editions 的直接灵感来源，但 Protobuf 计划比 Rust 更激进，会预先宣告 EOL 时间线
 - **工具链输出**：大规模变更工具链的输出格式是 Protochangifier ProtoChangeSpec，允许各工具解耦并构建定制化工具

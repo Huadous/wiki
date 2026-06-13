@@ -19,6 +19,7 @@ sources:
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
   - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+  - "[[protobuf/editions-cpp-apis-for-edition-zero.md]]"
 tags:
   - "standard"
 aliases:
@@ -141,3 +142,7 @@ aliases:
 > - "proto2 would treat it as implicitly true."
 > - "file().syntax() == FileDescriptor::SYNTAX_PROTO2"
 > - "the proto compiler rejects proto2-enum-valued fields in proto3 messages, because such enums can have nonzero defaults, which proto3 does not support due to implicit presence."
+
+> **Source: [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]]**
+> - "existing usage checks `syntax() == PROTO3` to determine if enums are open."
+> - "Identifying what proto2/proto3 distinction is being picked up on, among the following: 1. UTF-8 verification on parse (use new API). 2. Closed/open enum (use new API)."

@@ -8,6 +8,8 @@ sources:
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+  - "[[protobuf/editions-edition-evolution.md]]"
+  - "[[protobuf/editions-cpp-apis-for-edition-zero.md]]"
 tags:
   - "person"
 aliases:
@@ -24,6 +26,7 @@ aliases:
 - [[entities/protoc|protoc]]
 - [[entities/protoscope|Protoscope]]
 - [[entities/prototiller|Prototiller]]
+- [[entities/mcy|@mcy]]
 
 ## Related Concepts
 - [[concepts/protobuf-editions|Protobuf Editions]]
@@ -35,6 +38,8 @@ aliases:
 - [[concepts/enum-field-closedness|Enum Field Closedness]]
 - [[concepts/open-enum|Open Enum]]
 - [[concepts/legacy-treat-enum-as-closed|legacy_treat_enum_as_closed]]
+- [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
+- [[concepts/build-horizon|Build Horizon]]
 
 ## Mentions in Source
 
@@ -58,3 +63,12 @@ aliases:
 > - "Author: @mcy"
 > - "On 2023-02-10, a CL @mcy submitted to delete google::protobuf::Reflection::SupportsUnknownEnumValue()."
 > - "It turns out we misunderstood a critical corner-case of proto3 enums."
+
+> **Source: [[sources/editions-edition-evolution|editions-edition-evolution]]**
+> - "**Author:** [@mcy](https://github.com/mcy)"
+> - "**Approved:** 2022-07-06"
+
+> **Source: [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]]**
+> - "**Author:** [@mcy](https://github.com/mcy)"
+> - "**Approved:** 2022-06-27"
+> - "No directly relevant information"

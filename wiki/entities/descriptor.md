@@ -6,6 +6,7 @@ sources:
   - "[[sources/implementing_proto3_presence|implementing_proto3_presence]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-cpp-apis-for-edition-zero.md]]"
 tags:
   - "other"
 aliases:
@@ -46,6 +47,9 @@ aliases:
 > **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
 > - "Most of our runtimes provide APIs for converting descriptors back to their original state at runtime (e.g. CopyTo and DebugString in C++)."
 > - "More inline with our descriptor APIs, which wrap descriptor protos but aren't strictly 1:1 with them."
+> - "No directly relevant information"
 
-> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> **Source: [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]]**
+> - "Because we expect to make everything that callers are querying be controlled by individual edition-gated features, the cleanest way forward is to enrich the `Descriptor` types with focused APIs that serve current usages, followed by a migration to them."
+> - "`CopyHeadingTo` is intended to simplify the common, easy-to-get-wrong pattern of copying the heading of a proto file before doing custom manipulation of descriptors within."
 > - "No directly relevant information"

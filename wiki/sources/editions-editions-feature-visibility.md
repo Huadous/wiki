@@ -2,12 +2,26 @@
 type: source
 created: 2026-06-13
 updated: 2026-06-13
-source_file: "[[protobuf/editions-editions-feature-visibility.md]]"
-tags: [FeatureSet, Editions Feature Visibility, Resolved Features, Unresolved Features, Descriptor API, Hyrum's Law, Large-scale Change, edition zero, proto2, proto3, Conformance test, Descriptor, Reflection]
-aliases: ["Editions Feature Visibility", "Feature Visibility for Editions"]
+sources:
+  - "[[protobuf/editions-edition-lifetimes.md]]"
+tags:
+  - "FeatureSet"
+  - "Editions Feature Visibility"
+  - "Resolved Features"
+  - "Unresolved Features"
+  - "Descriptor API"
+  - "Hyrum's Law"
+  - "Large-scale Change"
+  - "edition zero"
+  - "proto2"
+  - "proto3"
+  - "Conformance test"
+  - "Descriptor"
+  - "Reflection"
+aliases:
+  - "Editions Feature Visibility"
+  - "Feature Visibility for Editions"
 ---
-
-# Editions Feature Visibility - Summary
 
 ## 来源
 - Original file: [[protobuf/editions-editions-feature-visibility.md]]
@@ -43,3 +57,6 @@ aliases: ["Editions Feature Visibility", "Feature Visibility for Editions"]
 - **推荐方案的代价**：每个语言都要重复实现高层 feature 行为（可能需要 [[concepts/conformance-test|conformance test]] 保证一致性）；`options()` 不再严格 1:1 反映 proto 文件，违背既有惯例
 - **设计原则**：增加新 API 容易，移除既有 API 困难，因此保持保守可在未来需要时灵活放开
 - **Prototiller 的关键作用**：其行为保持性（behavior-preserving）使得 [[concepts/large-scale-change|LSC]] 可以在不破坏运行时代码的前提下更新 proto 文件的内部表示形式
+
+## 补充信息
+- 来源文件 [[protobuf/editions-edition-lifetimes|editions-edition-lifetimes]]：未提供与本主题直接相关的信息

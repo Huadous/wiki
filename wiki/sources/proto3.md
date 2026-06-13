@@ -14,6 +14,7 @@ sources:
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+  - "[[protobuf/editions-cpp-apis-for-edition-zero.md]]"
 tags:
   - "document"
 aliases:

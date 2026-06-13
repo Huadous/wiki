@@ -1053,3 +1053,35 @@
 
 **更新页面**：[[protobuf-team]], [[haberman]], [[edition-2024]], [[protoc]], [[descriptor-proto]], [[language-scoped-features]], [[edition]]
 
+
+
+## [2026-06-13] ingest | Edition Naming
+
+**创建页面**：[[sources/editions-edition-naming.md]], [[entities/mkruskal-google.md]], [[concepts/edition-naming.md]], [[entities/prototiller.md]], [[concepts/edition-enum.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/edition.md]], [[concepts/hyrums-law.md]], [[concepts/descriptor-proto.md]], [[concepts/calver.md]], [[concepts/life-of-an-edition.md]], [[concepts/proto-merging.md]], [[concepts/edition-2024.md]], [[concepts/open-enum.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/edition-comparison.md]], [[concepts/unknown-fields.md]]
+
+**更新页面**：[[mkruskal-google]], [[prototiller]], [[edition-naming]], [[edition]], [[editions-life-of-a-featureset]], [[hyrums-law]], [[descriptor-proto]], [[edition-2024]], [[editions-life-of-an-edition]], [[editions-editions-life-of-a-featureset]], [[open-enum]], [[unknown-fields]]
+
+
+
+## [2026-06-13] ingest | Edition Evolution
+
+**创建页面**：[[sources/editions-edition-evolution.md]], [[entities/@mcy.md]], [[concepts/edition-2023.md]], [[entities/protoc.md]], [[concepts/edition-total-order.md]], [[concepts/build-horizon.md]], [[concepts/protobuf-features.md]], [[concepts/edition-evolution.md]], [[concepts/filedescriptorproto.md]], [[concepts/backend-features.md]], [[concepts/edition-naming.md]], [[concepts/editionislaterthan.md]]
+
+**更新页面**：[[@mcy]], [[protoc]], [[edition-2023]], [[edition-total-order]], [[edition-evolution]], [[filedescriptorproto]], [[edition-naming]]
+
+
+
+## [2026-06-13] ingest | Edition Lifetimes
+
+**创建页面**：[[sources/editions-edition-lifetimes.md]], [[entities/google3.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/protoc.md]], [[entities/new-string-apis.md]], [[entities/upb.md]], [[entities/string_type.md]], [[concepts/edition-2024.md]], [[concepts/edition-lifetimes.md]], [[concepts/feature-lifecycle.md]], [[concepts/edition_legacy.md]], [[concepts/edition-2024.md]], [[concepts/edition-2023.md]], [[concepts/dynamic-message.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/featuresupport.md]], [[concepts/edition-naming.md]], [[concepts/edition.md]], [[concepts/edition-patches.md]], [[concepts/protobuf-editions-design-features.md]], [[concepts/life-of-an-edition.md]], [[concepts/editions-life-of-a-feature.md]], [[concepts/editions-feature-visibility.md]], [[concepts/backward-compatibility.md]], [[concepts/forward-compatibility.md]], [[concepts/behavior-preserving-editions.md]], [[concepts/featureseteditiondefault.md]], [[concepts/edition-support-window.md]], [[concepts/deprecation-warning.md]], [[concepts/features-gc.md]], [[concepts/reflection-based-validation.md]], [[concepts/validation-layer.md]], [[concepts/predictability.md]], [[concepts/edition-upgrade.md]]
+
+**更新页面**：[[protoc]], [[protocolbuffersprotobuf]], [[google3]], [[upb]], [[edition-lifetimes]], [[edition-2024]], [[edition-2023]], [[editions-life-of-a-featureset]], [[dynamic-message]], [[editions]], [[edition-naming]], [[editions-life-of-an-edition]], [[protobuf-editions-design-features]], [[editions-editions-feature-visibility]], [[backward-compatibility]], [[forward-compatibility]]
+
+
+
+## [2026-06-13] ingest | C++ APIs for Edition Zero
+
+**创建页面**：[[sources/editions-cpp-apis-for-edition-zero.md]], [[entities/@mcy.md]], [[entities/google.md]], [[entities/protocol-buffers.md]], [[concepts/proto2.md]], [[concepts/proto3.md]], [[concepts/fielddescriptorhas_zero_default_value.md]], [[concepts/filedescriptorcopyheadingto.md]], [[concepts/fielddescriptorenforces_utf8.md]], [[concepts/syntaxeditions.md]], [[concepts/enumdescriptoris_closed.md]], [[concepts/syntax-deprecation-migration.md]], [[concepts/fielddescriptoris_packed.md]], [[concepts/has_presence.md]]
+
+**更新页面**：[[@mcy]], [[edition-2024]], [[google]], [[protocolbuffersprotobuf]], [[proto2]], [[proto3]], [[has_presence]], [[descriptor]]
+

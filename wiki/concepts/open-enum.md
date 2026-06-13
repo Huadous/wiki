@@ -7,6 +7,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
   - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+  - "[[protobuf/editions-edition-naming.md]]"
 tags:
   - "term"
 aliases:
@@ -43,3 +44,7 @@ aliases:
 > **Source: [[sources/editions-edition-zero-feature-enum-field-closedness]]**
 > - "All enums treated as open"
 > - "we don't want to add more special cases"
+
+> **Source: [[sources/editions-edition-naming]]**
+> - "Ideally, this would be an open enum to avoid ever having the edition thrown into the unknown field set."
+> - "However, since it needs to exist in `descriptor.proto`, we won't be able to make it open until the end of our edition zero migration."

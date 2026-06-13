@@ -21,6 +21,8 @@ sources:
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
   - "[[protobuf/editions-edition-zero-converged-semantics.md]]"
+  - "[[protobuf/editions-edition-evolution.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
 tags:
   - "product"
 aliases:
@@ -43,7 +45,6 @@ aliases:
 - [[entities/edition-zero|Edition Zero]]
 - [[entities/protocolbuffers/protobuf|protocolbuffers/protobuf]]
 - [[entities/protobuf-team|Protobuf Team]]
-- [[entities/descriptor.proto|descriptor.proto]]
 
 ## Related Concepts
 - [[concepts/protocol-buffers|Protocol Buffers]]
@@ -90,7 +91,11 @@ aliases:
 - [[concepts/features-message-encoding|features.message_encoding]]
 - [[concepts/edition-keyword|edition keyword]]
 - [[concepts/features-option|features option]]
-- [[concepts/converged-semantics|Converged Semantics]]
+- [[concepts/backend-features|Backend Features]]
+- [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
+- [[concepts/feature-lifetimes|Feature Lifetimes]]
+- [[concepts/featuresupport|FeatureSupport]]
+- [[concepts/dynamic-messages|Dynamic Messages]]
 
 ## Mentions in Source
 
@@ -154,3 +159,13 @@ aliases:
 > - "The protobuf IDL is parsed and resolved in protoc, and we have only a single implementation of that parser."
 > - "Any change that can be resolved in the parser alone is relatively unintrusive (though there are build horizon issues since GCL parses protos in prod)."
 > - "the set of \"default\" features for the edition must be resolved in protoc itself and propagated explicitly into the descriptor."
+
+> **Source: [[sources/editions-edition-evolution|editions-edition-evolution]]**
+> - "Features can either correspond to behavior in `protoc`'s frontend (e.g. `proto:closed_enums`), or to a specific backend (`cpp:string_view`)."
+> - "That information can be used by protoc to display the full set of features it knows about given its backends."
+> - "If the feature is a `proto:` feature, `protoc` intrinsically knows it, and it is implemented in the frontend."
+
+> **Source: [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]**
+> - "Each generator and protoc itself all advertise a range of editions they support, and will reject any protos encountered outside that range."
+> - "Because every generator plugin (and protoc) advertises its edition support window, introducing a new Edition is well-handled today."
+> - "Fortunately, this design would be **very** easy to implement right now. We simply need to add the new field options and the new placeholder edition, and then implement new validation in protoc."

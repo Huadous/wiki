@@ -2,12 +2,46 @@
 type: source
 created: 2026-06-13
 updated: 2026-06-13
-source_file: "[[protobuf/editions-editions-life-of-a-featureset.md]]"
-tags: [FeatureSet, Feature Resolution, Editions, Option Retention, Hyrum's Law, Descriptor Pool, Conformance Testing, CodeGenerator, Edition Defaults, Global Features, Generator Features, Source Features, Runtime Features, Resolved Features, Unresolved Features, Dynamic Messages, DescriptorConformanceRequest, DescriptorConformanceResponse, Bidirectional Plugins, Central Feature Registry, Default Placeholders, Staged Rollout for Dynamic Messages, Bootstrapping, GeneratorRequest, Runtimes Without Reflection, Use Generated Pool for C++ Generators, C++ Generators, Non-C++ Generators, raw_features, MergeFeatures, GetFeatures, FileDescriptor::CopyTo, Do Nothing]
-aliases: ["Editions: Life of a FeatureSet", "FeatureSet 生命周期设计"]
+sources:
+  - "[[protobuf/editions-edition-naming.md]]"
+tags:
+  - "FeatureSet"
+  - "Feature Resolution"
+  - "Editions"
+  - "Option Retention"
+  - "Hyrum's Law"
+  - "Descriptor Pool"
+  - "Conformance Testing"
+  - "CodeGenerator"
+  - "Edition Defaults"
+  - "Global Features"
+  - "Generator Features"
+  - "Source Features"
+  - "Runtime Features"
+  - "Resolved Features"
+  - "Unresolved Features"
+  - "Dynamic Messages"
+  - "DescriptorConformanceRequest"
+  - "DescriptorConformanceResponse"
+  - "Bidirectional Plugins"
+  - "Central Feature Registry"
+  - "Default Placeholders"
+  - "Staged Rollout for Dynamic Messages"
+  - "Bootstrapping"
+  - "GeneratorRequest"
+  - "Runtimes Without Reflection"
+  - "Use Generated Pool for C++ Generators"
+  - "C++ Generators"
+  - "Non-C++ Generators"
+  - "raw_features"
+  - "MergeFeatures"
+  - "GetFeatures"
+  - "FileDescriptor::CopyTo"
+  - "Do Nothing"
+aliases:
+  - "Editions: Life of a FeatureSet"
+  - "FeatureSet 生命周期设计"
 ---
-
-# Editions: Life of a FeatureSet - Summary
 
 ## 来源
 - Original file: [[protobuf/editions-editions-life-of-a-featureset.md]]
@@ -18,6 +52,10 @@ aliases: ["Editions: Life of a FeatureSet", "FeatureSet 生命周期设计"]
 本文档由 [[entities/mkruskal-google|mkruskal-google]] 撰写并于 2023-08-17 批准，深入讨论了 Protocol Buffers [[concepts/editions|Editions]] 系统中 [[concepts/featureset|FeatureSet]] 在 [[entities/protoc|protoc]]、生成器与运行时之间的生命周期管理问题。本文承接 [[entities/protobuf-editions-design-features|Protobuf Editions Design: Features]]、[[entities/exposing-editions-feature-sets|Exposing Editions Feature Sets]] 与 [[entities/editions-runtime-feature-set-defaults|Editions: Runtime Feature Set Defaults]] 等先期设计，指出其根本缺陷：protoc 无法作为特性解析的通用真相来源，因为它只能通过 import 发现那些被显式导入的生成器特性。
 
 文档推荐采用"每阶段独立解析"方案——在 protoc、各 [[concepts/codegenerator|CodeGenerator]] 及各运行时中分别实现 [[concepts/feature-resolution|Feature Resolution]]，仅在彼此之间传递 [[concepts/unresolved-features|Unresolved Features]]。该方案虽需跨语言复制解析逻辑，但能最小化代码大小与内存开销，并统一处理 [[concepts/descriptor-pool|Descriptor Pool]] 与 [[concepts/dynamic-messages|Dynamic Messages]] 场景。文档针对 [[concepts/c++-generators|C++ Generators]]、[[concepts/non-c++-generators|Non-C++ Generators]]、[[concepts/runtimes-without-reflection|Runtimes Without Reflection]]、[[entities/descriptor-proto|descriptor.proto]] 引导及动态消息等不同情况分别给出策略，并通过扩展 [[concepts/conformance-testing|Conformance Testing]] 框架（引入 [[concepts/descriptorconformancerequest|DescriptorConformanceRequest]]/[[concepts/descriptorconformanceresponse|DescriptorConformanceResponse]]）保证跨语言一致性。
+
+## 补充来源
+- Additional source: [[protobuf/editions-edition-naming.md]]
+- 注：该来源未提供与本页主题直接相关的信息
 
 ## 关键实体
 - [[entities/mkruskal-google|mkruskal-google]] - 文档作者

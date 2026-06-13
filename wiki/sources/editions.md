@@ -7,6 +7,7 @@ sources:
   - "[[protobuf/editions-java-lite-for-editions.md]]"
   - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
 tags:
   - "edition"
   - "field number"
@@ -27,16 +28,6 @@ aliases:
   - "Protocol Buffers Editions 语言指南"
   - "protobuf editions 文档"
 ---
-
-## 关键实体
-- [[entities/protocol-buffers|Protocol Buffers]]：跨语言、跨平台的数据序列化框架
-- [[entities/protoc|protoc]]：Protocol Buffers 官方编译器
-- [[entities/edition-2023|edition 2023]]：Protocol Buffers 语言规范的版本之一
-- [[entities/edition-2024|edition 2024]]：Protocol Buffers 语言规范的最新版本之一
-- [[entities/proto2|proto2]]：Protocol Buffers 早期语言版本
-- [[entities/proto3|proto3]]：Protocol Buffers 另一主要语言版本
-- [[entities/searchrequest|SearchRequest]]：文档中演示 .proto 语法的示例消息类型
-- [[entities/searchresponse|SearchResponse]]：与 SearchRequest 配对的示例响应消息类型
 
 ## 关键概念
 - [[concepts/message-type|Message Type]]：由命名字段组成的数据结构基本单位

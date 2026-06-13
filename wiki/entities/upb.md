@@ -6,6 +6,7 @@ sources:
   - "[[sources/editions-group-migration-issues|editions-group-migration-issues]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-editions-feature-extension-layout.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
 tags:
   - "product"
 aliases:
@@ -19,7 +20,7 @@ aliases:
 ---
 
 ## Related Entities
-无相关实体
+- [[entities/protobuf|Protobuf]]
 
 ## Related Concepts
 - [[concepts/codegen|Codegen]]
@@ -31,16 +32,23 @@ aliases:
 - [[concepts/polyglot|Polyglot]] *(待确认)*
 - [[concepts/generator-features|Generator Features]]
 - [[concepts/runtime-implementation-features|Runtime Implementation Features]]
+- [[concepts/reflection-based-validation|Reflection-Based Validation]]
+- [[concepts/dynamic-messages|Dynamic Messages]]
+- [[concepts/edition-support-window|Edition Support Window]]
 
 ## Mentions in Source
-- ** This includes all upb-based runtimes as well (e.g. Ruby, Rust, etc.) — [[sources/editions-group-migration-issues|editions-group-migration-issues]]
-- While using the field name for generated APIs required less special-casing in the generators, the field name ends up producing slightly-less-readable APIs for multi-word camelcased groups. — [[sources/editions-group-migration-issues|editions-group-migration-issues]]
+- ** This includes all upb-based runtimes as well (e.g. Ruby, Rust, etc.) — editions-group-migration-issues
+- While using the field name for generated APIs required less special-casing in the generators, the field name ends up producing slightly-less-readable APIs for multi-word camelcased groups. — editions-group-migration-issues
 
-> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> **Source: editions-editions-feature-visibility**
 > - "One notable standout here is μpb, which is a runtime *implementation*, but not a full runtime."
 > - "Since μpb only provides APIs to the wrapping runtime in a target language, it's free to expose features anywhere it wants. The wrapping language should be responsible for stripping them out where appropriate."
 
-> **Source: [[sources/editions-editions-feature-extension-layout|editions-editions-feature-extension-layout]]**
+> **Source: editions-editions-feature-extension-layout**
 > - "Runtimes like upb and C++ are used as backing implementations of multiple other languages (e.g. Python, Rust, Ruby, PHP)."
 > - "Possible complexity in upb to understand which language's features to respect. UPB is not currently aware of what language it is being used for."
 > - "Limits in-process sharing across languages with shared implementations (e.g. Python upb, PHP upb) in the case of conflicting behaviors."
+
+> **Source: editions-edition-lifetimes**
+> - "Performance concerns, especially in upb"
+> - "Generators in a monorepo like Protobuf's this seems fine, but may not be desirable elsewhere."

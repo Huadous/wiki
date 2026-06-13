@@ -14,6 +14,9 @@ sources:
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
   - "[[protobuf/editions-edition-zero-converged-semantics.md]]"
+  - "[[protobuf/editions-edition-naming.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
+  - "[[protobuf/editions-cpp-apis-for-edition-zero.md]]"
 tags:
   - "standard"
 aliases:
@@ -65,6 +68,15 @@ aliases:
 - [[concepts/converged-semantics|Converged Semantics]]
 - [[concepts/edition-keyword|edition keyword]]
 - [[concepts/features-option|features option]]
+- [[concepts/edition-enum|Edition enum]]
+- [[concepts/descriptor-proto|descriptor.proto]]
+- [[concepts/edition-lifetimes|Edition Lifetimes]]
+- [[concepts/feature-lifetimes|Feature Lifetimes]]
+- [[concepts/featuresupport|FeatureSupport]]
+- [[concepts/syntax-deprecation-migration|syntax() deprecation migration]]
+- [[concepts/proto2-syntax|proto2 syntax]]
+- [[concepts/proto3-syntax|proto3 syntax]]
+- [[concepts/syntax-editions|Syntax::EDITIONS]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -74,16 +86,9 @@ aliases:
 - [[entities/mkruskal-google|mkruskal-google]]
 - [[entities/mcy|mcy]]
 - [[entities/zhangskz|zhangskz]]
+- [[entities/google|Google]]
 
 ## Mentions in Source
-
-> **Source: [[sources/features|features]]**
-> - "EXPORT_ALL: This is the default prior to Edition 2024."
-> - "Edition 2024 defaults to STYLE2024, so an override is needed to keep the non-conformant field name:"
-> - "edition \"2024\""
-> - "Default behavior per syntax/edition: 2024 -> EXPORT_TOP_LEVEL"
-> - "Introduced in Edition 2024, this feature enables strict naming style enforcement as defined in the style guide to ensure protos are round-trippable by default."
-> - "Added in: Edition 2024"
 
 > **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**
 > - "The first edition of Protobuf Editions, the so-called 'edition zero', will effectively be a 'proto4' that introduces the new syntax, and merges the semantics of proto2 and proto3."
@@ -125,4 +130,33 @@ aliases:
 
 > **Source: [[sources/editions-edition-zero-converged-semantics|editions-edition-zero-converged-semantics]]**
 > - "Edition Zero: Converged Semantics"
-> - "By opting into our first edition, customers are upgrading to what we've referred to in the past as \"converged semantics,\"
+> - "By opting into our first edition, customers are upgrading to what we've referred to in the past as \"converged semantics,\""
+
+> **Source: [[sources/editions-edition-naming|editions-edition-naming]]**
+> - "However, since it needs to exist in descriptor.proto, we won't be able to make it open until the end of our edition zero migration."
+> - "Until then, we can take advantage of the fact that syntax gets set to editions by the parser when an edition is found."
+> - "No directly relevant information"
+
+> **Source: [[sources/features|features]]**
+> - "EXPORT_ALL: This is the default prior to Edition 2024."
+> - "Edition 2024 defaults to STYLE2024, so an override is needed to keep the non-conformant field name:"
+> - "edition \"2024\""
+> - "Default behavior per syntax/edition: 2024 -> EXPORT_TOP_LEVEL"
+> - "Introduced in Edition 2024, this feature enables strict naming style enforcement as defined in the style guide to ensure protos are round-trippable by default."
+> - "Added in: Edition 2024"
+
+> **Source: [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]**
+> - "Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of features and editions look like going forward."
+> - "The implementation of editions today was based largely on [Protobuf Editions Design: Features](protobuf-editions-design-features.md) and [Life of an Edition](life-of-an-edition.md) (among other less-relevant docs)."
+> - "In the process of rolling out editions to various protoc plugins and planning for edition 2024, it's become clear that we may need to re-evaluate the feature lifetimes as well."
+> - "If we wait until edition 2024 has been released, the situation would be a bit more difficult to unravel."
+
+> **Source: [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]**
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]]**
+> - "As recorded in *FileDescriptor::syntaxAudit Report* (not available externally), there are significant uses of `FileDescriptor::syntax()` in internal Google repositories that Edition Zero will break"
+> - "Because we expect to make everything that callers are querying be controlled by individual edition-gated features, the cleanest way forward is to enrich the `Descriptor` types with focused APIs that serve current usages, followed by a migration to them."
+
+> **Source: [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]]**
+> - "No directly relevant information"

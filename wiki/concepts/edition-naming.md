@@ -6,6 +6,8 @@ sources:
   - "[[sources/editions-readme|Protobuf Editions 设计文档索引]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-edition-naming.md]]"
+  - "[[protobuf/editions-edition-evolution.md]]"
+  - "[[protobuf/editions-edition-lifetimes.md]]"
 tags:
   - "standard"
 aliases:
@@ -14,37 +16,23 @@ aliases:
 ---
 
 ## Description
-Edition 命名是 Edition 生命周期管理的核心组成部分，决定了 Edition 在各语言中如何被识别、比较和发布。早期《Life of an Edition》文档提出了一种宽松的命名方案：使用「年份+可选修订号」的字符串形式，并通过拆分 `.` 后按「长度优先、字典序次之」的规则实现全序比较（例如 `9 < 10`）。然而，这种字符串方案在跨语言实现中存在解析复杂、可读性不一致等问题。新的命名方案转向使用 **Edition 枚举类型**，其设计目标包括：离散可控的合法值集合、简单可比较、跨语言一致、数量较少（约 100 个）且缓慢增长（约每年一个）。该决策涉及在可读性、解析复杂度与跨语言一致性之间的多维度权衡，并借鉴了 Calver（基于日历的版本命名）的思路，同时考虑了 Hyrum's Law 对版本标识稳定性的影响。文档明确指出，Edition 应当可以按数值方式比较，以便推导 Edition 之间的时间先后顺序。
+Edition Naming 是 Protobuf Editions 体系中的核心设计决策文档之一，确立了一套由 Protobuf 团队自有定义、更加严格的版本命名方案。该文档的诞生源于对早期提案的反思与简化——许多最初围绕 Editions 的构想，在 Edition Naming 中被进一步收紧和明确化。此外，Edition Naming 还做出了一个重要决定：放弃"补丁版本"（patch edition）这一概念，理由是 Editions 在前后兼容性上始终是无缝的，因此不需要单独的补丁级别。这一简化直接影响了后续关于特性生命周期和版本生命周期的设计思路，使 Editions 演进模型更加清晰和一致。
 
 ## Related Concepts
-- [[concepts/minimum-required-edition|Minimum Required Edition]]
-- [[concepts/edition-evolution|Edition Evolution]]
 - [[concepts/life-of-an-edition|Life of an Edition]]
-- [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
-- [[concepts/edition-proclamation|Edition Proclamation]]
-- [[concepts/protobuf-editions|Protobuf Editions]]
-- [[concepts/edition-enum|Edition Enum]]
-- [[concepts/calver|Calver]]
-- [[concepts/hyrums-law|Hyrum's Law]]
+- [[concepts/editions|Editions]]
+- [[concepts/edition-patches|Edition Patches]]
+- [[concepts/edition-lifetimes|Edition Lifetimes]]
+- [[concepts/featureset-lifecycle|FeatureSet Lifecycle]]
 
 ## Related Entities
-- [[entities/protocol-buffers|Protocol Buffers]]
-- [[entities/protobuf-editions|Protobuf Editions]]
-- [[entities/prototiller|Prototiller]]
+- [[entities/protobuf|Protobuf]]
 
 ## Mentions in Source
-> **Source: [[sources/editions-readme|Protobuf Editions 设计文档索引]]**
-> - "The following topics are in this repository:"
-> - "[Edition Naming](edition-naming.md)"
-> - "This directory contains historical design documents that describe plans for implementing Protobuf Editions."
-
-> **Source: [[sources/editions-life-of-an-edition|Life of an Edition]]**
-> - "(**Note:** The above edition ordering is updated in [Edition Naming](edition-naming.md).)"
-> - "The total order is thus: the edition string is split on `'.'`. Each component is then ordered by `a.len < b.len && a < b`. This ensures that `9 < 10`, for example."
-
-> **Source: [[sources/editions-life-of-an-edition|Life of an Edition]]**
-> - No directly relevant information
-
 > **Source: [[sources/editions-edition-naming|editions-edition-naming]]**
-> - "One of the things Life of an Edition lays out is a very loose scheme for naming editions."
-> - "We will document that these are intended to be comparable numerically for finding the time ordering of editions."
+> - "Many of the ideas around editions have since been simplified in [Edition Naming](edition-naming.md), where we opted for a stricter naming scheme owned and defined by us." — [[sources/editions-edition-naming|editions-edition-naming]]
+> - "In [Edition Naming](edition-naming.md) we decided to drop the idea of "patch" editions, because editions were always forward and backward compatible." — [[sources/editions-edition-naming|editions-edition-naming]]
+
+> **Source: [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]**
+> - "Many of the ideas around editions have since been simplified in [Edition Naming](edition-naming.md), where we opted for a stricter naming scheme owned and defined by us." — [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]
+> - "In [Edition Naming](edition-naming.md) we decided to drop the idea of "patch" editions, because editions were always forward and backward compatible." — [[sources/editions-edition-lifetimes|editions-edition-lifetimes]]
