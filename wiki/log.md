@@ -1085,3 +1085,11 @@
 
 **更新页面**：[[@mcy]], [[edition-2024]], [[google]], [[protocolbuffersprotobuf]], [[proto2]], [[proto3]], [[has_presence]], [[descriptor]]
 
+
+
+## [2026-06-13] ingest | Protobuf 如何支持多种 C++ 构建系统
+
+**创建页面**：[[sources/cpp_build_systems.md]], [[entities/bazel.md]], [[entities/cmake.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/rules_pkg.md]], [[entities/blaze.md]], [[entities/google.md]], [[entities/autoconf.md]], [[entities/protobuf_lite.md]], [[entities/rules_cc.md]], [[concepts/cc_dist_library.md]], [[concepts/proto_file_list_aspect.md]], [[concepts/cc_file_list_aspect.md]], [[concepts/proto_file_list_aspect.md]], [[concepts/bazel-aspect.md]], [[concepts/ccfilelist.md]], [[concepts/gen_cmake_file_lists.md]], [[concepts/starlark-api.md]], [[concepts/distribution-archive.md]], [[concepts/cc_proto_library.md]], [[concepts/cc_library.md]], [[concepts/proto_library.md]], [[concepts/cc_test.md]], [[concepts/cc_dist_library.md]], [[concepts/gen_cmake_file_lists.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[bazel]], [[cmake]], [[google]]
+

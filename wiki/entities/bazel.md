@@ -14,9 +14,6 @@ aliases:
   - "Google Bazel"
 ---
 
-## Description
-Bazel 是由 Google 开发的开源构建和测试工具，是其内部构建系统 Blaze 的开源版本。它使用 Starlark 语言定义构建规则，支持多语言项目，特别适合 Protobuf 这种涉及多语言且依赖 C++ 编译器的复杂项目。Protobuf 项目以 Bazel 的构建定义为权威源（source of truth），并利用 Bazel 的 aspects 和 providers 机制将源文件列表暴露给其他构建系统（如 CMake）使用，从而实现多构建系统协同。对于使用 Bazel 构建的 C++ 项目（如 brpc），可以通过 `--define` 选项启用特定功能，例如开启 bthread tracer。此外，Bazel 可作为语言无关的构建系统，将 `protoc` 作为构建步骤之一运行，Protobuf 团队期望其为 Bazel 添加语义补丁支持，以便在不修改原始 .proto 文件的情况下应用 features。
-
 ## Related Entities
 - [[entities/brpc|brpc]] — 使用 Bazel 作为替代构建系统的 RPC 框架
 - [[entities/libunwind|libunwind]] — 与 bthread tracer 功能相关的依赖库
@@ -40,16 +37,16 @@ Bazel 是由 Google 开发的开源构建和测试工具，是其内部构建系
 
 ## Mentions in Source
 
-> **Source: [[sources/en_getting_started|en_getting_started]]**
+> **Source: en_getting_started**
 > - "if building with Bazel, please add the `--define with_bthread_tracer=true` option."
 
-> **Source: [[sources/options|options]]**
+> **Source: options**
 > - "Bazel, Failure Details"
 
-> **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
+> **Source: editions-protobuf-editions-for-schema-producers**
 > - "Language agnostic build systems, like Bazel, can run `protoc` as one of the build steps."
 > - "In the long term, we want a Bazel rule (and possibly similar for other build systems) that seamlessly packages changes like:"
 
-> **Source: [[sources/cpp_build_systems|cpp_build_systems]]**
+> **Source: cpp_build_systems**
 > - "Protobuf primarily uses Bazel to build the Protobuf C++ runtime and Protobuf compiler."
 > - "Bazel is a natural choice for a project-wide build system -- in fact, Bazel (and its predecessor, Blaze) was designed in large part to support exactly this type of rich, multi-language build."

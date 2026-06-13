@@ -16,9 +16,6 @@ aliases:
   - "Google Inc."
 ---
 
-## Description
-Protocol Buffers（Protobuf）是 Google 最初开发的序列化与通信数据格式，也是 Google 最古老且最成功的工具链项目之一，现由 Google 作为主要维护者持续开发。Protobuf 最初作为 Google 内部项目诞生，2008 年以开源软件形式对外发布，使外部开发者也能享受与 Google 内部相同的工具链收益，至今仍是 Google 内部最常用的数据格式。在 Google 内部，Protobuf 项目长期使用其自有的内部构建系统 Blaze（Bazel 的前身）进行开发，并且 Google 绝大多数提交至今仍沿用这一方式完成。Protobuf 与 Bazel、gRPC、Protoscope 等工具共同构成了 Google 围绕结构化数据描述与序列化的完整生态。
-
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/grpc|gRPC]]

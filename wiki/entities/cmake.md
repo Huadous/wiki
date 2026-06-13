@@ -14,9 +14,6 @@ aliases:
   - "CMake构建工具"
 ---
 
-## Description
-CMake 是一个广泛使用的开源跨平台构建系统生成器，可生成适用于多种编译器和平台的原生构建文件。在 brpc 项目中，CMake 是其主要构建方式之一，支持通过 `-DWITH_THRIFT=ON`、`-DWITH_GLOG=ON` 等选项灵活集成 Thrift、glog 等第三方依赖，并与 vcpkg 协同管理依赖库。在 Protobuf 项目中，CMake 同样是除 Bazel 之外另一种被支持的 C++ 构建方式——Protobuf 通过 `gen_cmake_file_lists` 规则将 Bazel 中定义的源文件列表导出为 CMake 可包含的 `.cmake` 文件，从而避免在 CMake 中重复维护文件清单，使开发者无需先运行 Bazel 即可用 CMake 构建 Protobuf。
-
 ## Related Entities
 - [[entities/brpc|brpc]] — cmake 是 brpc 的主要构建方式之一
 - [[entities/thrift|thrift]] — cmake 支持通过 `-DWITH_THRIFT=ON` 集成 Thrift

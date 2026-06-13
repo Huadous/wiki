@@ -6,6 +6,11 @@
 
 ## 实体
 
+- [[entities/rules_cc|rules_cc]] `aliases: rules_cc project, bazelbuild/rules_cc` - type: entity
+- [[entities/protobuf_lite|protobuf_lite]] `aliases: Protocol Buffers Lite, Protobuf Lite, protobuf-lite` - type: entity
+- [[entities/autoconf|autoconf]] `aliases: GNU Autoconf, autoconf` - type: entity
+- [[entities/blaze|blaze]] `aliases: Blaze 构建系统, Google Blaze` - type: entity
+- [[entities/rules_pkg|rules_pkg]] `aliases: rules_pkg, bazelbuild/rules_pkg, Bazel rules_pkg` - type: entity
 - [[entities/string_type|string_type]] `aliases: string_type feature, string_type 特性` - type: entity
 - [[entities/new-string-apis|new-string-apis]] `aliases: New String APIs project, New String APIs 项目` - type: entity
 - [[entities/@perezd|@perezd]] `aliases: perezd, Perezd` - type: entity
@@ -205,6 +210,18 @@
 
 ## 概念
 
+- [[concepts/cc_test|cc_test]] `aliases: Bazel cc_test, cc_test rule` - type: concept
+- [[concepts/proto_library|proto_library]] `aliases: Bazel proto_library, proto_library rule` - type: concept
+- [[concepts/cc_library|cc_library]] `aliases: Bazel cc_library, cc_library rule` - type: concept
+- [[concepts/cc_proto_library|cc_proto_library]] `aliases: cc_proto_library rule, Bazel cc_proto_library` - type: concept
+- [[concepts/distribution-archive|distribution-archive]] `aliases: Distribution archive, source distribution archive, 分发归档包` - type: concept
+- [[concepts/starlark-api|starlark-api]] `aliases: Starlark, Skylark` - type: concept
+- [[concepts/gen_cmake_file_lists|gen_cmake_file_lists]] `aliases: gen_cmake_file_lists, Protobuf CMake 文件列表生成规则, File list generation, gen_cmake_file_lists, Protobuf CMake 文件列表生成规则` - type: concept
+- [[concepts/ccfilelist|ccfilelist]] `aliases: CcFileList provider, Protobuf CcFileList Bazel Provider` - type: concept
+- [[concepts/bazel-aspect|bazel-aspect]] `aliases: Bazel Aspect 机制, Starlark Aspect, Bazel Aspects` - type: concept
+- [[concepts/cc_file_list_aspect|cc_file_list_aspect]] `aliases: cc_file_list_aspect, CcFileList Aspect, Protobuf C++ 文件列表 Aspect` - type: concept
+- [[concepts/proto_file_list_aspect|proto_file_list_aspect]] `aliases: proto_file_list_aspect, ProtoFileList Aspect, ProtoFileList, proto_file_list_aspect, ProtoFileList Aspect` - type: concept
+- [[concepts/cc_dist_library|cc_dist_library]] `aliases: cc_dist_library 规则, Protobuf Bazel 分发库规则, Distribution library, cc_dist_library 规则, Protobuf Bazel 分发库规则` - type: concept
 - [[concepts/fielddescriptoris_packed|fielddescriptoris_packed]] `aliases: is_packed(), FieldDescriptor::is_packed` - type: concept
 - [[concepts/syntax-deprecation-migration|syntax-deprecation-migration]] `aliases: syntax() migration, syntax() deprecation` - type: concept
 - [[concepts/enumdescriptoris_closed|enumdescriptoris_closed]] `aliases: is_closed, EnumDescriptor.is_closed(), EnumDescriptor::is_closed()` - type: concept
@@ -895,6 +912,7 @@
 
 ## 来源
 
+- [[sources/cpp_build_systems|cpp_build_systems]] `aliases: How Protobuf supports multiple C++ build systems, Protobuf C++ 构建系统支持机制`
 - [[sources/editions-cpp-apis-for-edition-zero|editions-cpp-apis-for-edition-zero]] `aliases: Editions C++ APIs, protobuf Edition Zero C++ API 提案`
 - [[sources/editions-edition-lifetimes|editions-edition-lifetimes]] `aliases: Protobuf Editions - Edition Lifetimes, Editions: Feature & Edition Lifecycle Design`
 - [[sources/editions-edition-evolution|editions-edition-evolution]] `aliases: editions-edition-evolution, Edition Evolution 演进提案`
