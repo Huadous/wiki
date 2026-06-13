@@ -3,7 +3,45 @@ type: source
 created: 2026-06-13
 updated: 2026-06-13
 source_file: "[[protobuf/editions-life-of-an-edition.md]]"
-tags: [Edition, Feature, Total Ordering of Editions, Edition Proclamation, Large-scale Change, Edition Zero, ProtoChangeSpec, Features GC, Editions adopter, Editions upgrader, ImmoLation of `required`, Global features, Language-scoped features, Feature lifetime, features.field_presence, features.(proto.cpp).legacy_string, features.group_encoded, features.packed, absl::string_view Accessors migration, Group-Encoded Messages migration, LEGACY_REQUIRED, EXPLICIT_PRESENCE, ALWAYS_SERIALIZE, proto2, proto3, Edition Zero Features, The OSS Story, Edition Naming, Breaking changes policy, Descriptor, FileDescriptorProto, EditionIsLaterThan, `syntax` field, `packed` migration, Edition proclamation cadence, required field label, ctype, Wire format migration pattern]
+tags:
+  - Edition
+  - Feature
+  - Total Ordering of Editions
+  - Edition Proclamation
+  - Large-scale Change
+  - Edition Zero
+  - ProtoChangeSpec
+  - Features GC
+  - Editions adopter
+  - Editions upgrader
+  - 'ImmoLation of `required`'
+  - Global features
+  - Language-scoped features
+  - Feature lifetime
+  - features.field_presence
+  - features.(proto.cpp).legacy_string
+  - features.group_encoded
+  - features.packed
+  - 'absl::string_view Accessors migration'
+  - Group-Encoded Messages migration
+  - LEGACY_REQUIRED
+  - EXPLICIT_PRESENCE
+  - ALWAYS_SERIALIZE
+  - proto2
+  - proto3
+  - Edition Zero Features
+  - The OSS Story
+  - Edition Naming
+  - Breaking changes policy
+  - Descriptor
+  - FileDescriptorProto
+  - EditionIsLaterThan
+  - '`syntax` field'
+  - '`packed` migration'
+  - Edition proclamation cadence
+  - required field label
+  - ctype
+  - Wire format migration pattern
 aliases: ["Life of an Edition", "editions-life-of-an-edition"]
 ---
 

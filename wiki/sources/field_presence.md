@@ -3,7 +3,34 @@ type: source
 created: 2026-06-13
 updated: 2026-06-13
 source_file: "[[protobuf/field_presence.md]]"
-tags: [Field presence, No presence discipline, Explicit presence discipline, Wire format, proto2, proto3, Oneof, Hazzer methods, Default value, JSON, Merging, Repeated fields, Map fields, Unknown fields, Forward and backward compatibility, Dynamic reflection, `optional` label, Packed repeated field, Named-field mapping formats, Tag-value stream, Self-delimiting values, Last one wins rule, Change-compatibility, Empty length-delimited values, Clear methods, UNKNOWN enumerator, `--experimental_allow_proto3_optional` flag]
+tags:
+  - Field presence
+  - No presence discipline
+  - Explicit presence discipline
+  - Wire format
+  - proto2
+  - proto3
+  - Oneof
+  - Hazzer methods
+  - Default value
+  - JSON
+  - Merging
+  - Repeated fields
+  - Map fields
+  - Unknown fields
+  - Forward and backward compatibility
+  - Dynamic reflection
+  - '`optional` label'
+  - Packed repeated field
+  - Named-field mapping formats
+  - Tag-value stream
+  - Self-delimiting values
+  - Last one wins rule
+  - Change-compatibility
+  - Empty length-delimited values
+  - Clear methods
+  - UNKNOWN enumerator
+  - '`--experimental_allow_proto3_optional` flag'
 aliases: ["Application note: Field presence", "protobuf 字段存在性应用笔记"]
 ---
 

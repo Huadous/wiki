@@ -3,7 +3,16 @@ type: source
 created: 2026-06-13
 updated: 2026-06-13
 source_file: "[[protobuf/editions-minimum-required-edition.md]]"
-tags: [Minimum Required Edition, FileDescriptorProto, descriptor.proto, Edition, Edition Total Order, Poison Pill, Epochs for `descriptor.proto`, Bootstrapping, Breaking Changes]
+tags:
+  - Minimum Required Edition
+  - FileDescriptorProto
+  - descriptor.proto
+  - Edition
+  - Edition Total Order
+  - Poison Pill
+  - 'Epochs for `descriptor.proto`'
+  - Bootstrapping
+  - Breaking Changes
 aliases: ["最低必需版本机制", "Minimum Required Edition 提案"]
 ---
 
