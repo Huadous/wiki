@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>editions-editions-life-of-a-featureset</title><meta charset="utf-8"/><link rel="preload" href="../index-a04301dc.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="LLM Wiki"/><meta property="og:title" content="editions-editions-life-of-a-featureset"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="editions-editions-life-of-a-featureset"/><meta name="twitter:description" content="Editions: Life of a FeatureSet Author: @mkruskal-google Approved: 2023-08-17 Background Outside of some minor spelling tweaks, our current implementation of features has very closely followed the original design laid out in Protobuf Editions Design: Features."/><meta property="og:description" content="Editions: Life of a FeatureSet Author: @mkruskal-google Approved: 2023-08-17 Background Outside of some minor spelling tweaks, our current implementation of features has very closely followed the original design laid out in Protobuf Editions Design: Features."/><meta property="og:image:alt" content="Editions: Life of a FeatureSet Author: @mkruskal-google Approved: 2023-08-17 Background Outside of some minor spelling tweaks, our current implementation of features has very closely followed the original design laid out in Protobuf Editions Design: Features."/><meta property="twitter:domain" content="huadous.github.io/wiki"/><meta property="og:url" content="https://huadous.github.io/wiki/protobuf/editions-editions-life-of-a-featureset"/><meta property="twitter:url" content="https://huadous.github.io/wiki/protobuf/editions-editions-life-of-a-featureset"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Editions: Life of a FeatureSet Author: @mkruskal-google Approved: 2023-08-17 Background Outside of some minor spelling tweaks, our current implementation of features has very closely followed the original design laid out in Protobuf Editions Design: Features."/><meta name="generator" content="Quartz"/><link href="../index-a04301dc.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7f220492.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://huadous.github.io/wiki/protobuf/editions-editions-life-of-a-featureset-og-image.webp"/><meta property="og:image:url" content="https://huadous.github.io/wiki/protobuf/editions-editions-life-of-a-featureset-og-image.webp"/><meta name="twitter:image" content="https://huadous.github.io/wiki/protobuf/editions-editions-life-of-a-featureset-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="protobuf/editions-editions-life-of-a-featureset" data-basepath="/wiki"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">LLM Wiki</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-57" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-57" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../protobuf/">protobuf</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>editions-editions-life-of-a-featureset</a></div></nav><h1 class="article-title">editions-editions-life-of-a-featureset</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-13T16:32:56.000Z">2026年6月13日</time><span>23分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="editions-life-of-a-featureset">Editions: Life of a FeatureSet<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#editions-life-of-a-featureset" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Author:</strong> <a href="https://github.com/mkruskal-google" class="external external-link">@mkruskal-google<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><strong>Approved:</strong> 2023-08-17</p>
+<h2 id="background">Background<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#background" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Outside of some minor spelling tweaks, our current implementation of features
+has very closely followed the original design laid out in
+<a href="../wiki/concepts/protobuf-editions-design-features" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">Protobuf Editions Design: Features</a>. This
+approach led to the creation of four different feature sets for each descriptor
+though, and it’s left under-specified who is responsible for generating these
+(protoc, plugins, runtimes), who has access to them, and where they need to be
+propagated to.</p>
+<p><em>Exposing Editions Feature Sets</em> (not available externally) was a first attempt
+to try to define some of these concepts. It locks down feature visibility to
+protoc, generators, and runtimes. Users will only be exposed to them indirectly,
+via codegen changes or runtime helper functions, in order to avoid Hyrum’s law
+cementing every decision we make about them. We (incorrectly) assumed that the
+protoc frontend would be able to calculate all the feature sets and then
+propagate all four sets to the generators, who would then forward the fully
+resolved runtime features to the runtime. This had the added benefit that we
+could treat our C++ feature resolution logic as a source-of-truth and didn’t
+have to reimplement it identically in every language we support.</p>
+<p><em>Editions: Runtime Feature Set Defaults</em> (not available externally) was a
+follow-up attempt to specifically handle the default feature sets of an edition.
+We had realized that we would need proto2/proto3 default features in each
+language to safely roll out editions, and that languages supporting descriptor
+pools would have cases that bypass protoc entirely. The solution we arrived at
+was that we should continue using the protoc frontend as the source-of-truth,
+and propagate these defaults down to the necessary runtimes. This would fix the
+proto2/proto3 issue, and at least provide some utilities to make the situation
+easier for descriptor pool users.</p>
+<p><a href="../wiki/concepts/protobuf-editions-design-features" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">Protobuf Editions Design: Features</a>
+defines the feature resolution algorithm, which can be summarized by the
+following diagram:</p>
+<p><img src="../images/editions-life-of-a-featureset-image-01.png" alt="Feature resolution diagram"/></p>
+<p>Feature resolution for a given descriptor starts by using the proto file’s
+edition and the feature schemas to generate the default feature set. It then
+merges all of the parent features from top to bottom, merging the descriptor’s
+features last.</p>
+<h2 id="glossary">Glossary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#glossary" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>We will be discussing features <strong>a lot</strong> in this document, but the meaning
+behind the word can vary in some subtle ways depending on context. Whenever it’s
+ambiguous, we will stick to qualifying these according to the following
+definitions:</p>
+<ul>
+<li>
+<p><strong>Global features</strong> - The features contained directly in <code>FeatureSet</code> as
+fields. These apply to the protobuf language itself, rather than any
+particular runtime or generator.</p>
+</li>
+<li>
+<p><strong>Generator features</strong> - Extensions of <code>FeatureSet</code> owned by a specific
+runtime or generator.</p>
+</li>
+<li>
+<p><strong>Feature resolution</strong> - The process of applying the algorithm laid out in
+<a href="../wiki/concepts/protobuf-editions-design-features" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">Protobuf Editions Design: Features</a>.
+This means that edition defaults, parent features, and overrides have all
+been merged together. After resolution, every feature should have an
+explicit value.</p>
+<ul>
+<li>
+<p><strong>Unresolved features</strong> - The features a user has explicitly set on
+their descriptors in the <code>.proto</code> file. These have not gone through
+feature resolution and are a minimal representation that require more
+knowledge to be useful.</p>
+</li>
+<li>
+<p><strong>Resolved features</strong> - Features that have gone through feature
+resolution, with defaults and inheritance applied. These are the only
+feature sets that should be used to make decisions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Option Retention</strong> - We support a retention specification on all options
+(see
+<a href="https://protobuf.dev/programming-guides/proto3#option-retention" class="external external-link">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>),
+including features</p>
+<ul>
+<li>
+<p><strong>Source features</strong> - The features available to protoc and generators,
+before option retention has been applied. These can be either resolved
+or unresolved.</p>
+</li>
+<li>
+<p><strong>Runtime features</strong> - The features available to runtimes after option
+retention has been applied. These can be either resolved or unresolved.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="problem-description">Problem Description<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#problem-description" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The flaw that all of these design documents suffer from is that protoc <strong>can’t</strong>
+be the universal source-of-truth for feature resolution under the original
+design. For global features, there’s of course no issue (protoc has a
+bootstrapping setup for `descriptor.proto“ and always knows the global feature
+set). For generator features though, we depend on <a href="../wiki/concepts/protobuf-editions-design-features#specification-of-an-edition" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">imports to make them
+discoverable</a>.</p>
+<p>If a user is actually overriding one of these features, there will necessarily
+be an import and therefore protoc will be able to discover generator features
+and handle resolution. However, if the user is ok with the edition defaults
+there’s no need for an import. Without the import, protoc has <strong>no way of
+knowing</strong> that those generator features exist in general. We could hardcode the
+ones we own, but that just pushes the problem off to third-party plugins. We
+could also force proto owners to include imports for <em>every</em> (transitive)
+language they generate code to, even if they’re unused, but that would be very
+disruptive and isn’t practical or idiomatic.</p>
+<p>Pushing the source-of-truth to the generators makes things a little better,
+since they each know exactly what feature file needs to be included. There’s no
+longer any knowledge gap, and we don’t need to rely on imports to discover the
+feature extension. Additionally, many of our generators are written in C++ (even
+non-built-in plugins), so we could at least reuse our existing feature
+resolution utility for all of those and limit the amount of duplication
+necessary. However, there’s still a code-size issue with this approach. As
+described in the previous documents, we would need to send four feature sets for
+<strong>every</strong> descriptor to the runtime (i.e. in the generator request and embedded
+as a serialized string). We wouldn’t be able to use inheritance or references to
+minimize the cost, and every generator that embeds a <code>FileDescriptorProto</code> into
+its gencode would see a massive code-size increase.</p>
+<p>There’s also still the issue of descriptor pools that need to be able to build
+descriptors at runtime. These are typically power users (and our own unit-tests)
+doing very atypical things and bypassing protoc entirely. In previous documents
+we’ve attempted to push some of the cost onto them by explicitly not giving them
+feature resolution. They would have to specify every feature on every
+descriptor, and would not be able to use edition defaults or inheritance.
+However, this cost is fairly high and it also makes the <code>edition</code> field
+meaningless. Any missing feature would be a runtime error, and there would be no
+concept of “edition”. This creates an inconsistent experience for developers,
+where they think in terms of editions in one context and then throw it out in
+another. Also, it would mean that we have two distinct ways of specifying a
+`FileDescriptorProto“: with unresolved features meant to only go through
+protoc, and with fully resolved features meant to always bypass protoc.
+Round-tripping descriptors would become difficult or impossible.</p>
+<p>The following image attempts illustrates the issue:</p>
+<p><img src="../images/editions-life-of-a-featureset-image-03.png" alt="Diagram showing two generators and two runtimes"/></p>
+<p>Here, a proto file is used in both A and B runtimes. The schema itself only
+overrides features for A though, and doesn’t declare an import on B’s features.
+This means that protoc doesn’t know about B’s features, and Generator B will
+need to resolve them. Additionally, dynamic messages in both A and B runtimes
+have issues because they’ve bypassed protoc and don’t have any way to follow the
+feature resolution spec.</p>
+<h3 id="requirements">Requirements<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#requirements" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The following minimal feature sets are required by protoc:</p>
+<ul>
+<li><strong>Resolved global source features</strong> - to make proto-level decisions</li>
+<li><strong>Unresolved global source features</strong> - for validation</li>
+</ul>
+<p>For each generator:</p>
+<ul>
+<li><strong>Resolved generator source features</strong> - to make language-specific codegen
+decisions</li>
+<li><strong>Unresolved generator source features</strong> - for validation</li>
+<li><strong>Resolved global source features</strong> - to make more complex decisions</li>
+</ul>
+<p>For each runtime:</p>
+<ul>
+<li><strong>All resolved runtime features</strong> - for making runtime decisions</li>
+<li><strong>All unresolved runtime features</strong> - for round-trip behavior and debugging</li>
+</ul>
+<p>With some additional requirements on an ideal solution:</p>
+<ul>
+<li>
+<p><strong>Minimal code-size costs</strong> - code size bloat can easily block the rollout
+of editions, and once those limits are hit we don’t have great solutions</p>
+</li>
+<li>
+<p><strong>Minimal performance costs</strong> - we want a solution that avoids any
+unnecessary CPU or RAM regressions</p>
+</li>
+<li>
+<p><strong>Minimal code duplication</strong> - obviously we want to minimize this, but where
+we can’t, we need a suitable test strategy to keep the duplication in sync</p>
+</li>
+<li>
+<p><strong>Runtime support for dynamic messages</strong> - while dynamic messages are a
+less-frequently-used feature, they are a critical feature used by a lot of
+important systems. Our solution should avoid making them harder to use in
+any runtime that supports them.</p>
+</li>
+</ul>
+<h2 id="recommended-solution">Recommended Solution<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommended-solution" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Our long-term recommendation here is to support and use feature resolution in
+every stage in the life of a FeatureSet. Every runtime, generator, and protoc
+itself will all handle feature resolution independently, only sharing unresolved
+features between each other. This will necessarily mean duplication across
+nearly every language we support, and the following sections will go into detail
+about strategies for managing this.</p>
+<p>The main justification for this duplication is the simple fact that <em>edition
+defaults</em> will be needed almost everywhere. The generators need defaults for
+<em>their</em> features to get fully resolved generator features to make decisions on,
+and can’t get them from protoc in every case. The runtimes need defaults for
+both global and generator features in order to honor editions in dynamic
+messages and to keep RAM costs down (e.g. the absence of feature overrides
+should result in a reference to some shared default object). Since the
+calculation of edition defaults is by far the most complicated piece of feature
+resolution, with the remainder just being proto merges, it makes everything
+simpler to understand if we just duplicate the entire algorithm.</p>
+<h4 id="pros">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Resolved feature sets will never be publicly exposed</p>
+<ul>
+<li>
+<p>Our APIs will be significantly simpler, cutting the number of different
+types of feature sets by a factor of 2</p>
+</li>
+<li>
+<p>There will be no ambiguity about what a <code>FeatureSet</code> object <em>means</em>. It
+will always either be unresolved (outside of protobuf code) or fully
+resolved on all accessible features (inside protobuf code).</p>
+</li>
+<li>
+<p>RAM and code-size costs will be minimal, since we’ll only be storing and
+propagating the minimal amount of information (unresolved features)</p>
+</li>
+<li>
+<p>Combats Hyrum’s law by allowing us to provide wrappers around resolved
+features everywhere, instead of letting people depend on them directly</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Minimal</strong> duplication on top of what’s already necessary (edition
+defaults).</p>
+</li>
+<li>
+<p>Dynamic messages will be treated on equal footing to proto files</p>
+</li>
+<li>
+<p>The necessary feature dependencies will always be available in the
+appropriate context</p>
+</li>
+<li>
+<p>We can simplify the current implementation since protoc won’t need to handle
+resolution of imported features.</p>
+</li>
+</ul>
+<h4 id="cons">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>
+<p>Requires duplication of feature resolution in every runtime and every unique
+generator language</p>
+<ul>
+<li>This means building out additional infrastructure to enforce
+cross-language conformance</li>
+</ul>
+</li>
+</ul>
+<h3 id="runtimes-without-reflection">Runtimes Without Reflection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#runtimes-without-reflection" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>There are various runtimes that do not support reflection or dynamic messages at
+all (e.g. Java lite, ObjC). They typically embed the “feature-like” information
+they need directly into custom objects in the gencode. In these cases, the
+problem becomes a lot simpler because they <em>don’t need</em> the full FeatureSet
+objects. We <strong>don’t</strong> need to duplicate feature resolution in the runtime, and
+the generator can just directly embed the fully resolved features values needed
+by the runtime (of course, the generator might still need duplicate logic to get
+those).</p>
+<h3 id="staged-rollout-for-dynamic-messages">Staged Rollout for Dynamic Messages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#staged-rollout-for-dynamic-messages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Long-term, we want to be able to handle feature resolution at run-time for any
+runtime that supports reflection (and therefore needs FeatureSet objects) to
+reduce code-size/RAM costs and support dynamic messages. However, in any
+language where these costs are less critical, a staged rollout could be
+appropriate. Here, the generator would embed the serialized resolved source
+features into the gencode along with the rest of the options. We would use the
+<code>raw_features</code> field (which should eventually be deleted) to also include the
+unresolved features for reflection.</p>
+<p>This would allow us to implement and test editions, and unblock the migration of
+all non-dynamic cases. A follow-up optimization at a later stage could push this
+down the runtime, and only embed unresolved features in the gencode.</p>
+<p>Under this scenario, dynamic messages could still allow editions, as long as
+fully-resolved features were provided on every descriptor. When we do implement
+feature resolution, it will just be a matter of deleting redundant/unnecessary
+features, but there should always be a valid transformation from fully-resolved
+features to unresolved ones.</p>
+<h3 id="c-generators">C++ Generators<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#c-generators" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Generators written in C++ are in a better position since they don’t require any
+code duplication. They could be given visibility to our existing feature
+resolution utility to resolve the features themselves. However, a better
+alternative is to make improvements to this utility so that some helpers like
+the ones we proposed in <em>Exposing Editions Feature Sets</em> can be used to access
+the resolved features that <em>already exist</em>.</p>
+<p>Protoc works by first parsing the input protofiles and building them into a
+descriptor pool. This is the frontend pass, where only the global features are
+needed. For built-in languages, the resulting descriptors are passed directly to
+the generator for codegen. For plugins, they’re serialized into descriptor
+protos, rebuilt in a new descriptor pool (in the generator process), and then
+sent to the generator code for codegen. In both of these cases, a
+<code>DescriptorPool</code> build of the protos is done from a binary that <em>necessarily</em>
+links in the relevant generator features.</p>
+<p>Today, we discover features in the pool which are imported by the protos being
+built. This has the hole we mentioned above where non-imported features can’t be
+discovered. Instead, we will pivot to a more explicit strategy for discovering
+features. By default, <code>DescriptorPool</code> will only resolve the global features and
+the C++ features (since this is the C++ runtime). A new method will be added to
+<code>DescriptorPool</code> that allows new feature sets to replace the C++ features for
+feature resolution. Generators will register their features via a virtual method
+in <code>CodeGenerator</code> and the generator’s pool build will take those into account
+during feature resolution.</p>
+<p>There are a few ways to actually define this registration, which we’ll leave as
+implementation details. Some examples that we’re considering include:</p>
+<ul>
+<li>Have the generator provide its own <code>DescriptorPool</code> containing the relevant
+feature sets</li>
+<li>Have the generator provide a mapping of edition -> default <code>FeatureSet</code>
+objects</li>
+</ul>
+<p>Expanding on previous designs, we will provide the following API to C++
+generators via the <code>CodeGenerator</code> class:</p>
+<p>They will have access to all the fully-resolved feature sets of any descriptor
+for making codegen decisions, and they will have access to their own unresolved
+generator features for validation. The <code>FileDescriptor::CopyTo</code> method will
+continue to output unresolved runtime features, which will become unresolved
+source features after option retention stripping (which generators should
+already be doing), for embedding in the gencode for runtime use.</p>
+<h4 id="example">Example<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>As an example, let’s look at some hypothetical language <code>lang</code> and how it would
+introduce its own features. First, if it needs features at runtime it would
+create a <code>lang_features.proto</code> file in its runtime directory and bootstrap the
+gencode the same as it does for <code>descriptor.proto</code>. It would then <em>also</em>
+bootstrap C++ gencode using a special C++-only build of protoc. This can be
+illustrated in the following diagram:</p>
+<p><img src="../images/editions-life-of-a-featureset-image-04.png" alt="Diagram showing how a language introduces its own features"/></p>
+<p>This illustrates the bootstrapping setup for a built-in C++ generator. If
+generator features weren’t needed in the runtime, that red box would disappear.
+If this were a separate plugin, the “plugin” box would simply be moved out of
+<code>protoc</code> and <code>protoc</code> could also serve as <code>protoc_cpp</code>.</p>
+<p>If <code>lang</code> didn’t need runtime features, we would simply put the features proto
+in the <code>lang</code> generator and only generate C++ code (using the same bootstrapping
+technique as above).</p>
+<p>After the generator registers <code>lang_features.proto</code> with the DescriptorPool, the
+<code>FeatureSet</code> objects returned by <code>GetFeatures</code> will always have fully resolved
+<code>lang</code> features.</p>
+<h3 id="non-c-generators">Non-C++ Generators<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#non-c-generators" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>As we’ve shown above, non-C++ generators are already in a situation where they’d
+need to duplicate <em>some</em> of the feature resolution logic. With this solution,
+they’d need to duplicate much more of it. The <code>GeneratorRequest</code> from protoc
+will provide the full set of <em>unresolved</em> features, which they will need to
+resolve and apply retention stripping to.</p>
+<p><strong>Note:</strong> If we’re able to implement bidirectional plugin communication, the
+<a href="#bidirectional-plugins" class="internal internal-link alias">Bidirectional Plugins</a> alternative may be a simpler
+solution for non-C++ generators that <em>don’t</em> need features at runtime. Ones that
+need it at runtime will need to reimplement feature resolution anyway, so it may
+be less useful.</p>
+<p>One of the trickier pieces of the resolution logic is the calculation of edition
+defaults, which requires a lot of reflection. One of the ideas mentioned above
+in <a href="#c++-generators" class="internal internal-link alias">C++ Generators</a> could actually be repurposed to avoid
+duplication of this in non-C++ generators as well. The basic idea is that we
+start by defining a proto:</p>
+<pre><code>message EditionFeatureDefaults {
+  message FeatureDefaults {
+    string edition = 1;
+    FeatureSet defaults = 2;
+  }
+  repeated FeatureDefaults defaults = 1;
+  string minimum_edition = 2;
+  string maximum_edition = 3;
+}
+</code></pre>
+<p>This can be filled from any feature set extension to provide a much more usable
+specification of defaults. We can package a genrule that converts from feature
+protos to a serialized <code>EditionFeatureDefaults</code> string, and embed this anywhere
+we want. Both C++ and non-C++ generators/runtimes could embed this into their
+code. Once this is known, feature resolution becomes a lot simpler. The hardest
+part is creating a comparator for edition strings. After that, it’s a simple
+search for the lower bound in the defaults, followed by some proto merges.</p>
+<h3 id="bootstrapping">Bootstrapping<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bootstrapping" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>One major complication we’re likely to hit revolves around our bootstrapping of
+<code>descriptor.proto</code>. In languages that have dynamic messages, one codegen
+strategy is to embed the <code>FileDescriptorProto</code> of the file and then parse and
+build it at the beginning of runtime. For <code>descriptor.proto</code> in particular,
+handling options can be very challenging. For example, in Python, we
+intentionally strip all options from this file and then assume that the options
+descriptors always exist during build (in the presence of serialized options).
+Since features <em>are</em> options, this poses a challenge that’s likely to vary
+language by language.</p>
+<p>We will likely need to special-case <code>descriptor.proto</code> in a number of ways.
+Notably, this file will <strong>never</strong> have any generator feature overrides, since it
+can’t import those files. In every other case, we can safely assume that
+generator features exist in a fully resolved feature set. But for
+<code>descriptor.proto</code>, at least at the time it’s first being built by the runtime,
+this extension won’t be present. We also can’t figure out edition defaults at
+that point since we don’t have the generator features proto to reflect over.</p>
+<p>One possible solution would be to codegen extra information specifically for
+this bootstrapped proto, similar to what we suggested in <em>Editions: Runtime
+Feature Set Defaults</em> for edition defaults. That would allow the generator to
+provide enough information to build <code>descriptor.proto</code> during runtime. As long
+as these special cases are limited to <code>descriptor.proto</code> though, it can be left
+to a more isolated language-specific discussion.</p>
+<h3 id="conformance-testing">Conformance Testing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conformance-testing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Code duplication means that we need a test strategy for making sure everyone
+stays conformant. We will need to implement a conformance testing framework for
+validating that all the different implementations of feature resolution agree.
+Our current conformance tests provide a good model for accomplishing this, even
+though they don’t quite fit the problem (they’re designed for
+parsing/serialization). There’s a runner binary that can be hooked up to another
+binary built in any language. It sends a <code>ConformanceRequest</code> proto with a
+serialized payload and set of instructions, and then receives a
+<code>ConformanceResponse</code> with the result. In the runner, we just loop over a number
+of fixed test suites to validate that the supplied binary is conformant.</p>
+<p>We would want a similar setup here for language-agnostic testing. While we could
+write a highly focused framework just for feature resolution, a more general
+approach may set us up better in the future (e.g. option retention isn’t
+duplicated now but could have been implemented that way). This will allow us to
+test any kind of transformation to descriptor protos, such as: proto3_optional,
+group/DELIMITED, required/LEGACY_REQUIRED. The following request/response protos
+describe the API:</p>
+<pre><code>message DescriptorConformanceRequest {
+  // The file under test, pre-transformation.
+  FileDescriptorProto file = 1;
+
+  // The pool of dependencies and feature files required for build.
+  FileDescriptorSet dependencies = 2;
+}
+
+message DescriptorConformanceResponse {
+  // The transformed file.
+  FileDescriptorProto file = 1;
+
+  // Any additional features added during build.
+  FileDescriptorSet added_features = 2;
+}
+</code></pre>
+<p>Each test point would construct a proto file, its dependencies, and any feature
+files to include in feature resolution. The conformance binary would use this to
+fully decorate the proto file with resolved features, and send the result back
+for comparison against our C++ source-of-truth. Any generator features added by
+the binary will also need to be sent back to get matching results.</p>
+<h3 id="documentation">Documentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#documentation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Because we’re now asking third-party generator owners to handle feature
+resolution on their own, we will need to document this. Specifically, we need to
+open-source documentation for:</p>
+<ul>
+<li>The algorithm described in
+<a href="../wiki/concepts/protobuf-editions-design-features" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">Protobuf Editions Design: Features</a></li>
+<li>The conformance test framework and how to use it (once it’s implemented)</li>
+</ul>
+<p>On the other hand, we will have significantly less documentation to write about
+which feature sets to use where. Descriptor protos will <em>always</em> contain
+unresolved features, and C++ generators will have a simple API for getting the
+fully-resolved features.</p>
+<h2 id="considered-alternatives">Considered Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#considered-alternatives" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="use-generated-pool-for-c-generators">Use Generated Pool for C++ Generators<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#use-generated-pool-for-c-generators" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><em>Note: this was part of the original proposal, but has been refactored (see
+cons)</em></p>
+<p>Generators written in C++ are in a better position since they don’t require any
+code duplication. They could be given visibility to our existing feature
+resolution utility to resolve the features themselves. However, a better
+alternative is to make improvements to this utility so that some helpers like
+the ones we proposed in <em>Exposing Editions Feature Sets</em> can be used to access
+the resolved features that <em>already exist</em>.</p>
+<p>Protoc works by first parsing the input protofiles and building them into a
+descriptor pool. This is the frontend pass, where only the global features are
+needed. For built-in languages, the resulting descriptors are passed directly to
+the generator for codegen. For plugins, they’re serialized into descriptor
+protos, rebuilt in a new descriptor pool (in the generator process), and then
+sent to the generator code for codegen. In both of these cases, a
+<code>DescriptorPool</code> build of the protos is done from a binary that <em>necessarily</em>
+links in the relevant generator features.</p>
+<p>However, the FeatureSets we supply to generators are transformed to the
+generated pool (i.e. <code>FeatureSet</code> objects rather than <code>Message</code>) where the
+generator features will always exist. We’ve decided that there’s no longer any
+reason to scrape the imports for features, but we <em>could</em> scrape the generated
+pool for them. This essentially means that when you call <code>MergeFeatures</code> to get
+a <code>FeatureSet</code>, the returned set is fully resolved <em>with respect to the current
+generated pool</em>. This is a much clearer contract, and has the benefit that the
+features visible to every C++ generator would automatically be populated with
+the correct generator features for them to use.</p>
+<p>Expanding on previous designs, we will provide the following API to C++
+generators via the <code>CodeGenerator</code> class:</p>
+<p>They will have access to all the fully-resolved feature set of any descriptor
+for making codegen decisions, and they will have access to their own unresolved
+generator features for validation. The <code>FileDescriptor::CopyTo</code> method will
+continue to output unresolved runtime features, which will become unresolved
+source features after option retention stripping (which generators should
+already be doing), for embedding in the gencode for runtime use.</p>
+<h4 id="pros-1">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Automatic inclusion of any features used in a binary</li>
+<li>Features will never be partially resolved</li>
+</ul>
+<h4 id="cons-1">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Implicit action at a distance could cause unexpected behaviors</li>
+<li>Uses globals, making testing awkward</li>
+<li>Not friendly to <code>DescriptorPool</code> cases who wouldn’t necessarily want every
+linked-in feature to go through feature resolution.</li>
+</ul>
+<h3 id="default-placeholders">Default Placeholders<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#default-placeholders" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Protoc continues to propagate and resolve core features and imported language
+level features. For language level features that protoc does not know about
+(that is, not imported), a core placeholder feature indicating that the default
+for a given edition should be respected can be propagated.</p>
+<pre><code>message FeatureSet {
+  optional string unknown_feature_edition_default = N; // e.g. 2023
+}
+</code></pre>
+<p>Instead of duplicating the entire feature resolution algorithm, plugins must
+only provide a utility mapping editions to their default FeatureSet using the
+generator feature files and optionally caching them.</p>
+<p>For example:</p>
+<pre><code>if features.hasUtf8Validation():
+  return features.getUtf8Validation()
+else:
+  default_features = getDefaultFeatures(features.getUnknownFeatureEditionDefault())
+  return default_features.getUtf8Validation()
+</code></pre>
+<h4 id="pros-2">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Less duplicate logic for propagating features</li>
+</ul>
+<h4 id="cons-2">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Descriptor proto bloat that is technically redundant with
+<code>FileDescriptorProto</code> edition.</li>
+<li>Confusing that some but not all features are fully resolved</li>
+<li>Duplicated logic to resolve edition default from edition #</li>
+<li>Code-size and memory costs associated with the original approach still exist</li>
+<li>Still doesn’t help with the descriptor pool case, which may require
+duplicate logic.</li>
+</ul>
+<h3 id="bidirectional-plugins">Bidirectional Plugins<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bidirectional-plugins" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Since the generators know the features they care about, we could have some kind
+of bidirectional communication between protoc and the plugins. The plugin would
+start by telling protoc the features it wants added, and then protoc would be
+able to fully resolve all feature sets before sending them off. This has the
+added benefit that it would allow us to do more interesting enhancements in the
+future. For example, the plugin could send its minimum required edition and
+other requirements <em>before</em> actually starting the build.</p>
+<p><strong>Note:</strong> Bidirectional plugins could still be implemented for other purposes.
+This “alternative” is specifically for <em>using</em> that communication to pass
+missing feature specs.</p>
+<h4 id="pros-3">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Eliminates code duplication problem</li>
+<li>Provides infrastructure to enable future enhancements</li>
+</ul>
+<h4 id="cons-3">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Doesn’t address the confusing API we have now where it’s unclear what kind
+of features are contained in the <code>features</code> field</li>
+<li>Doesn’t address the code-size and memory costs during runtime</li>
+<li>Doesn’t address the descriptor pool case</li>
+</ul>
+<h3 id="central-feature-registry">Central Feature Registry<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#central-feature-registry" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Instead of relying on generators and imports to supply feature specs, we could
+pivot to a central registry of all known features. Instead of simply claiming an
+extension number, generator owners could be required to submit all the feature
+protos to a central repository of feature protos. This would give protoc access
+to <strong>all</strong> features. There would be two ways to implement this:</p>
+<ul>
+<li>
+<p>If it were built <em>into</em> protoc, we could avoid requiring any import
+statements. We would probably still want an extension point to avoid adding
+a dependency to <code>descriptor.proto</code>, but instead of <code>features.(pb.cpp)</code> they
+would be something more like <code>features.(pb).cpp</code>.</p>
+</li>
+<li>
+<p>We could keep the current extension and import scheme. Proto files would
+still need to import the features they override, but protoc would depend on
+all of them and populate defaults for unspecified ones.</p>
+</li>
+</ul>
+<h4 id="pros-4">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Makes all features easily discoverable wherever they’re needed</li>
+<li>Eliminates the code duplication problem</li>
+<li>Gives us an option to remove the import statements, which are likely to
+cause future headaches (in the edition zero LSC, in maintenance afterward,
+and also for proto files that need to support a lot of third-party
+runtimes).</li>
+</ul>
+<h4 id="cons-4">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Doesn’t address the code-size and memory costs</li>
+<li>Creates version skew problems</li>
+<li>Confusing ownership semantics</li>
+</ul>
+<h3 id="do-nothing">Do Nothing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#do-nothing" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Doing nothing would basically mean abandoning editions. The current design
+doesn’t (and can’t) work for third party generators. They’d be left to duplicate
+the logic themselves with no guidance or support from us. We would also see
+code-size and RAM bloat (except in C++) that would be very difficult to resolve.</p>
+<h4 id="pros-5">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-5" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Less work</li>
+</ul>
+<h4 id="cons-5">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-5" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Worse in every other way</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-55" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#editions-life-of-a-featureset" data-for="editions-life-of-a-featureset">Editions: Life of a FeatureSet</a></li><li class="depth-1"><a href="#background" data-for="background">Background</a></li><li class="depth-1"><a href="#glossary" data-for="glossary">Glossary</a></li><li class="depth-1"><a href="#problem-description" data-for="problem-description">Problem Description</a></li><li class="depth-2"><a href="#requirements" data-for="requirements">Requirements</a></li><li class="depth-1"><a href="#recommended-solution" data-for="recommended-solution">Recommended Solution</a></li><li class="depth-2"><a href="#runtimes-without-reflection" data-for="runtimes-without-reflection">Runtimes Without Reflection</a></li><li class="depth-2"><a href="#staged-rollout-for-dynamic-messages" data-for="staged-rollout-for-dynamic-messages">Staged Rollout for Dynamic Messages</a></li><li class="depth-2"><a href="#c-generators" data-for="c-generators">C++ Generators</a></li><li class="depth-2"><a href="#non-c-generators" data-for="non-c-generators">Non-C++ Generators</a></li><li class="depth-2"><a href="#bootstrapping" data-for="bootstrapping">Bootstrapping</a></li><li class="depth-2"><a href="#conformance-testing" data-for="conformance-testing">Conformance Testing</a></li><li class="depth-2"><a href="#documentation" data-for="documentation">Documentation</a></li><li class="depth-1"><a href="#considered-alternatives" data-for="considered-alternatives">Considered Alternatives</a></li><li class="depth-2"><a href="#use-generated-pool-for-c-generators" data-for="use-generated-pool-for-c-generators">Use Generated Pool for C++ Generators</a></li><li class="depth-2"><a href="#default-placeholders" data-for="default-placeholders">Default Placeholders</a></li><li class="depth-2"><a href="#bidirectional-plugins" data-for="bidirectional-plugins">Bidirectional Plugins</a></li><li class="depth-2"><a href="#central-feature-registry" data-for="central-feature-registry">Central Feature Registry</a></li><li class="depth-2"><a href="#do-nothing" data-for="do-nothing">Do Nothing</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../wiki/concepts/bootstrapping" class="internal">bootstrapping</a></li><li><a href="../wiki/concepts/c++-generators" class="internal">c++-generators</a></li><li><a href="../wiki/concepts/code-generator" class="internal">code-generator</a></li><li><a href="../wiki/concepts/descriptor-proto" class="internal">descriptor-proto</a></li><li><a href="../wiki/concepts/dynamic-message" class="internal">dynamic-message</a></li><li><a href="../wiki/concepts/edition-defaults" class="internal">edition-defaults</a></li><li><a href="../wiki/concepts/edition" class="internal">edition</a></li><li><a href="../wiki/concepts/editions-life-of-a-featureset" class="internal">editions-life-of-a-featureset</a></li><li><a href="../wiki/concepts/feature-resolution" class="internal">feature-resolution</a></li><li><a href="../wiki/concepts/filedescriptorproto" class="internal">filedescriptorproto</a></li><li><a href="../wiki/concepts/filedescriptorset" class="internal">filedescriptorset</a></li><li><a href="../wiki/concepts/global-features" class="internal">global-features</a></li><li><a href="../wiki/concepts/protobuf-editions-design-features" class="internal">protobuf-editions-design-features</a></li><li><a href="../wiki/concepts/retention" class="internal">retention</a></li><li><a href="../wiki/entities/conformanceresponse" class="internal">conformanceresponse</a></li><li><a href="../wiki/entities/mkruskal-google" class="internal">mkruskal-google</a></li><li><a href="../wiki/entities/protoc" class="internal">protoc</a></li><li><a href="../wiki/sources/editions-editions-life-of-a-featureset" class="internal">editions-editions-life-of-a-featureset</a></li><li><a href="../wiki/sources/editions" class="internal">editions</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/Huadous/wiki">GitHub</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-e41c6e5c.js" type="module" data-persist="true"></script></html>

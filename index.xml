@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>LLM Wiki</title>
+      <link>https://huadous.github.io/wiki</link>
+      <description>Last 10 notes on LLM Wiki</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>rpcz</title>
+    <link>https://huadous.github.io/wiki/tags/rpcz</link>
+    <guid>https://huadous.github.io/wiki/tags/rpcz</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>version</title>
+    <link>https://huadous.github.io/wiki/tags/version</link>
+    <guid>https://huadous.github.io/wiki/tags/version</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>vlog</title>
+    <link>https://huadous.github.io/wiki/tags/vlog</link>
+    <guid>https://huadous.github.io/wiki/tags/vlog</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>schema-producer</title>
+    <link>https://huadous.github.io/wiki/tags/schema-producer</link>
+    <guid>https://huadous.github.io/wiki/tags/schema-producer</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>schema-consumer</title>
+    <link>https://huadous.github.io/wiki/tags/schema-consumer</link>
+    <guid>https://huadous.github.io/wiki/tags/schema-consumer</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>semantic-patch</title>
+    <link>https://huadous.github.io/wiki/tags/semantic-patch</link>
+    <guid>https://huadous.github.io/wiki/tags/semantic-patch</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>wire-format-compatibility</title>
+    <link>https://huadous.github.io/wiki/tags/wire-format-compatibility</link>
+    <guid>https://huadous.github.io/wiki/tags/wire-format-compatibility</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>support-matrix</title>
+    <link>https://huadous.github.io/wiki/tags/support-matrix</link>
+    <guid>https://huadous.github.io/wiki/tags/support-matrix</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>what-are-protobuf-editions</title>
+    <link>https://huadous.github.io/wiki/tags/what-are-protobuf-editions</link>
+    <guid>https://huadous.github.io/wiki/tags/what-are-protobuf-editions</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item><item>
+    <title>life-of-an-edition</title>
+    <link>https://huadous.github.io/wiki/tags/life-of-an-edition</link>
+    <guid>https://huadous.github.io/wiki/tags/life-of-an-edition</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Sat, 13 Jun 2026 16:52:46 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>

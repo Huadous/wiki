@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>style</title><meta charset="utf-8"/><link rel="preload" href="../index-a04301dc.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="LLM Wiki"/><meta property="og:title" content="style"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="style"/><meta name="twitter:description" content="Style Guide | Protocol Buffers Documentation View page source Edit this page Create child page Create documentation issue Create project issue Style Guide Provides direction for how best to structure your proto definitions."/><meta property="og:description" content="Style Guide | Protocol Buffers Documentation View page source Edit this page Create child page Create documentation issue Create project issue Style Guide Provides direction for how best to structure your proto definitions."/><meta property="og:image:alt" content="Style Guide | Protocol Buffers Documentation View page source Edit this page Create child page Create documentation issue Create project issue Style Guide Provides direction for how best to structure your proto definitions."/><meta property="twitter:domain" content="huadous.github.io/wiki"/><meta property="og:url" content="https://huadous.github.io/wiki/protobuf/style"/><meta property="twitter:url" content="https://huadous.github.io/wiki/protobuf/style"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Style Guide | Protocol Buffers Documentation View page source Edit this page Create child page Create documentation issue Create project issue Style Guide Provides direction for how best to structure your proto definitions."/><meta name="generator" content="Quartz"/><link href="../index-a04301dc.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7f220492.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://huadous.github.io/wiki/protobuf/style-og-image.webp"/><meta property="og:image:url" content="https://huadous.github.io/wiki/protobuf/style-og-image.webp"/><meta name="twitter:image" content="https://huadous.github.io/wiki/protobuf/style-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="protobuf/style" data-basepath="/wiki"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">LLM Wiki</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-77" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-77" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../protobuf/">protobuf</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>style</a></div></nav><h1 class="article-title">style</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-13T16:32:56.000Z">2026年6月13日</time><span>8分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><p>Style Guide | Protocol Buffers Documentation</p>
+<p>View page source</p>
+<p>Edit this page</p>
+<p>Create child page</p>
+<p>Create documentation issue</p>
+<p>Create project issue</p>
+<p>Style Guide</p>
+<p>Provides direction for how best to structure your proto definitions.</p>
+<p>This document provides a style guide for</p>
+<p>.proto</p>
+<p>files. By following these
+conventions, you’ll make your protocol buffer message definitions and their
+corresponding classes consistent and easy to read.</p>
+<p>Enforcement of the following style guidelines is controlled via</p>
+<p>enforce_naming_style</p>
+<p>Standard File Formatting</p>
+<p>Keep the line length to 80 characters.</p>
+<p>Use an indent of 2 spaces.</p>
+<p>Prefer the use of double quotes for strings.</p>
+<p>File Structure</p>
+<p>Files should be named</p>
+<p>lower_snake_case.proto</p>
+<p>All files should be ordered in the following manner:</p>
+<p>License header (if applicable)</p>
+<p>File overview</p>
+<p>Syntax or edition</p>
+<p>Package</p>
+<p>Imports (sorted)</p>
+<p>File options</p>
+<p>Everything else</p>
+<p>Identifier naming styles</p>
+<p>Protobuf identifiers use one of the following naming styles:</p>
+<p>TitleCase</p>
+<p>Contains uppercase letters, lowercase letters, and numbers</p>
+<p>The initial character is an uppercase letter</p>
+<p>The initial letter of each word is capitalized</p>
+<p>lower_snake_case</p>
+<p>Contains lowercase letters, underscores, and numbers</p>
+<p>Words are separated by a single underscore</p>
+<p>UPPER_SNAKE_CASE</p>
+<p>Contains uppercase letters, underscores, and numbers</p>
+<p>Words are separated by a single underscore</p>
+<p>camelCase</p>
+<p>Contains uppercase letters, lowercase letters, and numbers</p>
+<p>The initial character is an lowercase letter</p>
+<p>The initial letter of each subsequent word is capitalized</p>
+<p>Note:</p>
+<p>The style guide below does not use camelCase for any
+identifier in .proto files; the terminology is only clarified here since
+some language’s generated code may transform identifiers into this
+style.</p>
+<p>In all cases, treat abbreviations as though they are single words: use</p>
+<p>GetDnsRequest</p>
+<p>rather than</p>
+<p>GetDNSRequest</p>
+<p>dns_request</p>
+<p>rather than</p>
+<p>d_n_s_request</p>
+<p>Underscores in Identifiers</p>
+<p>Don’t use underscores as the initial or final character of a name. Any
+underscore should always be followed by a letter (not a number or a second
+underscore).</p>
+<p>The motivation for this rule is that each protobuf language implementation may
+convert identifiers into the local language style: a name of</p>
+<p>song_id</p>
+<p>in a
+.proto file may end up having accessors for the field which are capitalized as</p>
+<p>SongId</p>
+<p>songId</p>
+<p>song_id</p>
+<p>depending on the language.</p>
+<p>By using underscores only before letters, it avoids situations where names may
+be distinct in one style, but would collide after they are transformed into one
+of the other styles.</p>
+<p>For example, both</p>
+<p>DNS2</p>
+<p>DNS_2</p>
+<p>would both transform into TitleCase as</p>
+<p>Dns2</p>
+<p>. Allowing either of those names can be lead to painful situations when a
+message is used only in some languages where the generated code keeps the
+original UPPER_SNAKE_CASE style, becomes widely established, and then is only
+later used in a language where names are transformed to TitleCase where they
+collide.</p>
+<p>When applied, this style rule means that you should use</p>
+<p>XYZ2</p>
+<p>XYZ_V2</p>
+<p>rather than</p>
+<p>XYZ_2</p>
+<p>XYZ_2V</p>
+<p>Packages</p>
+<p>Packages names should be a dot-delimited sequence of lower_snake_case names.
+They should not contain uppercase letters.</p>
+<p>Multi-word package names may be lower_snake_case or dot.delimited (dot-delimited
+package names are emitted as nested packages/namespaces in most languages).</p>
+<p>Package names should attempt to be a short but unique name based on the project
+name. The package should not be coupled with the directory path, especially when
+the files are in a deeply nested path.</p>
+<p>Package names should not use Java-style naming, even when located in a Java or
+Kotlin directory. Do not use any of the following styles:</p>
+<p>com.company.x.y</p>
+<p>com_company_x_y</p>
+<p>java_com_company_x_y</p>
+<p>Instead, use</p>
+<p>for the</p>
+<p>package</p>
+<p>name and set</p>
+<p>java_package = “com.company.x.y”</p>
+<p>Message Names</p>
+<p>Use TitleCase for message names.</p>
+<p>message</p>
+<p>SongRequest</p>
+<p>Field Names</p>
+<p>Use snake_case for field names, including extensions.</p>
+<p>Use pluralized names for repeated fields.</p>
+<p>string</p>
+<p>song_name</p>
+<p>repeated</p>
+<p>Song</p>
+<p>songs</p>
+<p>Oneof Names</p>
+<p>Use lower_snake_case for oneof names.</p>
+<p>oneof</p>
+<p>song_id</p>
+<p>string</p>
+<p>song_human_readable_id</p>
+<p>int64</p>
+<p>song_machine_id</p>
+<p>Enums</p>
+<p>Use TitleCase for enum type names.</p>
+<p>Use UPPER_SNAKE_CASE for enum value names.</p>
+<p>enum</p>
+<p>FooBar</p>
+<p>FOO_BAR_UNSPECIFIED</p>
+<p>FOO_BAR_FIRST_VALUE</p>
+<p>FOO_BAR_SECOND_VALUE</p>
+<p>The first listed value should be a zero value enum and have the suffix of either</p>
+<p>_UNSPECIFIED</p>
+<p>_UNKNOWN</p>
+<p>. This value may be used as an unknown/default value
+and should be distinct from any of the semantic values you expect to be
+explicitly set. For more information on the unspecified enum value, see</p>
+<p>the Proto Best Practices page</p>
+<p>Assign the number used for each value densely and sequentially increasing. Gaps
+in numbering should only occur when a previously used enum value is removed.
+Avoid using negative values.</p>
+<p>Enum Value Prefixing</p>
+<p>Enum values are semantically considered to not be scoped by their containing
+enum name, so the same name in two sibling enums is not allowed. For example,
+the following would be rejected by protoc since the</p>
+<p>value defined in the
+two enums are considered to be in the same scope:</p>
+<p>enum</p>
+<p>CollectionType</p>
+<p>COLLECTION_TYPE_UNSPECIFIED</p>
+<p>ARRAY</p>
+<p>// Won’t compile - <code>SET</code> enum name will clash</p>
+<p>// with the one defined in <code>CollectionType</code> enum.</p>
+<p>enum</p>
+<p>TennisVictoryType</p>
+<p>TENNIS_VICTORY_TYPE_UNSPECIFIED</p>
+<p>GAME</p>
+<p>MATCH</p>
+<p>Name collisions are a high risk when enums are defined at the top level of a
+file (not nested inside a message definition); in that case the siblings include
+enums defined in other files that set the same package, where protoc may not be
+able to detect the collision has occurred at code generation time.</p>
+<p>To avoid these risks, it is strongly recommended to do one of:</p>
+<p>Prefix every value with the enum name (converted to UPPER_SNAKE_CASE)</p>
+<p>Nest the enum inside a containing message</p>
+<p>Either option is enough to mitigate collision risks, but prefer top-level enums
+with prefixed values over creating a message simply to mitigate the issue. Since
+some languages don’t support an enum being defined inside a “struct” type,
+preferring prefixed values ensures a consistent approach across binding
+languages.</p>
+<p>When prefixing enum values, the remainder of the name with the prefix stripped
+should still be a legal and style-conformant enum name. For example, avoid the
+following:</p>
+<p>enum</p>
+<p>DeviceTier</p>
+<p>DEVICE_TIER_UNKNOWN</p>
+<p>DEVICE_TIER_1</p>
+<p>DEVICE_TIER_2</p>
+<p>Instead, use a value name like</p>
+<p>DEVICE_TIER_TIER1</p>
+<p>, where the</p>
+<p>DEVICE_TIER_</p>
+<p>portion is viewed as scoping the enum value rather than as part of the
+individual enum value name. Some Protobuf implementations automatically strip
+the prefix that matches the containing enum name where it is safe to do so, but
+could not in this example since a bare</p>
+<p>is not a legal enum value name.</p>
+<p>A future Edition will add support for scoped enums, which will eliminate the
+need to manually prefix each enum value and enable this to be written succinctly
+as</p>
+<p>TIER1 = 1</p>
+<p>Services</p>
+<p>Use TitleCase for service names and method names.</p>
+<p>service</p>
+<p>FooService</p>
+<p>GetSomething</p>
+<p>GetSomethingRequest</p>
+<p>returns</p>
+<p>GetSomethingResponse</p>
+<p>ListSomething</p>
+<p>ListSomethingRequest</p>
+<p>returns</p>
+<p>ListSomethingResponse</p>
+<p>Things to Avoid</p>
+<p>Avoid confusing relative packages on field types</p>
+<p>The .proto syntax allows you to reference types that are defined in a different
+package in a relative manner. Resolution will search up the parent packages to
+resolve a relative name. For example:</p>
+<p>// File: a.proto</p>
+<p>package</p>
+<p>message</p>
+<p>// File: x.proto</p>
+<p>package</p>
+<p>message</p>
+<p>SomeMsg</p>
+<p>// Since we are in a.x.SomeMsg, this name is searched for in this order:</p>
+<p>//  .a.x.SomeMsg.b.C</p>
+<p>//  .a.x.b.C</p>
+<p>//  .a.b.C</p>
+<p>//  .b.C</p>
+<p>field3</p>
+<p>Relying on the “relative to a parent package” functionality when referencing
+types defined in a different package is supported but can be confusing: in this
+example the spelling</p>
+<p>a.b.C</p>
+<p>should be used.</p>
+<p>Naming other types in the current package (for example, sibling messages)
+without writing the package is idiomatic.</p>
+<p>You can write a fully qualified name by using a leading period to avoid any
+ambiguity concerns, but is commonly omitted in most cases even if the package is
+fully written out.</p>
+<p>Required Fields</p>
+<p>Required fields are a way to enforce that a given field must be set when parsing
+wire bytes, and otherwise refuse to parse the message. The required invariant is
+generally not enforced on messages constructed in memory. Required fields were
+removed in proto3. Proto2</p>
+<p>required</p>
+<p>fields that have been migrated to editions
+2023 can use the</p>
+<p>field_presence</p>
+<p>feature set to</p>
+<p>LEGACY_REQUIRED</p>
+<p>to
+accommodate.</p>
+<p>While enforcement of required fields at the schema level is intuitively
+desirable, one of the primary design goals of protobuf is to support long term
+schema evolution. No matter how obviously required a given field seems to be
+today, there is a plausible future where the field should no longer be set (e.g.
+an</p>
+<p>int64 user_id</p>
+<p>may need to migrate to a</p>
+<p>UserId user_id</p>
+<p>in the future).</p>
+<p>Especially in the case of middleware servers that may forward messages that they
+don’t really need to process, the semantics of</p>
+<p>required</p>
+<p>has proven too harmful
+for those long-term evolution goals, and so is now very strongly discouraged.</p>
+<p>Required is Strongly Deprecated</p>
+<p>Groups</p>
+<p>Groups is an alternate syntax and wire format for nested messages. Groups are
+considered deprecated in proto2, were removed from proto3, and are converted to
+a delimited representation in edition 2023. You can use a nested message
+definition and field of that type instead of using the group syntax, using the</p>
+<p>message_encoding</p>
+<p>feature for wire-compatibility.</p>
+<p>groups</p>
+<p>Avoid Field Names and Oneof Names that Could Potentially Cause Collisions</p>
+<p>Using certain names together can cause collisions in generated code, which may
+prevent it from compiling. To reduce the risk of language-specific breakages,
+avoid certain prefixes, suffixes, and names.</p>
+<p>Prefixes:</p>
+<p>has_</p>
+<p>get_</p>
+<p>set_</p>
+<p>clear_</p>
+<p>Suffixes:</p>
+<p>_value</p>
+<p>Names:</p>
+<p>descriptor</p>
+<p>Other language keywords and reserved words should be avoided; see</p>
+<p>Avoid Using Language Keywords</p>
+<p>Python keyword conflicts</p>
+<p>© 2026 Google LLC All Rights Reserved</p>
+<p>Privacy Policy</p>
+<p>Hosted by GitHub Pages.</p>
+<p>GitHub Privacy Statement</p></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../wiki/concepts/avoid-confusing-relative-packages-on-field-types" class="internal">avoid-confusing-relative-packages-on-field-types</a></li><li><a href="../wiki/concepts/field-presence-feature-legacy_required" class="internal">field-presence-feature-legacy_required</a></li><li><a href="../wiki/concepts/message-names" class="internal">message-names</a></li><li><a href="../wiki/sources/style" class="internal">style</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/Huadous/wiki">GitHub</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-e41c6e5c.js" type="module" data-persist="true"></script></html>

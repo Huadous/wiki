@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>editions-edition-lifetimes</title><meta charset="utf-8"/><link rel="preload" href="../index-a04301dc.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="LLM Wiki"/><meta property="og:title" content="editions-edition-lifetimes"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="editions-edition-lifetimes"/><meta name="twitter:description" content="Edition Lifetimes Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of features and editions look like going forward."/><meta property="og:description" content="Edition Lifetimes Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of features and editions look like going forward."/><meta property="og:image:alt" content="Edition Lifetimes Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of features and editions look like going forward."/><meta property="twitter:domain" content="huadous.github.io/wiki"/><meta property="og:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-lifetimes"/><meta property="twitter:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-lifetimes"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Edition Lifetimes Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of features and editions look like going forward."/><meta name="generator" content="Quartz"/><link href="../index-a04301dc.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7f220492.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://huadous.github.io/wiki/protobuf/editions-edition-lifetimes-og-image.webp"/><meta property="og:image:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-lifetimes-og-image.webp"/><meta name="twitter:image" content="https://huadous.github.io/wiki/protobuf/editions-edition-lifetimes-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="protobuf/editions-edition-lifetimes" data-basepath="/wiki"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">LLM Wiki</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-49" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-49" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../protobuf/">protobuf</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>editions-edition-lifetimes</a></div></nav><h1 class="article-title">editions-edition-lifetimes</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-13T16:32:56.000Z">2026年6月13日</time><span>14分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="edition-lifetimes">Edition Lifetimes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#edition-lifetimes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>Now that Edition Zero is complete, we need to re-evaluate what the lifetimes of
+features and editions look like going forward.</p>
+<h2 id="background">Background<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#background" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The implementation of editions today was based largely on
+<a href="../wiki/concepts/protobuf-editions-design-features" class="internal internal-link alias" data-slug="wiki/concepts/protobuf-editions-design-features">Protobuf Editions Design: Features</a> and
+<a href="../wiki/concepts/life-of-an-edition" class="internal internal-link alias" data-slug="wiki/concepts/life-of-an-edition">Life of an Edition</a> (among other less-relevant docs).
+Specifically, the latter one takes a strong stance on the lifetimes of both
+editions and features. Many of the ideas around editions have since been
+simplified in <a href="../wiki/concepts/edition-naming" class="internal internal-link alias" data-slug="wiki/concepts/edition-naming">Edition Naming</a>, where we opted for a stricter
+naming scheme owned and defined by us. In the process of rolling out editions to
+various protoc plugins and planning for edition 2024, it’s become clear that we
+may need to re-evaluate the feature lifetimes as well.</p>
+<p><em>Editions: Life of a Feature</em> (not available externally) is an alternate vision
+to <em>Life of an Edition</em>, which tries to put tighter constraints on how features
+and editions interact. It also predicted many of the problems we face now, and
+proposes a possible solution.</p>
+<h2 id="overview">Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#overview" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Today, features and editions are largely disconnected from each other. We have a
+set of features that govern various behaviors, and they can all be used in any
+edition. Each edition is simply a distinct set of defaults for <strong>every</strong>
+feature. Users can override the value of any released feature in any edition.
+Each generator and protoc itself all advertise a range of editions they support,
+and will reject any protos encountered outside that range.</p>
+<p>This system does have the nice consequence that behavior-preserving editions
+upgrades can always be performed (with respect to the most current proto
+language). It separates editions from breaking changes, and means that we only
+need to worry about one versioning scheme (our OSS release).</p>
+<p>While this all works fine in Edition 2023 where we only have a single edition,
+it poses a number of problems going forward. There are three relevant events in
+the lifetime of both editions and features, introduction, deprecation, and
+removal. Deprecation is essentially just a soft removal to give users adequate
+warning, and the same problems apply to both.</p>
+<h3 id="introducing-an-edition">Introducing an Edition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introducing-an-edition" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Because every generator plugin (and protoc) advertises its edition support
+window, introducing a new Edition is well-handled today. We get to enjoy all the
+same benefits we saw rolling out Edition 2023 in every subsequent edition (e.g.
+we can make radical language changes gated on edition).</p>
+<h3 id="dropping-an-edition">Dropping an Edition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dropping-an-edition" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Dropping support for an edition doesn’t really mean that much today. We <em>could</em>
+do it simply by bumping up the minimum supported edition of a binary in a
+breaking release. However, that would have no relation to our feature support,
+and at best would allow us to clean up some parser code branching on editions.
+This code would always be tied to language changes we made in the introduction
+of a new edition, where we could finalize them with the removal of an edition.</p>
+<h3 id="introducing-a-feature">Introducing a Feature<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#introducing-a-feature" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Whenever we introduce a new feature, we need to make sure to specify its
+defaults for <strong>every</strong> edition (protoc enforces that every edition has a known
+set of defaults). It will also immediately be overridable in every edition. This
+means that pre-existing binaries that have declared support for an old edition
+may suddenly be presented with protos that override a feature they can’t
+possibly know about.</p>
+<p>We faced this problem when introducing the new <code>string_type</code> feature as part of
+<em>New String APIs</em> (not available externally). Our solution at the time was to
+create some ad hoc validation that prohibited overriding this feature in Edition
+2023 until we were ready to release it. This solution doesn’t work in general
+though, where in OSS we can have arbitrarily old binaries floating around (and
+even in google3 we can easily have up to six-month-old binaries within the build
+horizon). These old binaries wouldn’t have that validation layer, and would
+happily process Edition 2023 files with <code>string_type</code> overrides, despite not
+knowing how to properly treat that feature.</p>
+<h3 id="dropping-a-feature">Dropping a Feature<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dropping-a-feature" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>On the other end of the spectrum, we need a way to deprecate and then remove
+support for features. Given that we expect most features to remain for many
+years, we haven’t been forced to consider this situation too much. The current
+plan of record though, is that we would do this by first marking the feature
+field definition <code>deprecated</code>, and then remove it entirely in a breaking release
+(and total burndown in google3).</p>
+<p>The problem with this plan is that it creates a lot of complexity for users
+trying to understand our support guarantees. They’ll need to track the lifetime
+of <strong>every</strong> feature they use, and also difficult-to-predict interactions
+between different versions of protoc and its plugins. If we drop a global
+feature in protoc, some plugins may still expect to see that feature and become
+broken, while others may not care and still work.</p>
+<h2 id="recommendation">Recommendation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#recommendation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="feature-lifetimes">Feature Lifetimes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#feature-lifetimes" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>We recommend adding four new field options to be used in feature specifications:
+<code>edition_introduced</code>, <code>edition_deprecated</code>, <code>deprecation_warning</code>, and
+<code>edition_removed</code>. This will allow every feature to specify the edition it was
+introduced in, the edition it became deprecated in, when we expect to remove it
+(deprecation warnings), and the edition it actually becomes removed in.</p>
+<p>We will also add a new special edition <code>EDITION_LEGACY</code>, to act as a placeholder
+for “infinite past”. For editions earlier than <code>edition_introduced</code>, the default
+assigned to <code>EDITION_LEGACY</code> will be assigned and should always signal the <em>noop
+behavior that predated the feature</em>. Proto files will not be allowed to override
+this feature without upgrading to a newer edition. Deprecated features can get
+special treatment beyond the regular <code>deprecated</code> option, and a custom warning
+signaling that they should be migrated off of. For editions later than
+<code>edition_removed</code>, the last edition default will continue to stay in place, but
+overrides will be disallowed in proto files.</p>
+<p>For example, a hypothetical feature might look like:</p>
+<pre><code>optional FeatureType do_something = 2 [
+    retention = RETENTION_RUNTIME,
+    targets = TARGET_TYPE_FIELD,
+    targets = TARGET_TYPE_FILE,
+    feature_support {
+      edition_introduced = EDITION_2023,
+      edition_deprecated = EDITION_2025,
+      deprecation_warning = &quot;Feature do_something will be removed in edition 2027&quot;,
+      edition_removed = EDITION_2027,
+    }
+    edition_defaults = { edition: EDITION_LEGACY, value: &quot;LEGACY&quot; }
+    edition_defaults = { edition: EDITION_2023, value: &quot;INTERMEDIATE&quot; }
+    edition_defaults = { edition: EDITION_2024, value: &quot;FUTURE&quot; }
+];
+</code></pre>
+<p>Before edition 2023, this feature would always get a default of <code>LEGACY</code>, and
+proto files would be prohibited from overriding it. In edition 2023, the default
+would change to <code>INTERMEDIATE</code> and users could override it to the old default or
+the future behavior. In edition 2024 the default would change again to <code>FUTURE</code>,
+and in edition 2025 any overrides of that would start emitting warnings. In
+edition 2027 we would prohibit overriding this feature, and the behavior would
+always be <code>FUTURE</code>.</p>
+<h3 id="edition-lifetimes-1">Edition Lifetimes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#edition-lifetimes-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>By tying feature lifetimes to specific editions, it gives editions a lot more
+meaning. We will still limit this to breaking releases, but it means that
+<strong>all</strong> of the editions-related breaking changes come from this process. When we
+drop an edition, breaking changes will always come from the removal of
+previously deprecated features. By regularly dropping support for editions, we
+will be able to gradually clean up our codebase.</p>
+<h4 id="edition-upgrades">Edition Upgrades<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#edition-upgrades" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>A consequence of this design is that edition upgrades could now become
+potentially breaking. Any proto files using deprecated features could be broken
+by bumping its edition to one where the feature has been removed. Within
+google3, we would need to completely burn down all deprecated uses before we can
+remove the feature.</p>
+<p>This is not a substantial change on our end from the existing situation though,
+where we’d still need to remove all uses before removing it. The key difference
+is that we have the <em>option</em> to allowlist some people to stay on an older
+edition while still moving the rest of google3 forward. We would also be able to
+continue testing removed features by allow-listing dedicated tests to stay on
+old editions.</p>
+<h4 id="garbage-collection">Garbage Collection<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#garbage-collection" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Another consequence of this is that we can’t actually clean up feature-related
+code until every edition before its <code>edition_removed</code> declaration has been
+dropped. This ties feature support directly to edition support, especially in
+OSS where we can’t forcibly upgrade protos to the latest edition.</p>
+<h4 id="predictability">Predictability<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#predictability" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>The main win with this strategy is that it clarifies our guarantees and makes
+our library more predictable. We can guarantee that a proto file at a specific
+edition will not see any behavioral changes unless we:</p>
+<ol>
+<li>Make a breaking change outside the editions framework.</li>
+<li>Drop the edition the proto file uses.</li>
+</ol>
+<p>We can also guarantee that as long as users stay away from deprecated features,
+they will still be able to upgrade to the next edition without any changes.</p>
+<h3 id="implementation">Implementation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#implementation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Fortunately, this design would be <strong>very</strong> easy to implement right now. We
+simply need to add the new field options and the new placeholder edition, and
+then implement new validation in protoc. Because the two error conditions (using
+a feature outside its existence window) and the warning (using a deprecated
+feature) only trigger on <em>overridden</em> features, protoc already has all the
+information it needs. Generator feature extensions must be imported to be
+overridden, so the problem of protoc not knowing feature defaults doesn’t come
+into play at all.</p>
+<p>If we wait until edition 2024 has been released, the situation would be a bit
+more difficult to unravel. Any new features added in 2024 would be usable from
+2023, so we’d have to either intentionally backport support or remove all of
+those uses before enabling the validation layer. Therefore, the recommendation
+is to implement this ASAP, before we start rolling out 2024.</p>
+<h4 id="runtimes-with-dynamic-messages">Runtimes with Dynamic Messages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#runtimes-with-dynamic-messages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>None of the generators where editions have already been rolled out require any
+changes. We likely will want to add validation layers to runtimes that support
+dynamic messages though, to make sure there are no invalid descriptors floating
+around. Since they all have access to protoc’s compiled defaults IR, we can pack
+as much information in there as possible to minimize duplication. Specifically,
+we will add two new <code>FeatureSet</code> fields to <code>FeatureSetEditionDefault</code> in
+addition to the existing <code>features</code> field.</p>
+<ul>
+<li>overridable_features - The default values that users <strong>are</strong> allowed to
+override in a given edition</li>
+<li>fixed_features - The default values that users <strong>are not</strong> allowed to
+override in a given edition</li>
+</ul>
+<p>We will keep the existing <code>features</code> field as a migration tool, to avoid
+breaking plugins and runtimes that already use it to calculate defaults. We can
+strip it from OSS prior to the 27.0 release though, and remove it once everyone
+has been migrated.</p>
+<p>In order to calculate the full defaults of any edition, each language will
+simply need to merge the two <code>FeatureSet</code> objects. The advantage to splitting
+them means that we can fairly easily implement validation checks in every
+language that needs it for dynamic messages. The algorithm is as follows, for
+some incoming unresolved <code>FeatureSet</code> user_features:</p>
+<ol>
+<li>Strip all unknown fields from user_features</li>
+<li>Strip all extensions from user_features that the runtime doesn’t handle</li>
+<li>merged_features := user_features.Merge(overridable_defaults)</li>
+<li>assert merged_features == overridable_defaults</li>
+</ol>
+<p>This will work as long as every feature is a scalar value (making merge a simple
+override). We already ban oneof and repeated features, and we plan to ban
+message features before the OSS release.</p>
+<p>Note, that there is a slight gap here in that we perform no validation for
+features owned by <em>other</em> languages. Dynamic messages in language A will naively
+be allowed to specify whatever language B features they want. This isn’t
+optimal, but it is in line with our current situation where validation of
+dynamic messages is substantially more permissive than descriptors processed by
+protoc.</p>
+<p>On the other hand, owners of language A will have the <em>option</em> of easily adding
+validation for language B’s features, without having to reimplement the
+reflective inspection of imports that protoc does. This can be done by simply
+adding those features to the compilation of the defaults IR, and then not
+stripping those extensions during validation. This will have the effect of tying
+the edition support window of A to that of B though, and A won’t be able to
+extend its maximum edition until B does (at least for dynamic messages). For
+generators in a monorepo like Protobuf’s this seems fine, but may not be
+desirable elsewhere.</p>
+<h3 id="patching-old-editions">Patching Old Editions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#patching-old-editions" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>In <a href="../wiki/concepts/edition-naming" class="internal internal-link alias" data-slug="wiki/concepts/edition-naming">Edition Naming</a> we decided to drop the idea of “patch”
+editions, because editions were always forward and backward compatible. We would
+only ever need multiple editions in a year if somehow we managed to speed up the
+rollout process and wanted faster turnaround. This changes those assumptions
+though, since now editions are neither forward-compatible (new features don’t
+work in old editions) or backward-compatible (old features may not work in new
+editions).</p>
+<p>Hypothetically, if there were a bug in the editions layer itself we may require
+a “patch” edition to safely roll out a fix. For example, imagine we discover
+that our calculation of edition defaults is broken in edition 2023 and we had
+accidentally released it. If we’ve already fixed the issue and released edition
+2024 as well, we can’t just create a <code>2023A</code> “patch” to fix the issue because
+editions are represented as integers (and 2023 and 2024 are adjacent). We would
+want to release some kind of fix for people still on edition 2023 though, so
+that they can minimally upgrade before 2024 (which may be a breaking edition).</p>
+<p>What we could do in this situation (if it ever arises) is introduce a new
+integer field in <code>FileDescriptorProto</code> called <code>edition_patch</code>. It would take
+some work to fit this into feature resolution and roll it out to every plugin,
+but given that we’ve hidden the edition from most users
+(<a href="../wiki/concepts/editions-feature-visibility" class="internal internal-link alias" data-slug="wiki/concepts/editions-feature-visibility">Editions Feature Visibility</a>) it shouldn’t be
+too bad. As long as patches never introduce or remove features or change their
+defaults, protoc and plugins can always use the latest patch they know about to
+represent that edition.</p>
+<h3 id="documentation">Documentation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#documentation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>As part of this change, we need to document all of this publicly for
+plugin/runtime owners. We should create a new topic in
+<a href="https://protobuf.dev/editions/" class="external external-link">https://protobuf.dev/editions/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> to cover all of this, along with other relevant
+details they’d need to know.</p>
+<h2 id="alternatives">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="continue-as-usual">Continue as usual<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#continue-as-usual" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The only real alternative here is to make no change, which has all of the
+problems listed in the overview of this topic.</p>
+<h4 id="pros">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Requires no effort short-term</li>
+<li>Editions upgrades will <strong>never</strong> be breaking changes</li>
+</ul>
+<h4 id="cons">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Likely to cause problems as soon as edition 2024</li>
+<li>Introducing new features is dangerous and unpredictable</li>
+<li>Dropping features affects all editions simultaneously</li>
+<li>The features supported in each edition can vary between protobuf releases</li>
+<li>High cognitive overhead for our users. They’d need to track the progress of
+every feature individually across releases.</li>
+</ul>
+<h3 id="full-validation-for-dynamic-messages">Full Validation for Dynamic Messages<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#full-validation-for-dynamic-messages" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>None of the generators where editions have already been rolled out require any
+changes. We will need to add validation layers to runtimes that support dynamic
+messages though, to make sure there are no invalid descriptors floating around.
+Any runtime that supports dynamic messages should have reflection, and the same
+reflection-based algorithm will need to be duplicated everywhere. For each
+<code>FeatureSet</code> specified on a descriptor:</p>
+<pre><code>absl::Status Validate(Edition edition, Message&amp; features) {
+  std::vector&lt;const FieldDescriptor*> fields;
+  features.GetReflection()->ListFields(features, &amp;fields);
+  for (const FieldDescriptor* field : fields) {
+    // Recurse into message extension.
+    if (field->is_extension() &amp;&amp;
+        field->cpp_type() == FieldDescriptor::CPPTYPE_MESSAGE) {
+      CollectLifetimeResults(
+          edition, message.GetReflection()->GetMessage(message, field),
+          results);
+      continue;
+    }
+
+    // Skip fields that don't have feature support specified.
+    if (!field->options().has_feature_support()) continue;
+
+    // Check lifetime constrains
+    const FieldOptions::FeatureSupport&amp; support =
+        field->options().feature_support();
+    if (edition &lt; support.edition_introduced()) {
+      return absl::FailedPrecondition(absl::StrCat(
+          &quot;Feature &quot;, field->full_name(), &quot; wasn't introduced until edition &quot;,
+          support.edition_introduced()));
+    }
+    if (support.has_edition_removed() &amp;&amp; edition >= support.edition_removed()) {
+      return absl::FailedPrecondition(absl::StrCat(
+          &quot;Feature &quot;, field->full_name(), &quot; has been removed in edition &quot;,
+          support.edition_removed()));
+    } else if (support.has_edition_deprecated() &amp;&amp;
+               edition >= support.edition_deprecated()) {
+      ABSL_LOG(WARNING) &lt;&lt; absl::StrCat(
+          &quot;Feature &quot;, field->full_name(), &quot; has been deprecated in edition &quot;,
+          support.edition_deprecated(), &quot;: &quot;, support.deprecation_warning());
+    }
+  }
+}
+</code></pre>
+<h4 id="pros-1">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Prevents any feature lifetime violations for any language, in any language</li>
+<li>Easier to understand</li>
+<li>Less error-prone</li>
+<li>Easy to test with fake features</li>
+</ul>
+<h4 id="cons-1">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Only works post-build, which requires a huge amount of code in every
+language to walk the descriptor tree applying these checks</li>
+<li>Performance concerns, especially in upb</li>
+<li>Duplicates protoc validation, even though most languages perform
+significantly looser checks on dynamic messages</li>
+</ul>
+<h4 id="pros-2">Pros<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#pros-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Minimizes the amount of reflection needed</li>
+</ul>
+<h4 id="cons-2">Cons<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cons-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Can’t validate extensions for languages we don’t know about, since they’re
+not built into the binary</li>
+<li>Potential version skew between pool and runtime features</li>
+<li>Requires reflection stripping unexpected fields</li>
+<li>Difficult to understand the algorithm from the code</li>
+</ul></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-47" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#edition-lifetimes" data-for="edition-lifetimes">Edition Lifetimes</a></li><li class="depth-1"><a href="#background" data-for="background">Background</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-2"><a href="#introducing-an-edition" data-for="introducing-an-edition">Introducing an Edition</a></li><li class="depth-2"><a href="#dropping-an-edition" data-for="dropping-an-edition">Dropping an Edition</a></li><li class="depth-2"><a href="#introducing-a-feature" data-for="introducing-a-feature">Introducing a Feature</a></li><li class="depth-2"><a href="#dropping-a-feature" data-for="dropping-a-feature">Dropping a Feature</a></li><li class="depth-1"><a href="#recommendation" data-for="recommendation">Recommendation</a></li><li class="depth-2"><a href="#feature-lifetimes" data-for="feature-lifetimes">Feature Lifetimes</a></li><li class="depth-2"><a href="#edition-lifetimes-1" data-for="edition-lifetimes-1">Edition Lifetimes</a></li><li class="depth-2"><a href="#implementation" data-for="implementation">Implementation</a></li><li class="depth-2"><a href="#patching-old-editions" data-for="patching-old-editions">Patching Old Editions</a></li><li class="depth-2"><a href="#documentation" data-for="documentation">Documentation</a></li><li class="depth-1"><a href="#alternatives" data-for="alternatives">Alternatives</a></li><li class="depth-2"><a href="#continue-as-usual" data-for="continue-as-usual">Continue as usual</a></li><li class="depth-2"><a href="#full-validation-for-dynamic-messages" data-for="full-validation-for-dynamic-messages">Full Validation for Dynamic Messages</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/Huadous/wiki">GitHub</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-e41c6e5c.js" type="module" data-persist="true"></script></html>

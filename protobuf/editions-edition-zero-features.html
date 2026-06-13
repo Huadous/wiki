@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr"><head><title>editions-edition-zero-features</title><meta charset="utf-8"/><link rel="preload" href="../index-a04301dc.css" as="style"/><link rel="preload" href="../prescript-2bfc6315.js" as="script"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto Sans SC:wght@400;700&amp;family=Noto Sans SC:ital,wght@0,400;0,600;1,400;1,600&amp;family=IBM Plex Mono:wght@400;600&amp;display=swap"/><link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta name="og:site_name" content="LLM Wiki"/><meta property="og:title" content="editions-edition-zero-features"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="editions-edition-zero-features"/><meta name="twitter:description" content="Edition Zero Features Authors: @mcy, @zhangskz, @mkruskal-google Approved: 2022-07-22 Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."/><meta property="og:description" content="Edition Zero Features Authors: @mcy, @zhangskz, @mkruskal-google Approved: 2022-07-22 Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."/><meta property="og:image:alt" content="Edition Zero Features Authors: @mcy, @zhangskz, @mkruskal-google Approved: 2022-07-22 Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."/><meta property="twitter:domain" content="huadous.github.io/wiki"/><meta property="og:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-zero-features"/><meta property="twitter:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-zero-features"/><link rel="icon" href="../static/icon.png"/><meta name="description" content="Edition Zero Features Authors: @mcy, @zhangskz, @mkruskal-google Approved: 2022-07-22 Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."/><meta name="generator" content="Quartz"/><link href="../index-a04301dc.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-735924e0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-589c1cea.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-bbc3f7c0.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-2911f5d1.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-7f220492.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-e427079e.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-53b25b2b.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-c93c6a44.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-8a06014f.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-77d6a441.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-6ee21cee.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-1ea6ad18.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-34bdfded.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-788c9ca3.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-642859cd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-4abc06bd.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-274a3dfe.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-94cb6c84.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-58d5ff56.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../component-caf7c009.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-a5c806d2.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-6bd36952.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-9857b007.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="../static/resource-style-d3a1a224.css" rel="stylesheet" type="text/css" data-persist="true"/><link href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" rel="stylesheet" type="text/css" data-persist="true"/><script src="../prescript-2bfc6315.js" type="application/javascript" data-persist="true"></script><script type="application/javascript" data-persist="true">const fetchData = fetch("../static/contentIndex.json").then(data => data.json())</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted%20Grotesk%3Awght%40400%3B700&amp;family=Source%20Sans%20Pro%3Aital%2Cwght%400%2C400%3B0%2C600%3B1%2C400%3B1%2C600&amp;family=IBM%20Plex%20Mono%3Awght%40400%3B600&amp;display=swap"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image" content="https://huadous.github.io/wiki/protobuf/editions-edition-zero-features-og-image.webp"/><meta property="og:image:url" content="https://huadous.github.io/wiki/protobuf/editions-edition-zero-features-og-image.webp"/><meta name="twitter:image" content="https://huadous.github.io/wiki/protobuf/editions-edition-zero-features-og-image.webp"/><meta property="og:image:type" content="image/webp"/></head><body data-slug="protobuf/editions-edition-zero-features" data-basepath="/wiki"><div id="quartz-root" class="page" data-frame="default"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="..">LLM Wiki</a></h2><div class="mobile-only"><div class="spacer"></div></div><div class="flex-component" style="flex-direction: row; flex-wrap: nowrap; gap: 0.5rem;"><div style="flex-grow: 1; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><div class="search"><button class="search-button" aria-label="搜索" aria-expanded="false"><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg><p>搜索</p></button><div class="search-container"><div class="search-space"><input autocomplete="off" class="search-bar" name="search" type="text" aria-label="搜索内容..." placeholder="搜索内容..."/><div class="search-layout" data-preview="true" data-field-priority="[&quot;title&quot;,&quot;content&quot;,&quot;tags&quot;]"></div></div></div></div></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="darkmode" aria-label="暗色模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="暗色模式"><title>暗色模式</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="亮色模式"><title>亮色模式</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div style="flex-grow: 0; flex-shrink: 1; flex-basis: auto; order: 0; align-self: center; justify-self: center;"><button class="readermode" aria-label="阅读模式"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="readerIcon" fill="currentColor" stroke="currentColor" stroke-width="0.2" stroke-linecap="round" stroke-linejoin="round" width="64px" height="64px" viewBox="0 0 24 24" aria-label="阅读模式"><title>阅读模式</title><g transform="translate(-1.8, -1.8) scale(1.15, 1.2)"><path d="M8.9891247,2.5 C10.1384702,2.5 11.2209868,2.96705384 12.0049645,3.76669482 C12.7883914,2.96705384 13.8709081,2.5 15.0202536,2.5 L18.7549359,2.5 C19.1691495,2.5 19.5049359,2.83578644 19.5049359,3.25 L19.5046891,4.004 L21.2546891,4.00457396 C21.6343849,4.00457396 21.9481801,4.28672784 21.9978425,4.6528034 L22.0046891,4.75457396 L22.0046891,20.25 C22.0046891,20.6296958 21.7225353,20.943491 21.3564597,20.9931534 L21.2546891,21 L2.75468914,21 C2.37499337,21 2.06119817,20.7178461 2.01153575,20.3517706 L2.00468914,20.25 L2.00468914,4.75457396 C2.00468914,4.37487819 2.28684302,4.061083 2.65291858,4.01142057 L2.75468914,4.00457396 L4.50368914,4.004 L4.50444233,3.25 C4.50444233,2.87030423 4.78659621,2.55650904 5.15267177,2.50684662 L5.25444233,2.5 L8.9891247,2.5 Z M4.50368914,5.504 L3.50468914,5.504 L3.50468914,19.5 L10.9478955,19.4998273 C10.4513189,18.9207296 9.73864328,18.5588115 8.96709342,18.5065584 L8.77307039,18.5 L5.25444233,18.5 C4.87474657,18.5 4.56095137,18.2178461 4.51128895,17.8517706 L4.50444233,17.75 L4.50368914,5.504 Z M19.5049359,17.75 C19.5049359,18.1642136 19.1691495,18.5 18.7549359,18.5 L15.2363079,18.5 C14.3910149,18.5 13.5994408,18.8724714 13.0614828,19.4998273 L20.5046891,19.5 L20.5046891,5.504 L19.5046891,5.504 L19.5049359,17.75 Z M18.0059359,3.999 L15.0202536,4 L14.8259077,4.00692283 C13.9889509,4.06666544 13.2254227,4.50975805 12.7549359,5.212 L12.7549359,17.777 L12.7782651,17.7601316 C13.4923805,17.2719483 14.3447024,17 15.2363079,17 L18.0059359,16.999 L18.0056891,4.798 L18.0033792,4.75457396 L18.0056891,4.71 L18.0059359,3.999 Z M8.9891247,4 L6.00368914,3.999 L6.00599909,4.75457396 L6.00599909,4.75457396 L6.00368914,4.783 L6.00368914,16.999 L8.77307039,17 C9.57551536,17 10.3461406,17.2202781 11.0128313,17.6202194 L11.2536891,17.776 L11.2536891,5.211 C10.8200889,4.56369974 10.1361548,4.13636104 9.37521067,4.02745763 L9.18347055,4.00692283 L8.9891247,4 Z"></path></g></svg></button></div></div><div class="explorer nav-files-container" data-behavior="link" data-collapsed="collapsed" data-savestate="true" data-data-fns="{&quot;order&quot;:[&quot;filter&quot;,&quot;map&quot;,&quot;sort&quot;],&quot;sortFn&quot;:&quot;(a2, b2) => {\n    if (!a2.isFolder &amp;&amp; !b2.isFolder || a2.isFolder &amp;&amp; b2.isFolder) {\n      return (a2.displayName || \&quot;\&quot;).localeCompare(b2.displayName || \&quot;\&quot;, void 0, {\n        numeric: true,\n        sensitivity: \&quot;base\&quot;\n      });\n    }\n    if (!a2.isFolder &amp;&amp; b2.isFolder) {\n      return 1;\n    }\n    return -1;\n  }&quot;,&quot;filterFn&quot;:&quot;(node) => node.slugSegment !== \&quot;tags\&quot;&quot;,&quot;mapFn&quot;:&quot;(node) => {\n    return node;\n  }&quot;}"><button type="button" class="explorer-toggle mobile-explorer hide-until-loaded" data-mobile="true" aria-controls="explorer-53" aria-label="探索"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></button><button type="button" class="title-button explorer-toggle desktop-explorer" data-mobile="false" aria-expanded="true"><h2>探索</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-53" class="explorer-content" aria-expanded="false" role="group"><ul class="explorer-ul overflow" id="list-0"><li class="overflow-end"></li></ul></div><template id="template-file"><li><a href="#" class="nav-file-title tree-item-self"></a></li></template><template id="template-folder"><li><div class="folder-container nav-folder-title tree-item-self"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon nav-folder-collapse-indicator collapse-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div><button class="folder-button"><span class="folder-title"></span></button></div></div><div class="folder-outer"><ul class="content tree-item-children"></ul></div></li></template></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../protobuf/">protobuf</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>editions-edition-zero-features</a></div></nav><h1 class="article-title">editions-edition-zero-features</h1><p show-comma="true" class="content-meta"><time datetime="2026-06-13T16:32:56.000Z">2026年6月13日</time><span>17分钟阅读</span></p></div></div><article class="popover-hint"><div class="markdown-preview-view markdown-rendered"><h1 id="edition-zero-features">Edition Zero Features<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#edition-zero-features" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p><strong>Authors:</strong> <a href="https://github.com/mcy" class="external external-link">@mcy<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>,
+<a href="https://github.com/zhangskz" class="external external-link">@zhangskz<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>,
+<a href="https://github.com/mkruskal-google" class="external external-link">@mkruskal-google<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><strong>Approved:</strong> 2022-07-22</p>
+<p>Feature flags, and their defaults, that we will introduce to define the
+converged semantics of Edition Zero.</p>
+<p><strong>NOTE:</strong> This document is largely replaced by the topic,
+<a href="https://protobuf.dev/editions/features" class="external external-link">Feature Settings for Editions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (to be
+released soon).</p>
+<h2 id="overview">Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#overview" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><em>Edition Zero Features</em> defines the “first edition” of the brave new world of
+no-<code>syntax</code> Protobuf. This document defines the actual mechanics of the features
+(in the narrow sense of editions) we need to implement in protoc, as well as the
+chosen defaults.</p>
+<p>This document will require careful review from various stakeholders, because it
+is essentially defining a new Protobuf <code>syntax</code>, even if it isn’t spelled that
+way. In particular, we need to ensure that there is a way to rewrite existing
+<code>proto2</code> and <code>proto3</code> files as <code>editions</code> files, and the behavior of “mixed
+syntax” messages, without any nasty surprises.</p>
+<p>Note that it is an explicit goal that it be possible to take an arbitrary
+proto2/proto3 file and convert it to editions without semantic changes, via
+appropriate application of features.</p>
+<h2 id="existing-non-conformance">Existing Non-Conformance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#existing-non-conformance" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>We must keep in mind that the status quo is messy. Many languages have some
+areas where they currently diverge from the correct proto2/proto3 semantics. For
+edition zero, we must preserve these idiosyncratic behaviors, because that is
+the only way for a proto2/proto3 -> editions LSC to be a no-op.</p>
+<p>For example, in this document we define a feature <code>features.enum = {CLOSED,OPEN}</code>. But currently Go does not implement closed enum semantics for
+<code>syntax=proto2</code> as it should. This behavior is out of conformance, but we must
+preserve this out-of-conformance behavior for edition zero.</p>
+<p>In other words, defining features and their semantics is in scope for edition
+zero, but fixing code generators to perfectly match those semantics is
+explicitly out-of-scope.</p>
+<h2 id="glossary">Glossary<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#glossary" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Because we need to speak of two proto syntaxes, <code>proto2</code> and <code>proto3</code>, that have
+disagreeing terminology in some places, we’ll define the following terms to aid
+discussion. When a term appears in <code>code font</code>, it refers to the Protobuf
+language keyword.</p>
+<ul>
+<li>A <strong>presence discipline</strong> is a handling for the presence (or hasbit) of a
+field. Every field notionally has a hasbit: whether it has been explicitly
+set via the API or whether a record for it was present on deserialization.
+See
+<a href="https://protobuf.dev/programming-guides/field_presence" class="external external-link">Application Note: Field Presence<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+for more on this topic. The discipline specifies how this bit is surfaced to
+the user:
+<ul>
+<li><strong>No presence</strong> means that the API does not expose the hasbit. The
+default value for the field behaves somewhat like a special sentinel
+value, which is not serialized and not merged-from. The hasbit may still
+exist in the implementation (C++ accidentally leaks this via HasField,
+for example). Note that repeated fields sort-of behave like no presence
+fields.</li>
+<li><strong>Explicit presence</strong> means that the API exposes the hasbit through a
+<code>has</code> method and a <code>Clear</code> method; default values are always serialized
+if the hasbit is set.</li>
+</ul>
+</li>
+<li>A <strong>closed enum</strong> is an enum where parsing requires validating that a parsed
+<code>int32</code> representing a field of this type matches one of the known set of
+valid values.</li>
+<li>An <strong>open enum</strong> does not have this restriction, and is just an <code>int32</code>
+field with well-known values.</li>
+</ul>
+<p>For the purposes of this document, we will use the syntax described in <em>Features
+as Custom Options</em>, since it is the prevailing consensus among those working on
+editions, and allows us to have enum-typed features. The exact names for the
+features are a matter of bikeshedding.</p>
+<h2 id="proposed-converged-semantics">Proposed Converged Semantics<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#proposed-converged-semantics" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>There are two kinds of syntax behaviors we need to capture: those that are
+turned on by a keyword, like <code>required</code>, and those that are implicit, like open
+enums. The differences between proto2 and proto3 today are:</p>
+<ul>
+<li>Required. Proto2 has <code>required</code> but not <code>defaulted</code>; Proto3 has <code>defaulted</code>
+but not <code>required</code>. Proto3 also does not allow custom defaults on
+<code>defaulted</code> fields, and on message-typed fields, <code>defaulted</code> is a synonym
+for <code>optional</code>.</li>
+<li>Groups. Proto2 has groups, proto3 does not.</li>
+<li>Enums. In Proto2, enums are <strong>closed</strong>: messages that have an enum not in
+the known set are stored in the unknown field set. In Proto3, enums are
+<strong>open</strong>.</li>
+<li>String validation. Proto2 is a bit wobbly on whether strings must be UTF-8
+when serialized; Proto3 enforces this (sometimes).</li>
+<li>Extensions. Proto2 has extensions, while Proto3 does not (<code>Any</code> is the
+canonical workaround).</li>
+</ul>
+<p>We propose defining the following features as part of edition zero:</p>
+<h3 id="featuresfield_presence">features.field_presence<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresfield_presence" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>This feature is enum-typed and controls the presence discipline of a singular
+field:</p>
+<ul>
+<li><code>EXPLICIT</code> (default) - the field has <em>explicit presence</em> discipline. Any
+explicitly set value will be serialized onto the wire (even if it is the
+same as the default value).</li>
+<li><code>IMPLICIT</code> - the field has <em>no presence</em> discipline. The default value is
+not serialized onto the wire (even if it is explicitly set).</li>
+<li><code>LEGACY_REQUIRED</code> - the field is wire-required and API-optional. Setting
+this will require being in the <code>required</code> allowlist. Any explicitly set
+value will be serialized onto the wire (even if it is the same as the
+default value).</li>
+</ul>
+<p>The syntax for singular fields is a much debated question. After discussing the
+tradeoffs, we have chosen to <em>eliminate both the <code>optional</code> and <code>required</code>
+keywords, making them parse errors</em>. Singular fields are spelled as in proto3
+(no label), and will take on the presence discipline given by
+<code>features.:presence</code>. Migration will require deleting every instance of
+<code>optional</code> in proto files in google3, of which there are 385,236.</p>
+<p>It is important to observe that proto2 users are much likelier to care about
+presence than proto3 users, since the design of proto3 discourages thinking
+about presence as an interesting feature of protos, so arguably introducing
+proto2-style presence will not register on most users’ mental radars. This is
+difficult to prove concretely.</p>
+<p><code>IMPLICIT</code> fields behave much like proto3 implicit fields: they cannot have
+custom defaults and are ignored on submessage fields. Also, if it is an
+enum-typed field, that enum must be open (i.e., it is either defined in a
+<code>syntax = proto3;</code> file or it specifies <code>option features.enum = OPEN;</code>
+transitively).</p>
+<p>We also make some semantic changes:</p>
+<ul>
+<li><del><code>IMPLICIT``fields may have a custom default value, unlike in</code>proto3<code>. Whether an</code>IMPLICIT` field containing its default value is serialized
+becomes an implementation choice (implementations are encouraged to try to
+avoid serializing too much, though).</del></li>
+<li><code>has_optional_keyword()</code> and <code>has_presence()</code> now check for <code>EXPLICIT</code>, and
+are effectively synonyms.</li>
+<li><code>proto3_optional</code> is rejected as a parse error (use the feature instead).</li>
+</ul>
+<p>Migrating from proto2/3 involves deleting all <code>optional</code>/<code>required</code> labels and
+adding <code>IMPLICIT</code> and <code>LEGACY_REQUIURED</code> annotations where necessary.</p>
+<h4 id="alternatives">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>For syntax:
+<ul>
+<li>Require <code>optional</code>. This may confuse proto3 users who are used to
+<code>optional</code> not being a default they reach for. Will result in
+significant (trivial, but noisy) churn in proto3 files. The keyword is
+effectively line noise, since it does not indicate anything other than
+“this is a singular field”.</li>
+<li>Invent a new label, like <code>singular</code>. This results in more churn but
+avoids breaking peoples’ priors.</li>
+<li>Allow <code>optional</code> and no label to coexist in a file, which take on their
+original meanings unless overridden by <code>features.field_presence</code>. The
+fact that a top-level <code>features.field_presence = IMPLICIT</code> breaks the
+proto3 expectation that <code>optional</code> means <code>EXPLICIT</code> may be a source of
+confusion.</li>
+</ul>
+</li>
+<li><code>proto:allow_required</code>, which must be present for <code>required</code> to not be a
+syntax error.</li>
+<li>Allow <code>required</code>/<code>optional</code> and introduce <code>defaulted</code> as a real keyword. We
+will not have another easy chance to introduce such syntax (which we do,
+because <code>edition = ...</code> is a breaking change).</li>
+<li>Reject custom defaults for <code>IMPLICIT</code> fields. This is technically not really
+needed for converged semantics, but trying to remove the Proto3-ness from
+<code>IMPLICIT</code> fields seems useful for consistency.</li>
+</ul>
+<h4 id="future-work">Future Work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#future-work" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>In the future, we can introduce something like <code>features.always_serialize</code> or a
+similar new enumerator (<code>ALWAYS_SERIALIZE</code>) to the <code>when_missing</code> enum, which
+makes <code>EXPLICIT_PRESENCE</code> fields unconditionally serialized, allowing
+<code>LEGACY_REQUIRED</code> fields to become <code>EXPLICIT_PRESENCE</code> in a future large-scale
+change. The details of such a migration are out-of-scope for this document.</p>
+<h4 id="migration-examples">Migration Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#migration-examples" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Given the following files:</p>
+<pre><code>// foo.proto
+syntax = &quot;proto2&quot;
+
+message Foo {
+  required int32 x = 1;
+  optional int32 y = 2;
+  repeated int32 z = 3;
+}
+
+// bar.proto
+syntax = &quot;proto3&quot;
+
+message Bar {
+  int32 x = 1;
+  optional int32 y = 2;
+  repeated int32 z = 3;
+}
+</code></pre>
+<p>post-editions, they will look like this:</p>
+<pre><code>// foo.proto
+edition = &quot;tbd&quot;
+
+message Foo {
+  int32 x = 1 [features.field_presence = LEGACY_REQUIRED];
+  int32 y = 2;
+  repeated int32 z = 3;
+}
+
+// bar.proto
+edition = &quot;tbd&quot;
+option features.field_presence = NO_PRESENCE;
+
+message Bar {
+  int32 x = 1;
+  int32 y = 2 [features.field_presence = EXPLICIT_PRESENCE];
+  repeated int32 z = 3;
+}
+</code></pre>
+<h3 id="featuresenum_type">features.enum_type<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresenum_type" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Enum types come in two distinct flavors: <em>closed</em> and <em>open</em>.</p>
+<ul>
+<li>
+<p><em>closed</em> enums will store enum values that are out of range in the unknown
+field set.</p>
+</li>
+<li>
+<p><em>open</em> enums will parse out of range values into their fields directly.</p>
+<p><strong>NOTE:</strong> Closed enums can cause confusion for parallel arrays (two repeated
+fields that expect to have index i refer to the same logical concept in both
+fields) because an unknown enum value from a parallel array will be placed
+in the unknown field set and the arrays will cease being parallel. Similarly
+parsing and serializing can change the order of a repeated closed enum by
+moving unknown values to the end.</p>
+<p><strong>NOTE:</strong> Some runtimes (C++ and Java, in particular) currently do not use
+the declaration site of enums to determine whether an enum field is treated
+as open; rather, they use the syntax of the message the field is defined in,
+instead. To preserve this proto2 quirk until we can migrate users off of it,
+Java and C++ (and runtimes with the same quirk) will use the value of
+<code>features.enum</code> as set at the file level of messages (so, if a file sets
+<code>features.enum = CLOSED</code> at the file level, enum fields defined in it behave
+as if the enum was closed, regardless of declaration). IMPLICIT singular
+fields in Java and C++ ignore this and are always treated as open, because
+they used to only be possible to define in proto3 files, which can’t use
+proto2 enums.</p>
+</li>
+</ul>
+<p>In proto2, <code>enum</code> values are closed and no requirements are placed upon the
+first <code>enum</code> value. The first enum value will be used as the default value.</p>
+<p>In proto3, <code>enum</code> values are open and the first <code>enum</code> value must be zero. The
+first <code>enum</code> value is used as the default value, but that value is required to
+be zero.</p>
+<p>In edition zero, We will add a feature <code>features.enum_type = {CLOSED,OPEN}</code>. The
+default will be <code>OPEN</code>. Upgraded proto2 files will explicitly set
+<code>features.enum_type = CLOSED</code>. The requirement of having the first enum value be
+zero will be dropped.</p>
+<p><strong>NOTE:</strong> Nominally this exposes a new state in the configuration space, OPEN
+enums with a non-zero default. We decided that excluding this option simply
+because it was previously inexpressible was a false economy.</p>
+<h4 id="alternatives-1">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>We could add a property for requiring a zero first value for an enum. This
+feels needlessly complicated.</li>
+<li>We could drop the ability to have <code>CLOSED</code> enums, but that is a semantic
+change.</li>
+</ul>
+<h4 id="migration-examples-1">Migration Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#migration-examples-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Given the following files:</p>
+<pre><code>// foo.proto
+syntax = &quot;proto2&quot;
+
+enum Foo {
+  A = 2, B = 4, C = 6,
+}
+
+// bar.proto
+syntax = &quot;proto3&quot;
+
+enum Bar {
+  A = 0, B = 1, C = 5,
+}
+</code></pre>
+<p>post-editions, they will look like this:</p>
+<pre><code>// foo.proto
+edition = &quot;tbd&quot;
+option features.enum_type = CLOSED;
+
+enum Foo {
+  A = 2, B = 4, C = 6,
+}
+
+// bar.proto
+edition = &quot;tbd&quot;
+
+enum Bar {
+  A = 0, B = 1, C = 5,
+}
+</code></pre>
+<p>If we wanted to merge them into one file, it would look like this:</p>
+<pre><code>// foo.proto
+edition = &quot;tbd&quot;
+
+enum Foo {
+  option features.enum_type = CLOSED;
+  A = 2, B = 4, C = 6,
+}
+
+
+enum Bar {
+  A = 0, B = 1, C = 5,
+}
+</code></pre>
+<h3 id="featuresrepeated_field_encoding">features.repeated_field_encoding<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresrepeated_field_encoding" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>In proto3, the <code>repeated_field_encoding</code> attribute defaults to <code>PACKED</code>. In
+proto2, the <code>repeated_field_encoding</code> attribute defaults to <code>EXPANDED</code>. Users
+explicitly enabled packed fields 12.3k times, but only explicitly disable it 200
+times. Thus we can see a clear preference for <code>repeated_field_encoding = PACKED</code>
+emerge. This data matches best practices. As such, the default value for
+<code>features.repeated_field_encoding</code> will be <code>PACKED</code>.</p>
+<p>The existing <code>[packed = …]</code> syntax will be made an alias for setting the feature
+in edition zero. This alias will eventually be removed. Whether that removal
+happens during the initial large-scale change to enable edition zero or as a
+follow on will be decided at the time.</p>
+<p>In the long term, we would like to remove explicit usages of
+<code>features.repeated_field_encoding = EXPANDED</code>, but we would prefer to separate
+that large-scale change from the landing of edition zero. So we will explicitly
+set <code>features.repeated_field_encoding</code> to <code>EXPANDED</code> at the file level when we
+migrate proto2 files to edition zero.</p>
+<h4 id="alternatives-2">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Force everyone to use packed fields. This is a semantic change, which we’re
+trying to avoid in edition zero.</li>
+<li>Don’t add <code>features.repeated_field_encoding</code> and instead specify <code>[packed = false]</code> when converting from proto2. This will be incredibly noisy,
+syntax-wise and diff-wise.</li>
+</ul>
+<h4 id="migration-examples-2">Migration Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#migration-examples-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Given the following files:</p>
+<pre><code>// foo.proto
+syntax = &quot;proto2&quot;
+
+message Foo {
+  repeated int32 x = 1;
+  repeated int32 y = 2 [packed = true];
+  repeated int32 z = 3;
+}
+
+// bar.proto
+syntax = &quot;proto3&quot;
+
+message Foo {
+  repeated int32 x = 1;
+  repeated int32 y = 2 [packed = false];
+  repeated int32 z = 3;
+}
+</code></pre>
+<p>post-editions, they will look like this:</p>
+<pre><code>// foo.proto
+edition = &quot;tbd&quot;
+options features.repeated_field_encoding = EXPANDED;
+
+message Foo {
+  repeated int32 x = 1;
+  repeated int32 y = 2 [packed = true];
+  repeated int32 z = 3;
+}
+
+
+// bar.proto
+edition = &quot;tbd&quot;
+
+message Foo {
+  repeated int32 x = 1;
+  repeated int32 y = 2 [packed = false];
+  repeated int32 z = 3;
+}
+</code></pre>
+<p>Note that post migration, we have not changed <code>packed</code> to
+<code>features.repeated_field_encoding = PACKED</code>, although we could choose to do so
+if the diff cost is not monumental. We prefer to defer to an LSC after editions
+are shipped, if possible.</p>
+<h3 id="featuresstring_field_validation">features.string_field_validation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresstring_field_validation" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>WARNING:</strong> UTF8 validation is actually messier than originally believed. This
+feature is being reconsidered in <em>Editions Zero Feature: utf8_validation</em>.</p>
+<p>This feature is a tristate:</p>
+<ul>
+<li><code>MANDATORY</code> - this means that a runtime MUST verify UTF-8.</li>
+<li><code>HINT</code> - this means that a runtime may refuse to parse invalid UTF-8, but it
+can also simply skip the check for performance in some build modes.</li>
+<li><code>NONE</code> - this field behaves like a <code>bytes</code> field on the wire, but parsers
+may mangle the string in an unspecified way (for example, Java may insert
+spaces as replacement characters).</li>
+</ul>
+<p>The default will be <code>MANDATORY</code>.</p>
+<p>Long term, we would like to remove this feature and make all <code>string</code> fields
+<code>MANDATORY</code>.</p>
+<h4 id="alternatives-3">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Drop the UTF-8 requirements completely. This seems like it will create more
+problems than it will solve (e.g., random things relying on validation need
+to be fixed) and it will be a lot of work. This is also counter to the
+vision of string being a UTF-8 type, and bytes being its unchecked sibling.</li>
+<li>Make opt-in verification a hard requirement instead of a hint, so that users
+have a nice performance needle they can play with.</li>
+</ul>
+<h4 id="future-work-1">Future Work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#future-work-1" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>In the infinite future, we would like to remove this feature and force all
+<code>string</code> fields to be UTF-8 validated. To do this, we need to recognize that
+what many callers want from their <code>string</code> fields is a <code>bytes</code> field with a
+<code>string</code>-like API. To ease the transition, we would add per-codegen backend
+features, like <code>java.bytes_as_string</code>, that give a <code>bytes</code> field a generated API
+resembling that of a <code>string</code> field (with caveats about replacement characters
+forced by the host language’s string type).</p>
+<p>The migration would take <code>HINT</code> or <code>SKIP</code> <code>string</code> fields and convert them into
+<code>bytes</code> fields with the appropriate API modifiers, depending on which languages
+use that proto; C++-only protos, for example, are a no-op.</p>
+<p>There is an argument to be made for “I want a string type, and I explicitly want
+replacement U+FFFD characters if I get something that isn’t UTF-8.” It is
+unclear if this is something users want and we would need to investigate it
+before making a decision.</p>
+<h3 id="featuresjson_format">features.json_format<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresjson_format" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>This feature is dual state in edition zero:</p>
+<ul>
+<li><code>ALLOW</code> - this means that a runtime must allow JSON parsing and
+serialization. Checks will be applied at the proto level to make sure that
+there is a well-defined mapping to JSON.</li>
+<li><code>LEGACY_BEST_EFFORT</code> - this means that a runtime will do the best it can to
+parse and serialize JSON. Certain protos will be allowed that can result in
+undefined behavior at runtime (e.g. many:1 or 1:many mappings).</li>
+</ul>
+<p>The default will be <code>ALLOW</code>, which maps the to the current proto3 behavior.
+<code>LEGACY_BEST_EFFORT</code> will be used for proto2 files that require it (e.g. they’ve
+set <code>deprecated_legacy_json_field_conflicts</code>)</p>
+<h4 id="alternatives-4">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Keep the proto2 behavior - this will regress proto3 files by removing
+validation for JSON mappings, and lead to <em>more</em> undefined runtime behavior</li>
+<li>Only use <code>ALLOW</code> - there are ~30 cases internally where protos have invalid
+JSON mappings and rely on unspecified (but luckily well defined) runtime
+behavior.</li>
+</ul>
+<h4 id="future-work-2">Future Work<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#future-work-2" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Long term, we would like to either remove this feature entirely or add a
+<code>DISALLOW</code> option instead of <code>LEGACY_BEST_EFFORT</code>. This will more strictly
+enforce that protos without a valid JSON mapping <em>can’t</em> be serialized or parsed
+to JSON. <code>DISALLOW</code> will be enforced at the proto-language level, where no
+message marked <code>ALLOW</code> can contain any message/enum marked <code>DISALLOW</code> (e.g.
+through extensions or fields)</p>
+<h4 id="migration-examples-3">Migration Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#migration-examples-3" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h3 id="extensions-are-always-allowed">Extensions are Always Allowed<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#extensions-are-always-allowed" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Extensions may be used on all messages. This lifts a restriction from proto3.</p>
+<p>Extensions do not play nicely with <code>TypeResolver</code>. This is actually fixable, but
+probably only worth it if someone complains.</p>
+<h4 id="alternatives-5">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-5" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Add <code>features.allow_extensions</code>, default true. This feels unnecessary since
+uttering <code>extend</code> and <code>extensions</code> is required to use extensions in the
+first place.</li>
+</ul>
+<h3 id="featuresmessage_encoding">features.message_encoding<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#featuresmessage_encoding" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>This feature defaults to <code>LENGTH_PREFIXED</code>. The <code>group</code> syntax does not exist
+under editions. Instead, message-typed fields that have
+<code>features.message_encoding = DELIMITED</code> set will be encoded as groups (wire type
+3/4) rather than byte blobs (wire type 2). This reflects the existing API
+(groups are funny message fields) and simplifies the parser.</p>
+<p>A <code>proto2</code> group field will be converted into a nested message type of the same
+name, and a singular submessage field that is <code>features.message_encoding = DELIMITED</code> with the message type’s name in snake_case.</p>
+<p>This could be used in the future to switch new message fields to use group
+encoding, which suggested previously as an efficiency direction.</p>
+<h4 id="alternatives-6">Alternatives<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#alternatives-6" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Allow groups in <code>editions</code> with no changes. <code>group</code> syntax is deprecated, so
+we may as well take the opportunity to knock it out.</li>
+<li>Add a sidecar allowlist like we do for <code>required</code>. This is mostly
+orthogonal.</li>
+</ul>
+<h4 id="migration-examples-4">Migration Examples<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#migration-examples-4" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Given the following file</p>
+<pre><code>// foo.proto
+syntax = &quot;proto2&quot;
+
+message Foo {
+  group Bar = 1 {
+    optional int32 x = 1;
+    repeated int32 y = 2;
+  }
+}
+</code></pre>
+<p>post-editions, it will look like this:</p>
+<pre><code>// foo.proto
+edition = &quot;tbd&quot;
+
+message Foo {
+  message Bar {
+    optional int32 x = 1;
+    repeated int32 y = 2;
+  }
+  Bar bar = 1 [features.message_encoding = DELIMITED];
+}
+</code></pre>
+<h2 id="proposed-features-message">Proposed Features Message<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#proposed-features-message" class="internal internal-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Putting together all of the above, we propose the following <code>Features</code> message,
+including retention and target rules associated with fields.</p>
+<pre><code>message Features {
+  enum FieldPresence {
+    EXPLICIT = 0;
+    IMPLICIT = 1;
+    LEGACY_REQUIRED = 2;
+  }
+  optional FieldPresence field_presence = 1 [
+      retention = RUNTIME,
+      target = FILE,
+      target = FIELD
+  ];
+
+  enum EnumType {
+    OPEN = 0;
+    CLOSED = 1;
+  }
+  optional EnumType enum = 2 [
+      retention = RUNTIME,
+      target = FILE,
+      target = ENUM
+  ];
+
+  enum RepeatedFieldEncoding {
+    PACKED = 0;
+    UNPACKED = 1;
+  }
+  optional RepeatedFieldEncoding repeated_field_encoding = 3 [
+      retention = RUNTIME,
+      target = FILE,
+      target = FIELD
+  ];
+
+  enum StringFieldValidation {
+    MANDATORY = 0;
+    HINT = 1;
+    NONE = 2;
+  }
+  optional StringFieldValidation string_field_validation = 4 [
+      retention = RUNTIME,
+      target = FILE,
+      target = FIELD
+  ];
+
+  enum MessageEncoding {
+    LENGTH_PREFIXED = 0;
+    DELIMITED = 1;
+  }
+  optional MessageEncoding message_encoding = 5 [
+      retention = RUNTIME,
+      target = FILE,
+      target = FIELD
+  ];
+
+  extensions 1000;  // for features_cpp.proto
+  extensions 1001;  // for features_java.proto
+}
+</code></pre></div></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>关系图谱</h3><div class="graph-outer"><div class="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false,&quot;enableRadial&quot;:false}"></div><button class="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div class="global-graph-outer"><div class="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.2,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true,&quot;enableRadial&quot;:true}"></div></div></div><div class="toc"><button type="button" class="toc-header" aria-controls="toc-51" aria-expanded="true"><h3>目录</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><ul id="list-0" class="toc-content overflow"><li class="depth-0"><a href="#edition-zero-features" data-for="edition-zero-features">Edition Zero Features</a></li><li class="depth-1"><a href="#overview" data-for="overview">Overview</a></li><li class="depth-1"><a href="#existing-non-conformance" data-for="existing-non-conformance">Existing Non-Conformance</a></li><li class="depth-1"><a href="#glossary" data-for="glossary">Glossary</a></li><li class="depth-1"><a href="#proposed-converged-semantics" data-for="proposed-converged-semantics">Proposed Converged Semantics</a></li><li class="depth-2"><a href="#featuresfield_presence" data-for="featuresfield_presence">features.field_presence</a></li><li class="depth-2"><a href="#featuresenum_type" data-for="featuresenum_type">features.enum_type</a></li><li class="depth-2"><a href="#featuresrepeated_field_encoding" data-for="featuresrepeated_field_encoding">features.repeated_field_encoding</a></li><li class="depth-2"><a href="#featuresstring_field_validation" data-for="featuresstring_field_validation">features.string_field_validation</a></li><li class="depth-2"><a href="#featuresjson_format" data-for="featuresjson_format">features.json_format</a></li><li class="depth-2"><a href="#extensions-are-always-allowed" data-for="extensions-are-always-allowed">Extensions are Always Allowed</a></li><li class="depth-2"><a href="#featuresmessage_encoding" data-for="featuresmessage_encoding">features.message_encoding</a></li><li class="depth-1"><a href="#proposed-features-message" data-for="proposed-features-message">Proposed Features Message</a></li><li class="overflow-end"></li></ul></div><div class="backlinks"><h3>反向链接</h3><ul id="list-0" class="overflow"><li><a href="../wiki/concepts/closed-enum" class="internal">closed-enum</a></li><li><a href="../wiki/concepts/edition-2023" class="internal">edition-2023</a></li><li><a href="../wiki/concepts/edition-2024" class="internal">edition-2024</a></li><li><a href="../wiki/concepts/enum-type" class="internal">enum-type</a></li><li><a href="../wiki/concepts/explicit-presence-discipline" class="internal">explicit-presence-discipline</a></li><li><a href="../wiki/concepts/extensions" class="internal">extensions</a></li><li><a href="../wiki/concepts/features-field_presence" class="internal">features-field_presence</a></li><li><a href="../wiki/concepts/features-string_field_validation" class="internal">features-string_field_validation</a></li><li><a href="../wiki/concepts/fieldpresence" class="internal">fieldpresence</a></li><li><a href="../wiki/concepts/groups" class="internal">groups</a></li><li><a href="../wiki/concepts/json_format-feature" class="internal">json_format-feature</a></li><li><a href="../wiki/concepts/lsc" class="internal">lsc</a></li><li><a href="../wiki/concepts/message_encoding-feature" class="internal">message_encoding-feature</a></li><li><a href="../wiki/concepts/no-presence-discipline" class="internal">no-presence-discipline</a></li><li><a href="../wiki/concepts/open-enum" class="internal">open-enum</a></li><li><a href="../wiki/concepts/packed-encoding" class="internal">packed-encoding</a></li><li><a href="../wiki/concepts/proto2" class="internal">proto2</a></li><li><a href="../wiki/concepts/proto3" class="internal">proto3</a></li><li><a href="../wiki/concepts/repeatedfieldencoding" class="internal">repeatedfieldencoding</a></li><li><a href="../wiki/concepts/required-field" class="internal">required-field</a></li><li><a href="../wiki/entities/google3" class="internal">google3</a></li><li><a href="../wiki/entities/protoc" class="internal">protoc</a></li><li><a href="../wiki/entities/protocol-buffers" class="internal">protocol-buffers</a></li><li><a href="../wiki/sources/editions-edition-zero-features" class="internal">editions-edition-zero-features</a></li><li class="overflow-end"></li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v5.0.0</a> © 2026</p><ul><li><a href="https://github.com/Huadous/wiki">GitHub</a></li></ul></footer></div></div></body><script src="../static/resource-after-e13fffa1.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-8b336f9a.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-baba652b.js" type="application/javascript" data-persist="true"></script><script src="../static/resource-after-5eb75950.js" type="module" data-persist="true"></script><script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/copy-tex.min.js" type="application/javascript" data-persist="true"></script><script src="../postscript-e41c6e5c.js" type="module" data-persist="true"></script></html>
