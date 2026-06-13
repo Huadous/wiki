@@ -965,3 +965,43 @@
 
 **更新页面**：[[bthread]], [[brpc]], [[ubaserver]], [[baidu]], [[tcmalloc]], [[glibc]], [[work-stealing]], [[executionqueue]], [[rpc]], [[channel]]
 
+
+
+## [2026-06-13] ingest | baidu_std协议规范
+
+**创建页面**：[[sources/baidu_std.md]], [[entities/sofa.md]], [[entities/hulu_pbrpc.md]], [[entities/chunkinfo.md]], [[entities/gzip.md]], [[concepts/rpc.md]], [[concepts/元数据.md]], [[concepts/包头.md]], [[concepts/rpcrequestmeta.md]], [[concepts/rpcresponsemeta.md]], [[concepts/rpcmeta.md]], [[concepts/compression.md]], [[concepts/http接口.md]], [[concepts/attachment.md]], [[concepts/snappy.md]], [[concepts/restful-url.md]], [[concepts/prpc.md]], [[concepts/服务.md]], [[concepts/chunk模式.md]], [[concepts/tcpip.md]], [[concepts/json-format.md]], [[concepts/包.md]]
+
+**更新页面**：[[baidu_std-protocol]], [[rpc]], [[protocolbuffersprotobuf]], [[attachment]], [[compression]], [[snappy]], [[json-format]]
+
+
+
+## [2026-06-13] ingest | brpc中的雪崩现象与防护
+
+**创建页面**：[[sources/avalanche.md]], [[concepts/qps.md]], [[concepts/雪崩效应.md]], [[entities/brpc.md]], [[concepts/拥塞.md]], [[concepts/retry.md]], [[concepts/备份请求.md]], [[concepts/最大并发控制.md]], [[concepts/littles-law-利特尔法则.md]], [[concepts/bthread.md]], [[concepts/timeout.md]], [[concepts/线程池.md]], [[concepts/channel.md]], [[concepts/brpcretrypolicy.md]], [[concepts/流量放大.md]], [[concepts/timeout.md]], [[concepts/追排问题.md]]
+
+**更新页面**：[[brpc]], [[雪崩效应]], [[qps]], [[备份请求]], [[bthread]], [[最大并发控制]], [[timeout]], [[线程池]], [[channel]], [[brpcretrypolicy]]
+
+
+
+## [2026-06-13] ingest | Editions: Life of a FeatureSet
+
+**创建页面**：[[sources/editions-editions-life-of-a-featureset.md]], [[entities/mkruskal-google.md]], [[entities/protoc.md]], [[entities/exposing-editions-feature-sets.md]], [[entities/editions-runtime-feature-set-defaults.md]], [[entities/conformancerequest.md]], [[entities/conformanceresponse.md]], [[concepts/feature-resolution.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/hyrums-law.md]], [[concepts/retention.md]], [[concepts/edition.md]], [[concepts/code-generator.md]], [[concepts/descriptor-pool.md]], [[concepts/conformance-testing.md]], [[concepts/generator-features.md]], [[concepts/edition-defaults.md]], [[concepts/global-features.md]], [[concepts/runtime-features.md]], [[concepts/resolved-features.md]], [[concepts/source-features.md]], [[concepts/dynamic-message.md]], [[concepts/unresolved-features.md]], [[concepts/descriptorconformancerequest.md]], [[concepts/bidirectional-plugins.md]], [[concepts/descriptorconformanceresponse.md]], [[concepts/central-feature-registry.md]], [[concepts/bootstrapping.md]], [[concepts/staged-rollout-for-dynamic-messages.md]], [[concepts/default-placeholders.md]], [[concepts/runtimes-without-reflection.md]], [[concepts/use-generated-pool-for-c++-generators.md]], [[concepts/generatorrequest.md]], [[concepts/c++-generators.md]], [[concepts/raw_features.md]], [[concepts/non-c++-generators.md]], [[concepts/getfeatures.md]], [[concepts/filedescriptorcopyto.md]], [[concepts/mergefeatures.md]], [[concepts/do-nothing.md]]
+
+**更新页面**：[[mkruskal-google]], [[protoc]], [[descriptor-proto]], [[protobuf-editions-design-features]], [[filedescriptorproto]], [[filedescriptorset]], [[editions-life-of-a-featureset]], [[feature-resolution]], [[editions]], [[edition-defaults]], [[global-features]], [[bootstrapping]]
+
+
+
+## [2026-06-13] ingest | 自适应限流
+
+**创建页面**：[[sources/auto_concurrency_limiter.md]], [[entities/netflix.md]], [[concepts/autoconcurrencylimiter.md]], [[entities/brpc.md]], [[concepts/littles-law-利特尔法则.md]], [[concepts/最大并发控制.md]], [[concepts/best_max_concurrency.md]], [[concepts/peak_qps.md]], [[concepts/noload_latency.md]], [[concepts/min_latency.md]], [[concepts/max_qps.md]], [[concepts/netflix-gradient算法.md]], [[concepts/ema.md]], [[concepts/alpha.md]], [[concepts/concurrency.md]], [[concepts/流控.md]], [[concepts/queue_size.md]], [[concepts/服务过载.md]]
+
+**更新页面**：[[brpc]], [[littles-law-利特尔法则]], [[最大并发控制]], [[ema]], [[流控]]
+
+
+
+## [2026-06-13] ingest | Editions: Group Migration Issues
+
+**创建页面**：[[sources/editions-group-migration-issues.md]], [[entities/mkruskal-google.md]], [[entities/joshua-humphries.md]], [[entities/protocol-buffers.md]], [[entities/upb.md]], [[entities/protoc-explorer.md]], [[entities/google3.md]], [[entities/prototiller.md]], [[entities/github-issue-#16239.md]], [[concepts/groups.md]], [[concepts/delimited-message-encoding.md]], [[concepts/smooth-extension.md]], [[concepts/text-format.md]], [[concepts/group-like-fields.md]], [[concepts/global-features.md]], [[concepts/code-generation.md]], [[concepts/submessages-in-pursuit-of-a-more-perfect-encoding.md]], [[concepts/aliases.md]], [[concepts/nerf-delimited-encoding-in-2023.md]], [[concepts/proto2.md]], [[concepts/feature-suite.md]], [[concepts/conformance-testing.md]], [[concepts/extensions.md]], [[concepts/synthetic-message.md]], [[concepts/wire-format.md]], [[concepts/breaking-changes.md]], [[concepts/edition-2024.md]]
+
+**更新页面**：[[mkruskal-google]], [[protocolbuffersprotobuf]], [[edition-2023]], [[prototiller]], [[delimited-message-encoding]], [[groups]], [[global-features]], [[text-format]], [[proto2]], [[extensions]], [[wire-format]], [[edition-2024]]
+

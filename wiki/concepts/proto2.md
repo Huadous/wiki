@@ -14,6 +14,7 @@ sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "standard"
 aliases:
@@ -51,6 +52,10 @@ aliases:
 - [[concepts/large-scale-change|Large-scale Change]]
 - [[concepts/editions-upgrader|Editions upgrader]]
 - [[concepts/editions-adopter|Editions adopter]]
+- [[concepts/smooth-extension|Smooth Extension]]
+- [[concepts/text-format|text format]]
+- [[concepts/group-like-fields|group-like fields]]
+- [[concepts/group-fields|group fields]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -94,3 +99,7 @@ aliases:
 > - "Since early in the design process, we've discussed the possibility of making proto2 and proto3 "special" editions"
 > - "While the original plan was to keep editions and syntax orthogonal, that naively means we'd be supporting two very different codebases."
 > - "If the file is proto2/proto3, failure should result in a fallback to the existing hardcoded defaults."
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
+> - "Proto2 splits groups into a synthetic nested message with a type name equivalent to the group specification (required to be capitalized), and a field name that's fully lowercased."
+> - "Note that proto2 groups will *always* be 'group-like.'"

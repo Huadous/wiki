@@ -42,6 +42,8 @@ sources:
   - "[[brpc/bvar.md]]"
   - "[[brpc/bthread_or_not.md]]"
   - "[[brpc/bthread.md]]"
+  - "[[brpc/avalanche.md]]"
+  - "[[brpc/auto_concurrency_limiter.md]]"
 tags:
   - "product"
 aliases:
@@ -59,37 +61,28 @@ aliases:
 ---
 
 ## Related Entities
-- [[entities/Apache|Apache]] — brpc 所属的开源软件基金会，一致性哈希功能作为 brpc 内置能力随 Apache brpc 发布，bvar 源码同样托管于 Apache 名下的 `apache/brpc` 仓库
-- [[entities/butil|butil]] — brpc 基础库，一致性哈希所依赖的底层数据结构与并发原语由其提供
-- [[entities/bvar|bvar]] — brpc 内置计数器类库，源码位于 brpc 源代码树 `src/bvar` 目录下（对应 GitHub `apache/brpc/tree/master/src/bvar/`），为一致性哈希运行指标提供观测能力
-- [[entities/mbvar|mbvar]] — bvar 的多维度扩展，与单维度 bvar 共同构成 brpc 监控统计体系，间接支撑一致性哈希的可观测性
-- [[entities/Prometheus|Prometheus]] — brpc 通过 `/brpc_metrics` 端点集成的外部监控系统，可消费一致性哈希等 bvar 暴露的运行指标
-- [[entities/ubaserver|ubaserver]] — bthread_or_not 文档中作为示例出现的服务器端示例，常被用于演示一致性哈希客户端的同步/异步/bthread 调用方式
-- [[entities/bthread|bthread]] — brpc 使用的 M:N 线程库，在 server 端与 client 端都为一致性哈希调用提供并发处理能力，可通过 `ServerOptions.num_threads`（server）或 `-bthread_concurrency`（server/client）调整 worker 数
+- [[sources/load_balancing|brpc 负载均衡]]
+- [[sources/consistent_hashing|brpc 一致性哈希]]
+- [[sources/client|brpc::Channel 客户端]]
+- [[sources/bvar_c++|bvar 单维度使用文档]]
+- [[sources/bvar|bvar 介绍]]
+- [[sources/bthread_or_not|bthread or not]]
+- [[sources/bthread|bthread M:N 线程库]]
+- [[sources/avalanche|brpc 雪崩防护]]
+- [[sources/auto_concurrency_limiter|brpc 自适应限流]]
 
 ## Related Concepts
-- [[concepts/load_balancing|brpc Naming Service 与负载均衡]] — 一致性哈希所属的 brpc 流量调度体系
-- [[concepts/channel|Channel]] — 一致性哈希的启用入口，也是 brpc Client 端的实体代表，通过 `Channel.Init` 指定 `load_balancer_name`
-- [[concepts/channeloptions|ChannelOptions]] — Channel 配置选项，与 `load_balancer_name` 配合配置一致性哈希，并承载线程数、长短连接等 Client 端参数
-- [[concepts/naming_service|Naming Service]] — 为一致性哈希提供服务器列表与节点变化感知
-- [[concepts/consistent_hashing|一致性哈希]] — 本页核心主题，对应的分布式负载均衡理论
-- [[concepts/virtual_node|虚拟节点]] — 在一致性哈希 Hash Ring 上用于均匀分布负载的虚拟副本
-- [[concepts/hash_ring|Hash Ring]] — 一致性哈希的环形哈希空间，brpc 选择有序数组作为其底层存储结构
-- [[concepts/murmurhash3|murmurhash3]] — brpc 一致性哈希内置支持的两种哈希算法之一，对应 `c_murmurhash`
-- [[concepts/md5|md5]] — brpc 一致性哈希内置支持的两种哈希算法之一，对应 `c_md5`
-- [[concepts/doublebuffereddata|DoubleBufferedData]] — brpc 用来保证一致性哈希数据结构线程安全的并发机制
-- [[concepts/bvar_gflag|bvar::GFlag]] — brpc 中用于将 gflags 监控接入 bvar 体系的适配器，一致性哈希相关 gflags 可借此被 `/vars` 查询、被 `/flags` 动态修改
-- [[concepts/bvar_status|bvar::Status]] — bvar 提供的状态展示机制，与 `/vars` HTTP 服务共同支撑一致性哈希等 brpc 内置能力的状态可观测
-- [[concepts/bthread|bthread]] — brpc 用户态 M:N 线程库，是 server 端与 client 端并发处理的基础；除非确需在一次 RPC 中并发执行代码，否则不直接调用 bthread 函数，留给 brpc 处理
-- [[concepts/pthread_worker|pthread worker]] — bthread 的底层执行载体，brpc server 端与 client 端可通过 `ServerOptions.num_threads`（server）或 `-bthread_concurrency`（server/client）调整其数量
-- [[concepts/bthread_concurrency|bthread concurrency]] — 通过 `-bthread_concurrency` gflag 控制的 bthread worker 并发度配置项，server/client 端通用
-- [[concepts/同步接口|同步接口]] — 一致性哈希客户端的调用方式之一，延时不长、qps 不高时优先选用
-- [[concepts/异步接口|异步接口]] — 一致性哈希客户端的调用方式之一，回调会运行在与调用处不同的线程中
-- [[concepts/组合访问|组合访问]] — 借助 ComboChannel / ParallelChannel 在一致性哈希客户端侧组合多次 RPC 调用
-- [[concepts/ParallelChannel|ParallelChannel]] — 组合访问工具之一，可在一致性哈希客户端侧实现多路并行调用
-- [[concepts/ExecutionQueue|ExecutionQueue]] — brpc 提供的异步编程简化工具，可与一致性哈希的异步调用配合使用
-- [[concepts/半同步|半同步]] — 一致性哈希客户端侧在同步与异步之间的折中调用模式
-- [[concepts/回调|回调]] — 一致性哈希异步客户端依赖的核心机制，回调可能运行在与调用处不同的线程中
+- [[concepts/hash-ring|hash ring]]
+- [[concepts/consistent-hashing|一致性哈希]]
+- [[concepts/load-balancing|负载均衡]]
+- [[concepts/murmurhash3|murmurhash3]]
+- [[concepts/md5|md5]]
+- [[concepts/channel|brpc::Channel]]
+- [[concepts/bvar|bvar 监控]]
+- [[concepts/bthread|bthread 线程模型]]
+- [[concepts/auto-concurrency-limiter|自适应限流]]
+- [[concepts/max_concurrency|max_concurrency]]
+- [[concepts/littles-law|Little's Law]]
 
 ## Mentions in Source
 
@@ -125,3 +118,12 @@ aliases:
 > - "bthread是brpc使用的M:N线程库"（说明 bthread 是 brpc 使用的 M:N 线程库，为一致性哈希 server/client 调用提供并发基础。）
 > - "在brpc中用户可以选择调大worker数来缓解问题, 在server端可设置ServerOptions.num_threads或-bthread_concurrency, 在client端可设置-bthread_concurrency。"（说明通过 `ServerOptions.num_threads`（server）或 `-bthread_concurrency`（server/client）可调大 bthread worker 数，缓解一致性哈希等负载均衡场景下的并发压力。）
 > - "你不应该直接调用bthread函数，把这些留给brpc做更好。"（说明 brpc 建议除非确需在一次 RPC 中并发运行代码，否则不直接调用 bthread 函数，一致性哈希客户端应优先沿用 brpc 提供的同步/异步接口与 bthread 集成方式。）
+
+> **Source: [[sources/avalanche|avalanche]]**
+> - "了解这些因素后可以更好的理解brpc中相关的设计。"（说明 avalanche 文档讨论的雪崩防护设计同样适用于一致性哈希等 brpc 内置能力所处的 brpc 整体运行环境。）
+> - "brpc也提供了完整的异步接口，让用户可以进一步提高io-bound服务的并发度，降低服务被打满的可能性。"（说明 brpc 提供的完整异步接口可提高 io-bound 服务的并发度、降低被打满的可能性，是一致性哈希客户端异步调用在雪崩防护语境下的设计动机。）
+> - "brpc server端的max_concurrency选项控制了server的最大并发：当同时处理的请求数超过max_concurrency时，server会回复client错误，而不是继续积压。"（说明 brpc server 端通过 `max_concurrency` 在并发超限时直接回复 client 错误而非积压请求，从源头控制积压量；一致性哈希 server 端因此可在雪崩场景下避免请求无限堆积。）
+
+> **Source: [[sources/auto_concurrency_limiter|auto_concurrency_limiter]]**
+> - "目前只有method级别支持自适应限流。如果要为某个method开启自适应限流，只需要将它的最大并发设置为\"auto\"即可。"
+> - "对应的方法就是设置最大并发，链接指向 brpc 的 server.md 文档。"

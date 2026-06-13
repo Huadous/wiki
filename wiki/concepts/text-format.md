@@ -8,6 +8,7 @@ sources:
   - "[[protobuf/implementing_proto3_presence.md]]"
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "term"
 aliases:
@@ -41,12 +42,16 @@ aliases:
 - [[concepts/reflection-based-algorithms|Reflection-based algorithms]]
 - [[concepts/field-presence|Field Presence]]
 - [[concepts/no-presence-discipline|No Presence Discipline]]
+- [[concepts/group-fields|Group Fields]]
+- [[concepts/delimited-encoding|Delimited Encoding]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/protoc|protoc]]
+- [[entities/edition-2023|Edition 2023]]
 
 ## Mentions in Source
+
 > **Source: [[sources/techniques|techniques]]**
 > - "For Text Format specifically, `.textproto` is also fairly common, but we recommend `.txtpb` for its brevity."
 > - "Text Format, Extension: `.txtpb`"
@@ -69,4 +74,9 @@ aliases:
 > **Source: [[sources/editions|editions]]**
 > - "Reusing an old field name later is generally safe, except when using TextProto or JSON encodings where the field name is serialized."
 > - "you should also reserve the field name to allow JSON and TextFormat encodings of your message to continue to parse."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
+> - "Our \"official\" draft specification of text-format explicitly states that group messages are encoded by the message name, rather than the lowercases field name."
+> - "In C++, we always serialize the message name and have special handling to only accept the message name in parsing."
 > - "No directly relevant information"

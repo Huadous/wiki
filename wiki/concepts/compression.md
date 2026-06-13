@@ -9,6 +9,7 @@ sources:
   - "[[brpc/http_service.md]]"
   - "[[brpc/en_client.md]]"
   - "[[brpc/client.md]]"
+  - "[[brpc/baidu_std.md]]"
 tags:
   - "method"
 aliases:
@@ -538,6 +539,9 @@ aliases:
 - [[concepts/附件|附件]]
 - [[concepts/https|HTTPS]]
 - [[concepts/协议|协议]]
+- [[concepts/rpcmeta|RpcMeta]]
+- [[concepts/snappy|Snappy]]
+- [[concepts/gzip|gzip]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -553,6 +557,7 @@ aliases:
 - [[entities/redis|redis]]
 - [[entities/grpc|grpc]]
 - [[entities/brpc-controller|brpc::Controller]]
+- [[entities/baidu_std|baidu_std]]
 
 ## Mentions in Source
 
@@ -602,3 +607,10 @@ aliases:
 > - "set_request_compress_type()设置request的压缩方式，默认不压缩。 — [[brpc/client|client]]"
 > - "注意：附件不会被压缩。 — [[brpc/client|client]]"
 > - "brpc::CompressTypeSnappy : [snappy压缩]，压缩和解压显著快于其他压缩方法，但压缩率最低。 — [[brpc/client|client]]"
+
+> **Source: [[sources/baidu_std]]**
+> - "可以使用指定的压缩算法来压缩消息包中的数据部分。 — [[brpc/baidu_std|baidu_std]]"
+> - "| 值    | 含义       | — [[brpc/baidu_std|baidu_std]]"
+> - "| 0    | 不压缩      | — [[brpc/baidu_std|baidu_std]]"
+> - "| 1    | 使用Snappy | — [[brpc/baidu_std|baidu_std]]"
+> - "| 2    | 使用gzip   | — [[brpc/baidu_std|baidu_std]]"

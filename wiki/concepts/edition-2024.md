@@ -9,6 +9,7 @@ sources:
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "standard"
 aliases:
@@ -75,4 +76,9 @@ aliases:
 > **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
 > - "We need to get the ecosystem into the \"editions\" syntax. This migration is probably unique because we are not changing any behavior, just the spelling of a bunch of things."
 > - "We will then introduce the features defined in Edition Zero Features. We will then implement tooling that can take a proto2 or proto3 file and add edition = \"2023\"; and option features.* = ...; as appropriate, so that each file retains its original behavior."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
+> - "We'd likely have to wait until edition 2024"
+> - "It allows us to release editions in a reasonable state, where we can fix these issues and release a more functional DELIMITED feature in 2024."
 > - "No directly relevant information"

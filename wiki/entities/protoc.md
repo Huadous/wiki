@@ -17,6 +17,7 @@ sources:
   - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
 tags:
   - "product"
 aliases:
@@ -34,6 +35,8 @@ aliases:
 - [[entities/protobuf-team|Protobuf team]]
 - [[entities/prototiller|Prototiller]]
 - [[entities/protobuf-minimum-required-edition|Protobuf Minimum Required Edition]]
+- [[entities/mkruskal-google|mkruskal-google]]
+- [[entities/descriptor.proto|descriptor.proto]]
 
 ## Related Concepts
 - [[concepts/protocol-buffers|Protocol Buffers]]
@@ -63,12 +66,17 @@ aliases:
 - [[concepts/editions-adopter|Editions adopter]]
 - [[concepts/editions-upgrader|Editions upgrader]]
 - [[concepts/protochangespec|ProtoChangeSpec]]
+- [[concepts/featureset|FeatureSet]]
+- [[concepts/feature-resolution|Feature Resolution]]
+- [[concepts/descriptor-pool|Descriptor Pool]]
+- [[concepts/codegenerator|CodeGenerator]]
+- [[concepts/edition-defaults|Edition Defaults]]
 
 ## Mentions in Source
 
 > **Source: [[sources/proto3|proto3]]**
 > - "If no syntax is specified, the protocol buffer compiler will assume you are using proto2."
-> - "When you run the protocol buffer compiler on a .proto, the compiler generates the code in your chosen language you'll need to work with the message types you've described in the file, including getting and setting field values, serializing your messages to an output stream, and parsing your messages from an input stream."
+> - "When you run the protocol buffer compiler on a .proto, the compiler generates the code in your chosen language you'll need to work with the message types you've described in the file, including getting and setting field values, serializing your messages to an output stream, and parsing your messages from an output stream."
 > - "The protoc compiler will generate error messages if any future developers try to use these reserved field numbers."
 
 > **Source: [[sources/java-lite|java-lite]]**
@@ -107,3 +115,8 @@ aliases:
 > - "An edition is a set of default values for all features that protoc's frontend, and its backends, understand."
 > - "Running protoc --gc-features foo.proto on a file in editions mode will compute the minimal (or a heuristically minimal, if this proves expensive) set of features to set on things, given the edition specified in the file."
 > - "The intent is for tooling that wants to generate .proto templates externally can choose to use the latest edition for new messages."
+
+> **Source: [[sources/editions-editions-life-of-a-featureset|editions-editions-life-of-a-featureset]]**
+> - "Protoc works by first parsing the input protofiles and building them into a descriptor pool."
+> - "The flaw that all of these design documents suffer from is that protoc can't be the universal source-of-truth for feature resolution under the original design."
+> - "For built-in languages, the resulting descriptors are passed directly to the generator for codegen."

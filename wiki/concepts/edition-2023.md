@@ -18,9 +18,26 @@ sources:
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "standard"
 aliases:
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "edition 2023"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Edition 2023"
   - "proto edition 2023"
   - "2023 edition"
   - "Protobuf 2023 语言版本"
@@ -75,6 +92,8 @@ aliases:
 - [[concepts/immolation-of-required|Immolation of `required`]]
 - [[concepts/legacy-syntax-editions|Legacy Syntax Editions]]
 - [[concepts/featureset|FeatureSet]]
+- [[concepts/delimited-encoding|Delimited encoding]]
+- [[concepts/group-fields|Group fields]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -88,6 +107,7 @@ aliases:
 - [[entities/kfm|@kfm]]
 - [[entities/mcy|@mcy]]
 - [[entities/mkruskal-google|@mkruskal-google]]
+- [[entities/joshua-humphries|Joshua Humphries]]
 
 ## Mentions in Source
 
@@ -156,4 +176,9 @@ aliases:
 > **Source: editions-legacy-syntax-editions**
 > - "[Edition Zero Features](edition-zero-features.md) lays out our plan for edition 2023, which will unify proto2 and proto3."
 > - "A separate issue is how Prototiller will support the conversion of syntax to edition 2023."
+> - "No directly relevant information"
+
+> **Source: editions-group-migration-issues**
+> - "The problem under edition 2023 is that we've removed the generation of synchronized synthetic messages from the language."
+> - "Nerf Delimited Encoding in 2023 is the quickest path forward to unblock the release of edition 2023."
 > - "No directly relevant information"

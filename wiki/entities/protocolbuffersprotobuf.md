@@ -16,6 +16,8 @@ sources:
   - "[[protobuf/editions-README.md]]"
   - "[[brpc/en_iobuf.md]]"
   - "[[protobuf/editions-minimum-required-edition.md]]"
+  - "[[brpc/baidu_std.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "project"
 aliases:
@@ -27,12 +29,6 @@ aliases:
   - "Protocol Buffers"
   - "Google Protocol Buffers"
 ---
-
-## Related Entities
-- [[entities/protoc|protoc]]（新增：Protobuf 的编译器）
-- [[entities/protobuf-editions|Protobuf Editions]]（新增：Protobuf 正在进行的重大演进机制）
-- [[entities/prototiller|Prototiller]]（新增：与 Protobuf 工具链相关的项目）
-- [[entities/mcy|@mcy]]（新增：相关贡献者）
 
 ## Related Concepts
 - [[concepts/stricter-schemas-with-editions|Stricter Schemas with Editions]]
@@ -49,6 +45,10 @@ aliases:
 - [[concepts/descriptor.proto|descriptor.proto]]（新增：Protobuf 核心描述格式的定义文件）
 - [[concepts/filedescriptorproto|FileDescriptorProto]]（新增：描述符相关概念）
 - [[concepts/edition|Edition]]（新增：Protobuf 版本演进的基本单位）
+- [[concepts/rpc|RPC]]（新增：Protobuf 内置的 RPC Service 形式是 baidu_std 等协议定义通信的基础）
+- [[concepts/rpcmeta|RpcMeta]]（新增：baidu_std 协议中的核心元数据结构，使用 Protobuf message 定义）
+- [[concepts/rpcrequestmeta|RpcRequestMeta]]（新增：baidu_std 协议中的请求元数据，使用 Protobuf message 定义）
+- [[concepts/rpcresponsemeta|RpcResponseMeta]]（新增：baidu_std 协议中的响应元数据，使用 Protobuf message 定义）
 
 ## Mentions in Source
 
@@ -68,4 +68,12 @@ aliases:
 > **Source: [[sources/editions-minimum-required-edition|editions-minimum-required-edition]]**
 > - "to the Protobuf language. This would entail a descriptor change to track the values of constants, but they would not be loaded properly by older runtimes."
 > - "Every Protobuf runtime implementation must specify the newest edition whose constructs it can handle (at a particular rev of that implementation)."
+> - No directly relevant information
+
+> **Source: [[sources/baidu_std|baidu_std]]**
+> - "它以Protobuf作为基本的数据交换格式，并基于Protobuf内置的RPC Service形式，规定了通信双方之间的数据交换协议，以实现完整的RPC调用。"
+> - "调用方法所需参数应放在一个Protobuf消息内。如果方法有返回结果，也同样应放在一个Protobuf消息内。具体定义由通信双方自行约定。特别地，可以使用空的Protobuf消息来表示请求/响应为空的情况。"
+> - No directly relevant information
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
 > - No directly relevant information

@@ -6,9 +6,22 @@ sources:
   - "[[sources/en_overview]]"
   - "[[sources/circuit_breaker]]"
   - "[[brpc/en_client.md]]"
+  - "[[brpc/avalanche.md]]"
 tags:
   - "term"
 aliases:
+  - "超时"
+  - "超时错误"
+  - "RPC超时"
+  - "超时"
+  - "超时错误"
+  - "Deadline"
+  - "超时"
+  - "超时错误"
+  - "RPC超时"
+  - "超时"
+  - "超时错误"
+  - "deadline"
   - "超时"
   - "超时错误"
   - "RPC超时"
@@ -31,6 +44,8 @@ aliases:
 - [[concepts/acc-error-cost|acc_error_cost]]
 - [[concepts/bthread|bthread]]
 - [[concepts/backup-request|Backup Request]]
+- [[concepts/qps|QPS]]
+- [[concepts/retry-policy|RetryPolicy]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -42,3 +57,7 @@ aliases:
 > - "timeout_ms in brpc is deadline, which means once it's reached, the RPC ends without more retries."
 > - "error code of RPC timeout is ERPCTIMEDOUT (1008), ETIMEDOUT is connection timeout and retriable."
 > - "As a comparison, other implementations may have session timeouts and deadline timeouts. Do distinguish them before porting to brpc."
+
+> **Source: [[sources/avalanche|avalanche]]**
+> - "brpc中的RPC超时是deadline，超过后RPC一定会结束，这让用户对服务的行为有更好的预判。"
+> - "在之前的一些实现中，RPC超时是单次超时*重试次数，在实践中容易误判。"

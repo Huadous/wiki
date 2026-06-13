@@ -8,6 +8,7 @@ sources:
   - "[[brpc/en_client.md]]"
   - "[[brpc/client.md]]"
   - "[[brpc/bthread.md]]"
+  - "[[brpc/avalanche.md]]"
 tags:
   - "term"
 aliases:
@@ -34,6 +35,9 @@ aliases:
 - [[concepts/coroutine|coroutine]]
 - [[concepts/cache-locality|cache locality]]
 - [[concepts/context-switch|上下文切换]]
+- [[concepts/retry|重试]]
+- [[concepts/rpc-timeout|RPC超时]]
+- [[concepts/traffic-amplification|流量放大]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -68,3 +72,10 @@ aliases:
 > - "channel固然直观，但是有代价：额外的上下文切换。做成任何事情都得等到被调用处被调度，处理，回复，调用处才能继续。"
 > - "另外一个现实是：用channel的代码也不好写。由于业务一致性的限制，一些资源往往被绑定在一起，所以一个角色很可能身兼数职，但它做一件事情时便无法做另一件事情。"
 > - "我们需要的往往是buffered channel，扮演的是队列和有序执行的作用，bthread提供了ExecutionQueue，可以完成这个目的。"
+
+> **Source: [[sources/avalanche]]**
+> - "用户程序也常会自己做重试，比如通过一个Channel访问失败后，去访问另外一个Channel，这种情况下要想清楚重试发生时最差情况下请求量会放大几倍，服务是否可承受。"
+> - "brpc中的内置服务中可以看到最大qps与非拥塞时的延时，max_concurrency与最大并发相等或大一些就行了。"
+
+> **Source: [[sources/avalanche]]**
+> - "No directly relevant information"

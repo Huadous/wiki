@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
   - "[[protobuf/editions-java-lite-for-editions.md]]"
+  - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
 tags:
   - "edition"
   - "field number"
@@ -25,15 +26,6 @@ aliases:
   - "Protocol Buffers Editions 语言指南"
   - "protobuf editions 文档"
 ---
-
-## 补充来源
-- Original file: editions-protobuf-editions-design-features
-- Ingested: 2026-06-13
-- 补充说明：未提供与本页直接相关的新信息
-
-- Original file: editions-java-lite-for-editions
-- Ingested: 2026-06-13
-- 补充说明：未提供与本页直接相关的新信息
 
 ## 核心内容
 本文档是 [[entities/protocol-buffers|Protocol Buffers]] 官方语言指南的 editions 版本，专门介绍 [[entities/edition-2023|edition 2023]] 与 [[entities/edition-2024|edition 2024]] 的使用方法。文档详细描述了 [[concepts/proto-file|.proto 文件]]的语法结构、消息类型（[[concepts/message-type|Message Type]]）的定义方式、字段编号（[[concepts/field-number|Field Number]]）的分配规则（1 至 536,870,911，19000–19999 为实现保留）以及字段基数（[[concepts/field-cardinality|Field Cardinality]]）的三种形式：[[concepts/singular-field|Singular]]、[[concepts/repeated-field|Repeated]] 和 [[concepts/map-field|Map]]。文档还说明了从 [[entities/proto2|proto2]] / [[entities/proto3|proto3]] 迁移到 editions 时的 [[concepts/field-presence|Field Presence]] 行为差异（LEGACY_REQUIRED 与 IMPLICIT），以及 [[entities/protoc|protoc 编译器]]为 C++、Java、Kotlin、Python、Go 等多种语言生成数据访问类的方式。指南中以 [[entities/searchrequest|SearchRequest]] 和 [[entities/searchresponse|SearchResponse]] 作为典型示例贯穿始终。

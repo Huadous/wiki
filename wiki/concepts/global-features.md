@@ -2,36 +2,47 @@
 type: concept
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/editions-life-of-an-edition]]"]
-tags: [term]
+sources:
+  - "[[sources/editions-life-of-an-edition]]"
+  - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
+tags:
+  - "term"
 aliases:
+  - "global feature"
+  - "proto.Features"
+  - "Global Feature"
   - "global feature"
   - "proto.Features"
 ---
 
-
-# Global features
-
-## 定义
-Global features（全局特性）是 Protobuf Editions 系统中的两类特性之一，由 `proto.Features` 的字段定义，在文档中以 `features.<name>`（例如 `features.enum`）的形式引用。它们是一类不绑定到特定语言的特性定义。
-
-## 关键特征
-- 由 `proto.Features` 的字段定义，在文档中统一以 `features.<name>` 形式引用
-- 与语言无关（language-agnostic），因此必须被清晰且显著地记录
-- 定义一个 global feature 需要修改 `descriptor.h`，改动相对重量级
-- 还需要在 `Descriptor` 包装类中添加辅助方法，以避免使用者自行解析继承关系
-
-## 应用
-- 作为 Protobuf Editions 设计中特性的基础分类之一，与 language-scoped features 共同构成完整的特性体系
-- 用于在 Edition 演进过程中引入跨语言生效的功能开关
-
-## 相关概念
+## Related Concepts
 - [[concepts/language-scoped-features|Language-scoped features]]
 - [[concepts/feature|Feature]]
 - [[concepts/edition-proclamation|Edition Proclamation]]
+- [[concepts/featureset|FeatureSet]]
+- [[concepts/feature-resolution|Feature Resolution]]
+- [[concepts/generator-features|Generator Features]]
+- [[concepts/runtime-features|Runtime Features]]
+- [[concepts/source-features|Source Features]]
+- [[concepts/smooth-extension|Smooth Extension]]
+- [[concepts/legacy-group-handling|Legacy group handling]]
 
-## 相关实体
-无相关实体。
+## Related Entities
+- [[entities/protoc|protoc]]
+- [[entities/descriptor-proto|descriptor.proto]]
+- [[entities/protocol-buffers|Protocol Buffers]]
+- [[entities/edition-2023|Edition 2023]]
 
-## 来源提及
-- Global features, which are the fields of `proto.Features`. In this document, we refer to them as `features.<name>`, e.g. `features.enum`. — [[sources/editions-life-of-an-edition]]
+## Mentions in Source
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "Global features, which are the fields of `proto.Features`. In this document, we refer to them as `features.<name>`, e.g. `features.enum`."
+
+> **Source: [[sources/editions-editions-life-of-a-featureset|editions-editions-life-of-a-featureset]]**
+> - "Global features, which are the features contained directly in `FeatureSet` as fields. These apply to the protobuf language itself, rather than any particular runtime or generator."
+> - "For global features, there's of course no issue (protoc has a bootstrapping setup for `descriptor.proto` and always knows the global feature set)."
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
+> - "Global Feature is a good long-term mitigation for tech debt we're leaving behind with Smooth Extension."
+> - "The simplest answer here is to introduce a new global message feature `legacy_group_handling` to control all the changes we'd like."

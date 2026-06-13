@@ -12,6 +12,7 @@ sources:
   - "[[protobuf/implementing_proto3_presence.md]]"
   - "[[protobuf/field_presence.md]]"
   - "[[brpc/json2pb.md]]"
+  - "[[brpc/baidu_std.md]]"
 tags:
   - "term"
 aliases:
@@ -12304,9 +12305,23 @@ aliases:
   - "JSON Format"
 ---
 
-## Description
-JSON 到 Protobuf 的转换是 brpc 框架中实现跨语言服务互通的关键方法之一。通过该机制，客户端可以使用 JSON 文本格式与基于 protobuf 序列化的服务通信，服务端则负责 JSON 与 protobuf 二进制消息之间的精准转换。"by design" 原则下，HTTP + JSON 访问 protobuf 服务被视为对外服务的常见方式，因此转化必须精准、严格且遵循预定义规则。brpc 将这一双向转化功能实现于 `json2pb` 子模块（源码位于 `src/json2pb/`），底层 JSON 解析使用 [rapidjson](https://github.com/miloyip/rapidjson)。该功能对 protobuf 2.x 和 3.x 均有效；protobuf 3.x 自身也内置了 JSON 转换能力，但 brpc 的 json2pb 提供了更为精确的字段映射控制。
+## Related Concepts
+- [[concepts/http_interface|HTTP接口]]
+- [[concepts/restful|RESTful]]
+- [[concepts/json|JSON]]
+- [[concepts/protobuf|Protocol Buffers]]
+- [[concepts/content_type|Content-Type]]
+- [[concepts/utf8|UTF-8 字符编码]]
 
-在实际使用中，JSON 字段通过匹配的名字和消息结构与 protobuf 字段一一对应，required 字段必须出现在 JSON 中，否则转换会失败。未在 protobuf 中定义的 JSON 字段将被丢弃，而不会被存储为 unknown fields。当 `-pb_enum_as_number` 选项开启时，protobuf 中的 enum 将被转换为对应的数值而非名称字符串。性能方面，使用 `Content-Type: application/proto` 的 protobuf 序列化方式比 JSON 序列化具有更高的性能。值得注意的是，JSON 作为一种相对严格的格式，无法有效表示 wire format 或 TextFormat 中的某些语义，例如 JSON 元素本身是无序的且要求成员名称唯一，这与 TextFormat 对 repeated 字段的规则有所不同。基于反射（reflection-based）的 JSON 解析实现能够无需代码改动即可正确支持 proto3 optional 字段的 presence 语义，这是 C++ 和 Java 端 JSON 解析器的天然优势之一。
+## Related Entities
+- [[entities/json2pb_module|json2pb 子模块]]
+- [[entities/rapidjson|rapidjson]]
 
-json2pb 的转换规则定义了对各种 protobuf 类型的精确映射方式：protobuf message 对应 rapidjson Object，以花括号包围并递归解析元素；repeated 字段对应 JSON Array 以方括号包围；满足特定条件的 repeated message 会被视为 JSON map 且与 protobuf 3.x map 二进制兼容。整数类型之间可自动适配并识别溢出情况；JSON 的整数类型也可以转至 pb 的浮点数类型。浮点数（IEEE754）除了普通数字外还接受 "NaN"、"Infinity"、"-Infinity" 三个特殊字符串值。bytes 类型默认以 base64 编码，string 类型中的非法 C++ 变量名字符则按特定规则进行转义。
+## Mentions in Source
+
+> **Source: [[sources/json2pb|json2pb]]**
+> - "数据交换格式默认应使用JSON。Content-Type使用application/json。有特殊需求的接口不受此限制。"
+
+> **Source: [[sources/baidu_std|baidu_std]]**
+> - "数据交换格式默认应使用JSON。Content-Type使用application/json。有特殊需求的接口不受此限制。"
+> - "URL和JSON中的字符编码一律使用UTF-8。"

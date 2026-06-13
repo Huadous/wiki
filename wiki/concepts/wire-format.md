@@ -10,6 +10,7 @@ sources:
   - "[[protobuf/proto3.md]]"
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-group-migration-issues.md]]"
 tags:
   - "standard"
 aliases:
@@ -8214,6 +8215,10 @@ aliases:
 - [[concepts/field-number|Field Number]]
 - [[concepts/packed-encoding|Packed Encoding]]
 - [[concepts/reserved-field|Reserved Field]]
+- [[concepts/api-breaking-change|API Breaking Change]]
+- [[concepts/text-format|Text Format]]
+- [[concepts/delimited-encoding|Delimited Encoding]]
+- [[concepts/group-fields|Group Fields]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -8229,3 +8234,8 @@ aliases:
 
 > **Source: [[sources/editions|editions]]**
 > - No directly relevant information found in this source regarding Last One Wins.
+
+> **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
+> - "The migration story for users is unclear. Overriding the value of this feature is both a "wire"-breaking and API-breaking change they may not be able to do easily."
+> - "By updating the parsers to accept both, we have a migration path to change the "wire"-format"
+> - No directly relevant information found in this source.

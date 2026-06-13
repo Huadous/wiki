@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[sources/editions-minimum-required-edition]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
 tags:
   - "term"
 aliases:
@@ -19,6 +20,10 @@ aliases:
 - [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
 - [[concepts/edition-zero|Edition Zero]]
 - [[concepts/global-features|Global features]]
+- [[concepts/feature-resolution|Feature Resolution]]
+- [[concepts/option-retention|Option Retention]]
+- [[concepts/conformance-testing|Conformance Testing]]
+- [[concepts/feature-set|Feature Set]]
 
 ## Related Entities
 - [[entities/protoc|protoc]]
@@ -35,4 +40,11 @@ aliases:
 > - "We also need to track down and upgrade (by hand) any code that is using the value of `syntax`."
 
 > **Source: [[sources/editions-life-of-an-edition]]**
+> - 无直接相关信息
+
+> **Source: [[sources/editions-editions-life-of-a-featureset]]**
+> - "every generator that embeds a `FileDescriptorProto` into its gencode would see a massive code-size increase."
+> - "For languages that have dynamic messages, one codegen strategy is to embed the `FileDescriptorProto` of the file and then parse and build it at the beginning of runtime."
+
+> **Source: [[sources/editions-editions-life-of-a-featureset]]**
 > - 无直接相关信息

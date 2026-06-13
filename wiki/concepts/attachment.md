@@ -7,6 +7,7 @@ sources:
   - "[[brpc/server.md]]"
   - "[[brpc/en_client.md]]"
   - "[[brpc/client.md]]"
+  - "[[brpc/baidu_std.md]]"
 tags:
   - "term"
 aliases:
@@ -25,6 +26,8 @@ aliases:
 - [[concepts/协议自动检测|协议自动检测]]
 - [[concepts/PROTOCOL_HTTP|PROTOCOL_HTTP]]
 - [[concepts/PROTOCOL_H2|PROTOCOL_H2]]
+- [[concepts/RpcMeta|RpcMeta]]
+- [[concepts/包头|包头]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -58,3 +61,9 @@ aliases:
 > **Source: [[sources/client|client]]**
 > - "baidu_std和hulu_pbrpc协议支持附件，这段数据由用户自定义，不经过protobuf的序列化。站在client的角度，设置在Controller::request_attachment()的附件会被server端收到，response_attachment()则包含了server端送回的附件。附件不受压缩选项影响。"
 > - "在http/h2协议中，附件对应[message body](http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html)，比如要POST的数据就设置在request_attachment()中。"
+
+> **Source: [[sources/baidu_std|baidu_std]]**
+> - "某些场景下需要通过RPC来传递二进制数据，例如文件上传下载，多媒体转码等等。将这些二进制数据打包在Protobuf内会增加不必要的内存拷贝。因此协议允许使用附件的方式直接传送二进制数据。"
+> - "附件总是放在包体的最后，紧跟数据部分。消息包需要携带附件时，应将RpcMeta中的attachment_size设为附件的实际字节数。"
+> - "| attachment_size     | 附件大小，详见[附件](#attachment)                 |"
+> - "No directly relevant information"
