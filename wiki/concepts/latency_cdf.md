@@ -1,43 +1,42 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/backup_request]]"]
-tags: [method]
+updated: 2026-06-13
+sources:
+  - "[[sources/backup_request]]"
+  - "[[brpc/en_backup_request.md]]"
+tags:
+  - "method"
 aliases:
+  - "延迟CDF图"
+  - "累积分布函数延迟图"
+  - "Latency CDF Graph"
+  - "CDF"
   - "延迟CDF图"
   - "累积分布函数延迟图"
   - "Latency CDF Graph"
 ---
 
+## Description
+latency_cdf 是 brpc 内置的延迟分布可视化工具，以累积分布函数（CDF）的形式呈现请求延迟的统计特征。该图 y 轴表示延迟（默认单位为微秒 μs），x 轴表示延迟小于 y 轴值的请求所占的累积比例（0~100%），帮助开发者通过图形化方式快速理解延迟分布形态，包括是否存在长尾延迟等关键特征。brpc 默认提供了 latency_cdf 图供开发者直接查看，同时允许用户通过 `bvar::LatencyRecorder` 自行为自定义函数添加延迟监控并生成独立的 cdf 图。latency_cdf 最核心的应用场景是辅助选择 `backup_request_ms` 参数——通过观察图中不同延迟阈值所覆盖的请求比例（如 2ms 覆盖约 95.5%、10ms 覆盖约 99.99%），开发者可根据服务的延迟容忍度确定合理的备用请求超时阈值。此外，该图还可用于 SLA 评估（如 P99、P999 延迟指标）和性能监控诊断。
 
-# latency_cdf
-
-## 定义
-latency_cdf是brpc框架默认提供的延迟累积分布函数图，用于直观展示服务请求延迟的分布情况。该图以可视化方式展示不同延迟阈值所覆盖的请求比例，帮助开发者合理配置`backup_request_ms`参数。图中y轴表示延迟（默认单位为微秒），x轴表示延迟小于y轴值的请求所占的累积比例。
-
-## 关键特征
-- **累积分布可视化**：展示延迟的累积分布函数，横轴为请求比例（0~100%），纵轴为延迟值
-- **默认集成**：brpc内置提供，无需额外配置即可在监控页面查看
-- **辅助参数调优**：专门用于辅助选择合理的`backup_request_ms`值，优化备用请求策略
-- **可扩展**：支持通过`bvar::LatencyRecorder`自行添加自定义函数的latency_cdf监控
-- **时间单位**：默认延迟单位为微秒（μs），数据采集使用`butil::Timer`进行高精度计时
-
-## 应用
-- **backup_request参数调优**：通过观察cdf图，开发者可以选择合适的`backup_request_ms`值。例如，若选择2ms可覆盖95.5%的请求，10ms可覆盖99.99%的请求，则可根据服务的延迟容忍度选择合适的超时阈值
-- **性能监控与诊断**：快速识别服务延迟分布特征，判断是否存在长尾延迟问题
-- **自定义函数性能分析**：业务代码中可通过`bvar::LatencyRecorder`和`butil::Timer`为特定函数添加延迟监控，生成独立的cdf图
-- **SLA评估**：根据cdf图评估服务是否满足特定百分位的延迟SLA要求（如P99、P999延迟）
-
-## 相关概念
+## Related Concepts
 - [[concepts/backup-request|backup request]]
 - [[concepts/latency-recorder|LatencyRecorder]]
+- [[concepts/cumulative-distribution-function|Cumulative Distribution Function (CDF)]]
 
-## 相关实体
+## Related Entities
 - [[entities/bvar|bvar]]
 - [[entities/baidu|baidu]]
+- [[entities/brpc|brpc]]
 
-## 来源提及
-- "可以观察brpc默认提供的latency_cdf图，或自行添加。cdf图的y轴是延时（默认微秒），x轴是小于y轴延时的请求的比例。" — [[sources/backup_request|backup_request]]
-- "在下图中，选择backup_request_ms=2ms可以大约覆盖95.5%的请求，选择backup_request_ms=10ms则可以覆盖99.99%的请求。" — [[sources/backup_request|backup_request]]
-- "自行添加的方法：`my_func_latency << tm.u_elapsed();`" — [[sources/backup_request|backup_request]]
+## Mentions in Source
+
+> **Source: [[sources/backup_request|backup_request]]**
+> - "可以观察brpc默认提供的latency_cdf图，或自行添加。cdf图的y轴是延时（默认微秒），x轴是小于y轴延时的请求的比例。"
+> - "在下图中，选择backup_request_ms=2ms可以大约覆盖95.5%的请求，选择backup_request_ms=10ms则可以覆盖99.99%的请求。"
+> - "自行添加的方法：`my_func_latency << tm.u_elapsed();`"
+
+> **Source: [[sources/en_backup_request|en_backup_request]]**
+> - "You can look the default cdf(Cumulative Distribution Function) graph of latency provided by brpc, or add it by your own."
+> - "The y-axis of the cdf graph is a latency(us by default), and the x-axis is the proportion of requests whose latencies are less than the corresponding value in y-aixs."

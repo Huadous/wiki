@@ -4,6 +4,8 @@ created: 2026-06-13
 updated: 2026-06-13
 sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
+  - "[[protobuf/editions-protobuf-editions-design-features.md]]"
+  - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
 tags:
   - "features.default_symbol_visibility"
   - "features.enforce_naming_style"
@@ -21,14 +23,6 @@ aliases:
   - "Feature Settings for Editions"
   - "Protobuf Editions 功能设置"
 ---
-
-## 来源
-- Original file: [[protobuf/features.md]]
-- Ingested: 2026-06-13
-- Additional source: editions-protobuf-editions-for-schema-producers — No directly relevant information
-
-## 核心内容
-本文档是 [[entities/protocol-buffers|Protocol Buffers]] 官方文档中关于 Editions 功能设置（feature settings）的核心参考。它系统介绍了 [[concepts/protocol-buffers-editions|Protocol Buffers Editions]] 如何通过版本化（[[concepts/edition-2023|Edition 2023]] 与 [[concepts/edition-2024|Edition 2024]]）和显式特性设置替代传统 [[concepts/proto2|proto2]] / [[concepts/proto3|proto3]] 语法，使用户能够在文件级、非嵌套级、嵌套级和最低层级等多个 [[concepts/feature-scope|作用域（Feature Scope）]] 中精确控制消息、字段、枚举等元素的行为。文档详细阐述了四个核心特性：[[concepts/features-default_symbol_visibility|features.default_symbol_visibility]]（控制符号默认可见性）、[[concepts/features-enforce_naming_style|features.enforce_naming_style]]（强制命名风格一致性）、[[concepts/features-enum_type|features.enum_type]]（[[concepts/open-enum|开放]]与[[concepts/closed-enum|封闭]]枚举）以及 [[concepts/features-field_presence|features.field_presence]]（[[concepts/field-presence|字段存在性]]跟踪方式，包含 [[concepts/required-field|LEGACY_REQUIRED]]、EXPLICIT、IMPLICIT 三种语义），并对比了各特性在不同语法版本下的默认值。文末介绍了尚未发布的迁移工具 [[entities/prototiller|Prototiller]]，用于在不同语法版本与 Edition 之间自动转换 proto 文件。
 
 ## 关键实体
 - [[entities/protocol-buffers|Protocol Buffers]] — Google 开发的结构化数据序列化框架，Editions 功能所属的总产品

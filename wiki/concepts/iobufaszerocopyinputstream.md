@@ -2,44 +2,52 @@
 type: concept
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/iobuf|iobuf]]"]
-tags: [term]
+sources:
+  - "[[sources/iobuf|iobuf]]"
+  - "[[brpc/en_iobuf.md]]"
+tags:
+  - "term"
 aliases:
   - "IOBuf 输入流适配器"
   - "ZeroCopyInputStream wrapper"
 ---
 
+## Description
+IOBufAsZeroCopyInputStream 是连接 butil::IOBuf 与 Protobuf 生态的关键桥梁。其核心价值在于 IOBuf 内部由多个非连续内存块（block）组成，借助该适配器，Protobuf 解析器可以直接消费这些非连续的内存块，而无需先将整个缓冲区物化（materialize）为一块连续内存，从而避免了额外的数据拷贝开销。
 
-# IOBufAsZeroCopyInputStream
+该适配器主要支持两类使用场景：第一，直接将 IOBuf 解析为 Protobuf 消息，通过 `pb_message.ParseFromZeroCopyStream(&wrapper)` 即可完成反序列化；第二，将 IOBuf 按照用户自定义格式解析，结合 `CodedInputStream` 可以灵活读取 varint、固定长度整数（如 `ReadLittleEndian32`）等数据，适用于非 Protobuf 格式的自定义协议解析。
 
-## 定义
-IOBufAsZeroCopyInputStream 是 butil 库中提供的一个适配器类，用于将 butil::IOBuf 适配为 Google Protobuf 的 ZeroCopyInputStream 接口。通过包装一个 IOBuf 实例，它使得用户可以直接将 IOBuf 作为输入流传给 Protobuf 的 ParseFromZeroCopyStream 方法，从而实现零拷贝的 Protobuf 消息解析。
+作为 brpc 在高性能反序列化场景下的关键工具，IOBufAsZeroCopyInputStream 与 [[concepts/iobufbuilder|IOBufBuilder]]（对应的输出方向适配器）、[[concepts/iobuf-protobuf-interop|IOBuf 与 Protobuf 互操作]]模式共同构成了 IOBuf 与 Protobuf 生态之间完整的零拷贝数据通路。
 
-## 关键特征
-- 作为 butil::IOBuf 与 Protobuf ZeroCopyInputStream 接口之间的桥接适配器
-- 支持零拷贝解析，无需先将 IOBuf 物化为连续字节数组
-- 可与 Google 的 CodedInputStream 组合使用，实现对 IOBuf 中二进制数据的按需读取
-- 支持自定义结构的解析，例如以小端格式读取 32 位整数等
-- 是 brpc 在高性能反序列化场景下的关键工具
-
-## 应用
-- **解析 IOBuf 为 Protobuf 消息**：通过 `ParseFromZeroCopyStream` 方法直接将 IOBuf 中的数据解析为 Protobuf 消息对象，避免中间拷贝
-- **解析 IOBuf 为自定义结构**：结合 CodedInputStream 实现灵活的二进制数据读取与解析，适用于非 Protobuf 格式的自定义协议
-- **高性能网络通信场景**：在 brpc 的 RPC 框架中，接收到的网络数据通常以 IOBuf 形式存在，使用该适配器可避免额外的内存拷贝开销
-
-## 相关概念
+## Related Concepts
 - [[concepts/butil-iobuf|butil::IOBuf]]
 - [[concepts/iobufbuilder|IOBufBuilder]]
-- [[concepts/iobuf-protobuf-interop|IOBuf 与 Protobuf 互操作]]
+- [[concepts/iobuf-protobuf-interop|IOBuf 与 Protobuf 与 IOBuf 互操作]]
 
-## 相关实体
+## Related Entities
 - [[entities/brpc|brpc]]
 
-## 来源提及
-- 解析IOBuf为protobuf message — [[sources/iobuf|iobuf]]
-- 解析IOBuf为自定义结构 — [[sources/iobuf|iobuf]]
-- IOBufAsZeroCopyInputStream wrapper(&iobuf);
-pb_message.ParseFromZeroCopyStream(&wrapper); — [[sources/iobuf|iobuf]]
-- IOBufAsZeroCopyInputStream wrapper(&iobuf);
+## Mentions in Source
+
+> **Source: [[sources/iobuf|iobuf]]**
+> - 解析IOBuf为protobuf message
+> - 解析IOBuf为自定义结构
+> - `IOBufAsZeroCopyInputStream wrapper(&iobuf);`
+>   `pb_message.ParseFromZeroCopyStream(&wrapper);`
+> - `IOBufAsZeroCopyInputStream wrapper(&iobuf);`
+>   `CodedInputStream coded_stream(&wrapper);`
+>   `coded_stream.ReadLittleEndian32(&value);`
+
+> **Source: [[sources/en_iobuf|en_iobuf]]**
+> - Parse a protobuf message from the IOBuf 
+
+c++
+IOBufAsZeroCopyInputStream wrapper(&iobuf);
+pb_message.ParseFromZeroCopyStream(&wrapper);
+> - Parse IOBuf in user-defined formats
+
+```c++
+IOBufAsZeroCopyInputStream wrapper(&iobuf);
 CodedInputStream coded_stream(&wrapper);
-coded_stream.ReadLittleEndian32(&value); — [[sources/iobuf|iobuf]]
+coded_stream.ReadLittleEndian32(&value);
+...

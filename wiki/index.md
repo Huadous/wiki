@@ -6,6 +6,12 @@
 
 ## 实体
 
+- [[entities/exampleselective_echo_c++|exampleselective_echo_c++]] `aliases: selective_echo_c++ 示例, SelectiveChannel 备份请求示例` - type: entity
+- [[entities/examplebackup_request_c++|examplebackup_request_c++]] `aliases: example/backup_request_c++, backup_request_c++ 示例, brpc backup_request C++ 示例` - type: entity
+- [[entities/examplecancel_c++|examplecancel_c++]] `aliases: cancel_c++ 示例, brpc cancel_c++ 示例` - type: entity
+- [[entities/extensionrangeoptions|extensionrangeoptions]] `aliases: ExtensionRangeOptions message type` - type: entity
+- [[entities/kylin|kylin]] `aliases: Kylin 项目, Apache Kylin` - type: entity
+- [[entities/haberman|haberman]] `aliases: @haberman, haberman (GitHub)` - type: entity
 - [[entities/smalltable|smalltable]] `aliases: 百度 smalltable, smalltable (百度)` - type: entity
 - [[entities/cowhashmap|cowhashmap]] `aliases: CowHashMap (smalltable), cow_hash_map` - type: entity
 - [[entities/alignhashmap|alignhashmap]] `aliases: AlignHashMap 闭链哈希表, 百度 AlignHashMap` - type: entity
@@ -161,10 +167,30 @@
 - [[entities/authcontext|authcontext]] `aliases: brpc AuthContext, 身份认证上下文` - type: entity
 - [[entities/apple-silicon|apple-silicon]] `aliases: M1, M2, Apple M系列芯片` - type: entity
 - [[entities/@mcy|@mcy]] `aliases: Michael C. Y., mcy` - type: entity
-- [[entities/@fowles|@fowles]] `aliases: Fowles, fowles` - type: entity
+- [[entities/@fowles|@fowles]] `aliases: Fowles, fowles, @kfm, Fowles, fowles` - type: entity
 
 ## 概念
 
+- [[concepts/java-annotations|java-annotations]] `aliases: Java Annotation, Java 注解` - type: concept
+- [[concepts/fieldoptions|fieldoptions]] `aliases: FieldDescriptorOptions, FieldOptions message type` - type: concept
+- [[concepts/optiontargettype|optiontargettype]] `aliases: OptionTargetType, TargetType 枚举` - type: concept
+- [[concepts/options-attributes|options-attributes]] `aliases: Options Attributes, Options 属性设计, target and retention attributes` - type: concept
+- [[concepts/asynchronous-rpc|asynchronous-rpc]] `aliases: 异步 RPC, Asynchronous RPC` - type: concept
+- [[concepts/backup_request_ms|backup_request_ms]] `aliases: backup_request_ms, ChannelOptions.backup_request_ms` - type: concept
+- [[concepts/channeloptions|channeloptions]] `aliases: ChannelOptions, brpc ChannelOptions, Channel 选项` - type: concept
+- [[concepts/reference-counting|reference-counting]] `aliases: 引用计数, Reference Counting, Ref-counting` - type: concept
+- [[concepts/fieldpresence|fieldpresence]] `aliases: 字段存在性, FieldPresence` - type: concept
+- [[concepts/repeatedfieldencoding|repeatedfieldencoding]] `aliases: 重复字段编码, RepeatedFieldEncoding` - type: concept
+- [[concepts/inheritfrom|inheritfrom]] `aliases: InheritFrom 函数, InheritFrom` - type: concept
+- [[concepts/edition-defaults|edition-defaults]] `aliases: EditionDefault, 版本默认值算法` - type: concept
+- [[concepts/retention|retention]] `aliases: Retention, FeatureRetention` - type: concept
+- [[concepts/target-attributes|target-attributes]] `aliases: Target, FeatureTargetType` - type: concept
+- [[concepts/errno|errno]] `aliases: POSIX errno, errno 错误码` - type: concept
+- [[concepts/vlog2|vlog2]] `aliases: 带虚拟路径的 VLOG, VLOG2 (verbose log with virtual path)` - type: concept
+- [[concepts/xxx_once|xxx_once]] `aliases: LOG_ONCE, 一次性日志宏` - type: concept
+- [[concepts/xxx_first_n|xxx_first_n]] `aliases: LOG_FIRST_N, 前 N 次日志宏` - type: concept
+- [[concepts/xxx_every_n|xxx_every_n]] `aliases: LOG_EVERY_N, 每 N 次日志宏, Every N Logging Macro` - type: concept
+- [[concepts/xxx_every_second|xxx_every_second]] `aliases: 每秒限频日志宏, LOG_EVERY_SECOND` - type: concept
 - [[concepts/聚集效应|聚集效应]] `aliases: clustering effect, 聚集现象` - type: concept
 - [[concepts/线性探查|线性探查]] `aliases: linear probing, 线性探测, Linear Probing` - type: concept
 - [[concepts/二次探查|二次探查]] `aliases: 二次探测, Quadratic Probing, 平方探查` - type: concept
@@ -307,22 +333,22 @@
 - [[concepts/protobuf服务定义|protobuf服务定义]] `aliases: protobuf service definition, brpc protobuf 服务定义` - type: concept
 - [[concepts/protoc-plugins|protoc-plugins]] `aliases: protoc-gen plugins, code generator plugins, Protocol Buffers code generator plugins` - type: concept
 - [[concepts/extension-numbers|extension-numbers]] `aliases: protobuf extension numbers, Extension numbers` - type: concept
-- [[concepts/descriptor-proto|descriptor-proto]] `aliases: descriptor.proto file, google/protobuf/descriptor.proto` - type: concept
+- [[concepts/descriptor-proto|descriptor-proto]] `aliases: descriptor.proto file, google/protobuf/descriptor.proto, descriptor.proto, descriptor.proto file, google/protobuf/descriptor.proto` - type: concept
 - [[concepts/custom-options|custom-options]] `aliases: protobuf custom options, Protocol Buffers 自定义选项, Custom Options` - type: concept
 - [[concepts/protobuf-global-extension-registry|protobuf-global-extension-registry]] `aliases: Global Extension Registry, Protocol Buffers 扩展注册表, descriptor.proto 扩展登记表` - type: concept
 - [[concepts/log_at|log_at]] `aliases: LOG_AT宏` - type: concept
 - [[concepts/dcheck|dcheck]] `aliases: DCHECK宏, debug CHECK` - type: concept
 - [[concepts/chaining|chaining]] `aliases: 链式调用, stream chaining` - type: concept
 - [[concepts/log_if|log_if]] `aliases: LOG_IF(), Conditional LOG Macro, 条件日志宏` - type: concept
-- [[concepts/operator重载|operator重载]] `aliases: 流操作符重载, ostream operator overloading` - type: concept
+- [[concepts/operator重载|operator重载]] `aliases: 流操作符重载, ostream operator overloading, std::ostream chaining, 流操作符重载, ostream operator overloading` - type: concept
 - [[concepts/节流日志|节流日志]] `aliases: throttled logging, rate-limited logging, 节流日志宏` - type: concept
 - [[concepts/noflush|noflush]] `aliases: logging::noflush, noflush 哨兵对象` - type: concept
 - [[concepts/thread-local缓冲|thread-local缓冲]] `aliases: thread-local buffer, TLB, thread-local 缓冲机制` - type: concept
-- [[concepts/check宏|check宏]] `aliases: CHECK(), CHECK_EQ, CHECK_GT` - type: concept
-- [[concepts/dlog宏|dlog宏]] `aliases: DLOG(), debug log` - type: concept
-- [[concepts/log宏|log宏]] `aliases: LOG(), LOG 宏` - type: concept
+- [[concepts/check宏|check宏]] `aliases: CHECK(), CHECK_EQ, CHECK_GT, CHECK macro, CHECK(), CHECK_EQ, CHECK_GT, CHECK_XX, CHECK(), CHECK_EQ, CHECK_GT, CHECK macro, CHECK(), CHECK_EQ, CHECK_GT` - type: concept
+- [[concepts/dlog宏|dlog宏]] `aliases: DLOG(), debug log, DLOG, DLOG(), debug log, DLOG family, DLOG(), debug log, DLOG, DLOG(), debug log` - type: concept
+- [[concepts/log宏|log宏]] `aliases: LOG(), LOG 宏, LOG macro, LOG(), LOG 宏` - type: concept
 - [[concepts/流式日志|流式日志]] `aliases: streaming log, stream-style logging, 流式日志输出` - type: concept
-- [[concepts/plog宏|plog宏]] `aliases: PLOG(), PLOG 宏` - type: concept
+- [[concepts/plog宏|plog宏]] `aliases: PLOG(), PLOG 宏, PLOG, PLOG(), PLOG 宏` - type: concept
 - [[concepts/field-number-encoding|field-number-encoding]] `aliases: field number wire size, 字段号编码` - type: concept
 - [[concepts/deleting-fields|deleting-fields]] `aliases: 字段删除方法, Deleting Fields Procedure, field deletion procedure` - type: concept
 - [[concepts/streamwait|streamwait]] `aliases: StreamWait API, 等待Stream可写` - type: concept
@@ -334,7 +360,7 @@
 - [[concepts/reserved-field-names|reserved-field-names]] `aliases: Reserved Field Names, 保留字段名称` - type: concept
 - [[concepts/默认熔断策略|默认熔断策略]] `aliases: 默认熔断, Default Circuit Breaker Strategy, brpc默认熔断策略` - type: concept
 - [[concepts/静态链接|静态链接]] `aliases: Static linkage, 静态链接` - type: concept
-- [[concepts/零拷贝|零拷贝]] `aliases: Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝, 零拷贝缓冲, Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝` - type: concept
+- [[concepts/零拷贝|零拷贝]] `aliases: Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝, 零拷贝缓冲, Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝, Zero-copy buffer, Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝, 零拷贝缓冲, Zero Copy, 零数据拷贝, 零拷贝数据传输, Zero Copy, 零数据拷贝` - type: concept
 - [[concepts/隔离时间|隔离时间]] `aliases: isolation duration, 熔断隔离时间, 隔离期` - type: concept
 - [[concepts/长窗口|长窗口]] `aliases: long window, 长窗口熔断机制, Long Window` - type: concept
 - [[concepts/连接超时|连接超时]] `aliases: connect_timeout, connect_timeout_ms` - type: concept
@@ -358,7 +384,7 @@
 - [[concepts/延迟|延迟]] `aliases: latency, 响应时间, latency percentiles, latency, 响应时间, 延迟百分位, latency, 响应时间, latency percentiles, latency, 响应时间, Latency Percentiles Customization, latency, 响应时间, latency percentiles, latency, 响应时间, 延迟百分位, latency, 响应时间, latency percentiles, latency, 响应时间` - type: concept
 - [[concepts/容量计算规则|容量计算规则]] `aliases: 容量计算规则, Capacity Calculation Rules, 递归容量计算` - type: concept
 - [[concepts/安全模式|安全模式]] `aliases: security mode, BRPC 安全模式, 内置服务访问控制` - type: concept
-- [[concepts/备份请求|备份请求]] `aliases: backup request, 辅助请求` - type: concept
+- [[concepts/备份请求|备份请求]] `aliases: backup request, 辅助请求, Backup Request, backup request, 辅助请求` - type: concept
 - [[concepts/同步服务|同步服务]] `aliases: 同步RPC服务, Synchronous RPC Service, Synchronous Service, 同步RPC服务, Synchronous RPC Service` - type: concept
 - [[concepts/可选熔断策略|可选熔断策略]] `aliases: 激进熔断策略, brpc可选熔断策略` - type: concept
 - [[concepts/单线程反应器|单线程反应器]] `aliases: single-threaded reactor, Redis 单线程模型, 非阻塞IO, single-threaded reactor, Redis 单线程模型, 单线程reactor, single-threaded reactor, Redis 单线程模型, 非阻塞IO, single-threaded reactor, Redis 单线程模型, Single-threaded reactor, single-threaded reactor, Redis 单线程模型, 非阻塞IO, single-threaded reactor, Redis 单线程模型, 单线程reactor, single-threaded reactor, Redis 单线程模型, 非阻塞IO, single-threaded reactor, Redis 单线程模型` - type: concept
@@ -384,7 +410,7 @@
 - [[concepts/vlog|vlog]] `aliases: VLOG控制服务, brpc VLOG接口` - type: concept
 - [[concepts/version|version]] `aliases: 版本, 服务版本, Server Version` - type: concept
 - [[concepts/verbs-api|verbs-api]] `aliases: RDMA verbs API, InfiniBand verbs, verbs API` - type: concept
-- [[concepts/vars|vars]] `aliases: vars服务, 自定义计数器, brpc变量展示接口` - type: concept
+- [[concepts/vars|vars]] `aliases: vars服务, 自定义计数器, brpc变量展示接口, /vars, vars服务, 自定义计数器, brpc变量展示接口` - type: concept
 - [[concepts/url映射规则|url映射规则]] `aliases: path mapping, URL 路径映射, HTTP URL 映射规则, RESTful URL mapping, path mapping, URL 路径映射, HTTP URL 映射规则` - type: concept
 - [[concepts/url-types|url-types]] `aliases: URL路由类型, brpc URL类型` - type: concept
 - [[concepts/unresolved_path|unresolved_path]] `aliases: 未解析路径, Controller.unresolved_path, 未解析路径段` - type: concept
@@ -467,7 +493,7 @@
 - [[concepts/multi-tenancy|multi-tenancy]] `aliases: multi-tenant, 多租户` - type: concept
 - [[concepts/minloglevel|minloglevel]] `aliases: -minloglevel, 最小日志级别, Logging Control, -minloglevel, 最小日志级别` - type: concept
 - [[concepts/mpsc-list|mpsc-list]] `aliases: 多生产者单消费者链表, MPSC list, Multi-Producer Single-Consumer List` - type: concept
-- [[concepts/message_encoding-feature|message_encoding-feature]] `aliases: 消息编码特性, delimited representation, message_encoding 特性` - type: concept
+- [[concepts/message_encoding-feature|message_encoding-feature]] `aliases: 消息编码特性, delimited representation, message_encoding 特性, MessageEncoding, 消息编码特性, delimited representation, message_encoding 特性` - type: concept
 - [[concepts/message-type|message-type]] `aliases: Message type, 消息类型, 复合数据类型, message, Message type, 消息类型, 复合数据类型` - type: concept
 - [[concepts/message-names|message-names]] `aliases: Message Naming, 消息命名规范, Message naming, Message Naming, 消息命名规范` - type: concept
 - [[concepts/max_error_cost-最大出错时长|max_error_cost-最大出错时长]] `aliases: 最大出错成本, 最大错误成本阈值` - type: concept
@@ -481,10 +507,10 @@
 - [[concepts/local-keyword|local-keyword]] `aliases: local 关键字, 局部符号关键字` - type: concept
 - [[concepts/littles-law-利特尔法则|littles-law-利特尔法则]] `aliases: Little定理, 利特尔法则, L = λW` - type: concept
 - [[concepts/lid|lid]] `aliases: Local Identifier, 本地标识符` - type: concept
-- [[concepts/latency_cdf|latency_cdf]] `aliases: 延迟CDF图, 累积分布函数延迟图, Latency CDF Graph` - type: concept
+- [[concepts/latency_cdf|latency_cdf]] `aliases: 延迟CDF图, 累积分布函数延迟图, Latency CDF Graph, CDF, 延迟CDF图, 累积分布函数延迟图, Latency CDF Graph` - type: concept
 - [[concepts/latencyrecorder|latencyrecorder]] `aliases: bvar::LatencyRecorder, 延迟记录器, brpc延迟记录器` - type: concept
 - [[concepts/large-data-sets|large-data-sets]] `aliases: 大数据集处理, Large Data Sets Handling` - type: concept
-- [[concepts/language-scoped-features|language-scoped-features]] `aliases: 语言特性, 语言作用域特性, language-scoped features, Language-scoped Feature, 语言特性, 语言作用域特性, language-scoped features` - type: concept
+- [[concepts/language-scoped-features|language-scoped-features]] `aliases: 语言特性, 语言作用域特性, language-scoped features, Language-scoped Feature, 语言特性, 语言作用域特性, language-scoped features, Language-Specific Features, 语言特性, 语言作用域特性, language-scoped features, Language-scoped Feature, 语言特性, 语言作用域特性, language-scoped features` - type: concept
 - [[concepts/lalb|lalb]] `aliases: Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, load balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, Load Balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, load balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, locality-aware load balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, load balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, Load Balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法, load balancing, Locality-aware load balancing, LALB算法, Load balancing, Locality-aware load balancing, LALB算法` - type: concept
 - [[concepts/kqueue|kqueue]] `aliases: kqueue 事件通知机制, BSD kqueue, kqueue 接口` - type: concept
 - [[concepts/keepwrite-bthread|keepwrite-bthread]] `aliases: 持续写入bthread, KeepWrite线程, 后台写入bthread, KeepWrite, 持续写入bthread, KeepWrite线程, 后台写入bthread, KeepWrite bthread, 持续写入bthread, KeepWrite线程, 后台写入bthread, KeepWrite, 持续写入bthread, KeepWrite线程, 后台写入bthread` - type: concept
@@ -592,6 +618,11 @@
 
 ## 来源
 
+- [[sources/en_backup_request|en_backup_request]] `aliases: brpc Backup Request Mechanism, brpc 备份请求机制`
+- [[sources/editions-protobuf-design-options-attributes|editions-protobuf-design-options-attributes]] `aliases: Protobuf Editions Options Attributes Design, target 与 retention 属性设计提案`
+- [[sources/en_iobuf|en_iobuf]] `aliases: brpc IOBuf 使用文档, brpc IOBuf Documentation`
+- [[sources/editions-protobuf-editions-design-features|editions-protobuf-editions-design-features]] `aliases: Protobuf Editions Features Design`
+- [[sources/en_streaming_log|en_streaming_log]] `aliases: streaming_log 流式日志文档, brpc streaming_log`
 - [[sources/flatmap|flatmap]] `aliases: FlatMap - Maybe the fastest hashmap, with tradeoff of space, FlatMap 文档`
 - [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]] `aliases: Protobuf Editions for Schema Producers, Editions Schema Producer Guide`
 - [[sources/getting_started|getting_started]] `aliases: brpc Getting Started, brpc 构建与编译指南`

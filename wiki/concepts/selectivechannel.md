@@ -7,6 +7,7 @@ sources:
   - "[[sources/en_io]]"
   - "[[sources/backup_request]]"
   - "[[brpc/io.md]]"
+  - "[[brpc/en_backup_request.md]]"
 tags:
   - "method"
 aliases:
@@ -29,6 +30,7 @@ aliases:
 - [[entities/socket|socket]]
 - [[entities/subchannel|subchannel]]
 - [[entities/inputmessenger|InputMessenger]]
+- [[entities/exampleselective_echo_c++|exampleselective_echo_c++]]
 
 ## Mentions in Source
 
@@ -48,3 +50,7 @@ aliases:
 > **Source: [[sources/io|io]]**
 > - "比如SelectiveChannel中的每个Sub Channel都被置入了一个Socket中，这样SelectiveChannel可以像普通channel选择下游server那样选择一个Sub Channel进行发送。"
 > - "这个假Socket甚至还实现了健康检查。"
+
+> **Source: [[sources/en_backup_request|en_backup_request]]**
+> - "[Recommended] Define a SelectiveChannel that sets backup request, in which contains two sub channel."
+> - "The visiting process of this SelectiveChannel is similar to the above situation. It will visit one sub channel first. If the response is not returned after channelOptions.backup_request_ms ms, then another sub channel is visited."

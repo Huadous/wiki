@@ -837,3 +837,43 @@
 
 **更新页面**：[[edition-2023]], [[protoc]], [[bazel]], [[protobuf-team]], [[edition-2024]], [[features]], [[forward-and-backward-compatibility]], [[proto2]], [[proto3]]
 
+
+
+## [2026-06-13] ingest | streaming_log - Print log to std::ostreams
+
+**创建页面**：[[sources/en_streaming_log.md]], [[entities/butil.md]], [[entities/streaming_log.md]], [[entities/brpc.md]], [[entities/stringsink.md]], [[entities/glog.md]], [[concepts/plog宏.md]], [[concepts/log宏.md]], [[concepts/dlog宏.md]], [[concepts/vlog.md]], [[concepts/check宏.md]], [[concepts/noflush.md]], [[concepts/operator重载.md]], [[concepts/log_if.md]], [[concepts/xxx_every_second.md]], [[concepts/xxx_every_n.md]], [[concepts/xxx_first_n.md]], [[concepts/xxx_once.md]], [[concepts/vlog2.md]], [[concepts/dlog宏.md]], [[concepts/thread-local缓冲.md]], [[concepts/check宏.md]], [[concepts/errno.md]]
+
+**更新页面**：[[butil]], [[brpc]], [[bthread]], [[stringsink]], [[log_at]], [[plog宏]], [[dlog宏]], [[noflush]], [[logsink]], [[log_if]], [[thread-local缓冲]]
+
+
+
+## [2026-06-13] ingest | Protobuf Editions Design: Features
+
+**创建页面**：[[sources/editions-protobuf-editions-design-features.md]], [[entities/@fowles.md]], [[entities/haberman.md]], [[concepts/features.md]], [[concepts/custom-options.md]], [[concepts/edition.md]], [[concepts/feature-inheritance.md]], [[concepts/target-attributes.md]], [[concepts/retention.md]], [[concepts/language-scoped-features.md]], [[concepts/edition-defaults.md]], [[concepts/inheritfrom.md]], [[concepts/repeatedfieldencoding.md]], [[concepts/fieldpresence.md]], [[concepts/message_encoding-feature.md]]
+
+**更新页面**：[[@fowles]], [[edition-2023]], [[features]], [[editions]], [[custom-options]], [[feature-inheritance]]
+
+
+
+## [2026-06-13] ingest | brpc IOBuf 使用文档
+
+**创建页面**：[[sources/en_iobuf.md]], [[entities/brpc.md]], [[entities/butil.md]], [[entities/brpc.md]], [[entities/kylin.md]], [[concepts/零拷贝.md]], [[concepts/iobufbuilder.md]], [[concepts/bufhandle.md]], [[concepts/reference-counting.md]], [[concepts/iobufaszerocopyoutputstream.md]], [[concepts/iobufaszerocopyinputstream.md]], [[concepts/codedinputstream.md]]
+
+**更新页面**：[[brpc]], [[butil]], [[iobuf]], [[iobufbuilder]], [[bufhandle]], [[protocolbuffersprotobuf]], [[iobufaszerocopyinputstream]], [[iobufaszerocopyoutputstream]], [[codedinputstream]]
+
+
+
+## [2026-06-13] ingest | brpc 备份请求 (Backup Request) 机制
+
+**创建页面**：[[sources/en_backup_request.md]], [[entities/bvar.md]], [[entities/brpc.md]], [[entities/examplecancel_c++.md]], [[entities/examplebackup_request_c++.md]], [[entities/exampleselective_echo_c++.md]], [[concepts/备份请求.md]], [[concepts/channel.md]], [[concepts/channeloptions.md]], [[concepts/naming-service.md]], [[concepts/selectivechannel.md]], [[concepts/backup_request_ms.md]], [[concepts/latencyrecorder.md]], [[concepts/asynchronous-rpc.md]], [[concepts/latency_cdf.md]], [[concepts/rpcz.md]]
+
+**更新页面**：[[brpc]], [[bvar]], [[vars]], [[备份请求]], [[channel]], [[selectivechannel]], [[naming-service]], [[latencyrecorder]], [[rpcz]]
+
+
+
+## [2026-06-13] ingest | Protobuf Design: Options Attributes
+
+**创建页面**：[[sources/editions-protobuf-design-options-attributes.md]], [[entities/@fowles.md]], [[entities/protoc.md]], [[entities/extensionrangeoptions.md]], [[concepts/retention.md]], [[concepts/target-attributes.md]], [[concepts/options-attributes.md]], [[concepts/optiontargettype.md]], [[concepts/custom-options.md]], [[concepts/fieldoptions.md]], [[concepts/retention.md]], [[concepts/feature-inheritance.md]], [[concepts/java-annotations.md]]
+
+**更新页面**：[[edition-2023]], [[protoc]], [[descriptor-proto]], [[features]], [[target-attributes]], [[retention]], [[custom-options]], [[feature-inheritance]]
+

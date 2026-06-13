@@ -29,13 +29,6 @@ aliases:
   - "bthread 线程"
 ---
 
-## Description
-bthread 是百度 [[entities/brpc|brpc]] 框架中的协程库，又被称作 Task，其运行时结构为 [[concepts/taskmeta|TaskMeta]]。brpc Server 默认运行在 bthread 之上（栈大小 1MB，远小于 pthread 默认的 10MB），并且 M 个 bthread 会映射至 N 个 worker pthread 中（M > N），因此同步 server 的并发度可以超过 worker 数量。bthread 的创建开销极小，平均耗时小于 200ns，用户创建 bthread 是为了以更低代价获得更高的并发度。
-
-在 IO 层面，当 [[entities/EventDispatcher|EventDispatcher]]（EDISP）收到事件时，会给 fd 关联的原子变量加一，若加一前值为 0 则启动一个 bthread 处理该 fd 的数据；EDISP 会把所在的 pthread 让给新建的 bthread 以获得更好的 cache locality，而 EDISP 所在的 bthread 会被 work-stealing 调度到另一个 pthread 继续执行，这一机制正是 [[concepts/bthread-work-stealing|bthread work stealing]]。当一次从某个 fd 读取出 n（n>1）个消息时，[[entities/InputMessenger|InputMessenger]] 会启动 n-1 个 bthread 分别处理前 n-1 个消息，最后一个消息则在原地被 Process；如果数据无法在一次调用中写完，也会创建一个 KeepWrite bthread 来写剩余数据。
-
-bthread 同样贯穿 brpc 的其他子系统。例如 [[entities/NamingServiceThread|NamingServiceThread]] 和 [[entities/NamingServiceWatcher|NamingServiceWatcher]] 都以 bthread 形式运行，可被多个 [[concepts/brpc-server|brpc::Server]] 共享；健康检查由 [[concepts/socket|Socket]]::StartHealthCheck 动态创建的专用 bthread 完成。由于 brpc 会为每个请求建立一个 bthread，[[concepts/bthread-local|bthread-local]] 在 server 中行为特殊；类似地 [[concepts/noflush|noflush]] 也支持 bthread，从而让服务端各 bthread 可以推送大量日志而不立即打印，直到 RPC 结束时一次性 flush。需要特别注意的是，**在异步方法中不应使用 noflush**，因为异步执行会切换底层 bthread，使 noflush 状态脱离原函数上下文而失效，这一约束与 brpc bthread 的调度切换机制直接相关。
-
 ## Related Concepts
 - [[concepts/work-stealing|工作窃取（work stealing）]]
 - [[concepts/bthread-work-stealing|bthread work stealing]]

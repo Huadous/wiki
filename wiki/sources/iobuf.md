@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[brpc/iobuf.md]]"
   - "[[brpc/http_client.md]]"
+  - "[[brpc/en_iobuf.md]]"
 tags:
   - "零拷贝缓冲"
   - "IOBufBuilder"
@@ -16,15 +17,6 @@ aliases:
   - "butil::IOBuf 使用指南"
   - "IOBuf 使用指南"
 ---
-
-## 补充来源
-- Original file: iobuf
-- Ingested: 2026-06-13
-- 说明：未提供与本页直接相关的新信息。
-
-- Original file: http_client
-- Ingested: 2026-06-13
-- 说明：未提供与本页直接相关的新信息。
 
 ## 核心内容
 本文档介绍了 [[entities/brpc|brpc]] 中使用的 [[entities/butiliobuf|butil::IOBuf]] 数据结构。IOBuf 是一种非连续的[[concepts/零拷贝缓冲|零拷贝缓冲]]，主要在部分协议中作为附件或 HTTP body 的数据结构使用，其接口与 `std::string` 类似但不完全相同。文档详细列举了 IOBuf 的能力与限制（可默认构造、轻量拷贝、零拷贝 append、fd 读写、protobuf 互操作、流式构造等；不推荐作为通用存储以免锁定过多 8K block），并给出切割、拼接、解析、序列化、打印等操作的代码示例。性能基准显示在文件读入→12+1024 字节切割→合并→写出场景下可达 1519.99MB/s 吞吐。文档还以 Kylin 的 [[concepts/bufhandle|BufHandle]] 作为对比，说明 IOBuf 在易用性与安全性上的优势。

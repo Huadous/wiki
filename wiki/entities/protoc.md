@@ -14,6 +14,7 @@ sources:
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
+  - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
 tags:
   - "product"
 aliases:
@@ -44,8 +45,13 @@ aliases:
 - [[concepts/schema-producer|Schema Producer]]
 - [[concepts/schema-consumer|Schema Consumer]]
 - [[concepts/semantic-patch|Semantic Patch]]
+- [[concepts/target-attributes|Target Attributes]]
+- [[concepts/retention|Retention]]
+- [[concepts/options-attributes|Options Attributes]]
+- [[concepts/fieldoptions|FieldOptions]]
 
 ## Mentions in Source
+
 > **Source: [[sources/proto3|proto3]]**
 > - "If no syntax is specified, the protocol buffer compiler will assume you are using proto2."
 > - "When you run the protocol buffer compiler on a .proto, the compiler generates the code in your chosen language you'll need to work with the message types you've described in the file, including getting and setting field values, serializing your messages to an output stream, and parsing your messages from an input stream."
@@ -73,3 +79,8 @@ aliases:
 > **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
 > - "There will be a large period of time during which `protoc` is able to consume `proto3`, `proto2`, and editions files."
 > - "we will provide primitives in `protoc` to compile a `.proto` file and a semantic patch as a set of inputs so that users never have to materialize the modified `.proto` file."
+
+> **Source: [[sources/editions-protobuf-design-options-attributes|editions-protobuf-design-options-attributes]]**
+> - "If no target is provided, `protoc` will permit the target to apply to any entity."
+> - "Otherwise, `protoc` will allow an option to be applied at either the file level or to its target entity (and will produce a compile error for any other placement)."
+> - "**Code generators that emit generated descriptors will be required to omit/strip options with `SOURCE` retention from their generated descriptors.**"

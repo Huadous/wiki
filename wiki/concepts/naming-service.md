@@ -7,6 +7,7 @@ sources:
   - "[[sources/circuit_breaker]]"
   - "[[brpc/load_balancing.md]]"
   - "[[brpc/http_client.md]]"
+  - "[[brpc/en_backup_request.md]]"
 tags:
   - "method"
 aliases:
@@ -107,4 +108,17 @@ aliases:
   - "服务发现"
 ---
 
-No directly relevant information
+## Related Concepts
+- [[concepts/channel|Channel]]
+- [[concepts/backup_request|Backup Request]]
+- [[concepts/selectivechannel|SelectiveChannel]]
+
+## Related Entities
+- [[entities/brpc|brpc]]
+
+## Mentions in Source
+> **Source: [[sources/en_backup_request|en_backup_request]]**
+> - "When backend servers can be hung in a naming service"
+> - "When backend servers cannot be hung in a naming service"
+> - "If a sub channel corresponds to a cluster, this method does backups between two clusters."
+> - "No directly relevant information"
