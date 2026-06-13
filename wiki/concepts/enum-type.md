@@ -11,6 +11,7 @@ sources:
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-java-lite-for-editions.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "term"
 aliases:
@@ -399,6 +400,13 @@ aliases:
   - "enum"
 ---
 
+## Description
+`features.enum_type` 是 Protobuf Editions 引入的用于规范枚举类型开闭语义的特性。在 Editions 体系中，enum 类型的行为由 `features.enum_type` 显式控制：CLOSED 模式将超出定义范围的枚举值存储在未知字段集（unknown field set）中；OPEN 模式则将超出范围的值直接解析到字段中。该特性适用于 file 和 enum 范围层级。需要注意，该特性对 proto3 文件没有影响——proto3 对未知枚举值的处理保持自身语义不变。
+
+根据 [[sources/editions-edition-zero-features|editions-edition-zero-features]] 的设计，Edition Zero 在该特性的默认行为上与一般 Editions 做出了调整：OPEN 被设定为默认值，但同时允许通过显式声明 `features.enum_type = CLOSED` 来启用封闭枚举——这与 [[sources/editions|editions]] 中推荐"editions 版本默认关闭 `allow_alias`"的取向形成互补。对于从 proto2 迁移而来的文件，需要显式设置 `features.enum_type = CLOSED` 以保留原有闭枚举行为，使用 [[entities/prototiller|Prototiller]] 等迁移工具可辅助完成该转换。
+
+此外，Edition Zero 设计文档还提到了两点此前未明确的状态：一是允许非零的默认枚举值；二是 Java、C++ 等运行时目前通过消息所在文件的 `syntax`（而非枚举声明位置）来判断封闭性，这一非一致性的实现需要在 Edition Zero 中予以保留。此外，[[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]] 指出，在 Java Lite 的 Editions Zero 中，`features.enum_type` 不再是必需的——Java Lite 运行时按字段级别通过 `java.legacy_closed_enum` 来决定枚举封闭性，并且当 `java.legacy_closed_enum` 未设置时，该行为会被隐式编码进 `kLegacyEnumIsClosedBit`。
+
 ## Related Concepts
 - [[concepts/scalar-types|scalar types]]
 - [[concepts/field-cardinality|field cardinality]]
@@ -412,10 +420,16 @@ aliases:
 - [[concepts/field-number|Field Number]]
 - [[concepts/editions-zero-features|Editions Zero Features]]
 - [[concepts/java-legacy-closed-enum|java.legacy_closed_enum]]
+- [[concepts/allow-alias|allow_alias]]
+- [[concepts/proto2-syntax|proto2 syntax]]
+- [[concepts/proto3-syntax|proto3 syntax]]
+- [[concepts/unknown-field-set|unknown field set]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/prototiller|Prototiller]]
+- [[entities/edition-zero|Edition Zero]]
+- [[entities/protoc|protoc]]
 
 ## Mentions in Source
 
@@ -441,3 +455,7 @@ aliases:
 > - "`features.enum_type` — This is not needed in Editions Zero since enum closedness in Java Lite's runtime is dictated per-field by `java.legacy_closed_enum`."
 > - "Note, this is implicitly encoded in `kLegacyEnumIsClosedBit` if `java.legacy_closed_enum` is unset."
 > - "No directly relevant information"
+
+> **Source: editions-edition-zero-features**
+> - "we will add a feature `features.enum_type = {CLOSED,OPEN}`. The default will be `OPEN`."
+> - "*closed* enums will store enum values that are out of range in the unknown field set."

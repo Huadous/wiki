@@ -6,6 +6,7 @@ sources:
   - "[[sources/style]]"
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
   - "[[protobuf/editions-java-lite-for-editions.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "term"
 aliases:
@@ -27,7 +28,9 @@ aliases:
 ---
 
 ## Description
-message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息字段编码格式的可枚举功能。从底层设计上看，该特性对应一个 `MessageEncoding` 枚举类型，包含 `LENGTH_PREFIXED`（长度前缀，等于 0）和 `DELIMITED`（分隔符，等于 1）两个值，作为 Edition Zero Features 中的第 5 个功能字段出现（字段编号为 5），其 retention 为 `RUNTIME`，target 为 `FIELD`，并在 2023 edition 中将 `LENGTH_PREFIXED` 设为默认值。该功能体现了 Editions 系统通过可枚举功能来表达序列化行为差异的设计思路。
+message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息字段编码格式的可枚举功能。从底层设计上看，该特性对应一个 `MessageEncoding` 枚举类型，包含 `LENGTH_PREFIXED`（长度前缀，等于 0）和 `DELIMITED`（分隔符，等于 1）两个值，作为 Edition Zero Features 中的第 5 个功能字段出现（字段编号为 5），其 retention 为 `RUNTIME`，target 为 `FIELD`，并在 2023 edition 中将 `LENGTH_PREFIXED` 设为默认值。该功能体现了 Edition Zero Features 通过可枚举功能来表达序列化行为差异的设计思路。
+
+该特性在 editions 系统中承担着消除历史 group 语法的重要职责。根据 editions-edition-zero-features 的设计决定，editions 中彻底移除了 `group` 语法，原 proto2 中的 group 字段将被自动转换为「嵌套消息类型 + `features.message_encoding = DELIMITED` 字段」的形式。该转换机制既保证了已部署数据的有线兼容性，又避免了让 schema 作者继续使用被废弃的语法。该决定也直接简化了解析器实现，使消息编码方式在 editions 中更为一致：默认走 `LENGTH_PREFIXED`（wire type 2 的字节块），而显式声明 `DELIMITED` 的字段则按 group 行为（wire type 3/4）进行编解码。
 
 在实际使用层面，message_encoding 特性被广泛用于替代已废弃的 groups 语法。通过将该特性设置为 `delimited`，可以在保持有线格式兼容的前提下，使用嵌套消息定义和字段类型来替代 groups，实现从旧语法（proto2/proto3）到 edition 2023 的平滑迁移。开发者只需在字段上声明 `message_encoding = DELIMITED`，而无需修改消息的内部结构，从而逐步替换遗留的 groups 定义而无需一次性修改所有依赖的代码和数据。在需要时，该特性也可以与其他特性（如 `LEGACY_REQUIRED`）结合使用，以处理更复杂的迁移场景。
 
@@ -41,9 +44,14 @@ message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息
 - [[concepts/delimited-message-encoding|DELIMITED message encoding]]
 - [[concepts/kIsMessageEncodingDelimitedBit|kIsMessageEncodingDelimitedBit]]
 - [[concepts/editions-zero-features|Editions Zero Features]]
+- [[concepts/proto2 syntax|proto2 syntax]]
+- [[concepts/Protobuf Editions|Protobuf Editions]]
+- [[concepts/wire-types|Wire types]]
 
 ## Related Entities
 - [[entities/Protocol Buffers|Protocol Buffers]]
+- [[entities/Edition Zero|Edition Zero]]
+- [[entities/protoc|protoc]]
 
 ## Mentions in Source
 > **Source: [[sources/style|style]]**
@@ -66,3 +74,7 @@ message_encoding 特性是 Protocol Buffers editions 系统中用于控制消息
 > **Source: [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]]**
 > - "features.message_encoding — Not present. Encode as type group. See below."
 > - "In the compiler, message fields with features.message_encoding = DELIMITED should be treated as a group *before* encoding message info."
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - "This feature defaults to `LENGTH_PREFIXED`. The `group` syntax does not exist under editions."
+> - "message-typed fields that have `features.message_encoding = DELIMITED` set will be encoded as groups (wire type 3/4) rather than byte blobs (wire type 2)."

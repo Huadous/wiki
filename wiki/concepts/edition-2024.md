@@ -12,6 +12,7 @@ sources:
   - "[[protobuf/editions-group-migration-issues.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "standard"
 aliases:
@@ -41,11 +42,9 @@ aliases:
 ---
 
 ## Description
-Edition Zero is the foundational release of Protobuf Editions, conceived as the "completion" of the union of proto2 and proto3. It introduces a new syntax in which a `.proto` file declares `edition = "...";` and opts into behavior via explicit `features.*` settings rather than scattered language-level knobs. Crucially, Edition Zero is engineered so that any existing proto2 or proto3 file can be mechanically migrated to Edition Zero with no behavioral change — it does not alter runtime semantics, only the spelling and organization of declarations.
+Edition Zero 是 Protobuf 语言演进的关键里程碑，于 2022-07-22 获得批准，由 @mcy、@zhangskz 和 @mkruskal-google 共同撰写。其核心设计理念是引入一组特性标志（如 `field_presence`、`enum_type`、`repeated_field_encoding` 等）及其默认值，以细粒度地控制消息编码、字段存在性、枚举类型等行为，从而取代 proto2 和 proto3 中硬编码的语法行为。该版本被视为"无 `syntax` 的 Protobuf 新世界"的"第一版"，明确目标是通过应用适当的特性，将现有的 proto2/proto3 文件无变更地迁移到 editions，同时保留各语言运行时现有的非一致性行为以避免大变更（LSC）引入语义差异。
 
-Beyond the syntactic unification, Edition Zero takes an opinionated stance: it selects "good" defaults and requires explicit opt-in for legacy "bad" semantics, gradually steering the ecosystem toward stricter, more round-trippable schemas. For example, Edition 2024 defaults to `STYLE2024` (enforcing naming style) and to `EXPORT_TOP_LEVEL` for symbol visibility, while older `EXPORT_ALL` behavior requires an override.
-
-The release of Edition Zero, however, was not purely a matter of designing the syntax and feature set. It was originally hoped that proto2 and proto3 could be fully unified before Editions launched, but the team was blocked by certain internal use-cases — most notably the divergent behavior between proto2 and proto3 when handling JSON field-name conflicts. The proposed resolution is to unify these behaviors into a future-facing `json_format` feature as part of Edition Zero, so that conflicting semantics can be expressed explicitly per file instead of being silently inherited from the legacy syntax. This JSON-handling proposal sits alongside the broader Edition Zero featureset concerns (UTF-8 validation modeling, dual features protos in descriptors, migration tooling) that the team is working through.
+Edition Zero 采取了"opinionated stance"——选择"好"的默认值作为统一基线，并要求显式声明才能启用"坏"的语义，这与 Edition 2023 引入的 `enforce_naming_style`、Edition 2024 引入的 `default_symbol_visibility` 和 `edition 2024 -> EXPORT_TOP_LEVEL` 默认行为等渐进式特性收紧密切相关。Edition Zero 还规划了 JSON 处理等行为的统一，但由于部分内部用例的限制，JSON 统一被推迟。该版本的发布需要在 ecosystem 中推广新的 editions 语法，尽管这一迁移"独特"地不改变任何行为，仅改变语法的书写方式，并且需要等 editions 2024 解决 group 迁移等遗留问题。
 
 ## Related Concepts
 - [[concepts/edition-2023|Edition 2023]]
@@ -55,6 +54,7 @@ The release of Edition Zero, however, was not purely a matter of designing the s
 - [[concepts/proto3|proto3]]
 - [[concepts/protobuf-editions|Protobuf Editions]]
 - [[concepts/features-field_presence|features-field_presence]]
+- [[concepts/features-enum_type|features-enum_type]]
 - [[concepts/features-default_symbol_visibility|features-default_symbol_visibility]]
 - [[concepts/features-enforce_naming_style|features-enforce_naming_style]]
 - [[concepts/feature|Feature]]
@@ -73,6 +73,8 @@ The release of Edition Zero, however, was not purely a matter of designing the s
 - [[entities/protobuf-team|protobuf-team]]
 - [[entities/protobuf-editions|Protobuf Editions]]
 - [[entities/mkruskal-google|mkruskal-google]]
+- [[entities/mcy|mcy]]
+- [[entities/zhangskz|zhangskz]]
 
 ## Mentions in Source
 
@@ -116,3 +118,8 @@ The release of Edition Zero, however, was not purely a matter of designing the s
 > **Source: [[sources/editions-edition-zero-json-handling|editions-edition-zero-json-handling]]**
 > - "While we had hoped to unify these before Protobuf editions launched, we ended up blocked by some internal use-cases."
 > - "The goal here is to unify these behaviors into a future-facing feature as part of edition zero."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - "Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."
+> - "*Edition Zero Features* defines the \"first edition\" of the brave new world of no-`syntax` Protobuf."

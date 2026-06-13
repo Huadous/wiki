@@ -12,6 +12,7 @@ sources:
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-edition-zero-json-handling.md]]"
 tags:
   - "document"
 aliases:
@@ -63,3 +64,7 @@ aliases:
 - [[concepts/proto3|proto3]] 与 [[concepts/proto2|proto2]] 一起代表了 [[concepts/protobuf-editions|Editions]] 系统必须保持兼容的现有行为。
 - [[concepts/protobuf-editions|Editions]] 系统的设计目标包括与 [[concepts/proto3|proto3]] 现有行为的兼容性,使得现有用户向新系统的迁移是无缝的。
 - 在 UTF8 验证等 feature 建模方式的讨论中,由于 [[concepts/edition-zero|Edition Zero]] 保留了所有 [[concepts/proto2|proto2]]/[[concepts/proto3|proto3]] 行为,因此无论选择何种 feature 表达方式,都不会产生功能性差异,讨论的焦点仅在于应使用哪些 feature 来控制这些行为。
+- [[concepts/proto3|proto3]] 是 [[entities/protocol-buffers|Protobuf]] 的第三版语法,是当前推荐使用的版本。
+- 在 JSON 处理方面,[[concepts/proto3|proto3]] 默认完全验证 JSON 映射的唯一性:[[entities/protoc|protoc]] 会在解析时检测到任何 [[concepts/json-field-name-conflicts|JSON 冲突]]并直接报错。
+- 可通过 `deprecated_legacy_json_field_conflicts` 选项禁用 [[concepts/proto3|proto3]] 的这一严格检查,使其退化为尽力而为模式（即 [[concepts/legacy-best-effort|LEGACY_BEST_EFFORT]] 行为）。
+- 本次设计提案建议将 [[concepts/proto3|proto3]] 默认迁移到 `ALLOW` 状态,以调整其 JSON 字段名冲突的处理策略。

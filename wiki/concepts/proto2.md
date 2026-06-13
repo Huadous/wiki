@@ -16,13 +16,24 @@ sources:
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-edition-zero-json-handling.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "standard"
 aliases:
   - "proto2"
   - "Protocol Buffers version 2"
   - "Protobuf 2"
+  - "proto2 syntax"
+  - "proto2"
+  - "Protocol Buffers version 2"
+  - "Protobuf 2"
 ---
+
+## Description
+proto2 是 Protocol Buffers（[[entities/protocol-buffers|Protocol Buffers]]）的第二个版本语法，在 [[concepts/proto3|proto3]] 之前被广泛使用。它引入了多项重要特性：`required` 字段是线缆必需的（wire-required）且在 API 层可选，`extensions` 作为其原生特性而存在，`enum` 值采用封闭（closed）语义且不对第一个枚举值施加约束。此外，proto2 还支持 `groups` 字段（在 proto3 中被移除），并在 JSON 处理上采取 best-effort（尽力而为）策略，允许存在不具有 1:1 映射的字段名冲突。
+
+在向 [[concepts/protobuf-editions|Protobuf Editions]] 体系迁移时，proto2 的行为需要在 Edition Zero（[[concepts/edition-zero|Edition Zero]]）中通过显式设置 [[concepts/features|features]] 来精确模拟：`features.field_presence = LEGACY_REQUIRED` 用于还原 `required` 字段的线缆必需语义，`features.enum_type = CLOSED` 用于还原封闭枚举，`features.repeated_field_encoding = EXPANDED` 用于还原非 packed 的重复字段编码等。该迁移的核心目标是实现对 LSC（[[concepts/large-scale-change|Large-scale Change]]）的语义等价（no-op for LSC），即升级前后不应产生任何可观察的行为变化。`protoc`（[[entities/protoc|protoc]]）编译器在没有显式指定 syntax 的 .proto 文件中默认假设使用 proto2，并通过 [[concepts/editions-upgrader|Editions upgrader]] 等工具自动完成从 proto2 到最新 edition 的转换。
 
 ## Related Concepts
 - [[concepts/proto3|proto3]]
@@ -57,6 +68,13 @@ aliases:
 - [[concepts/text-format|text format]]
 - [[concepts/group-like-fields|group-like fields]]
 - [[concepts/group-fields|group fields]]
+- [[concepts/legacy-best-effort|LEGACY_BEST_EFFORT]]
+- [[concepts/json-format-feature|json_format feature]]
+- [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]
+- [[concepts/enum-type|enum_type]]
+- [[concepts/repeated-field-encoding|repeated_field_encoding]]
+- [[concepts/defaulted|defaulted]]
+- [[concepts/extensions|extensions]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -107,3 +125,12 @@ aliases:
 
 > **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
 > - "We've bounced back and forth on how UTF8 validation should be modeled as a feature. None of the proposals resulted in any functional changes, since edition zero preserves all proto2/proto3 behavior, the question was just about what features should be used to control them."
+
+> **Source: [[sources/editions-edition-zero-json-handling|editions-edition-zero-json-handling]]**
+> - "Today, proto3 fully validates JSON mappings for uniqueness during parsing, while proto2 takes a best-effort approach and allows cases that don't have a 1:1 mapping."
+> - "Proto2 files will only fail to parse if both of the conflicts fields have `json_name` set"
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - "In proto2, `enum` values are closed and no requirements are placed upon the first `enum` value."
+> - "Proto2 has `required` but not `defaulted`; Proto3 has `defaulted` but not `required`."
+> - "Groups. Proto2 has groups, proto3 does not."

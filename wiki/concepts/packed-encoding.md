@@ -11,6 +11,7 @@ sources:
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "method"
 aliases:
@@ -112,7 +113,7 @@ aliases:
 ---
 
 ## Description
-Packed encoding consolidates the on-the-wire representation of repeated scalar numeric fields into one length-delimited entry, reducing both tag overhead and total byte count. In proto3 and Editions (starting with Edition 2023), repeated fields of scalar numeric types use packed encoding by default, meaning schema authors get the wire-format savings without opt-in syntax. In Editions, `features.packed` serves as a global feature that can change the serialization encoding of repeated fields to packed format; it is cited as the existence proof that wire-format-breaking changes are achievable via features, even if very expensive. The migration strategy established for `features.packed` — modifying parsers to accept both the old and new encodings so that old and new readers are both tolerant, then waiting through a long horizon so old writers and readers naturally fall out of circulation, and finally flipping the default so new code uses the new encoding — is the template now being reused for `features.group_encoding`. Because of this proven pattern, long-horizon wire-format break migrations are characterized as "not insurmountable, merely very expensive." Duplicate `repeated` fields append to the field's API representation, though serializing a packed repeated field produces only one length-delimited value in the tag stream. C++ string accessors still return `const std::string&`, and the broader goal of making all scalar `repeated` fields `packed` was adopted to improve throughput.
+Packed encoding consolidates the on-the-wire representation of repeated scalar numeric fields into one length-delimited entry, reducing both tag overhead and total byte count. In proto3 and Editions (starting with Edition 2023), repeated fields of scalar numeric types use packed encoding by default, meaning schema authors get the wire-format savings without opt-in syntax. In Editions, `features.packed` serves as a global feature that can change the serialization encoding of repeated fields to packed format; it is cited as the existence proof that wire-format-breaking changes are achievable via features, even if very expensive. The migration strategy established for `features.packed` — modifying parsers to accept both the old and new encodings so that old and new readers are both tolerant, then waiting through a long horizon so old writers and readers naturally fall out of circulation, and finally flipping the default so new code uses the new encoding — is the template now being reused for `features.group_encoding`. Because of this proven pattern, long-horizon wire-format break migrations are characterized as "not insurmountable, merely very expensive." Duplicate `repeated` fields append to the field's API representation, though serializing a packed repeated field produces only one length-delimited value in the tag stream. C++ string accessors still return `const std::string&`, and the broader goal of making all scalar `repeated` fields `packed` was adopted to improve throughput. Beyond the default-on semantics, the new `features.repeated_field_encoding` attribute subsumes the existing `[packed = ...]` syntax as an alias, with the older syntax slated for eventual removal. User telemetry strongly reinforced the default choice: schema authors explicitly enabled packed fields approximately 12.3k times against only ~200 explicit disables, justifying `PACKED` as the default value of `repeated_field_encoding` in proto3. proto2, by contrast, defaults to expanded encoding (wire type 2 per element), requiring an opt-in `[packed = true]` annotation, which is the historical reason `[packed = ...]` existed in the first place.
 
 ## Related Concepts
 - [[concepts/wire-format|wire format]]
@@ -128,6 +129,7 @@ Packed encoding consolidates the on-the-wire representation of repeated scalar n
 - [[concepts/feature-lifecycle|Feature Lifecycle]]
 - [[concepts/group_encoding|group_encoding]]
 - [[concepts/group-encoded-messages-migration|Group-Encoded Messages migration]]
+- [[concepts/repeated-field-encoding|repeated_field_encoding]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -164,3 +166,7 @@ Packed encoding consolidates the on-the-wire representation of repeated scalar n
 > - "`packed` is an existence proof that this is not insurmountable, merely very expensive."
 > - "E.g., `features.packed`, eventually `features.group_encoding`."
 > - "We can do what we did for `packed`."
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - "In proto3, the `repeated_field_encoding` attribute defaults to `PACKED`."
+> - "Users explicitly enabled packed fields 12.3k times, but only explicitly disable it 200 times."

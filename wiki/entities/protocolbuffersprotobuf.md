@@ -31,9 +31,6 @@ aliases:
   - "Google Protocol Buffers"
 ---
 
-## Description
-Protobuf（Protocol Buffers）是 Google 开发的一种语言无关、平台无关的可扩展序列化结构数据机制，在 brpc 中被用作核心的数据交换格式。brpc 使用 butil::IOBuf 作为部分协议中 attachment 的数据结构以及 HTTP body 的载体，并通过 IOBufAsZeroCopyInputStream 与 IOBufAsZeroCopyOutputStream 与 protobuf 消息进行零拷贝序列化与解析。基于 Protobuf 内置的 RPC Service 形式，brpc 的 baidu_std 协议规定了通信双方之间的数据交换协议，以实现完整的 RPC 调用，其中请求参数与响应结果均封装在 Protobuf message 中。Protobuf 当前主要使用 proto2 与 proto3 两个语法版本，并正在向 Editions 模型演进；为解决新特性与旧运行时之间的兼容性问题，Protobuf 引入了最低必需版本（Minimum Required Edition）机制。当前所有 proto 消息都可以被序列化为 JSON 格式，但在 JSON 映射的字段名冲突方面存在历史遗留问题：proto3 在解析时会完全校验 JSON 映射的唯一性，而 proto2 采用尽力而为的方式，允许出现不具有 1:1 映射的情况。本次 Editions 设计提案（Edition Zero）正是为了解决这一 JSON 字段名冲突问题而提出。在该提案的讨论中，Protobuf 社区引用了 [[protobuf/protocolbuffers/protobuf|protocolbuffers/protobuf]] 仓库中的 Issue #12525 作为 DISALLOW 模式的使用案例，说明存在一些项目在运行时生成 proto 描述符，并使用下划线（underscores）来消歧（disambiguate）字段名。
-
 ## Related Entities
 - [[entities/edition-zero|Edition Zero]]
 - [[entities/mkruskal-google|mkruskal-google]]
@@ -50,20 +47,20 @@ Protobuf（Protocol Buffers）是 Google 开发的一种语言无关、平台无
 - [[concepts/iobufaszerocopyinputstream|IOBufAsZeroCopyInputStream]]（将 IOBuf 包装为零拷贝输入流以解析 protobuf 消息）
 - [[concepts/iobufaszerocopyoutputstream|IOBufAsZeroCopyOutputStream]]（将 IOBuf 包装为零拷贝输出流以序列化 protobuf 消息）
 - [[concepts/zero-copy-buffer|Zero-copy buffer]]（protobuf 与 IOBuf 集成时的关键性能特性）
-- [[concepts/minimum-required-edition|Minimum Required Edition]]（新增：解决 Protobuf 新特性与旧运行时兼容性的机制）
-- [[concepts/descriptor.proto|descriptor.proto]]（新增：Protobuf 核心描述格式的定义文件）
-- [[concepts/filedescriptorproto|FileDescriptorProto]]（新增：描述符相关概念）
-- [[concepts/edition|Edition]]（新增：Protobuf 版本演进的基本单位）
-- [[concepts/rpc|RPC]]（新增：Protobuf 内置的 RPC Service 形式是 baidu_std 等协议定义通信的基础）
-- [[concepts/rpcmeta|RpcMeta]]（新增：baidu_std 协议中的核心元数据结构，使用 Protobuf message 定义）
-- [[concepts/rpcrequestmeta|RpcRequestMeta]]（新增：baidu_std 协议中的请求元数据，使用 Protobuf message 定义）
-- [[concepts/rpcresponsemeta|RpcResponseMeta]]（新增：baidu_std 协议中的响应元数据，使用 Protobuf message 定义）
-- [[concepts/proto2|proto2]]（新增：Protobuf 早期语法版本，对 JSON 映射采用尽力而为的校验策略）
-- [[concepts/proto3|proto3]]（新增：Protobuf 当前主要语法版本，对 JSON 映射在解析时进行完全唯一性校验）
-- [[concepts/json_name-field-option|json_name field option]]（新增：用于解决 JSON 字段名冲突的字段选项）
-- [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]（新增：Edition Zero 提案要解决的核心问题）
-- [[concepts/disallow|DISALLOW]]（新增：Edition Zero 提案中用于表示禁止某特征组合的模式，Issue #12525 作为其使用案例）
-- [[concepts/json_format-feature|json_format feature]]（新增：与 Protobuf JSON 序列化能力相关的功能特性）
+- [[concepts/minimum-required-edition|Minimum Required Edition]]（解决 Protobuf 新特性与旧运行时兼容性的机制）
+- [[concepts/descriptor.proto|descriptor.proto]]（Protobuf 核心描述格式的定义文件）
+- [[concepts/filedescriptorproto|FileDescriptorProto]]（描述符相关概念）
+- [[concepts/edition|Edition]]（Protobuf 版本演进的基本单位）
+- [[concepts/rpc|RPC]]（Protobuf 内置的 RPC Service 形式是 baidu_std 等协议定义通信的基础）
+- [[concepts/rpcmeta|RpcMeta]]（baidu_std 协议中的核心元数据结构，使用 Protobuf message 定义）
+- [[concepts/rpcrequestmeta|RpcRequestMeta]]（baidu_std 协议中的请求元数据，使用 Protobuf message 定义）
+- [[concepts/rpcresponsemeta|RpcResponseMeta]]（baidu_std 协议中的响应元数据，使用 Protobuf message 定义）
+- [[concepts/proto2|proto2]]（Protobuf 早期语法版本，对 JSON 映射采用尽力而为的校验策略）
+- [[concepts/proto3|proto3]]（Protobuf 当前主要语法版本，对 JSON 映射在解析时进行完全唯一性校验）
+- [[concepts/json_name-field-option|json_name field option]]（用于解决 JSON 字段名冲突的字段选项）
+- [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]（Edition Zero 提案要解决的核心问题）
+- [[concepts/disallow|DISALLOW]]（Edition Zero 提案中用于表示禁止某特征组合的模式，Issue #12525 作为其使用案例）
+- [[concepts/json_format-feature|json_format feature]]（与 Protobuf JSON 序列化能力相关的功能特性）
 
 ## Mentions in Source
 
@@ -98,3 +95,4 @@ Protobuf（Protocol Buffers）是 Google 开发的一种语言无关、平台无
 > - "All proto messages can be serialized to JSON"（所有 proto 消息都可以被序列化为 JSON。）
 > - "https://github.com/protocolbuffers/protobuf/issues/12525"
 > - "Some projects generate proto descriptors at runtime and uses underscores to disambiguate field names."（一些项目在运行时生成 proto 描述符，并使用下划线来消歧字段名。）
+> - No directly relevant information

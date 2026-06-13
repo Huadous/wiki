@@ -5,9 +5,18 @@ updated: 2026-06-13
 sources:
   - "[[sources/field_presence|field_presence]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "method"
 aliases:
+  - "显式存在性模式"
+  - "Explicit Presence"
+  - "显式存在性"
+  - "EXPLICIT_PRESENCE"
+  - "显式存在性模式"
+  - "Explicit Presence"
+  - "显式存在性"
+  - "EXPLICIT presence"
   - "显式存在性模式"
   - "Explicit Presence"
   - "显式存在性"
@@ -19,6 +28,8 @@ aliases:
 
 ## Description
 显式存在性模式（Explicit presence discipline）是一种字段存在性跟踪机制，其中生成的 API 不仅存储字段的值，还显式地存储该字段是否被设置（set）的状态。在这种模式下，代码能够区分"字段未被设置"与"字段被设置为默认值"这两种不同的语义状态。显式设置的值始终会被序列化，即使其值与默认值相同。
+
+在 Editions 体系中，`EXPLICIT` 是 `features.field_presence` 枚举的默认值（即 "EXPLICIT (default)"），也是 singular 字段在不做任何特殊标注时的默认行为。API 通过 `has` 方法和 `Clear` 方法对外暴露 hasbit，任何显式设置的值（即使与默认值相同）都会被序列化到 wire 上。此外，在 editions 中 `has_optional_keyword()` 与 `has_presence()` 被合并为对 EXPLICIT 存在性的检查，二者成为同义词（effectively synonyms）。
 
 在 Protobuf Editions 中，`EXPLICIT_PRESENCE` 是 `features.field_presence` 字段的目标默认值（target default value），代表了字段显式存在的标准语义。当读取器没有在序列化数据中看到该字段的记录时，尝试访问该字段将产生默认值，这正是显式存在性模式的预期行为。在 "ImmoLation of required" 大规模迁移路径中，EXPLICIT_PRESENCE 是迁移 `required` 字段的最终目标状态——在 `LEGACY_REQUIRED` 和 `ALWAYS_SERIALIZE` 被移除后，EXPLICIT_PRESENCE 将成为字段存在性的标准表达方式。该最终状态与 proto3 中无标签字段（unannotated field）的行为保持一致，从而在 Editions 体系下统一了字段存在性的语义。
 
@@ -32,6 +43,9 @@ aliases:
 - [[concepts/Always serialize|Always serialize]]
 - [[concepts/ImmoLation of required|ImmoLation of required]]
 - [[concepts/Features|Features]]
+- [[concepts/Implicit presence|Implicit presence]]
+- [[concepts/Optional keyword|Optional keyword]]
+- [[concepts/Presence discipline|Presence discipline]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -47,3 +61,7 @@ aliases:
 > **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
 > - "We can use features to move fields off of `features.field_presence = LEGACY_REQUIRED` (the edition's spelling of `required`) and onto `features.field_presence = EXPLICIT_PRESENCE`."
 > - "At this point we can migrate from `ALWAYS_SERIALIZE` to `EXPLICIT_PRESENCE`."
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - "`EXPLICIT` (default) - the field has *explicit presence* discipline. Any explicitly set value will be serialized onto the wire (even if it is the same as the default value)."
+> - "`has_optional_keyword()` and `has_presence()` now check for `EXPLICIT`, and are effectively synonyms."

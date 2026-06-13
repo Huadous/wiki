@@ -1021,3 +1021,11 @@
 
 **更新页面**：[[mkruskal-google]], [[zhangskz]], [[upb]], [[edition-2023]], [[generator-features]], [[editions-life-of-a-featureset]], [[java-legacy_closed_enum]]
 
+
+
+## [2026-06-13] ingest | Edition Zero: JSON Handling
+
+**创建页面**：[[sources/editions-edition-zero-json-handling.md]], [[entities/mkruskal-google.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/protoc.md]], [[concepts/json-field-name-conflicts.md]], [[concepts/allow.md]], [[concepts/json_format-feature.md]], [[concepts/legacy_best_effort.md]], [[concepts/disallow.md]], [[concepts/proto2.md]], [[concepts/json_name-field-option.md]], [[concepts/deprecated_legacy_json_field_conflicts.md]], [[concepts/proto3.md]], [[concepts/camelcase-transformation.md]]
+
+**更新页面**：[[mkruskal-google]], [[protocolbuffersprotobuf]], [[edition-2024]], [[protoc]], [[edition-2023]], [[proto2]], [[proto3]]
+

@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[sources/editions-protobuf-editions-design-features|editions-protobuf-editions-design-features]]"
   - "[[protobuf/editions-java-lite-for-editions.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
 tags:
   - "term"
 aliases:
@@ -20,15 +21,22 @@ RepeatedFieldEncoding 是 Protobuf Editions 体系下管理 `repeated` 字段 wi
 
 在 Java Lite 运行时的迁移视角下，`features.repeated_field_encoding` 被映射到 `MessageInfo` 字段条目中的 `GetExperimentalJavaFieldTypeForPacked` 表达方式。提案明确指出该特性在编码层的对应关系保持不变（Keep as-is），迁移工作仅需把所有原本通过读取 `is_proto3` 位来推断 packed 行为的代码路径，统一切换到读取该特性位即可。这一改动体现了 Editions 特性替代隐式 `is_proto3` 推断的设计思路，使编码行为决策更加显式与可控。
 
+在 [[concepts/Edition-Zero-Features|Edition Zero]] 提案中，该特性被进一步明确为 `repeated_field_encoding`，并通过用户行为数据（显式启用 packed 12.3k 次 vs 显式禁用 200 次）作为将 `PACKED` 设为默认值的决策依据。提案同时指出，由于 proto2 默认采用 `EXPANDED` 编码，从 proto2 迁移到 editions 时需要在文件级显式设置 `EXPANDED` 才能保持原有行为；现有的 `[packed = ...]` 语法也将成为该特性的别名，并最终被移除。
+
 ## Related Concepts
 - [[concepts/Features|Features]]
 - [[concepts/Edition-Defaults|Edition Defaults]]
 - [[concepts/Target-Attributes|Target Attributes]]
 - [[concepts/Feature-Inheritance|Feature Inheritance]]
 - [[concepts/Java-Lite-Editions-Migration|Java Lite Editions 迁移]]
+- [[concepts/Edition-Zero-Features|Edition Zero Features]]
+- [[concepts/Packed-Encoding|Packed Encoding]]
+- [[concepts/Proto2-Syntax|Proto2 Syntax]]
+- [[concepts/Proto3-Syntax|Proto3 Syntax]]
+- [[concepts/Protobuf-Editions|Protobuf Editions]]
 
 ## Related Entities
-- 无相关实体
+- [[entities/edition-zero|Edition Zero]]
 
 ## Mentions in Source
 
@@ -38,3 +46,7 @@ RepeatedFieldEncoding 是 Protobuf Editions 体系下管理 `repeated` 字段 wi
 
 **Source: [[sources/editions-java-lite-for-editions|editions-java-lite-for-editions]]**
 - `features.repeated_field_encoding` — `GetExperimentalJavaFieldTypeForPacked`. Keep as-is.
+
+**Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+- `the default value for `features.repeated_field_encoding` will be `PACKED`.`
+- `Users explicitly enabled packed fields 12.3k times, but only explicitly disable it 200 times.`
