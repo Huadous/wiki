@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/implementing_proto3_presence.md]]"
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
 tags:
   - "product"
 aliases:
@@ -25,6 +26,9 @@ aliases:
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/protocol-buffers-v3-15-0|Protocol Buffers v3.15.0]]
 - [[entities/protocol-buffers-v3-12-0|Protocol Buffers v3.12.0]]
+- [[entities/protobuf-editions|Protobuf Editions]]
+- [[entities/bazel|Bazel]]
+- [[entities/protobuf-team|Protobuf team]]
 
 ## Related Concepts
 - [[concepts/protocol-buffers|Protocol Buffers]]
@@ -34,8 +38,12 @@ aliases:
 - [[concepts/code-generator|Code Generator]]
 - [[concepts/proto3-optional-fields|proto3 optional fields]]
 - [[concepts/proto3|proto3]]
+- [[concepts/proto2|proto2]]
 - [[concepts/explicit-presence-discipline|Explicit presence discipline]]
 - [[concepts/optional-label|Optional label]]
+- [[concepts/schema-producer|Schema Producer]]
+- [[concepts/schema-consumer|Schema Consumer]]
+- [[concepts/semantic-patch|Semantic Patch]]
 
 ## Mentions in Source
 > **Source: [[sources/proto3|proto3]]**
@@ -61,3 +69,7 @@ aliases:
 > - "When you run the protocol buffer compiler on a .proto, the compiler generates the code in your chosen language you'll need to work with the message types you've described in the file"
 > - "The protoc compiler will generate error messages if any future developers try to use these reserved field numbers."
 > - "The protoc parser validates that a given proto definition file is parseable."
+
+> **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
+> - "There will be a large period of time during which `protoc` is able to consume `proto3`, `proto2`, and editions files."
+> - "we will provide primitives in `protoc` to compile a `.proto` file and a semantic patch as a set of inputs so that users never have to materialize the modified `.proto` file."

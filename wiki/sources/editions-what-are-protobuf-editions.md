@@ -1,18 +1,20 @@
 ---
----
 type: source
 created: 2026-06-12
-updated: 2026-06-12
-source_file: "[[protobuf/editions-what-are-protobuf-editions.md]]"
+updated: 2026-06-13
+sources:
+  - "[[protobuf/editions-README.md]]"
 tags:
-  - document
-  - protobuf
-  - editions
-  - features
-  - migration
+  - "document"
+  - "protobuf"
+  - "editions"
+  - "features"
+  - "migration"
 aliases:
   - "Protobuf Editions 介绍文档"
   - "What are Protobuf Editions"
+---
+
 ---
 
 # What are Protobuf Editions? - Summary

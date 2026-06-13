@@ -781,3 +781,59 @@
 
 **更新页面**：[[brpc]], [[iobuf]]
 
+
+
+## [2026-06-13] ingest | brpc HTTP/H2 服务文档
+
+**创建页面**：[[sources/http_service.md]], [[entities/brpc.md]], [[entities/rapidjson.md]], [[entities/nginx.md]], [[entities/http_parser.md]], [[concepts/h2c.md]], [[concepts/restful-url.md]], [[concepts/http头部.md]], [[concepts/default_method.md]], [[concepts/content-type.md]], [[concepts/status-code.md]], [[concepts/query-string.md]], [[concepts/compression.md]], [[concepts/server-sent-events-sse.md]], [[concepts/ssl-tls.md]], [[concepts/protobuf服务定义.md]], [[concepts/持续接收.md]], [[concepts/gzip解压缩.md]], [[concepts/http_verbose.md]], [[concepts/http-chunked-mode.md]], [[concepts/h2c.md]], [[concepts/http_body_compress_threshold.md]], [[concepts/query-string.md]], [[concepts/accept-encoding-header.md]], [[concepts/百分比编码percent-encoding.md]], [[concepts/302重定向.md]]
+
+**更新页面**：[[brpc]], [[nginx]], [[rapidjson]], [[http_parser]], [[h2c]], [[restful-url]], [[default_method]], [[http头部]], [[content-type]], [[status-code]], [[query-string]], [[compression]], [[ssl-tls]], [[progressiveattachment]], [[server-sent-events-sse]], [[protobuf服务定义]], [[http_verbose]], [[http_body_compress_threshold]], [[百分比编码percent-encoding]]
+
+
+
+## [2026-06-13] ingest | 更严格的 Schema 与 Editions
+
+**创建页面**：[[sources/editions-stricter-schemas-with-editions.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/@mcy.md]], [[concepts/stricter-schemas-with-editions.md]], [[concepts/feature-gating.md]], [[concepts/features-enforce_naming_style.md]], [[concepts/edition-2023.md]], [[concepts/reserved-keywords.md]], [[concepts/name-resolution-in-protobuf.md]], [[concepts/nonempty-package.md]], [[concepts/enum-value-uniqueness.md]], [[concepts/implicit-string-concatenation.md]], [[concepts/field-number-reservation.md]], [[concepts/strict-boolean-options.md]], [[concepts/#optional-escape-syntax.md]], [[concepts/decimal-field-numbers.md]], [[concepts/package-declaration-position.md]], [[concepts/unused-imports.md]], [[concepts/name-resolution-in-protobuf.md]], [[concepts/contextual-keywords.md]]
+
+**更新页面**：[[@mcy]], [[protocolbuffersprotobuf]], [[edition-2023]]
+
+
+
+## [2026-06-13] ingest | brpc HTTP/H2 客户端使用指南
+
+**创建页面**：[[sources/http_client.md]], [[entities/examplehttp_c++.md]], [[concepts/httph2-客户端.md]], [[entities/brpc.md]], [[concepts/http-method.md]], [[concepts/channel.md]], [[concepts/http-版本控制.md]], [[concepts/url-与-host-字段.md]], [[concepts/http-header-与-query.md]], [[concepts/http-错误处理.md]], [[concepts/http-请求压缩.md]], [[concepts/progressivereader.md]], [[concepts/gzip解压缩.md]], [[concepts/iobufbuilder.md]], [[concepts/ssl-tls.md]], [[concepts/http-chunked-mode.md]], [[concepts/naming-service.md]], [[concepts/brpccontroller.md]], [[concepts/http-body.md]]
+
+**更新页面**：[[brpc]], [[iobuf]], [[brpccontroller]], [[naming-service]], [[http-chunked-mode]]
+
+
+
+## [2026-06-13] ingest | Protocol Buffers - Protobuf Editions design documents
+
+**创建页面**：[[sources/editions-readme.md]], [[entities/protocol-buffers.md]], [[concepts/edition.md]], [[concepts/life-of-an-edition.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/edition-lifetimes.md]], [[concepts/minimum-required-edition.md]], [[concepts/edition-zero-features.md]], [[concepts/protobuf-editions-for-schema-producers.md]], [[concepts/edition-zero-converged-semantics.md]], [[concepts/editions-feature-visibility.md]], [[concepts/edition-evolution.md]], [[concepts/editions-group-migration-issues.md]], [[concepts/legacy-syntax-editions.md]], [[concepts/editions-feature-extension-layout.md]], [[concepts/stricter-schemas-with-editions.md]], [[concepts/edition-zero-json-handling.md]], [[concepts/protobuf-editions-design-features.md]], [[concepts/c++-apis-for-edition-zero.md]], [[concepts/java-lite-for-editions.md]], [[concepts/edition-zero-feature-enum-field-closedness.md]], [[concepts/edition-naming.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[edition-2023]], [[editions-what-are-protobuf-editions]], [[editions-stricter-schemas-with-editions]]
+
+
+
+## [2026-06-13] ingest | brpc 构建与编译指南
+
+**创建页面**：[[sources/getting_started.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/brpc.md]], [[entities/vcpkg.md]], [[entities/leveldb.md]], [[entities/trackme_server.md]], [[entities/openssl.md]], [[entities/docker.md]], [[entities/homebrew.md]], [[entities/gtest.md]], [[entities/clang.md]], [[entities/gcc.md]], [[entities/ubuntu.md]], [[entities/centos.md]], [[entities/macos.md]], [[entities/wsl.md]], [[concepts/静态链接.md]], [[concepts/rpcz.md]], [[concepts/实例追踪.md]], [[concepts/glog.md]], [[concepts/profiler.md]], [[concepts/heap-profiler.md]], [[concepts/contention-profiler.md]], [[concepts/c++11.md]]
+
+**更新页面**：[[brpc]], [[max_body_size]], [[protocolbuffersprotobuf]], [[leveldb]], [[trackme_server]], [[vcpkg]], [[openssl]], [[docker]], [[gcc]], [[clang]], [[gtest]], [[ubuntu]], [[centos]], [[macos]], [[wsl]], [[config_brpc-sh]], [[静态链接]], [[tcmalloc]], [[thrift]], [[rpcz]], [[libunwind]], [[valgrind]], [[cmake]], [[profiler]], [[heap-profiler]], [[contention-profiler]]
+
+
+
+## [2026-06-13] ingest | FlatMap - Maybe the fastest hashmap, with tradeoff of space
+
+**创建页面**：[[sources/flatmap.md]], [[entities/butil.md]], [[entities/brpc.md]], [[entities/flatmap.md]], [[entities/stdmap.md]], [[entities/alignhashmap.md]], [[entities/cowhashmap.md]], [[entities/smalltable.md]], [[concepts/哈希表.md]], [[concepts/开链哈希.md]], [[concepts/雪崩效应.md]], [[concepts/闭链哈希.md]], [[concepts/哈希函数.md]], [[concepts/copy-on-write.md]], [[concepts/负载因子.md]], [[concepts/murmurhash.md]], [[concepts/线性同余.md]], [[concepts/hopscotch-hashing.md]], [[concepts/cuckoo-hashing.md]], [[concepts/coalesced-hashing.md]], [[concepts/红黑树.md]], [[concepts/positionhint.md]], [[concepts/二次探查.md]], [[concepts/线性探查.md]], [[concepts/聚集效应.md]]
+
+**更新页面**：[[butil]], [[brpc]]
+
+
+
+## [2026-06-13] ingest | Protobuf Editions for Schema Producers
+
+**创建页面**：[[sources/editions-protobuf-editions-for-schema-producers.md]], [[entities/protoc.md]], [[entities/bazel.md]], [[entities/protobuf-team.md]], [[concepts/protobuf-editions-for-schema-producers.md]], [[concepts/schema-consumer.md]], [[concepts/features.md]], [[concepts/semantic-patch.md]], [[concepts/edition-2024.md]], [[concepts/proto2.md]], [[concepts/forward-and-backward-compatibility.md]], [[concepts/proto3.md]], [[concepts/support-matrix.md]]
+
+**更新页面**：[[edition-2023]], [[protoc]], [[bazel]], [[protobuf-team]], [[edition-2024]], [[features]], [[forward-and-backward-compatibility]], [[proto2]], [[proto3]]
+

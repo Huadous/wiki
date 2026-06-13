@@ -10,6 +10,7 @@ sources:
   - "[[brpc/server.md]]"
   - "[[brpc/json2pb.md]]"
   - "[[brpc/io.md]]"
+  - "[[brpc/http_client.md]]"
 tags:
   - "term"
 aliases:
@@ -36,6 +37,7 @@ aliases:
 - [[concepts/socketid|SocketId]]
 - [[concepts/http-parameters|HTTP参数]]
 - [[concepts/progressive-attachment|ProgressiveAttachment]]
+- [[concepts/progressivereader|ProgressiveReader]]
 - [[concepts/http-h2-service|HTTP/h2服务]]
 - [[concepts/bthread|bthread]]
 - [[concepts/race-condition|竞态条件]]
@@ -54,6 +56,12 @@ aliases:
 - [[concepts/json-protobuf-conversion|JSON-protobuf转换规则]]
 - [[concepts/repeated-field-json-encoding|repeated字段JSON编码]]
 - [[concepts/pb2jsonoptions|Pb2JsonOptions]]
+- [[concepts/channel|Channel]]
+- [[concepts/butil-iobuf|butil::IOBuf]]
+- [[concepts/http-method|HTTP Method]]
+- [[concepts/http-header-query|HTTP Header 与 Query]]
+- [[concepts/http-version-control|HTTP 版本控制]]
+- [[concepts/http-request-compression|HTTP 请求压缩]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -68,7 +76,8 @@ aliases:
 - [[entities/socket|Socket]]
 - [[entities/socketuniqueptr|SocketUniquePtr]]
 - [[entities/bthread|bthread]]
-- [[entities/progressiveattachment|progressiveattachment]]
+- [[entities/progressiveattachment|ProgressiveAttachment]]
+- [[entities/progressivereader|ProgressiveReader]]
 - [[entities/google-protobuf|Google Protobuf]]
 - [[entities/streamid|StreamId]]
 - [[entities/streamoptions|StreamOptions]]
@@ -77,6 +86,7 @@ aliases:
 - [[entities/json2pb|json2pb]]
 - [[entities/inputmessenger|InputMessenger]]
 - [[entities/eventdispatcher|EventDispatcher]]
+- [[entities/channel|brpc::Channel]]
 
 ## Mentions in Source
 > **Source: en_http_service**
@@ -109,4 +119,11 @@ cntl.set_pb_single_repeated_to_array(true);"
 > **Source: io**
 > - "像Controller贯穿了RPC的整个流程，和Socket中的数据有大量交互，它存放的是SocketUniquePtr。"
 > - "存储SocketUniquePtr还是SocketId取决于是否需要强引用。"
+> - "No directly relevant information"
+
+> **Source: http_client**
+> - "brpc::Controller cntl;
+cntl.http_request().uri() = "www.baidu.com/index.html";  // 设置为待访问的URL
+channel.CallMethod(NULL, &cntl, NULL, NULL, NULL/*done*/);"
+> - "HTTP/h2和protobuf关系不大，所以除了Controller和done，CallMethod的其他参数均为NULL。如果要异步操作，最后一个参数传入done。"
 > - "No directly relevant information"

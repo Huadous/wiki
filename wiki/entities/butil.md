@@ -2,33 +2,45 @@
 type: entity
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/streaming_rpc]]"]
-tags: [product]
+sources:
+  - "[[sources/streaming_rpc]]"
+  - "[[brpc/flatmap.md]]"
+  - "[[brpc/en_streaming_log.md]]"
+tags:
+  - "product"
 aliases:
   - "baidu utility"
   - "baidu util"
   - "butil 工具库"
 ---
 
+## Description
+streaming_log 是百度 brpc 项目中 butil 基础工具库所暴露的流式日志接口，定义于头文件 `<butil/logging.h>` 中。butil 为 brpc 框架的运行提供日志、线程管理、字符串处理等通用基础设施，streaming_log 正是其日志子模块的对外入口之一。在 brpc 的文档语境中，streaming_log 适用于打印复杂对象或模板对象等不便直接用格式化字符串输出的场景，是 brpc 应用层日志输出的推荐选择。其典型使用方式是通过 `#include <butil/logging.h>` 引入，调用方式与标准流式输出类似。
 
-# butil
-
-## 基本信息
-- Type: product
-- Source: [[sources/streaming_rpc]]
-
-## 描述
-butil 是 [[entities/brpc|brpc]] 项目的基础工具库，全称为 baidu utility（百度实用工具库），为 brpc 提供日志、字符串处理、文件系统操作等底层基础设施支持。本文档涉及的 streaming_log 完整实现位于 `<butil/logging.h>` 头文件中，所有日志宏和类都定义在该库中。butil 是 streaming_log 的宿主环境，也是 CHECK 宏在断言失败时打印调用栈所依赖的关键组件，其中 `butil::debug::StackTrace` 负责捕获和输出堆栈信息。作为 brpc 的核心依赖库，butil 为上层模块提供统一的日志记录、错误处理和系统调用封装能力。
-
-## 相关实体
+## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/flatmap|FlatMap]]
 - [[entities/streaming_log|streaming_log]]
 - [[entities/logsink|LogSink]]
+- [[sources/flatmap|flatmap]]
+- [[sources/en_streaming_log|en_streaming_log]]
 
-## 相关概念
+## Related Concepts
 - [[concepts/流式日志|流式日志]]
 - [[concepts/check宏|CHECK宏]]
+- [[concepts/哈希表|哈希表]]
+- [[concepts/butil|butil 基础工具库]]
 
-## 来源提及
+## Mentions in Source
 - `#include <butil/logging.h>` — [[entities/streaming_log|streaming_log]]
+
+> **Source: [[sources/flatmap|flatmap]]**
+> - `#include <butil/logging.h>` — [[sources/flatmap|flatmap]]
+> - `#include <butil/containers/flat_map.h>` — [[sources/flatmap|flatmap]]
+> - `https://github.com/apache/brpc/blob/master/src/butil/containers/flat_map.h` — [[sources/flatmap|flatmap]]
+
 - `#0 0x000000afaa23 butil::debug::StackTrace::StackTrace()` — [[entities/streaming_log|streaming_log]]
+
+> **Source: [[sources/en_streaming_log|en_streaming_log]]**
+> - `#include <butil/logging.h>` — [[sources/en_streaming_log|en_streaming_log]]
+> - `Streaming log is the best choice for printing complex objects or template objects.` — [[sources/en_streaming_log|en_streaming_log]]

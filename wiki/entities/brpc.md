@@ -29,6 +29,10 @@ sources:
   - "[[brpc/io.md]]"
   - "[[brpc/iobuf.md]]"
   - "[[brpc/http_service.md]]"
+  - "[[brpc/http_client.md]]"
+  - "[[brpc/getting_started.md]]"
+  - "[[brpc/flatmap.md]]"
+  - "[[brpc/en_streaming_log.md]]"
 tags:
   - "product"
 aliases:
@@ -45,71 +49,34 @@ aliases:
   - "Apache brpc"
 ---
 
+## Description
+brpc是Apache开源的工业级RPC框架项目，代码仓库托管在GitHub上（apache/brpc），由百度发起并开源，提供了高性能网络通信与基础库实现，包含butil等多个子模块。其核心包含内存管理（默认使用jemalloc以提升多线程内存分配性能）、IO模型（基于EventDispatcher等待fd事件，通过Socket/SocketId机制管理连接生命周期，Socket类似shared_ptr而SocketId类似weak_ptr但支持SetFailed确保优雅退出）、数据传输（butil::IOBuf作为非连续零拷贝缓冲）、HTTP/H2服务（服务端通过Controller暴露header和body，支持URL路由、参数处理、压缩、HTTPS等特性）、HTTP/H2客户端（通过brpc::Channel访问，需指定PROTOCOL_HTTP或PROTOCOL_H2协议）、服务发现与负载均衡（Naming Service）、JSON-protobuf双向转化（json2pb，支持pb 2.x和3.x）、流式RPC（streaming_rpc）、Redis客户端、RDMA支持、熔断机制（circuit breaker）、备用请求（backup request）以及内置服务（builtin service）等核心模块。brpc Server基于bthread构建，支持多种并发模型和协议，鼓励静态链接依赖以便部署机器无需重复安装。butil作为brpc的基础工具库，包含FlatMap等高性能容器组件和streaming_log等日志工具——其中streaming_log是brpc的流式日志机制，被广泛应用于brpc服务端和客户端的日志输出场景。FlatMap定位为"可能是最快的哈希表，以空间为代价换取速度"，是brpc基础库的重要组成部分。streaming_log与bthread协程深度结合，brpc默认通过streaming_log将高频日志分散到各bthread中并以noflush缓冲，在RPC结束时统一刷新，且其fatal日志默认不会像glog那样直接触发coredump，除非显式开启--crash_on_fatal_log gflag。
+
 ## Related Entities
-- [[entities/json2pb]]
-- [[entities/rapidjson]]
-- [[entities/protocol-buffers]]
-- [[entities/eventdispatcher|EventDispatcher]]
-- [[entities/inputmessenger|InputMessenger]]
-- [[entities/socket|Socket]]
-- [[entities/iobuf|butil::IOBuf]]
-- [[entities/nginx|nginx]]
-- [[entities/node.js-http-parser|node.js http parser]]
+- [[entities/flatmap|flatmap]] — butil 的高性能容器组件，以空间换速度
+- [[entities/smalltable|smalltable]] — 百度哈希表系列
+- [[entities/cowhashmap|cowhashmap]] — 百度 smalltable 系列的 COW 实现
+- [[entities/alignhashmap|alignhashmap]] — 百度闭链哈希表
+- [[entities/stdmap|stdmap]] — C++ 标准 map，用作 FlatMap 性能对比参照
+- [[entities/homebrew|homebrew]] — macOS 上构建 brpc 的包管理工具
+- [[entities/examplehttp_c++|examplehttp_c++]] — brpc HTTP 客户端示例
+- [[entities/searchrequest|searchrequest]] — protobuf SearchRequest 消息示例
 
 ## Related Concepts
-- [[concepts/tcmalloc]]
-- [[concepts/jemalloc]]
-- [[concepts/load-balancer|负载均衡]]
-- [[concepts/naming-service|命名服务]]
-- [[concepts/health-check|健康检查]]
-- [[concepts/doubly-buffered-data|DoublyBufferedData]]
-- [[concepts/bthread|bthread]]
-- [[concepts/json-protobuf-conversion|JSON-protobuf双向转化]]
-- [[concepts/http-json-access|HTTP + JSON 访问 protobuf 服务]]
-- [[concepts/protobuf-version-compat|protobuf 2.x/3.x 兼容性]]
-- [[concepts/json-protobuf-conversion-rules|JSON-protobuf转换规则]]
-- [[concepts/repeated-field-json-encoding|repeated字段JSON编码]]
-- [[concepts/json-map-encoding|JSON map编码]]
-- [[concepts/unknown-fields-handling|Unknown fields处理]]
-- [[concepts/non-blocking-io|Non-blocking IO]]
-- [[concepts/wait-free-mpsc|Wait-free MPSC 链表]]
-- [[concepts/edge-triggered|Edge triggered 模式]]
-- [[concepts/bthread-work-stealing|bthread work stealing]]
-- [[concepts/socketid|SocketId]]
-- [[concepts/zero-copy-buffer|零拷贝缓冲]]
-- [[concepts/iobuf-builder|IOBufBuilder]]
-- [[concepts/http-h2-service|HTTP/H2服务]]
-- [[concepts/restful-url-mapping|Restful URL映射]]
-- [[concepts/protobuf-service-definition|protobuf服务定义]]
-- [[concepts/progressive-attachment|ProgressiveAttachment]]
+- [[concepts/iobuf|butil::IOBuf]] — 非连续零拷贝缓冲
+- [[concepts/json2pb|json2pb]] — JSON 与 protobuf 双向转化
+- [[concepts/load_balancing|brpc Naming Service 与负载均衡]] — 服务发现与流量调度
+- [[concepts/memory_management|brpc 内存管理]] — ResourcePool 与 ObjectPool
+- [[concepts/streaming_rpc|流式 RPC]] — Streaming RPC 概念
+- [[concepts/noflush]] — streaming_log 的 noflush 缓冲策略，日志先缓冲至 RPC 结束统一刷新
+- [[concepts/bthread]] — brpc 协程模型，streaming_log 将高频日志分散到各 bthread
 
 ## Mentions in Source
 
-> **Source: json2pb**
-> - brpc支持json和protobuf间的**双向**转化，实现于[json2pb](https://github.com/apache/brpc/tree/master/src/json2pb/)，json解析使用[rapidjson](https://github.com/miloyip/rapidjson)。
-> - 此功能对pb2.x和3.x均有效。
-> - by design, 通过HTTP + json访问protobuf服务是对外服务的常见方式，故转化必须精准，转化规则列举如下。
+> **Source: [[sources/flatmap|flatmap]]**
+> - "FlatMap - Maybe the fastest hashmap, with tradeoff of space" (FlatMap — 可能是最快的哈希表，以空间为代价换取速度)
+> - "butil/containers/flat_map.h"（位于 [src/butil/containers/flat_map.h](https://github.com/apache/brpc/blob/master/src/butil/containers/flat_map.h)）
 
-> **Source: load_balancing**
-> - Naming Service提供了服务的发现和负载均衡功能。
-
-> **Source: memory_management**
-> - brpc使用jemalloc作为默认内存分配器以提升多线程场景下的内存分配性能。
-
-> **Source: server**
-> - brpc Server基于bthread构建，支持多种并发模型和协议。
-
-> **Source: io**
-> - brpc使用一个或多个EventDispatcher(简称为EDISP)等待任一fd发生事件。
-> - 可以看出，Socket类似shared_ptr，SocketId类似weak_ptr，但Socket独有的SetFailed可以在需要时确保Socket不能被继续Address而最终引用计数归0，单纯使用shared_ptr/weak_ptr则无法保证这点，当一个server需要退出时，如果请求仍频繁的到来，对应Socket的引用计数可能迟迟无法清0而导致server无法退出。
-
-> **Source: iobuf**
-> - brpc使用butil::IOBuf作为一些协议中的附件或http body的数据结构，它是一种非连续零拷贝缓冲，在其他项目中得到了验证并有出色的性能。
-> - 如果你之前使用Kylin中的BufHandle，你将更能感受到IOBuf的便利性：前者几乎没有实现完整，直接暴露了内部结构，用户得小心翼翼地处理引用计数，极易出错。
-
-> **Source: http_service**
-> - 这里指我们通常说的http/h2服务，而不是可通过http/h2访问的pb服务。
-> - brpc把HTTP/2协议统称为"h2"，不论是否加密。
-> - brpc中http和h2的编程接口基本没有区别。除非特殊说明，所有提到的http特性都同时对h2有效。
-> - brpc 服务端通过 Controller 对象将 HTTP 请求和响应的 header、body 暴露给业务代码。
-> - 本文档专门介绍 brpc 中的 HTTP/H2 服务特性，包括 URL 路由、参数处理、压缩、HTTPS、性能优化以及持续发送等高级功能。
+> **Source: [[sources/en_streaming_log|en_streaming_log]]**
+> - "you can push lots of logs from the server's bthreads without actually print them (using noflush), and flush the whole log at the end of RPC."
+> - "since most fatal log inside baidu is not fatal actually, it won't trigger coredump directly as glog, unless you turn on -crash_on_fatal_log"

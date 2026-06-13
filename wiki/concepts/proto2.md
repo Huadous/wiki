@@ -11,6 +11,7 @@ sources:
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
 tags:
   - "standard"
 aliases:
@@ -41,6 +42,7 @@ aliases:
 - [[concepts/packed|packed]]
 - [[concepts/required|required]]
 - [[concepts/explicit-presence-discipline|Explicit presence discipline]]
+- [[concepts/wire-format-compatibility|Wire Format Compatibility]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -48,6 +50,7 @@ aliases:
 - [[entities/protoc|protoc]]
 - [[entities/prototiller|prototiller]]
 - [[entities/c++|C++]]
+- [[entities/protobuf-team|Protobuf team]]
 
 ## Mentions in Source
 
@@ -67,3 +70,8 @@ aliases:
 > **Source: [[sources/editions|editions]]**
 > - "If no edition syntax is specified, the protocol buffer compiler will assume you are using proto2."
 > - "Proto2 required fields that have been migrated to editions will also use the field_presence feature, but set to LEGACY_REQUIRED"
+
+> **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
+> - "The first edition (colloquially known as "Edition Zero") will use features to unify proto2 and proto3 (Edition Zero Features)."
+> - "There will be a large period of time during which `protoc` is able to consume `proto3`, `proto2`, and editions files."
+> - "The protobuf team will provide a tool that upgrades `proto2` and `proto3` files to edition zero in a fully compatible way."

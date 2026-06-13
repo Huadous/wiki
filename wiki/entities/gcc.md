@@ -1,39 +1,39 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
-tags: [product]
+  - "[[]]"
+  - "[[brpc/getting_started.md]]"
+tags:
+  - "product"
 aliases:
   - "GNU Compiler Collection"
   - "GNU编译器套件"
 ---
 
-
-# GCC
-
-## 基本信息
-- **Type:** product
-- **Source:** [[sources/en_getting_started|en_getting_started]]
-
-## 描述
-
-GCC（GNU Compiler Collection）是GNU项目开发的编译器套件，支持多种编程语言，是[[entities/brpc|brpc]]构建所依赖的核心编译器。brpc支持GCC 4.8到11.2版本，并推荐使用8.2以上版本以获取更好的兼容性和性能。在构建brpc时，GCC的版本选择直接影响编译过程，例如在GCC 4+中需要通过添加特定编译选项来解决errno问题。brpc默认启用C++11标准，从而减少了Boost依赖，并针对GCC 7中的过度对齐问题做了临时性规避。GCC与[[entities/Clang|Clang]]等其他编译器共存于brpc构建系统中，用户可通过编译选项在它们之间切换。
-
-## 相关实体
+## Related Entities
 
 - [[entities/brpc|brpc]]
 - [[entities/Clang|Clang]]
 - [[entities/protobuf|protobuf]]
 - [[entities/cmake|cmake]]
+- [[entities/tcmalloc|tcmalloc]]
 
-## 相关概念
+## Related Concepts
 
 - [[concepts/静态链接|静态链接]]
+- [[concepts/c++11|c++11]]
 
-## 来源提及
+## Mentions in Source
 
-- "Prefer GCC 8.2+" — [[sources/en_getting_started|en_getting_started]]
-- "GCC: 4.8-11.2" — [[sources/en_getting_started|en_getting_started]]
-- "Adding -D__const__=__unused__ to cxxflags in your makefiles is a must to avoid errno issue in gcc4+." — [[sources/en_getting_started|en_getting_started]]
-- "The over-aligned issues in GCC7 is suppressed temporarily now." — [[sources/en_getting_started|en_getting_started]]
+> **Source: [[sources/en_getting_started|en_getting_started]]**
+> - "Prefer GCC 8.2+"
+> - "GCC: 4.8-11.2"
+> - "Adding -D__const__=__unused__ to cxxflags in your makefiles is a must to avoid errno issue in gcc4+."
+> - "The over-aligned issues in GCC7 is suppressed temporarily now."
+
+> **Source: [[sources/getting_started|getting_started]]**
+> - "推荐 8.2 及以上版本。"
+> - "默认启用 c++11，以去除对 boost 的依赖（比如 atomic）。"
+> - "用gcc4.8.2编译然后链接更早版本GCC编译的tcmalloc，可能会让程序中main()函数之前挂掉或者死锁"

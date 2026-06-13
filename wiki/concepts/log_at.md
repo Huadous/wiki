@@ -2,39 +2,35 @@
 type: concept
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/streaming_log|streaming_log]]"]
-tags: [term]
+sources:
+  - "[[sources/streaming_log|streaming_log]]"
+  - "[[brpc/en_streaming_log.md]]"
+tags:
+  - "term"
 aliases:
   - "LOG_AT宏"
 ---
 
+## Description
+LOG_AT 接收严重级别以及文件、行列号作为运行时参数，其典型签名形式为 `LOG_AT(severity, file, line) << message`，例如 `LOG_AT(FATAL, "specified_file.cc", 12345) << "file/line is specified"`。这种设计使得日志中的 `file:line` 元数据不再依赖编译器自动展开，而是由调用方主动控制，因此可以构造出位置信息可预测的日志条目。在测试实践中，LOG_AT 常与 [[entities/stringsink|StringSink]] 配合：测试代码使用 StringSink 捕获日志内容，再通过 `find("specified_file.cc:12345")` 之类的方式断言日志是否携带了指定的来源信息，例如测试中常见的 `ASSERT_NE(std::string::npos, log_str.find("specified_file.cc:12345"))`。与普通 LOG 宏相比，LOG_AT 更偏向测试与调试用途，能够避免因源码修改造成行号漂移而使测试用例变得脆弱，同时也便于人为指定统一的日志来源用于多线程、异步场景的输出定位或文档示例中的异常位置模拟。
 
-# LOG_AT
-
-## 定义
-LOG_AT 是 [[concepts/streaming_log|streaming_log]] 提供的一个宏变种，允许用户显式指定日志来源的文件名和行号，而不是使用宏自动展开处的实际位置。其典型用法为 `LOG_AT(FATAL, "specified_file.cc", 12345) << "file/line is specified"`。
-
-## 关键特征
-- 显式控制日志中的文件名和行号元数据，覆盖编译器自动展开的 `__FILE__` / `__LINE__` 默认行为
-- 接口形式为 `LOG_AT(severity, file, line) << message`，其中 severity 通常为日志严重级别（如 FATAL）
-- 常与 [[entities/stringsink|StringSink]] 配合使用，使测试可以捕获并断言日志内容
-- 适用于需要精确复现或伪造日志来源位置的场景
-- 与普通 LOG 宏相比，更偏向测试与调试用途
-
-## 应用
-- 单元测试中验证日志输出是否包含预期的 `file:line` 文本，例如通过 `find("specified_file.cc:12345")` 进行断言
-- 测试日志格式化逻辑时，固定文件号与行号以避免因源码改动导致测试用例脆弱
-- 调试多线程或异步场景时，人为指定统一的日志来源便于在输出中定位特定代码路径
-- 模拟异常代码位置的日志输出，用于文档示例或问题复现
-
-## 相关概念
+## Related Concepts
 - [[concepts/streaming_log|streaming_log]]
+- [[concepts/log_if|LOG_IF]]
+- [[concepts/vlog|VLOG]]
 
-## 相关实体
+## Related Entities
 - [[entities/stringsink|StringSink]]
 - [[entities/logsink|LogSink]]
 
-## 来源提及
-- `LOG_AT(FATAL, "specified_file.cc", 12345) << "file/line is specified";` — [[sources/streaming_log|streaming_log]]
-- `// the file:line part should be using the argument given by us.
-    ASSERT_NE(std::string::npos, log_str.find("specified_file.cc:12345"));` — [[sources/streaming_log|streaming_log]]
+## Mentions in Source
+
+> **Source: [[sources/streaming_log|streaming_log]]**
+> - `LOG_AT(FATAL, "specified_file.cc", 12345) << "file/line is specified";`
+> - `// the file:line part should be using the argument given by us.`
+> - `ASSERT_NE(std::string::npos, log_str.find("specified_file.cc:12345"));`
+
+> **Source: [[sources/en_streaming_log|en_streaming_log]]**
+> - `LOG_AT(FATAL, "specified_file.cc", 12345) << "file/line is specified";`
+> - `// the file:line part should be using the argument given by us.`
+> - `ASSERT_NE(std::string::npos, log_str.find("specified_file.cc:12345"));`

@@ -10,6 +10,9 @@ sources:
   - "[[protobuf/proto3.md]]"
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-stricter-schemas-with-editions.md]]"
+  - "[[protobuf/editions-README.md]]"
+  - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
 tags:
   - "standard"
 aliases:
@@ -51,6 +54,13 @@ aliases:
 - [[concepts/features-enum_type|features.enum_type]]
 - [[concepts/field-presence|Field Presence]]
 - [[concepts/message-type|Message Type]]
+- [[concepts/reserved-keywords|Reserved keywords]]
+- [[concepts/feature-gating|Feature gating]]
+- [[concepts/stricter-schemas-with-editions|Stricter Schemas with Editions]]
+- [[concepts/wire-format-compatibility|Wire Format Compatibility]]
+- [[concepts/semantic-patch|Semantic Patch]]
+- [[concepts/schema-producer|Schema Producer]]
+- [[concepts/schema-consumer|Schema Consumer]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -59,6 +69,7 @@ aliases:
 - [[entities/google|google]]
 - [[entities/prototiller|prototiller]]
 - [[entities/rust|rust]]
+- [[entities/bazel|protobuf team]]
 
 ## Mentions in Source
 
@@ -82,4 +93,24 @@ aliases:
 > - "edition syntax for proto2/proto3) must be the first non-empty, non-comment line of the file."
 
 > **来源: editions**
+> - "No directly relevant information"
+
+> **Source: editions-stricter-schemas-with-editions**
+> - "This document describes several such corners in the language, and how we might use Editions to fix them (spoiler: we'll add a feature for each one and then ratchet the features)."
+> - "From time to time we may introduce new keywords. The best procedure for doing so is to add a `feature.xxx_is_a_keyword` feature, start it out as true, and then switch it to false in an edition, which would cause it to be treated as a keyword for the purposes of this check."
+
+> **Source: editions-stricter-schemas-with-editions**
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-readme|editions-readme]]**
+> - "This directory contains historical design documents that describe plans for implementing Protobuf Editions."
+> - "For an up-to-date overview of this feature of Protocol Buffers, see [Protobuf Editions Overview](https://protobuf.dev/editions/overview/)."
+> - "These are purely for historical value and should not be treated as documentation of the current state."
+
+> **Source: editions-README**
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
+> - "The Protobuf Editions project uses \"editions\" to allow Protobuf to safely evolve over time."
+> - "This is primarily accomplished through \"features\"."
 > - "No directly relevant information"

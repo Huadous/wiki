@@ -7,6 +7,7 @@ sources:
   - "[[sources/editions-what-are-protobuf-editions]]"
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
 tags:
   - "standard"
 aliases:
@@ -25,6 +26,7 @@ aliases:
 
 ## Related Concepts
 - [[concepts/edition-2023|Edition 2023]]
+- [[concepts/edition-2024|Edition 2024]]
 - [[concepts/edition-zero|Edition Zero]]
 - [[concepts/proto2|proto2]]
 - [[concepts/proto3|proto3]]
@@ -37,13 +39,16 @@ aliases:
 - [[concepts/open-enum|Open Enum]]
 - [[concepts/field-presence|Field Presence]]
 - [[concepts/.proto-file|.proto file]]
+- [[concepts/wire-format-compatibility|Wire Format Compatibility]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
 - [[entities/protoc|protoc]]
 - [[entities/protobuf-team|protobuf-team]]
+- [[entities/protobuf-editions|Protobuf Editions]]
 
 ## Mentions in Source
+
 > **Source: [[sources/features|features]]**
 > - "EXPORT_ALL: This is the default prior to Edition 2024."
 > - "Edition 2024 defaults to STYLE2024, so an override is needed to keep the non-conformant field name:"
@@ -57,9 +62,11 @@ aliases:
 > - "Edition Zero is designed in such a way that we can mechanically migrate an arbitrary .proto file from either proto2 or proto3 with no behavioral changes."
 > - "Edition Zero should be viewed as the 'completion' of the union of proto2 and proto3"
 
-> **Source: [[sources/features|features]]**
-> - "No directly relevant information"
-
 > **Source: [[sources/editions|editions]]**
 > - "It covers edition 2023 edition 2024 of the protocol buffers language."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-protobuf-editions-for-schema-producers|editions-protobuf-editions-for-schema-producers]]**
+> - "The first edition (colloquially known as \"Edition Zero\") will use features to unify proto2 and proto3"
+> - "In order to unify proto2 and proto3, \"Edition Zero\" is taking an opinionated stance on which choices are good and bad, by choosing \"good\" defaults and requiring explicit requests for the \"bad\" semantics"
 > - "No directly relevant information"

@@ -1,36 +1,33 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/en_getting_started]]"]
-tags: [product]
+updated: 2026-06-13
+sources:
+  - "[[sources/en_getting_started]]"
+  - "[[brpc/getting_started.md]]"
+tags:
+  - "product"
 aliases:
   - "trackme-server"
   - "brpc trackme server"
 ---
 
+## Related Entities
 
-# trackme_server
+- [[entities/brpc|brpc]] — trackme_server 所跟踪和监控的 RPC 框架，trackme_server 程序随 brpc 项目发布
 
-## 基本信息
-- Type: product
-- Source: [[sources/en_getting_started|en_getting_started]]
+## Related Concepts
 
-## 描述
+- [[concepts/实例追踪|实例追踪]] — trackme_server 所实现的核心功能目标
+- [[concepts/rpcz|rpcz]] — 与实例追踪密切相关的 brpc 跟踪/分析能力
 
-trackme_server是[[entities/brpc|brpc]]框架提供的一个监控与跟踪工具程序，专为管理分布式brpc集群而设计。用户只需在集群中的某个位置启动trackme_server，并在需要被跟踪的brpc实例中指定`-trackme_server=SERVER`启动参数，该工具便会自动开始工作。trackme_server会定期接收来自各个brpc实例的心跳信号（ping），并在接收到心跳时记录日志。运维人员可以通过汇总日志中记录的实例网络地址，进一步调用各实例的内置服务来获取更详细的运行状态信息。该工具对于大规模分布式brpc集群的运维和问题排查非常有价值。
+## Mentions in Source
 
-## 相关实体
+> **Source: [[sources/en_getting_started|en_getting_started]]**
+> - "We provide a program to help you to track and monitor all brpc instances."
+> - "Just run trackme_server somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER."
+> - "The trackme_server will receive pings from instances periodically and print logs when it does."
 
-- [[entities/brpc|brpc]] — trackme_server所跟踪和监控的RPC框架
-- [[entities/config_brpc-sh|config_brpc.sh]] — brpc配置脚本，可能用于设置trackme_server参数
-
-## 相关概念
-
-（暂无）
-
-## 来源提及
-
-- "We provide a program to help you to track and monitor all brpc instances." — [[sources/en_getting_started|en_getting_started]]
-- "Just run trackme_server somewhere and launch need-to-be-tracked instances with -trackme_server=SERVER." — [[sources/en_getting_started|en_getting_started]]
-- "The trackme_server will receive pings from instances periodically and print logs when it does." — [[sources/en_getting_started|en_getting_started]]
+> **Source: [[sources/getting_started|getting_started]]**
+> - "我们提供了一个程序去帮助你追踪和监控所有brpc实例。 只需要在某处运行 [trackme_server](https://github.com/apache/brpc/tree/master/tools/trackme_server/) 然后再带着 -trackme_server=SERVER参数启动需要被追踪的实例。"
+> - "trackme_server将从实例周期性地收到ping消息然后打印日志。"

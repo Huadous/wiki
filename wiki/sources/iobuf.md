@@ -4,6 +4,7 @@ created: 2026-06-13
 updated: 2026-06-13
 sources:
   - "[[brpc/iobuf.md]]"
+  - "[[brpc/http_client.md]]"
 tags:
   - "零拷贝缓冲"
   - "IOBufBuilder"
@@ -16,12 +17,12 @@ aliases:
   - "IOBuf 使用指南"
 ---
 
-## 来源
-- Original file: [[brpc/iobuf.md]]
-- Ingested: 2026-06-13
-
 ## 补充来源
 - Original file: iobuf
+- Ingested: 2026-06-13
+- 说明：未提供与本页直接相关的新信息。
+
+- Original file: http_client
 - Ingested: 2026-06-13
 - 说明：未提供与本页直接相关的新信息。
 

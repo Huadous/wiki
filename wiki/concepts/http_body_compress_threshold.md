@@ -17,12 +17,11 @@ aliases:
   - "http_body_compress_threshold"
 ---
 
-## Description
-`http_body_compress_threshold` 是 brpc HTTP 服务中的一个配置参数，用于控制 HTTP 响应 body 的 gzip 压缩行为。当响应 body 的字节数小于该阈值时（默认 512 字节），brpc 选择不对 body 进行压缩处理。该参数定义在 `src/brpc/policy/http_rpc_protocol.cpp` 中。其设计依据是 gzip 并非一个非常快速的压缩算法——当 body 较小时，压缩操作本身增加的延时可能反而超过网络传输所节省的时间，因此对小尺寸 body 跳过压缩是一种合理权衡。该参数与 `Controller::set_response_compress_type(brpc::COMPRESS_TYPE_GZIP)` 配合使用，并需要客户端请求中携带 `Accept-encoding: gzip` 头才会真正触发压缩流程。
-
 ## Related Concepts
 - [[concepts/gzip-compression|Gzip 压缩]]
 - [[concepts/http-verbose-flag|http_verbose flag]]
+- [[concepts/accept-encoding-header|Accept-encoding header]]
+- [[concepts/http-headers|HTTP headers]]
 - Gzip compression (in brpc)
 
 ## Related Entities

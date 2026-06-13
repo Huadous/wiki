@@ -8,42 +8,13 @@ sources:
   - "[[protobuf/field_presence.md]]"
   - "[[protobuf/features.md]]"
   - "[[protobuf/editions.md]]"
+  - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
 tags:
   - "document"
 aliases:
   - "Protocol Buffers Language Guide (proto3)"
   - "proto3 语言指南"
 ---
-
-## 关键概念
-- [[concepts/proto3|proto3]]
-- [[concepts/proto2|proto2]]
-- [[concepts/message-type|Message Type]]
-- [[concepts/field-number|Field Number]]
-- [[concepts/field-number-encoding|Field Number Encoding]]
-- [[concepts/field-cardinality|Field Cardinality]]
-- [[concepts/field-presence|Field Presence]]
-- [[concepts/no-presence-discipline|No presence discipline]]
-- [[concepts/explicit-presence-discipline|Explicit presence discipline]]
-- [[concepts/wire-format|Wire Format]]
-- [[concepts/packed-encoding|packed encoding]]
-- [[concepts/reserved-field-numbers|Reserved Field Numbers]]
-- [[concepts/reserved-field-names|Reserved Field Names]]
-- [[concepts/maps|Maps]]
-- [[concepts/well-formed-messages|Well-formed Messages]]
-- [[concepts/last-one-wins|Last One Wins]]
-- [[concepts/deleting-fields|Deleting Fields]]
-- [[concepts/protobuf-editions|Protobuf Editions]]
-- [[concepts/json-encoding|JSON encoding]]
-- [[concepts/textformat|TextFormat]]
-- [[concepts/textproto|TextProto]]
-- [[concepts/proto3-optional-fields|proto3 optional fields]]
-- [[concepts/label-optional|LABEL_OPTIONAL]]
-- [[concepts/edition-2023|Edition 2023]]
-- [[concepts/edition-2024|Edition 2024]]
-- [[concepts/features-enum-type|features.enum_type]]
-- [[concepts/features-field-presence|features.field_presence]]
-- [[concepts/features-enforce-naming-style|features.enforce_naming_style]]
 
 ## 要点
 - [[concepts/proto3|proto3]] 是 [[entities/protocol-buffers|Protocol Buffers]] 语言的第三个主要版本,发布于 2016 年。
@@ -69,3 +40,8 @@ aliases:
 - [[concepts/proto3|proto3]] 在命名风格方面默认采用 STYLE_LEGACY。
 - 需要注意的是,[[concepts/features-enum-type|features.enum_type]] 这一 feature 对 [[concepts/proto3|proto3]] 文件不产生影响。
 - [[concepts/proto3|proto3]] 的语言指南是一个独立的文档,但 editions 指南对其向 [[concepts/protobuf-editions|Protobuf Editions]] 迁移时的行为做了相应说明。
+- 在 [[concepts/edition-zero|Edition Zero]] 推出之前,[[concepts/proto3|proto3]] 与 [[concepts/proto2|proto2]] 并存使用。
+- [[concepts/edition-zero|Edition Zero]] 通过 [[concepts/features-enum-type|features]] 机制把 [[concepts/proto2|proto2]] 与 [[concepts/proto3|proto3]] 的差异统一到一组良定义的默认值上,因此 [[concepts/proto3|proto3]] 在 [[concepts/edition-zero|Edition Zero]] 的统一工作中扮演重要角色。
+- 在过渡期内,[[entities/protoc|protoc]] 必须能够同时解析 [[concepts/proto3|proto3]]、[[concepts/proto2|proto2]] 和 editions 文件。
+- [[entities/protobuf-team|Protobuf 团队]]将提供一个工具,能够以完全兼容的方式将 [[concepts/proto2|proto2]] 和 [[concepts/proto3|proto3]] 文件升级到 [[concepts/edition-zero|Edition Zero]],从而帮助 schema producers 完成迁移。
+- 对于新发布的 `.proto` 文件,schema producers 应直接使用 [[concepts/edition-zero|Edition Zero]] 的默认值,而非继续沿用 [[concepts/proto3|proto3]] 语法。
