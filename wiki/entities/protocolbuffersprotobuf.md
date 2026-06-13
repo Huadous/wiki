@@ -19,6 +19,8 @@ sources:
   - "[[brpc/baidu_std.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
+  - "[[protobuf/editions-edition-zero-features.md]]"
+  - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
 tags:
   - "project"
 aliases:
@@ -30,37 +32,6 @@ aliases:
   - "Protocol Buffers"
   - "Google Protocol Buffers"
 ---
-
-## Related Entities
-- [[entities/edition-zero|Edition Zero]]
-- [[entities/mkruskal-google|mkruskal-google]]
-- [[entities/protocolbuffers/protobuf|protocolbuffers/protobuf]]（Protobuf 开源项目的官方 GitHub 仓库，其 Issue #12525 被引用为 Edition Zero 提案中 DISALLOW 模式的使用案例示例）
-
-## Related Concepts
-- [[concepts/stricter-schemas-with-editions|Stricter Schemas with Editions]]
-- [[concepts/protobuf-editions|Protobuf Editions]]
-- [[concepts/identifier-naming-conventions|Identifier naming conventions]]
-- [[concepts/reserved-keywords|Reserved keywords]]
-- [[concepts/name-resolution-in-protobuf|Name resolution in Protobuf]]
-- [[concepts/field-number-reservation|Field number reservation]]
-- [[concepts/iobuf|IOBuf]]（通过 IOBufAsZeroCopyInputStream / IOBufAsZeroCopyOutputStream 与 protobuf 互操作）
-- [[concepts/iobufaszerocopyinputstream|IOBufAsZeroCopyInputStream]]（将 IOBuf 包装为零拷贝输入流以解析 protobuf 消息）
-- [[concepts/iobufaszerocopyoutputstream|IOBufAsZeroCopyOutputStream]]（将 IOBuf 包装为零拷贝输出流以序列化 protobuf 消息）
-- [[concepts/zero-copy-buffer|Zero-copy buffer]]（protobuf 与 IOBuf 集成时的关键性能特性）
-- [[concepts/minimum-required-edition|Minimum Required Edition]]（解决 Protobuf 新特性与旧运行时兼容性的机制）
-- [[concepts/descriptor.proto|descriptor.proto]]（Protobuf 核心描述格式的定义文件）
-- [[concepts/filedescriptorproto|FileDescriptorProto]]（描述符相关概念）
-- [[concepts/edition|Edition]]（Protobuf 版本演进的基本单位）
-- [[concepts/rpc|RPC]]（Protobuf 内置的 RPC Service 形式是 baidu_std 等协议定义通信的基础）
-- [[concepts/rpcmeta|RpcMeta]]（baidu_std 协议中的核心元数据结构，使用 Protobuf message 定义）
-- [[concepts/rpcrequestmeta|RpcRequestMeta]]（baidu_std 协议中的请求元数据，使用 Protobuf message 定义）
-- [[concepts/rpcresponsemeta|RpcResponseMeta]]（baidu_std 协议中的响应元数据，使用 Protobuf message 定义）
-- [[concepts/proto2|proto2]]（Protobuf 早期语法版本，对 JSON 映射采用尽力而为的校验策略）
-- [[concepts/proto3|proto3]]（Protobuf 当前主要语法版本，对 JSON 映射在解析时进行完全唯一性校验）
-- [[concepts/json_name-field-option|json_name field option]]（用于解决 JSON 字段名冲突的字段选项）
-- [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]（Edition Zero 提案要解决的核心问题）
-- [[concepts/disallow|DISALLOW]]（Edition Zero 提案中用于表示禁止某特征组合的模式，Issue #12525 作为其使用案例）
-- [[concepts/json_format-feature|json_format feature]]（与 Protobuf JSON 序列化能力相关的功能特性）
 
 ## Mentions in Source
 
@@ -95,4 +66,10 @@ aliases:
 > - "All proto messages can be serialized to JSON"（所有 proto 消息都可以被序列化为 JSON。）
 > - "https://github.com/protocolbuffers/protobuf/issues/12525"
 > - "Some projects generate proto descriptors at runtime and uses underscores to disambiguate field names."（一些项目在运行时生成 proto 描述符，并使用下划线来消歧字段名。）
+> - No directly relevant information
+
+> **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
+> - No directly relevant information
+
+> **Source: [[sources/editions-edition-zero-feature-enum-field-closedness|editions-edition-zero-feature-enum-field-closedness]]**
 > - No directly relevant information

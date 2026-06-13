@@ -9,6 +9,8 @@ sources:
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+  - "[[protobuf/editions-edition-naming.md]]"
 tags:
   - "product"
 aliases:
@@ -16,11 +18,15 @@ aliases:
   - "prototiller"
 ---
 
+## Description
+Prototiller 是一个 Protocol Buffers 生态系统中的命令行工具，用于在不同的 syntax 版本与 Editions 之间更新 proto schema 配置文件。尽管它目前尚未正式发布，但在多份 Protobuf Editions 设计文档中已被频繁引用，作为行为保持型迁移（behavior-preserving migration）的参考实现。其核心职责包括：将 proto2/proto3 syntax 迁移到对应的 Edition（如 2023、2024、Edition Zero），在迁移过程中处理已解析特性（resolved features）的默认值填充，以及配合别名（aliases）方案长期解决 group 字段的 delimited 编码问题。此外，Prototiller 还被证明能够正确实现将字符串形式的 Edition 名称解析为 Edition 枚举类型的逻辑，这为在解析器层面处理 Edition 枚举转换提供了可行性参考。
+
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]] — Prototiller 是 Protocol Buffers 生态系统中的工具
 - [[entities/protoc|protoc]] — 同为 Protocol Buffers 工具链中的命令行工具
 - [[entities/google|google]] — Protocol Buffers 的维护者和 Prototiller 的潜在发布方
 - [[entities/mkruskal-google|mkruskal-google]] — Legacy Syntax Editions 提案的相关人员/作者
+- [[entities/mcy|mcy]] — Edition Zero 枚举字段封闭性特性设计文档的相关人员/作者
 
 ## Related Concepts
 - [[concepts/google-protobuf-any|google-protobuf-any]] — 特性设置中可能使用到的消息类型
@@ -40,6 +46,12 @@ aliases:
 - Aliases — Prototiller 被视为该方案的潜在受益者，可用于通过 proto 语言本身指定旧行为以统一处理
 - Delimited encoding — Prototiller 与别名方案的结合被视为长期解决 group 字段 delimited 编码问题的理想途径
 - Group-like fields — Prototiller 配合别名方案长期解决的目标之一
+- Edition Zero Features — Prototiller 向 Edition Zero 迁移所涉及的特性集合
+- legacy_treat_enum_as_closed — Prototiller 在 Edition Zero 迁移中需条件性下发的特性标志
+- Enum Field Closedness — Prototiller 在迁移中需要特殊处理的枚举字段封闭性特性
+- Edition enum — Prototiller 已被验证可正确实现字符串 Edition 名称到 Edition 枚举类型的解析
+- Edition Naming — Prototiller 在该提案中被引用作为解析层实现可行性的证据
+- descriptor.proto — Edition 枚举定义所在的 proto 文件，与 Edition 名称解析相关
 
 ## Mentions in Source
 
@@ -65,3 +77,10 @@ aliases:
 > **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
 > - "we *expect* that people are only making decisions based on resolved features, and therefore that Prototiller transformations are behavior-preserving (despite changing the unresolved features)."
 > - "If people have easy access to unresolved features though, we can expect a lot of Hyrum's law issues slowing down these large-scale changes."
+
+> **Source: [[sources/editions-edition-zero-feature-enum-field-closedness|editions-edition-zero-feature-enum-field-closedness]]**
+> - "When migrating from syntax to edition zero, Prototiller will need to know all used languages to make the upgrade a trivial change (this is already the case for other edition upgrades)."
+> - "Additionally, we would like to make special dispensation in migration tooling for this field"
+
+> **Source: [[sources/editions-edition-naming|editions-edition-naming]]**
+> - "Might be a bit tricky to implement in the parser (but Prototiller does this just fine)"

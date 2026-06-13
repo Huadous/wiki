@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
+  - "[[protobuf/editions-edition-zero-converged-semantics.md]]"
 tags:
   - "standard"
 aliases:
@@ -41,11 +42,6 @@ aliases:
   - "Editions 2024"
 ---
 
-## Description
-Edition Zero 是 Protobuf 语言演进的关键里程碑，于 2022-07-22 获得批准，由 @mcy、@zhangskz 和 @mkruskal-google 共同撰写。其核心设计理念是引入一组特性标志（如 `field_presence`、`enum_type`、`repeated_field_encoding` 等）及其默认值，以细粒度地控制消息编码、字段存在性、枚举类型等行为，从而取代 proto2 和 proto3 中硬编码的语法行为。该版本被视为"无 `syntax` 的 Protobuf 新世界"的"第一版"，明确目标是通过应用适当的特性，将现有的 proto2/proto3 文件无变更地迁移到 editions，同时保留各语言运行时现有的非一致性行为以避免大变更（LSC）引入语义差异。
-
-Edition Zero 采取了"opinionated stance"——选择"好"的默认值作为统一基线，并要求显式声明才能启用"坏"的语义，这与 Edition 2023 引入的 `enforce_naming_style`、Edition 2024 引入的 `default_symbol_visibility` 和 `edition 2024 -> EXPORT_TOP_LEVEL` 默认行为等渐进式特性收紧密切相关。Edition Zero 还规划了 JSON 处理等行为的统一，但由于部分内部用例的限制，JSON 统一被推迟。该版本的发布需要在 ecosystem 中推广新的 editions 语法，尽管这一迁移"独特"地不改变任何行为，仅改变语法的书写方式，并且需要等 editions 2024 解决 group 迁移等遗留问题。
-
 ## Related Concepts
 - [[concepts/edition-2023|Edition 2023]]
 - [[concepts/edition-2024|Edition 2024]]
@@ -66,6 +62,9 @@ Edition Zero 采取了"opinionated stance"——选择"好"的默认值作为统
 - [[concepts/wire-format-compatibility|Wire Format Compatibility]]
 - [[concepts/json-format-feature|json_format feature]]
 - [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]
+- [[concepts/converged-semantics|Converged Semantics]]
+- [[concepts/edition-keyword|edition keyword]]
+- [[concepts/features-option|features option]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -123,3 +122,7 @@ Edition Zero 采取了"opinionated stance"——选择"好"的默认值作为统
 > **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
 > - "Feature flags, and their defaults, that we will introduce to define the converged semantics of Edition Zero."
 > - "*Edition Zero Features* defines the \"first edition\" of the brave new world of no-`syntax` Protobuf."
+
+> **Source: [[sources/editions-edition-zero-converged-semantics|editions-edition-zero-converged-semantics]]**
+> - "Edition Zero: Converged Semantics"
+> - "By opting into our first edition, customers are upgrading to what we've referred to in the past as \"converged semantics,\"

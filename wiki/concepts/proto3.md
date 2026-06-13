@@ -18,6 +18,7 @@ sources:
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
+  - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
 tags:
   - "standard"
 aliases:
@@ -53,6 +54,8 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 
 在 JSON 处理方面，根据 [[sources/editions-edition-zero-json-handling|editions-edition-zero-json-handling]] 的提案，proto3 默认会完全验证 JSON 映射的唯一性：protoc 会在解析时检测到任何 JSON 冲突并直接报错。可通过 `deprecated_legacy_json_field_conflicts` 选项禁用此严格检查，使其退化为尽力而为模式。该提案建议将 proto3 的这一默认行为迁移到 [[concepts/allow|ALLOW]] 状态，与 [[concepts/proto2|Proto2]] 的 JSON 处理行为保持一致。
 
+关于 proto3 枚举的开放性（open enum）语义，[[sources/editions-edition-zero-feature-enum-field-closedness|editions-edition-zero-feature-enum-field-closedness]] 进一步指出：定义在 proto3 文件中的枚举是开放的，可以具有未在枚举定义中显式列出的值；这种开放性在 proto3 枚举作为字段类型被 proto2 字段引用时，会导致各语言实现之间出现显著的行为差异。该文档还揭示了一个关键的反直觉细节：proto 编译器会拒绝在 proto3 消息中使用 proto2 枚举值类型的字段，原因是隐式存在性（implicit presence）约束不允许非零默认值 —— 团队曾对这一边界情形产生过误解，文档标题即以"我们误解了 proto3 枚举的一个关键边界情形"开篇。
+
 ## Related Concepts
 - [[concepts/proto2|Proto2]]
 - [[concepts/edition-2023|Edition 2023]]
@@ -84,6 +87,7 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 - [[concepts/naming-style|Naming style]]
 - [[concepts/symbol-visibility|Symbol visibility]]
 - [[concepts/enum-type|Enum type]]
+- [[concepts/open-enum|Open Enum]]
 - [[concepts/legacy-syntax-editions|Legacy Syntax Editions]]
 - [[concepts/feature-inference|Feature Inference]]
 - [[concepts/editions-feature-visibility|Editions Feature Visibility]]
@@ -91,6 +95,7 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 - [[concepts/legacy_best_effort|LEGACY_BEST_EFFORT]]
 - [[concepts/deprecated_legacy_json_field_conflicts|deprecated_legacy_json_field_conflicts]]
 - [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]
+- [[concepts/legacy_treat_enum_as_closed|legacy_treat_enum_as_closed]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -169,3 +174,7 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 > - "In proto3, `enum` values are open and the first `enum` value must be zero."
 > - "Proto3 has `defaulted` but not `required`."
 > - "In proto3, the `repeated_field_encoding` attribute defaults to `PACKED`."
+
+> **Source: [[sources/editions-edition-zero-feature-enum-field-closedness|editions-edition-zero-feature-enum-field-closedness]]**
+> - "syntax = "proto3";"
+> - "It turns out we misunderstood a critical corner-case of proto3 enums."

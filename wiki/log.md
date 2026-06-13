@@ -1029,3 +1029,27 @@
 
 **更新页面**：[[mkruskal-google]], [[protocolbuffersprotobuf]], [[edition-2024]], [[protoc]], [[edition-2023]], [[proto2]], [[proto3]]
 
+
+
+## [2026-06-13] ingest | Edition Zero Features
+
+**创建页面**：[[sources/editions-edition-zero-features.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[entities/google3.md]], [[entities/protobuf-dev.md]], [[concepts/proto2.md]], [[concepts/features-field_presence.md]], [[concepts/edition-2023.md]], [[concepts/proto3.md]], [[concepts/repeatedfieldencoding.md]], [[concepts/enum-type.md]], [[concepts/features-string_field_validation.md]], [[concepts/fieldpresence.md]], [[concepts/message_encoding-feature.md]], [[concepts/json_format-feature.md]], [[concepts/closed-enum.md]], [[concepts/open-enum.md]], [[concepts/packed-encoding.md]], [[concepts/extensions.md]], [[concepts/groups.md]], [[concepts/lsc.md]], [[concepts/no-presence-discipline.md]], [[concepts/required-field.md]], [[concepts/explicit-presence-discipline.md]], [[concepts/defaulted-fields.md]], [[concepts/optional-keyword.md]], [[concepts/required-keyword.md]], [[concepts/utf8_validation.md]], [[concepts/json_format-feature.md]], [[concepts/global-features.md]], [[concepts/hasbit.md]], [[concepts/wire-format.md]], [[concepts/unknown-fields.md]], [[concepts/typeresolver.md]], [[concepts/proto3_optional.md]], [[concepts/options-attributes.md]], [[concepts/edition-zero-converged-semantics.md]], [[concepts/custom-default-values.md]], [[concepts/required-allowlist.md]], [[concepts/legacy_best_effort.md]], [[concepts/length_prefixed.md]], [[concepts/parallel-arrays.md]], [[concepts/u+fffd-replacement-characters.md]], [[concepts/out-of-conformance-behavior.md]], [[concepts/features-as-custom-options.md]], [[concepts/repeatedfieldencoding.md]], [[concepts/no-syntax-protobuf.md]], [[concepts/delimited-message-encoding.md]], [[concepts/mixed-syntax-messages.md]]
+
+**更新页面**：[[edition-2024]], [[protoc]], [[protocolbuffersprotobuf]], [[google3]], [[edition-2023]], [[features-field_presence]], [[enum-type]], [[repeatedfieldencoding]], [[features-string_field_validation]], [[message_encoding-feature]], [[closed-enum]], [[open-enum]], [[packed-encoding]], [[extensions]], [[groups]], [[lsc]], [[explicit-presence-discipline]], [[no-presence-discipline]], [[required-field]], [[utf8_validation]], [[hasbit]], [[proto3_optional]], [[legacy_best_effort]]
+
+
+
+## [2026-06-13] ingest | Edition Zero Feature: Enum Field Closedness
+
+**创建页面**：[[sources/editions-edition-zero-feature-enum-field-closedness.md]], [[entities/@mcy.md]], [[entities/protoscope.md]], [[entities/prototiller.md]], [[concepts/edition-zero-feature-enum-field-closedness.md]], [[concepts/open-enum.md]], [[entities/protocol-buffers.md]], [[concepts/proto3-enum.md]], [[concepts/edition-zero-feature-enum-field-closedness.md]], [[concepts/unknown-fields.md]], [[concepts/fielddescriptor.md]], [[concepts/edition-zero-features.md]], [[concepts/proto2.md]], [[concepts/filedescriptor.md]], [[concepts/enumdescriptor.md]], [[concepts/proto3.md]], [[concepts/no-presence-discipline.md]], [[concepts/reflection.md]], [[concepts/conformance-testing.md]]
+
+**更新页面**：[[@mcy]], [[protoscope]], [[prototiller]], [[protocolbuffersprotobuf]], [[edition-zero-feature-enum-field-closedness]], [[open-enum]], [[editions-edition-zero-features]], [[fielddescriptor]], [[proto2]], [[proto3]], [[no-presence-discipline]], [[conformance-testing]], [[reflection]]
+
+
+
+## [2026-06-13] ingest | Edition Zero: Converged Semantics
+
+**创建页面**：[[sources/editions-edition-zero-converged-semantics.md]], [[entities/haberman.md]], [[entities/protobuf-team.md]], [[entities/@perezd.md]], [[entities/protoc.md]], [[concepts/edition-zero-converged-semantics.md]], [[concepts/features-option.md]], [[concepts/edition.md]], [[concepts/language-scoped-features.md]], [[concepts/semantic-features.md]], [[concepts/syntax-keyword-deprecation.md]], [[concepts/edition.md]], [[concepts/implied-behavior.md]], [[concepts/proto2proto3.md]], [[concepts/base-features.md]], [[concepts/feature-scope-hierarchy.md]], [[concepts/large-deployment-feature-management.md]]
+
+**更新页面**：[[protobuf-team]], [[haberman]], [[edition-2024]], [[protoc]], [[descriptor-proto]], [[language-scoped-features]], [[edition]]
+

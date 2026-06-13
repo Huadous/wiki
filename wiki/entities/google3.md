@@ -13,17 +13,19 @@ aliases:
   - "Google3 内部代码库"
 ---
 
-## Description
-google3 是 Google 内部的单一代码仓库（monorepo），容纳了 Google 大部分产品的源代码，在 Protobuf Editions 相关文档中被反复作为迁移执行场所和规模参考基准。在 [[sources/editions-group-migration-issues|editions-group-migration-issues]] 中，google3 的内部统计用于评估 [[concepts/edition-2023|Edition 2023]] 的迁移风险，超过 50% 的 proto 文件会产生 Java 生成代码，group 字段的处理变更因此对 Java 影响最大；而 Dart V1 行为变更仅影响极少数 proto 文件。在 [[sources/editions-edition-zero-features|editions-edition-zero-features]] 中，google3 的迁移规模更加具体：共有 385,236 处使用 `optional` 关键字需要删除，约 12,300 处显式启用 packed 字段，仅 200 处显式禁用。这些大规模数据直接驱动了 Edition Zero 的多项设计决策，例如选择 PACKED 作为 repeated_field_encoding 的默认行为。
-
 ## Related Entities
-No related entities
+- [[entities/protoc|protoc]]
+- [[entities/protocol-buffers|Protocol Buffers]]
 
 ## Related Concepts
 - [[concepts/edition-2023|Edition 2023]]
+- [[concepts/edition-zero|Edition Zero]]
 - [[concepts/group-fields|Group fields]]
 - [[concepts/delimited-encoding|Delimited encoding]]
-- [[concepts/edition-zero|Edition Zero]]
+- [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/packed-encoding|packed encoding]]
+- [[concepts/optional-keyword|optional keyword]]
+- [[concepts/legacy-required|LEGACY_REQUIRED]]
 
 ## Mentions in Source
 

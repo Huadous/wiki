@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-editions-feature-visibility.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
+  - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
 tags:
   - "document"
 aliases:
@@ -68,3 +69,9 @@ aliases:
 - 在 JSON 处理方面,[[concepts/proto3|proto3]] 默认完全验证 JSON 映射的唯一性:[[entities/protoc|protoc]] 会在解析时检测到任何 [[concepts/json-field-name-conflicts|JSON 冲突]]并直接报错。
 - 可通过 `deprecated_legacy_json_field_conflicts` 选项禁用 [[concepts/proto3|proto3]] 的这一严格检查,使其退化为尽力而为模式（即 [[concepts/legacy-best-effort|LEGACY_BEST_EFFORT]] 行为）。
 - 本次设计提案建议将 [[concepts/proto3|proto3]] 默认迁移到 `ALLOW` 状态,以调整其 JSON 字段名冲突的处理策略。
+- 定义在 [[concepts/proto3|proto3]] 文件中的枚举是开放的（[[concepts/open-enum|Open Enum]]）,意味着它们可以具有未在枚举定义中显式列出的值。
+- [[concepts/proto3|proto3]] 与 [[concepts/proto2|proto2]] 相比引入了多项变化,包括字段的隐式存在性（[[concepts/implicit-presence|implicit presence]]）以及开放枚举（[[concepts/open-enum|open enum]]）的概念。
+- [[concepts/proto3|proto3]] 中枚举的开放性是讨论的核心,因为这些枚举在 [[concepts/proto2|proto2]] 字段中使用时,其在各语言实现中的行为差异显著。
+- proto 编译器会拒绝在 [[concepts/proto3|proto3]] 消息中使用 [[concepts/proto2|proto2]] 枚举值类型的字段,原因是隐式存在性约束不允许非零默认值。
+- 关于 [[concepts/proto3|proto3]] 枚举开放性的官方行为定义为:"枚举的开放性应由枚举自身的定义决定"。
+- [[concepts/proto3|proto3]] 枚举的开放性是相关讨论中曾被误解的关键边界情况之一。

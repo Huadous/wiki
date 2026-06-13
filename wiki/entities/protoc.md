@@ -20,15 +20,13 @@ sources:
   - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
   - "[[protobuf/editions-edition-zero-json-handling.md]]"
   - "[[protobuf/editions-edition-zero-features.md]]"
+  - "[[protobuf/editions-edition-zero-converged-semantics.md]]"
 tags:
   - "product"
 aliases:
   - "Protocol Buffers compiler"
   - "protoc compiler"
 ---
-
-## Description
-protoc 是 Protocol Buffers 的官方编译器，负责将 `.proto` 文件解析为描述符（descriptor），并根据所选语言生成对应的数据访问类代码。运行 `protoc` 时，编译器会验证 `.proto` 文件的语法、生成所选语言的代码（包括字段的 getter/setter、序列化与反序列化方法），并在发现保留字段号被复用时产生编译错误。protoc 还需要解析特性选项（如 `features.field_presence`、`features.enum_type`、`features.message_encoding` 等），并根据这些选项驱动后续的代码生成行为。protoc 的前端承担了版本特性的语义解析与最低必需版本（Minimum Required Edition）的判定逻辑，而后端的语言代码生成器则负责最终产物。在 Edition Zero 阶段，protoc 中定义特性及其语义属于项目范围，但"完全修正各语言代码生成器以严格匹配这些语义"被明确列为范围外（out-of-scope）的工作，以保留各语言现有的不一致行为从而实现无损迁移。protoc 还能通过 `protoc --gc-features` 在 editions 模式下计算给定文件所需特性的最小集合，并支持将 `.proto` 文件与 semantic patch 一同作为输入进行编译。
 
 ## Related Entities
 - [[entities/google-inc|Google Inc.]]
@@ -44,6 +42,8 @@ protoc 是 Protocol Buffers 的官方编译器，负责将 `.proto` 文件解析
 - [[entities/descriptor.proto|descriptor.proto]]
 - [[entities/edition-zero|Edition Zero]]
 - [[entities/protocolbuffers/protobuf|protocolbuffers/protobuf]]
+- [[entities/protobuf-team|Protobuf Team]]
+- [[entities/descriptor.proto|descriptor.proto]]
 
 ## Related Concepts
 - [[concepts/protocol-buffers|Protocol Buffers]]
@@ -84,9 +84,13 @@ protoc 是 Protocol Buffers 的官方编译器，负责将 `.proto` 文件解析
 - [[concepts/legacy-best-effort|LEGACY_BEST_EFFORT]]
 - [[concepts/deprecated-legacy-json-field-conflicts|deprecated_legacy_json_field_conflicts]]
 - [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/converged-semantics|Converged Semantics]]
 - [[concepts/features-field-presence|features.field_presence]]
 - [[concepts/features-enum-type|features.enum_type]]
 - [[concepts/features-message-encoding|features.message_encoding]]
+- [[concepts/edition-keyword|edition keyword]]
+- [[concepts/features-option|features option]]
+- [[concepts/converged-semantics|Converged Semantics]]
 
 ## Mentions in Source
 
@@ -145,3 +149,8 @@ protoc 是 Protocol Buffers 的官方编译器，负责将 `.proto` 文件解析
 > **Source: [[sources/editions-edition-zero-features|editions-edition-zero-features]]**
 > - "This document defines the actual mechanics of the features (in the narrow sense of editions) we need to implement in protoc, as well as the chosen defaults."
 > - "defining features and their semantics is in scope for edition zero, but fixing code generators to perfectly match those semantics is explicitly out-of-scope."
+
+> **Source: [[sources/editions-edition-zero-converged-semantics|editions-edition-zero-converged-semantics]]**
+> - "The protobuf IDL is parsed and resolved in protoc, and we have only a single implementation of that parser."
+> - "Any change that can be resolved in the parser alone is relatively unintrusive (though there are build horizon issues since GCL parses protos in prod)."
+> - "the set of \"default\" features for the edition must be resolved in protoc itself and propagated explicitly into the descriptor."

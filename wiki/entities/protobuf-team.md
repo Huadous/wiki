@@ -6,6 +6,7 @@ sources:
   - "[[sources/editions-what-are-protobuf-editions]]"
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
+  - "[[protobuf/editions-edition-zero-converged-semantics.md]]"
 tags:
   - "organization"
 aliases:
@@ -18,6 +19,9 @@ aliases:
 - [[entities/protoc|protoc]]
 - [[entities/protobuf-runtime|protobuf-runtime]]
 - [[entities/protobuf-editions|Protobuf Editions]]
+- [[entities/perezd|@perezd]]
+- [[entities/haberman|@haberman]]
+- [[entities/descriptor-proto|descriptor.proto]]
 
 ## Related Concepts
 - [[concepts/features|Features]]
@@ -29,6 +33,10 @@ aliases:
 - [[concepts/schema-producer|Schema Producer]]
 - [[concepts/edition-proclamation|Edition Proclamation]]
 - [[concepts/total-ordering-of-editions|Total Ordering of Editions]]
+- [[concepts/converged-semantics|Converged Semantics]]
+- [[concepts/edition-keyword|edition keyword]]
+- [[concepts/features-option|features option]]
+- [[concepts/proto2-proto3|proto2/proto3]]
 
 ## Mentions in Source
 > **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**
@@ -44,3 +52,7 @@ aliases:
 - "Edition numbers are announced by protobuf-team, but not necessarily defined by us."
 - "protobuf-team does not define editions, it only proclaims them."
 - "We promise to proclaim an edition once per calendar year, even if first-party backends will not use it."
+
+> **Source: [[sources/editions-edition-zero-converged-semantics|editions-edition-zero-converged-semantics]]**
+- "The Protobuf Team has been exploring potential facilities for introducing breaking API and semantic changes."
+- "Doing this in lockstep with the introduction of editions provides the protobuf team with a few valuable outcomes:"

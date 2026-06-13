@@ -2,12 +2,57 @@
 type: source
 created: 2026-06-13
 updated: 2026-06-13
-source_file: "[[protobuf/editions-edition-zero-features.md]]"
-tags: [proto2 syntax, proto3 syntax, Protobuf Editions, features.field_presence, features.enum_type, features.repeated_field_encoding, features.string_field_validation, features.message_encoding, features.json_format, presence discipline, closed enum, open enum, packed encoding, extensions, groups, Large-Scale Change, EXPLICIT presence, IMPLICIT presence, LEGACY_REQUIRED, required keyword, optional keyword, defaulted fields, Features message, UTF-8 validation, protobuf JSON format, hasbit, Unknown field set, Wire types, proto3_optional, Field option attributes, TypeResolver, Custom default values, Required allowlist, Converged semantics, LEGACY_BEST_EFFORT, Parallel arrays, LENGTH_PREFIXED, U+FFFD replacement characters, Features as Custom Options, Out-of-conformance behavior, DELIMITED, EXPANDED encoding, no-syntax Protobuf, mixed syntax messages]
-aliases: ["Edition Zero Features", "editions-edition-zero-features"]
+sources:
+  - "[[protobuf/editions-edition-zero-feature-enum-field-closedness.md]]"
+tags:
+  - "proto2 syntax"
+  - "proto3 syntax"
+  - "Protobuf Editions"
+  - "features.field_presence"
+  - "features.enum_type"
+  - "features.repeated_field_encoding"
+  - "features.string_field_validation"
+  - "features.message_encoding"
+  - "features.json_format"
+  - "presence discipline"
+  - "closed enum"
+  - "open enum"
+  - "packed encoding"
+  - "extensions"
+  - "groups"
+  - "Large-Scale Change"
+  - "EXPLICIT presence"
+  - "IMPLICIT presence"
+  - "LEGACY_REQUIRED"
+  - "required keyword"
+  - "optional keyword"
+  - "defaulted fields"
+  - "Features message"
+  - "UTF-8 validation"
+  - "protobuf JSON format"
+  - "hasbit"
+  - "Unknown field set"
+  - "Wire types"
+  - "proto3_optional"
+  - "Field option attributes"
+  - "TypeResolver"
+  - "Custom default values"
+  - "Required allowlist"
+  - "Converged semantics"
+  - "LEGACY_BEST_EFFORT"
+  - "Parallel arrays"
+  - "LENGTH_PREFIXED"
+  - "U+FFFD replacement characters"
+  - "Features as Custom Options"
+  - "Out-of-conformance behavior"
+  - "DELIMITED"
+  - "EXPANDED encoding"
+  - "no-syntax Protobuf"
+  - "mixed syntax messages"
+aliases:
+  - "Edition Zero Features"
+  - "editions-edition-zero-features"
 ---
-
-# Edition Zero Features - Summary
 
 ## 来源
 - Original file: [[protobuf/editions-edition-zero-features.md]]
