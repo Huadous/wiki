@@ -653,3 +653,75 @@
 
 **更新页面**：[[protocol-buffers]], [[edition-2023]], [[google]], [[protoc]], [[carbon]], [[protobuf-team]], [[edition]], [[features]], [[feature-inheritance]], [[edition-2024]], [[protobuf-breaking-changes-policy]], [[proto2]], [[proto3]], [[feature-lifecycle]]
 
+
+
+## [2026-06-13] ingest | Streaming RPC
+
+**创建页面**：[[sources/streaming_rpc.md]], [[entities/brpc.md]], [[entities/examplestreaming_echo_c++.md]], [[concepts/streaming-rpc.md]], [[concepts/stream.md]], [[entities/iobuf.md]], [[concepts/head-of-line-blocking.md]], [[concepts/baidu_std-protocol.md]], [[concepts/流控.md]], [[concepts/streaminputhandler.md]], [[concepts/streamoptions.md]], [[concepts/streamid.md]], [[concepts/streamcreate.md]], [[concepts/streamaccept.md]], [[concepts/streamwrite.md]], [[concepts/streamclose.md]], [[concepts/streamwait.md]]
+
+**更新页面**：[[brpc]], [[brpccontroller]], [[streaming-rpc]], [[stream]], [[流控]], [[head-of-line-blocking]], [[baidu_std-protocol]], [[streamoptions]], [[streaminputhandler]]
+
+
+
+## [2026-06-13] ingest | Protocol Buffers 语言指南 (proto3)
+
+**创建页面**：[[sources/proto3.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[concepts/field-number.md]], [[concepts/message-type.md]], [[concepts/proto3.md]], [[concepts/field-cardinality.md]], [[concepts/features-field_presence.md]], [[concepts/packed-encoding.md]], [[concepts/reserved-field-names.md]], [[concepts/field-number.md]], [[concepts/wire-format.md]], [[concepts/well-formed-messages.md]], [[concepts/map-type.md]], [[concepts/edition-2023.md]], [[concepts/wire-format.md]], [[concepts/json-format.md]], [[concepts/deleting-fields.md]], [[concepts/text-format.md]], [[concepts/field-number-encoding.md]], [[concepts/text-format.md]]
+
+**更新页面**：[[protocol-buffers]], [[protoc]], [[proto-file]], [[proto3]], [[message-type]], [[field-number]], [[field-cardinality]], [[features-field_presence]], [[packed-encoding]], [[wire-format]], [[well-formed-messages]], [[edition-2023]], [[text-format]]
+
+
+
+## [2026-06-13] ingest | streaming_log - Print log to std::ostreams
+
+**创建页面**：[[sources/streaming_log.md]], [[entities/butil.md]], [[entities/streaming_log.md]], [[entities/brpc.md]], [[entities/logsink.md]], [[entities/glog.md]], [[entities/stringsink.md]], [[entities/addr2line.md]], [[concepts/plog宏.md]], [[concepts/流式日志.md]], [[concepts/log宏.md]], [[concepts/vlog.md]], [[concepts/dlog宏.md]], [[concepts/check宏.md]], [[concepts/thread-local缓冲.md]], [[concepts/noflush.md]], [[concepts/节流日志.md]], [[concepts/operator重载.md]], [[concepts/log_if.md]], [[concepts/chaining.md]], [[concepts/dcheck.md]], [[concepts/log_at.md]]
+
+**更新页面**：[[brpc]], [[bthread]], [[max_body_size]]
+
+
+
+## [2026-06-13] ingest | Protobuf Global Extension Registry
+
+**创建页面**：[[sources/options.md]], [[entities/nanopb.md]], [[entities/scalapb.md]], [[entities/protobuf-csharp-port.md]], [[entities/grpc-gateway.md]], [[entities/protobuf-net.md]], [[entities/wire.md]], [[entities/buf.md]], [[entities/confluent-schema-registry.md]], [[entities/perfetto.md]], [[entities/connect.md]], [[entities/protoc-gen-jsonschema.md]], [[entities/protoc-gen-validate.md]], [[entities/bazel.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/fedone.md]], [[entities/foundationdb-sql-layer.md]], [[entities/criu.md]], [[entities/goby.md]], [[entities/certificate-transparency.md]], [[entities/cloudstate.md]], [[entities/ygot.md]], [[entities/pigweed.md]], [[entities/mypy-protobuf.md]], [[entities/adlink-edgesdk.md]], [[entities/container-storage-interface.md]], [[entities/protons.md]], [[entities/grpc-federation.md]], [[entities/container-object-storage-interface.md]], [[entities/kratos.md]], [[entities/digital-twins-definition-language.md]], [[entities/google-gnostic.md]], [[concepts/protobuf-global-extension-registry.md]], [[concepts/custom-options.md]], [[concepts/descriptor-proto.md]], [[concepts/extension-numbers.md]], [[concepts/protoc-plugins.md]]
+
+**更新页面**：[[bazel]]
+
+
+
+## [2026-06-13] ingest | Protocol Buffers - Google's data interchange format
+
+**创建页面**：[[sources/java-lite.md]], [[entities/r8.md]], [[entities/protobuf-java-lite-runtime.md]], [[entities/protocol-buffers.md]], [[entities/maven.md]], [[entities/android.md]], [[entities/google.md]], [[entities/protoc.md]], [[concepts/abi-stability.md]], [[concepts/lite_runtime-optimization-option.md]], [[concepts/lite_runtime-optimization-option.md]], [[concepts/reflection-based-serialization.md]], [[concepts/proguard-obfuscation-rules.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[google]], [[protoc]]
+
+
+
+## [2026-06-13] ingest | brpc Server端使用文档
+
+**创建页面**：[[sources/server.md]], [[entities/brpc.md]], [[entities/brpc.md]], [[entities/defaultrpcpbmessagefactory.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/bvar.md]], [[entities/nginx.md]], [[entities/glog.md]], [[concepts/protobuf服务定义.md]], [[concepts/异步服务.md]], [[concepts/closureguard.md]], [[concepts/session-local-data.md]], [[concepts/thread-local-data-server-thread-local.md]], [[concepts/pthread模式.md]], [[concepts/bthread-local.md]], [[concepts/autoconcurrencylimiter.md]], [[concepts/最大并发控制.md]], [[concepts/身份验证.md]], [[concepts/ssl-tls.md]], [[concepts/fork-without-exec.md]], [[concepts/json-format.md]], [[concepts/compression.md]], [[concepts/brpcserver.md]], [[concepts/brpccontroller.md]], [[concepts/brpcserveroptions.md]], [[concepts/协议支持.md]], [[concepts/服务器生命周期管理.md]], [[concepts/内置服务.md]], [[concepts/serverssloptions.md]], [[concepts/reuse_port.md]], [[concepts/max_body_size.md]], [[concepts/protobuf-arena.md]], [[concepts/rpc-protobuf消息工厂.md]], [[concepts/baidu_std-protocol.md]], [[concepts/nshead_service.md]], [[concepts/streaming-rpc.md]], [[concepts/attachment.md]], [[concepts/butilendpoint.md]], [[concepts/ssl-tls.md]], [[concepts/流控.md]], [[concepts/ignore_eovercrowded.md]], [[concepts/elogoff.md]], [[concepts/服务器生命周期管理.md]], [[concepts/alpn.md]], [[concepts/setfailed.md]], [[concepts/bthread-local.md]], [[concepts/webescape.md]]
+
+**更新页面**：[[brpc]], [[closureguard]], [[protocolbuffersprotobuf]], [[bthread]], [[bvar]], [[nginx]], [[healthreporter]], [[session-local-data]], [[thread-local-data-server-thread-local]], [[bthread-local]], [[pthread模式]], [[ssl-tls]], [[fork-without-exec]], [[brpcserver]], [[brpccontroller]], [[内置服务]], [[reuse_port]], [[authcontext]], [[protobuf-arena]], [[baidu_std-protocol]], [[streaming_rpc]], [[attachment]], [[butilendpoint]], [[datafactory]], [[流控]], [[certinfo]], [[elogoff]], [[服务器生命周期管理]], [[ignore_eovercrowded]], [[setfailed]], [[webescape]]
+
+
+
+## [2026-06-13] ingest | brpc RDMA实现与配置
+
+**创建页面**：[[sources/rdma.md]], [[entities/rdma_performance.md]], [[entities/brpc.md]], [[entities/rdmaendpoint.md]], [[entities/spdk.md]], [[entities/io_uring.md]], [[entities/blockpool.md]], [[concepts/零拷贝.md]], [[concepts/滑动窗口流控.md]], [[concepts/rdma.md]], [[concepts/内存注册.md]], [[concepts/事件抑制.md]], [[concepts/内存池.md]], [[concepts/qp.md]], [[concepts/verbs-api.md]], [[concepts/握手.md]], [[concepts/rc模式.md]], [[concepts/cq.md]], [[concepts/solicited标志.md]], [[concepts/轮询模式.md]], [[concepts/立即数.md]]
+
+**更新页面**：[[brpc]], [[rdmaendpoint]], [[rdma]], [[滑动窗口流控]], [[事件抑制]], [[内存注册]], [[内存池]], [[verbs-api]], [[qp]], [[cq]], [[rc模式]], [[iobuf]], [[solicited标志]], [[轮询模式]]
+
+
+
+## [2026-06-13] ingest | How To Implement Field Presence for Proto3
+
+**创建页面**：[[sources/implementing_proto3_presence.md]], [[entities/google.md]], [[entities/protoc.md]], [[entities/protocol-buffers.md]], [[entities/plugin-proto.md]], [[entities/descriptor.md]], [[entities/oneofdescriptor.md]], [[entities/codegeneratorresponse.md]], [[concepts/features-field_presence.md]], [[entities/descriptorpool.md]], [[concepts/proto3.md]], [[concepts/proto3-optional-fields.md]], [[concepts/synthetic-oneof.md]], [[concepts/code-generator.md]], [[concepts/feature_proto3_optional.md]], [[concepts/proto2.md]], [[concepts/reflection.md]], [[concepts/proto3-wrapper-types.md]], [[concepts/label_optional.md]], [[concepts/oneof-type.md]], [[concepts/fielddescriptor.md]], [[concepts/hasbit.md]], [[concepts/text-format.md]], [[concepts/code-generator.md]], [[concepts/reflection-based-serialization.md]], [[concepts/has_presence.md]], [[concepts/json-format.md]], [[concepts/proto3_optional.md]], [[concepts/real_containing_oneof.md]], [[concepts/experimental_allow_proto3_optional.md]]
+
+**更新页面**：[[protocolbuffersprotobuf]], [[google]], [[protoc]], [[features-field_presence]], [[proto3]], [[proto2]], [[reflection]], [[oneof-type]], [[text-format]], [[json-format]]
+
+
+
+## [2026-06-13] ingest | brpc内存管理：ResourcePool与ObjectPool
+
+**创建页面**：[[sources/memory_management.md]], [[entities/jemalloc.md]], [[entities/tcmalloc.md]], [[entities/brpc.md]], [[concepts/bthread.md]], [[concepts/resourcepoolt.md]], [[concepts/objectpoolt.md]], [[concepts/等长对象分配.md]], [[concepts/aba问题.md]], [[concepts/bthread_t.md]], [[concepts/内存池.md]], [[concepts/segmented-stacks.md]], [[concepts/guard-page.md]], [[concepts/taskmeta.md]], [[concepts/bthread-栈管理.md]], [[concepts/bthread_attr_normal.md]], [[concepts/bthread_id_t.md]], [[concepts/bthread_attr_small.md]], [[concepts/hot-split.md]], [[concepts/bthread_attr_large.md]], [[concepts/变长连续栈.md]]
+
+**更新页面**：[[brpc]], [[tcmalloc]], [[bthread]], [[内存池]], [[socketid]]
+

@@ -1,12 +1,13 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/overview]]"
   - "[[sources/editions]]"
   - "[[sources/style]]"
   - "[[sources/proto3]]"
+  - "[[protobuf/proto3.md]]"
 tags:
   - "term"
 aliases:
@@ -196,24 +197,28 @@ aliases:
 
 ## Mentions in Source
 
-**Source: [[sources/overview]]**
-- "When defining .proto files, you can specify cardinality (singular or repeated)."
-- "In proto2 and proto3, you can also specify if the field is optional."
+> **Source: [[sources/overview]]**
+> - "When defining .proto files, you can specify cardinality (singular or repeated)."
+> - "In proto2 and proto3, you can also specify if the field is optional."
 
-**Source: [[sources/editions]]**
-- "Message fields can be one of the following: Singular, Repeated, Map."
-- "A singular field has no explicit cardinality label. It has two possible states: the field is set, and contains a value that was explicitly set or parsed from the wire; the field is unset, and will return the default value."
-- "In proto editions, repeated fields of scalar numeric types use packed encoding by default."
+> **Source: [[sources/editions]]**
+> - "Message fields can be one of the following: Singular, Repeated, Map."
+> - "A singular field has no explicit cardinality label. It has two possible states: the field is set, and contains a value that was explicitly set or parsed from the wire; the field is unset, and will return the default value."
+> - "In proto editions, repeated fields of scalar numeric types use packed encoding by default."
 
-**Source: [[sources/style]]**
-- "Required fields are a way to enforce that a given field must be set when parsing wire bytes, and otherwise refuse to parse the message."
-- "Required is Strongly Deprecated."
-- "No matter how obviously required a given field seems to be today, there is a plausible future where the field should no longer be set."
+> **Source: [[sources/style]]**
+> - "Required fields are a way to enforce that a given field must be set when parsing wire bytes, and otherwise refuse to parse the message."
+> - "Required is Strongly Deprecated."
+> - "No matter how obviously required a given field seems to be today, there is a plausible future where the field should no longer be set."
 
-**Source: [[sources/proto3]]**
-- "optional: (recommended) An optional field is in one of two possible states: the field is set, and contains a value that was explicitly set or parsed from the wire. It will be serialized to the wire. the field is unset, and will return the default value. It will not be serialized to the wire."
-- "You can check to see if the value was explicitly set."
-- "Message fields can be one of the following: Singular, repeated, map."
-- "In proto3, there are two types of singular fields: optional (recommended) and implicit (not recommended)."
-- "In proto3, repeated fields of scalar numeric types use packed encoding by default."
-- "optional is recommended over implicit fields for maximum compatibility with protobuf editions and proto2."
+> **Source: [[sources/proto3]]**
+> - "optional: (recommended) An optional field is in one of two possible states: the field is set, and contains a value that was explicitly set or parsed from the wire. It will be serialized to the wire. the field is unset, and will return the default value. It will not be serialized to the wire."
+> - "You can check to see if the value was explicitly set."
+> - "Message fields can be one of the following: Singular, Repeated, Map."
+> - "In proto3, there are two types of singular fields: optional (recommended) and implicit (not recommended)."
+> - "In proto3, repeated fields of scalar numeric types use packed encoding by default."
+> - "optional is recommended over implicit fields for maximum compatibility with protobuf editions and proto2."
+> - "Message fields can be one of the following: Singular, Repeated, and Map."
+> - "In proto3, there are two types of singular fields: optional and implicit."
+> - "Repeated Fields are Packed by Default: In proto3, repeated fields of scalar numeric types use packed encoding by default."
+> - "No directly relevant information"

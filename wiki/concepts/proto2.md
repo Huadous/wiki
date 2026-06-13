@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/overview]]"
   - "[[sources/features]]"
   - "[[sources/proto3]]"
   - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/implementing_proto3_presence.md]]"
+  - "[[protobuf/field_presence.md]]"
 tags:
   - "standard"
 aliases:
@@ -14,6 +16,9 @@ aliases:
   - "Protocol Buffers version 2"
   - "Protobuf 2"
 ---
+
+## Description
+proto2 是 Protocol Buffers 的第二个主要版本，"2"指其发布时的版本号。作为 proto3 之前的主流版本，proto2 提供了比 proto3 更丰富的字段存在性跟踪能力。从历史来看，proto2 主要遵循显式存在性（explicit presence）模式，几乎所有类型的 singular 字段都在生成的 API 中跟踪存在性。proto2 默认的 field_presence 行为为 EXPLICIT，enum_type 默认为 CLOSED，文件级符号可见性默认为 EXPORT_ALL。在 proto2 与 proto3 的对比中，proto2 强调显式的存在性跟踪，而 proto3 在历史上仅暴露无存在性（no presence）语义。值得注意的是，proto3 后续通过引入 `optional` 关键字采用了与 proto2 完全相同的显式存在性语法和语义，从而最小化与 proto2 的差异，并最大化与 proto2 及 Protobuf Editions 的兼容性。如果 .proto 文件未指定 edition 或 syntax，protocol buffer 编译器会默认假定使用 proto2。
 
 ## Related Concepts
 - [[concepts/proto3|proto3]]
@@ -35,11 +40,13 @@ aliases:
 - [[concepts/features|Features]]
 - [[concepts/groups|groups]]
 - [[concepts/packed|packed]]
+- [[concepts/required|required]]
+- [[concepts/explicit-presence-discipline|Explicit presence discipline]]
 
 ## Related Entities
-- [[entities/protoc|protoc]]
 - [[entities/protocol-buffers|Protocol Buffers]]
 - [[entities/google|google]]
+- [[entities/protoc|protoc]]
 - [[entities/prototiller|prototiller]]
 - [[entities/c++|C++]]
 
@@ -66,3 +73,13 @@ aliases:
 > - "We still have `required` and `group`, `packed` is not everywhere, and string accessors in C++ still return `const std::string&`."
 > - "Edition Zero should be viewed as the 'completion' of the union of proto2 and proto3: it contains both syntaxes as subsets (although with different spellings to disambiguate things) as well as new behavior that was previously inexpressible."
 > - "Everything expressible today will remain so in Edition Zero."
+
+> **Source: [[sources/implementing_proto3_presence|implementing_proto3_presence]]**
+> - "Presence in proto3 uses exactly the same syntax and semantics as in proto2."
+> - "The `optional` keyword was chosen to minimize differences with proto2."
+> - "If your implementation already supports proto2, a proto3 `optional` field should use exactly the same API and internal implementation as proto2 `optional`."
+
+> **Source: [[sources/field_presence|field_presence]]**
+> - "Historically, proto2 has mostly followed explicit presence, while proto3 exposes only no presence semantics."
+> - "Singular fields (of all types) track presence explicitly in the generated API."
+> - "This table outlines whether presence is tracked for fields in proto2 APIs (both for generated APIs and using dynamic reflection)."

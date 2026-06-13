@@ -1,9 +1,10 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_server]]"
+  - "[[brpc/server.md]]"
 tags:
   - "term"
 aliases:
@@ -37,3 +38,8 @@ aliases:
 > - "Attachment is not compressed by framework."
 > - "baidu_std and hulu_pbrpc supports attachments which are sent along with messages and set by users to bypass serialization of protobuf."
 > - "From a server's perspective, data set in Controller.response_attachment() will be received by the client."
+
+> **Source: [[sources/server|server]]**
+> - "baidu_std和hulu_pbrpc协议支持传递附件，这段数据由用户自定义，不经过protobuf的序列化。站在server的角度，设置在Controller.response_attachment()的附件会被client端收到，Controller.request_attachment()则包含了client端送来的附件。"
+> - "附件不会被框架压缩。"
+> - "在http协议中，附件对应message body，比如要返回的数据就设置在response_attachment()中。"

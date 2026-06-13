@@ -1,57 +1,68 @@
 ---
 type: source
-created: 2026-06-12
-updated: 2026-06-12
+created: 2026-06-13
+updated: 2026-06-13
 sources:
-  - "[[sources/proto3]]"
-  - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/proto3.md]]"
+  - "[[protobuf/implementing_proto3_presence.md]]"
 tags:
   - "document"
 aliases:
-  - "Protobuf Proto3 Language Guide"
+  - "Protocol Buffers Language Guide (proto3)"
+  - "proto3 语言指南"
 ---
 
-## 关键实体
-- [[entities/protocol-buffers|Protocol Buffers (protobuf)]] — 语言无关、平台无关的序列化机制，定义了数据结构和协议
-- [[entities/protoc|protoc (Protocol Buffer Compiler)]] — 将 `.proto` 文件编译成目标语言代码的编译器工具
-- [[entities/C++|C++]] — proto3 支持的主要语言之一，在 Editions 演进中具有重要地位
+## 核心内容
+本文档是 [[concepts/proto3|proto3]] 版本的官方参考指南,介绍了如何使用 [[entities/protocol-buffers|Protocol Buffers]] 语言构建结构化数据,涵盖 .proto 文件语法以及如何通过 [[entities/protoc|protoc]] 编译器从 .proto 文件生成数据访问类。指南详细说明了消息类型定义、字段类型、字段编号分配规则、字段基数（singular、repeated、map）、字段存在性、repeated 字段的 [[concepts/packed-encoding|packed 编码]]、保留字段编号与名称的必要性、消息合并策略（[[concepts/last-one-wins|Last One Wins]]）以及 [[concepts/deleting-fields|删除字段]] 的正确做法。同时讨论了 proto3 与 proto2 的差异,以及与 [[concepts/protobuf-editions|Protobuf Editions]] 语法的兼容性建议。
 
-## 关键概念
-- [[concepts/proto3|proto3]] — Protocol Buffers 的第三个主要修订版，于 2016 年首次发布。与 proto2 相比，proto3 简化了语法，移除了 required 关键字，并默认使用打包编码。本文档详细介绍了其语法规则和最佳实践，是开发者使用 proto3 的核心参考。需要注意的是，proto3 的引入分裂了生态，而 [[concepts/protobuf-editions|Protobuf Editions]] 通过 Feature 统一了所有差异。
-- [[concepts/proto2|proto2]] — 旧版语言语法，本文档通过对比提及；在 Editions 中两者差异已被消除
-- [[concepts/protobuf-editions|Protobuf Editions]] — 新的版本管理机制，提供更细粒度的控制，并能机械迁移 proto2/proto3 文件
-- [[concepts/edition-zero|Edition Zero]] — Protobuf Editions 的初始版本，设计支持从 proto2/proto3 无缝迁移
-- [[concepts/feature|Feature]] — Editions 中统一管理语义差异的机制，用于表达 proto2 和 proto3 之间不可调和的少数差异
-- [[concepts/field-number|字段编号]] — 消息字段的唯一标识整数，一旦分配不得更改
-- [[concepts/field-cardinality|字段基数]] — 定义了字段在序列化中的出现次数（singular、repeated、map）
-- [[concepts/field-presence|字段存在性]] — 判断字段是否被显式设置的能力，optional 字段具有此特性
-- [[concepts/packed-encoding|打包编码]] — proto3 中重复标量字段的默认序列化方式
-- [[concepts/reserved|reserved 保留字段]] — 用于防止已删除字段编号被误用的关键字
-- [[concepts/scalar-types|标量类型]] — 基本数据类型（int32、string、bool 等）
-- [[concepts/enumeration|枚举类型]] — 一组命名的数值常量
-- [[concepts/map-fields|映射字段]] — 键值对数据类型
-- [[concepts/wire-format|线格式]] — 二进制序列化格式，字段编号不可变的原因
-- [[concepts/json-representation|JSON 表示]] — 消息的 JSON 序列化格式
-- [[concepts/default-values|默认值]] — 字段未设置时返回的默认零值
-- [[concepts/well-formed-message|格式良好的消息]] — 描述序列化/反序列化字节流的规范性
-- [[concepts/last-one-wins|Last One Wins]] — 解析器处理重复 singular 字段的规则
-- [[concepts/optional-field|optional 字段]] — 推荐使用的显式基数标签，具有字段存在性
-- [[concepts/implicit-field|隐式字段]] — 无显式基数标签，不推荐使用
-- [[concepts/repeated-field|repeated 字段]] — 可重复零次或多次的字段类型
-- [[concepts/protobuf-code-generation|代码生成]] — protoc 为多种语言生成数据访问类的功能
+[[concepts/proto3|proto3]] 是 [[entities/protocol-buffers|Protocol Buffers]] 语言的第三个修订版本,相比 proto2 简化了语法并修改了字段存在性的默认行为。[[concepts/proto3|proto3]] 引入 optional 和 implicit 两种 singular 字段模式,repeated 标量数值字段默认采用 [[concepts/packed-encoding|packed 编码]],消息类型字段自动具有字段存在性。[[concepts/proto3|proto3]] 推荐使用 optional 关键字标注以获得与 [[concepts/protobuf-editions|protobuf editions]] 和 proto2 的最大兼容性。文件首行必须通过 `syntax = "proto3"` 显式声明 proto3,否则编译器默认假定使用 proto2。
 
-## 要点
-- proto3 于 2016 年首次发布，简化了语法，移除了 required 关键字，并默认使用打包编码
-- 字段编号一旦分配不得更改，删除时必须使用 reserved 保留以防止重用
-- 推荐使用 optional 字段而非隐式字段，以确保字段存在性和最大兼容性
-- repeated 字段的标量数值类型默认使用打包编码以节省空间
-- 文档是开发者使用 proto3 的核心参考，同时提供与 proto2 和 editions 的对比
-- proto3 是 Protocol Buffers 历史上最后一次激进的语言变化，其引入导致了生态系统分裂
-- 在 Protobuf Editions 中，proto2 与 proto3 的差异通过 Feature 机制统一管理，Edition Zero 支持机械无缝迁移
+### 字段存在性实现细节
+相较于 [[concepts/proto2|proto2]] 默认追踪字段存在性,[[concepts/proto3|proto3]] 默认不追踪 [[concepts/field-presence|字段存在性]],仅支持 singular 字段和 repeated 字段。[[concepts/proto3|proto3]] 通过以下两种方式支持存在性:一是使用 `optional` 关键字（自 3.12 起为实验性,用于显式开启 [[concepts/field-presence|字段存在性]] 追踪）;二是使用 wrapper 类型。在 [[concepts/proto3|proto3]] 中,被标记为 `optional` 的字段会像 [[concepts/proto2|proto2]] 一样追踪 [[concepts/field-presence|字段存在性]],而没有任何标签的字段（即"singular 字段"）则继续省略存在性信息。
+
+值得注意的是,[[concepts/proto3|proto3]] 的描述符已经将 `LABEL_OPTIONAL` 用于不追踪存在性的 singular 字段,这正是 [[concepts/proto3|proto3]] 不能直接复用 [[concepts/proto2|proto2]] 中 `LABEL_OPTIONAL` 描述符来表示存在性的原因——大量现有的反射代码已假设 [[concepts/proto3|proto3]] 中的 `LABEL_OPTIONAL` 不包含存在性信息。
 
 ## 别名
-- proto3 revision — 指代 proto3 修订版本
-- Protocol Buffers version 3 — 版本号正式名称
-- Proto3 — 常见简写形式
-- protobuf3 — 另一种常见简写
-- proto3 syntax — 强调其语法层面的含义
+- proto 3
+
+## 关键实体
+- [[entities/protocol-buffers|Protocol Buffers]]
+- [[entities/protoc|protoc]]
+- [[entities/proto-file|.proto file]]
+
+## 关键概念
+- [[concepts/proto3|proto3]]
+- [[concepts/proto2|proto2]]
+- [[concepts/message-type|Message Type]]
+- [[concepts/field-number|Field Number]]
+- [[concepts/field-number-encoding|Field Number Encoding]]
+- [[concepts/field-cardinality|Field Cardinality]]
+- [[concepts/field-presence|Field Presence]]
+- [[concepts/wire-format|Wire Format]]
+- [[concepts/packed-encoding|packed encoding]]
+- [[concepts/reserved-field-numbers|Reserved Field Numbers]]
+- [[concepts/reserved-field-names|Reserved Field Names]]
+- [[concepts/maps|Maps]]
+- [[concepts/well-formed-messages|Well-formed Messages]]
+- [[concepts/last-one-wins|Last One Wins]]
+- [[concepts/deleting-fields|Deleting Fields]]
+- [[concepts/protobuf-editions|Protobuf Editions]]
+- [[concepts/json-encoding|JSON encoding]]
+- [[concepts/textformat|TextFormat]]
+- [[concepts/textproto|TextProto]]
+- [[concepts/proto3-optional-fields|proto3 optional fields]]
+- [[concepts/label-optional|LABEL_OPTIONAL]]
+
+## 要点
+- [[concepts/proto3|proto3]] 文件首行必须通过 `syntax = "proto3"` 显式声明,否则 [[entities/protocol-buffers|Protocol Buffers]] 编译器默认假定使用 proto2。
+- 每个消息字段必须分配 1 到 536,870,911 之间的唯一 [[concepts/field-number|字段编号]],其中 19000-19999 为 Protocol Buffers 实现保留,字段编号一旦投入使用便不可更改。
+- 字段编号 1-15 仅占用 1 字节[[concepts/wire-format|线格式]]空间,应分配给最常设置的字段以节省空间。
+- [[concepts/proto3|proto3]] 中 singular 字段分 optional（推荐）与 implicit 两种模式,repeated 数值字段默认采用 [[concepts/packed-encoding|packed 编码]],[[concepts/maps|map]] 字段用于键/值对类型,消息类型字段自动具有字段存在性。
+- [[concepts/deleting-fields|删除字段]] 时必须将对应字段编号加入 [[concepts/reserved-field-numbers|保留列表]]（也建议保留[[concepts/reserved-field-names|字段名称]]）,否则复用编号会导致解析错误、PII 泄漏或数据损坏。
+- [[entities/protoc|protoc]] 编译器为 C++、Java、Kotlin、Python、Go、Ruby、Objective-C、C#、PHP 等目标语言分别生成不同格式的数据访问代码。
+- singular 字段在线格式字节中出现多次时,解析器仅保留最后一次出现的实例,体现 [[concepts/last-one-wins|Last One Wins]] 语义。
+- 推荐使用 optional 字段标签以获得与 [[concepts/protobuf-editions|Protobuf Editions]] 和 proto2 的最大兼容性。
+- 相比 proto2,[[concepts/proto3|proto3]] 简化了语法并修改了字段存在性的默认行为,消除了对 required 字段的支持以及默认值设置的复杂性。
+- 相较于 [[concepts/proto2|proto2]] 默认追踪字段存在性,[[concepts/proto3|proto3]] 默认不追踪 [[concepts/field-presence|字段存在性]]。
+- [[concepts/proto3|proto3]] 通过 `optional` 关键字（自 3.12 起为实验性）或 wrapper 类型两种方式支持 [[concepts/field-presence|字段存在性]];被标记为 `optional` 的字段会像 [[concepts/proto2|proto2]] 一样追踪 [[concepts/field-presence|字段存在性]],而 singular 字段则继续省略存在性信息。
+- [[concepts/proto3|proto3]] 描述符已使用 `[[concepts/label-optional|LABEL_OPTIONAL]]` 描述不追踪存在性的 singular 字段,因此不能直接复用 [[concepts/proto2|proto2]] 的 `[[concepts/label-optional|LABEL_OPTIONAL]]` 描述符来表示存在性——大量现有反射代码已假设 [[concepts/proto3|proto3]] 中的 `[[concepts/label-optional|LABEL_OPTIONAL]]` 不包含存在性信息。

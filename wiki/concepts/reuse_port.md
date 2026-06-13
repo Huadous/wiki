@@ -1,9 +1,10 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_server]]"
+  - "[[brpc/server.md]]"
 tags:
   - "term"
 aliases:
@@ -21,6 +22,8 @@ aliases:
 - [[concepts/监听端口|监听端口]]
 - [[concepts/并发限制|并发限制]]
 - [[concepts/多端口监听|多端口监听]]
+- [[concepts/socket选项|socket选项]]
+- [[concepts/internal_port|internal_port]]
 
 ## Related Entities
 
@@ -28,3 +31,9 @@ aliases:
 - [[entities/nginx|nginx]]
 - [[entities/envoy-proxy|envoy-proxy]]
 - [[entities/ServerOptions|ServerOptions]]
+
+## Mentions in Source
+
+> **Source: [[sources/server|server]]**
+> - "启动时开启reuse_port这个flag，就可以多进程共同监听一个端口（底层是SO_REUSEPORT）。"
+> - "一个server只能监听一个端口（不考虑ServerOptions.internal_port），需要监听N个端口就起N个Server。"

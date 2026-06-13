@@ -1,15 +1,20 @@
 ---
 type: entity
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_io]]"
+  - "[[brpc/load_balancing.md]]"
 tags:
   - "other"
 aliases:
   - "Socket 结构体"
   - "brpc Socket"
 ---
+
+## Related Entities
+- [[entities/loadbalancer|LoadBalancer]]
+- [[entities/namingservice|NamingService]]
 
 ## Related Concepts
 - [[concepts/blocking-io|Blocking IO]]
@@ -32,3 +37,8 @@ aliases:
 
 > **Source: [[sources/en_io|en_io]]**
 > - No directly relevant information provided about Socket.
+
+> **Source: [[sources/load_balancing|load_balancing]]**
+> - "为需要的连接动态创建一个bthread专门做健康检查（Socket::StartHealthCheck）。"
+> - "SetFailed marks the Socket as invalid. After that, Address returns null pointer until health check recovers the Socket." (健康检查线程先在确保没有其他人在使用Socket了后关闭连接。目前是通过对Socket的引用计数判断的。)
+> - "连上后复活Socket(Socket::Revive)，这样Socket就又能被其他地方，包括LoadBalancer访问到了（通过Socket::Address）。"

@@ -1,43 +1,41 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/editions-what-are-protobuf-editions]]"]
-tags: [term]
+updated: 2026-06-13
+sources:
+  - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/implementing_proto3_presence.md]]"
+tags:
+  - "term"
 aliases:
   - "Reflection API"
   - "Protobuf Reflektion"
 ---
 
-
-# Reflection
-
-## 定义
-Reflection（反射）是 Protocol Buffers 的一项机制，允许用户在运行时动态检查和操作消息的结构、字段、枚举值和序列化方式，而无需依赖预编译生成的代码。这一机制对于需要通用处理 protobuf 数据的高级用例至关重要。
-
-## 关键特征
-- **动态性**：无需编译时的代码绑定，即可在运行时遍历消息的字段和类型信息。
-- **自描述性**：允许从 `.proto` 文件描述符（`FileDescriptor`、`Descriptor`、`FieldDescriptor` 等）获取完整的消息结构。
-- **特征感知（Feature-aware）**：必须与 [[concepts/protobuf-editions|Protobuf Editions]] 的特征继承（[[concepts/feature-inheritance|Feature Inheritance]]）机制兼容，确保动态操作时特征值正确。
-- **透明性**：特征继承对用户应完全透明，反射行为应如同特征已被显式设置在所有位置一样。
-- **高级用户导向**：主要服务于存储服务提供商、自定义代码生成器和序列化/验证框架等高级场景。
-
-## 应用
-- **动态序列化与反序列化**：在不重新生成代码的情况下，处理不同版本或未知类型的 protobuf 消息。
-- **自定义代码生成器**：利用反射分析 `.proto` 文件结构，生成目标语言的绑定代码。
-- **数据验证与转换**：在通用中间件或数据管道中，动态验证字段值或转换消息格式。
-- **存储服务**：如数据库或缓存服务，通过反射解析和存储任意 protobuf 消息，而无需预知所有消息类型。
-- **调试与检查工具**：实现通用 protobuf 消息查看器或日志解析工具。
+## 描述
+Reflection 提供了一种在运行时遍历消息字段、检查 oneof 结构、读取描述符信息（如 `FileDescriptor`、`Descriptor`、`FieldDescriptor`、`OneofDescriptor`）的能力，使存储服务、自定义代码生成器、序列化/验证框架等高级场景得以脱离静态生成的代码运作。实现反射时必须新增 `has_presence()`、`is_synthetic()`、`real_containing_oneof()`、`real_oneof_decl_count()` 等方法，并保证 `HasField()`、`HasOneof()` 等 API 在合成 oneof（synthetic oneof）上行为正确，以使存在性对反射透明。在 proto3 中，由于 oneof 字段本就跟踪存在性，基于反射的现有算法（如 C++ 与 Java 中的 JSON 与 TextFormat 解析器/序列化器）无需任何代码修改即可正确保留 proto3 optional 字段的存在性。此外，Reflection 在 Protobuf Editions 体系下还需与 [[concepts/feature-inheritance|Feature Inheritance]] 兼容，做到特征继承对用户完全透明——反射行为应如同特征已被显式设置在所有位置一样。
 
 ## 相关概念
 - [[concepts/feature-inheritance|Feature Inheritance]]
 - [[concepts/protobuf-editions|Edition]]
 - [[concepts/feature|Feature]]
 - [[concepts/language-scoped-feature|Language-scoped Feature]]
+- [[concepts/synthetic-oneof|Synthetic Oneof]]
+- [[concepts/field-presence|Field Presence]]
+- [[concepts/proto3-optional-fields|proto3 optional fields]]
 
 ## 相关实体
 - [[entities/protoc|protoc]]
+- [[entities/oneofdescriptor|oneofdescriptor]]
+- [[entities/descriptor|descriptor]]
+- [[entities/descriptorpool|descriptorpool]]
+- [[entities/codegeneratorresponse|codegeneratorresponse]]
 
 ## 来源提及
-- "We plan to upgrade reflection to be feature-aware in a way that minimizes code we need to change." — [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]
-- "We do not expect anyone to implement feature-inheritance logic themselves; feature inheritance should be fully transparent to users, behaving as if features had been placed explicitly everywhere." — [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]
+> **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**
+> - "We plan to upgrade reflection to be feature-aware in a way that minimizes code we need to change."
+> - "We do not expect anyone to implement feature-inheritance logic themselves; feature inheritance should be fully transparent to users, behaving as if features had been placed explicitly everywhere."
+
+> **Source: [[sources/implementing_proto3_presence|implementing_proto3_presence]]**
+> - "Since oneof fields in proto3 already track presence, existing proto3 reflection-based algorithms should correctly preserve presence for proto3 optional fields with no code changes."
+> - "For example, the JSON and TextFormat parsers/serializers in C++ and Java did not require any changes to support proto3 presence."

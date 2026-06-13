@@ -1,9 +1,10 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_server]]"
+  - "[[brpc/server.md]]"
 tags:
   - "method"
 aliases:
@@ -15,9 +16,6 @@ aliases:
   - "设置RPC失败"
   - "SetFailed方法"
 ---
-
-## Description
-SetFailed是brpc框架中服务端异常处理的核心接口。调用`Controller::SetFailed()`后，框架会构造一个包含错误信息的响应返回给客户端，替代正常的protobuf响应体。如果错误发生在发送响应过程中，框架也会自动调用该方法。在异步服务中，SetFailed通常与`done->Run()`配合使用，且推荐结合`ClosureGuard`确保在异步回调正确调用前执行SetFailed操作。当客户端接收到失败的响应时，其`Controller`也会被同步设置为失败状态，使得`Controller::Failed()`返回`true`。如果使用了HTTP协议，SetFailed会根据错误码的语义自动选择最接近的HTTP状态码（如默认映射为500）。该方法具有幂等性，多次调用等效于一次调用，使用最后设定的错误信息。
 
 ## Related Concepts
 - [[concepts/done|done (protobuf Closure)]]
@@ -37,3 +35,8 @@ SetFailed是brpc框架中服务端异常处理的核心接口。调用`Controlle
 > - "If SetFailed() is called, error information is sent to client instead of normal content."
 > - "When client receives the response, its controller will be SetFailed() as well and Controller::Failed() will be true."
 > - "Controller.SetFailed() sets status-code as well with the value closest to the error-code in semantics."
+
+> **Source: [[sources/server|server]]**
+> - "调用Controller.SetFailed()可以把当前调用设置为失败，当发送过程出现错误时，框架也会调用这个函数。"
+> - "用户一般是在服务的CallMethod里调用这个函数，比如某个处理环节出错，SetFailed()后确认done->Run()被调用了就可以跳出函数了(若使用了ClosureGuard，跳出函数时会自动调用done，不用手动)。"
+> - "Controller.SetFailed也会设置status-code，值是与错误码含义最接近的status-code，没有相关的则填500错误(brpc::HTTP_STATUS_INTERNAL_SERVER_ERROR)。如果你要覆盖status_code，设置代码一定要放在SetFailed()后，而不是之前。"

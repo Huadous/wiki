@@ -1,12 +1,14 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/techniques]]"
   - "[[sources/editions]]"
   - "[[sources/encoding]]"
   - "[[sources/proto3]]"
+  - "[[protobuf/proto3.md]]"
+  - "[[protobuf/field_presence.md]]"
 tags:
   - "standard"
 aliases:
@@ -4107,6 +4109,13 @@ aliases:
   - "protobuf 线格式"
 ---
 
+## Description
+线缆格式（wire format）是 Protocol Buffers 的底层二进制序列化格式，其核心设计是一系列带标签的、自定界的（self-delimiting）值流。每条记录由字段号（field number）、线缆类型（wire type）和载荷（payload）三部分构成，其中标签通过 `(field_number << 3) | wire_type` 的公式编码为一个 varint。由于每种线缆类型具备自定界特性（VARINT 利用终止位、LEN 由长度前缀界定、SGROUP/EGROUP 成对出现），解析器无需依赖外部元数据即可确定字段边界，但这也意味着线缆格式本身并非消息级自定界——协议缓冲区解析器无法独立判断消息的整体结束位置。
+
+在线缆格式中，每个字段在编码时都会被显式写入其记录，因此线缆格式仅表示一系列"已存在"（present）的字段值，**不包含**字段"不存在"的信息。这一语义规则在 TextFormat 中同样成立（TextFormat 也不显式表示缺省字段），但与 JSON 不同——JSON 可能通过 `null` 或字段缺失等方式显式表示"不存在"状态。这种只编码"存在"字段的设计天然带来了向前和向后兼容性，使得新增字段可以被旧版本解析器忽略、旧字段被丢弃。然而在反序列化阶段，这一设计也引入了需要特别考量的语义：当同一 singular 字段在字节流中出现多次时，解析器会接受输入，但只有最后一次出现的值可通过生成的绑定访问（即 Last One Wins 行为）；若复用已被占用的字段号，则会使线缆格式消息的解码产生歧义。
+
+线缆格式采用 varint 作为基础编码单元：每个字节的最高位（MSB）作为延续位（continuation bit），指示后续字节是否仍属于同一 varint，从而允许无符号 64 位整数使用 1 到 10 个字节进行编码，小数值占用更少空间。线缆格式共定义了六种线缆类型：VARINT、I64、LEN、SGROUP、EGROUP 和 I32，其中 LEN 类型通过紧随标签的 varint 长度前缀来界定动态长度载荷（包括子消息字段）。标签、字段号与线缆类型的结合形成了 Tag-Length-Value（TLV）结构。较低字段号在编码中占用更少字节（字段号 1–15 仅需一字节），因此字段号一经使用便不可更改，因为它在线缆格式中唯一标识该字段。
+
 ## Related Concepts
 - [[concepts/packed-encoding|packed encoding]]
 - [[concepts/field-number|field number]]
@@ -4115,6 +4124,9 @@ aliases:
 - [[concepts/tlv|tag-length-value (TLV)]]
 - [[concepts/last-one-wins|Last One Wins]]
 - [[concepts/field-cardinality|field cardinality]]
+- [[concepts/well-formed-messages|Well-formed Messages]]
+- [[concepts/textformat|TextFormat]]
+- [[concepts/no-presence-discipline|No presence discipline]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -4152,5 +4164,12 @@ aliases:
 
 > **Source: [[sources/proto3|proto3]]**
 > - "This number cannot be changed once your message type is in use because it identifies the field in the message wire format."
-> - "The protobuf wire format is lean and doesn’t provide a way to detect fields encoded using one definition and decoded using another."
+> - "The protobuf wire format is lean and doesn't provide a way to detect fields encoded using one definition and decoded using another."
 > - "Singular fields can appear more than once in wire-format bytes. The parser will accept the input, but only the last instance of that field will be accessible through the generated bindings. See Last One Wins for more on this topic."
+> - "Reusing a field number makes decoding wire-format messages ambiguous."
+> - "Lower field number values take less space in the wire format. For example, field numbers in the range 1 through 15 take one byte to encode."
+
+> **Source: [[sources/field_presence|field_presence]]**
+> - "The wire format is a stream of tagged, self-delimiting values."
+> - "The wire format represents a sequence of present values."
+> - "This is different from TextFormat rules for repeated fields."

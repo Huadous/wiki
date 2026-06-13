@@ -1,12 +1,13 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/overview]]"
   - "[[sources/features]]"
   - "[[sources/proto3]]"
   - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/proto3.md]]"
 tags:
   - "standard"
 aliases:
@@ -43,14 +44,15 @@ aliases:
 - [[entities/grpc|grpc]]
 - [[entities/google|google]]
 - [[entities/prototiller|prototiller]]
+- [[entities/rust|rust]]
 
 ## Mentions in Source
 
-> **来源: [[sources/overview|overview]]**
+> **来源: overview**
 > - "The following shows an example message edition '2023'." 
 > - "For more information about the options available, see the language guide for proto2, proto3, or edition 2023."
 
-> **来源: [[sources/features|features]]**
+> **来源: features**
 > - "Protobuf Editions features and how they affect protobuf behavior."
 > - "This topic provides an overview of the features that are included in the released edition versions. Subsequent editions' features will be added to this topic."
 > - "For more information on how editions and features work together to set behavior, see Protobuf Editions Overview"
@@ -59,10 +61,12 @@ aliases:
 > - "Default behavior per syntax/edition: 2023 -> EXPORT_ALL"
 > - "Features added in Edition 2023: enum_type, field_presence"
 
-> **来源: [[sources/proto3|proto3]]**
+> **来源: proto3**
 > - "For information on editions syntax, see the Protobuf Editions Language Guide"
 > - "If no edition/syntax is specified, the protocol buffer compiler will assume you are using proto2"
+> - "The first line of the file specifies that you're using the proto3 revision of the protobuf language spec. (Instead of edition syntax for proto2/proto3) must be the first non-empty, non-comment line of the file."
+> - "No directly relevant information"
 
-> **来源: [[sources/editions-what-are-protobuf-editions|Protobuf Editions 介绍文档]]**
+> **来源: Protobuf Editions 介绍文档**
 > - "This document is an introduction to the Protobuf Editions project, an ambitious re-imagining of how we migrate Protobuf users into the future."
 > - "Editions and features are new language features that will allow us to incrementally evolve Protobuf into the future."

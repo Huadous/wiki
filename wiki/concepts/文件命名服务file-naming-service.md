@@ -1,46 +1,51 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/combo_channel]]"]
-tags: [method]
+updated: 2026-06-13
+sources:
+  - "[[sources/combo_channel]]"
+  - "[[brpc/load_balancing.md]]"
+tags:
+  - "method"
 aliases:
+  - "file://命名服务"
+  - "File Naming Service"
+  - "文件命名服务"
+  - "file naming service"
   - "file://命名服务"
   - "File Naming Service"
   - "文件命名服务"
 ---
 
+## Basic Information
+- **Type**: concept（命名服务实现机制）
+- **Sources**: [[sources/combo_channel|combo_channel]]、[[sources/load_balancing|load_balancing]]
+- **Definition**: 文件命名服务是 brpc 中以 `file://<file-path>` 协议形式提供的命名服务实现，地址列表直接来源于一个本地文件，通过 [[entities/filewatcher|FileWatcher]] 监听文件修改时间，在文件更新后重新读取并通过 `NamingServiceActions::ResetServers` 通知框架。
 
-# 文件命名服务（File Naming Service）
+## Description
+文件命名服务是 brpc 提供的一种轻量级命名服务实现，地址以 `file://<file-path>` 形式声明，列表内容直接来源于一个本地文本文件，每行一个服务端地址。该机制使用 [[entities/filewatcher|FileWatcher]] 监听文件的修改时间，一旦文件被更新就重新读取，并通过 `NamingServiceActions::ResetServers` 通知框架完成地址列表的刷新，从而避免传统轮询带来的开销。由于整个数据源和变更通知链路都是本地的，它不依赖 etcd、ZooKeeper、bns 等分布式协调服务，部署和测试极其简单，适合配置变更不频繁的场景。在 [[concepts/DynamicPartitionChannel|DynamicPartitionChannel]] 演示中，可以通过手动编辑 `server_list` 文件来模拟后端分库的扩容或缩容，客户端自动发现变更后流量会平滑迁移到新的分库地址。[[entities/namingservicethread|NamingServiceThread]] 为其提供 bthread 容器运行环境，整体机制既可用于测试与演示，也适用于临时或小规模集群的快速原型开发。
 
-## 定义
-文件命名服务是 brpc 中一种轻量级的命名服务实现方式，通过读取本地文件（格式通常为 `file://server_list`）来动态获取服务端地址列表。当文件内容发生变化时，客户端能够自动检测变更并重新加载，从而实现服务地址的实时更新。该机制常用于测试、演示以及简单的服务发现场景。
-
-## 关键特征
-- **基于本地文件**：通过读取指定路径的文本文件获取服务端地址列表，文件每行一个地址。
-- **自动监听与刷新**：支持自动监听文件变化（inode修改时间等），当文件内容更新时，客户端自动重新加载地址列表，无需重启进程。
-- **无外部依赖**：无需依赖 etcd、ZooKeeper 等分布式协调服务，部署和测试极其简单。
-- **支持动态扩缩容**：通过修改文件内容（添加或移除地址行），即可在运行态动态改变后端服务集群，客户端平滑迁移流量。
-- **适合测试与演示**：典型使用模式是在测试或演示环境中，通过手动编辑 `server_list` 文件模拟后端扩容或缩容。
-
-## 应用
-- **测试与演示环境**：在 DynamicPartitionChannel 演示中，Client 使用 `file://server_list` 作为命名服务。初始文件仅包含 3 个分库的地址，修改文件后加入第 4 分库的地址（如 `8005`），Client 自动发现变更并重新载入，流量逐渐从旧分库迁移到新分库，实现平滑扩容。
-- **临时或小型集群**：适用于不频繁变更且规模较小的后端服务集群，避免部署维护 etcd 等外部服务。
-- **快速原型开发**：在功能验证阶段，通过修改本地文件即可快速调整后端配置，加速迭代。
-
-## 相关概念
+## Related Concepts
 - [[concepts/命名服务|命名服务]]
 - [[concepts/容量计算规则|容量计算规则]]
 - [[concepts/DynamicPartitionChannel|DynamicPartitionChannel]]
 - [[concepts/PartitionChannel|PartitionChannel]]
 
-## 相关实体
+## Related Entities
 - [[entities/etcd|etcd]]
 - [[entities/zookeeper|zookeeper]]
 - [[entities/bns|bns]]
+- [[entities/filewatcher|FileWatcher]]
+- [[entities/namingservicethread|NamingServiceThread]]
+- [[entities/namingservicewatcher|NamingServiceWatcher]]
 
-## 来源提及
-- "命名服务"file://server_list"的内容是：" — [[brpc/combo_channel|combo_channel]]
-- "09-06 10:51:10:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 3 unique addresses from `server_list`" — [[brpc/combo_channel|combo_channel]]
-- "开始修改分库，在server_list中加入4分库的8005：" — [[brpc/combo_channel|combo_channel]]
-- "客户端发现了server_list的变化并重新载入，但qps并没有什么变化。" — [[brpc/combo_channel|combo_channel]]
+## Mentions in Source
+> **Source: [[sources/combo_channel|combo_channel]]**
+> - "命名服务"file://server_list"的内容是："
+> - "09-06 10:51:10:   * 0 src/brpc/policy/file_naming_service.cpp:83] Got 3 unique addresses from `server_list`"
+> - "开始修改分库，在server_list中加入4分库的8005："
+> - "客户端发现了server_list的变化并重新载入，但qps并没有什么变化。"
+
+> **Source: [[sources/load_balancing|load_balancing]]**
+> - "file：列表即文件。合理的方式是在文件更新后重新读取。"
+> - "file://<file-path>           # load addresses from the file"

@@ -1,9 +1,10 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_server]]"
+  - "[[brpc/server.md]]"
 tags:
   - "method"
 aliases:
@@ -20,13 +21,22 @@ aliases:
   - "闭包保护器"
 ---
 
+## Related Concepts
+- [[concepts/raii|RAII]]
+- [[concepts/async-service|异步Service]]
+
 ## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/closureguard|ClosureGuard]]
 
 ## Mentions in Source
-> **Source: en_server**
+> **Source: [[sources/en_server|en_server]]**
 > - Interface of ClosureGuard:
 > - brpc::ClosureGuard done_guard(done);
 > - "Not matter the callback is exited from middle or end, done_guard will be destructed, in which done->Run() is called."
 
-ClosureGuard is a RAII-style utility provided by brpc that ensures the completion callback (`done`) is always invoked when exiting a scope, regardless of whether the exit occurs normally or due to an early return. By wrapping the closure object in a ClosureGuard instance, the `Run()` method of the closure is automatically called upon destruction, preventing callback leakage in asynchronous or mixed synchronous/asynchronous service implementations.
+> **Source: [[sources/server|server]]**
+> - 强烈建议使用**ClosureGuard**确保done->Run()被调用
+> - RAII: Call Run() of the closure on destruction.
+> - 这个机制称为[RAII](https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)。
+> - 不管成功失败，done->Run()必须在请求处理完成后被用户调用一次。

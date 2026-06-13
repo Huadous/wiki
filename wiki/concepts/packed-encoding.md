@@ -1,12 +1,13 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/editions]]"
   - "[[sources/encoding]]"
   - "[[sources/proto3]]"
   - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/proto3.md]]"
 tags:
   - "method"
 aliases:
@@ -22,9 +23,6 @@ aliases:
   - "packed serialization"
   - "打包序列化"
 ---
-
-## Description
-打包字段（packed fields）是Protobuf中针对重复字段（repeated fields）的一种序列化优化技术。在传统的重复字段编码中，每个元素都包含独立的tag-value对，导致额外的元数据开销。打包编码将所有元素的原始值连续存储在一个LEN类型的wire字节中，显著减少消息大小。在proto2和proto3中，标量数字类型的重复字段需要显式声明`[packed=true]`选项才能启用打包编码。从Edition 2023开始，所有原始类型（除string和bytes外的标量类型）的重复字段默认使用打包编码。这种变化通过[[concepts/feature|Feature]]机制和版本迁移来实现，旨在统一不同Protobuf版本之间的行为差异。
 
 ## Related Concepts
 - [[concepts/field-cardinality|field cardinality]]
@@ -58,6 +56,7 @@ aliases:
 > - "In proto3, repeated fields of scalar numeric types use packed encoding by default."
 > - "You can find out more about packed encoding in Protocol Buffer Encoding."
 > - "No directly relevant information"
+> - "Repeated Fields are Packed by Default: In proto3, repeated fields of scalar numeric types use packed encoding by default."
 
 > **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**
 > - "We still have `required` and `group`, `packed` is not everywhere, and string accessors in C++ still return `const std::string&`."

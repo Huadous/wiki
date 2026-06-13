@@ -1,40 +1,45 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/builtin_service]]"]
-tags: [term]
+updated: 2026-06-13
+sources:
+  - "[[sources/builtin_service]]"
+  - "[[brpc/streaming_log.md]]"
+tags:
+  - "term"
 aliases:
   - "VLOG控制服务"
   - "brpc VLOG接口"
 ---
 
+## Description
+`/vlog` 是 brpc 内置服务提供的 HTTP 接口，开发者可以通过浏览器查看当前可开启的 VLOG 模块列表，并在不重启服务的情况下交互式地调整特定模块的日志级别，从而方便线上问题的排查。`/vlog` 仅作用于 brpc 自研的 streaming_log 流式日志系统，对 glog 无效。
 
-# /vlog
+VLOG 机制本身是 streaming_log 中的分层详细日志机制，调用方式形如 `VLOG(verbose_level)`，类似 glog 的 `VLOG(n)`，层级越深代表越详细的调试信息。VLOG 的启用通过两个 gflags 控制：全局最低级别由 `--verbose` 设置；按文件/模块名进行细粒度覆盖则使用 `--verbose_module`（注意 streaming_log 使用 `--verbose`，而 glog 使用 `--v`，参数名不同）。
 
-## 定义
-`/vlog` 是 brpc 内置服务中用于查看和动态调整程序中当前可开启的 VLOG（详细日志）模块及其日志级别的 HTTP 接口。它允许开发者在不重启服务的情况下，通过浏览器交互式地控制特定模块的详细日志输出，从而方便线上问题的排查。
+此外，VLOG 还提供变种 `VLOG2`，允许用户指定虚拟文件路径而非使用真实文件名，以便更灵活地按模块过滤日志。`VLOG_IF` 和 `VLOG2_IF` 是相应的条件打印版本。
 
-## 关键特征
-- **动态控制**：允许在运行时启用或禁用特定模块的 VLOG，无需重启服务进程。
-- **模块化可见性**：展示所有支持 VLOG 的模块及其当前日志级别，便于开发者识别可调试的组件。
-- **交互式界面**：通过浏览器可查看可用 VLOG 模块列表，并支持交互操作（如调整模块日志级别）。
-- **框架特定性**：仅适用于 brpc 的流式日志系统，对 glog 无效。
-
-## 应用
-- **线上问题排查**：在生产环境中，动态开启某个模块的详细日志，捕获偶发问题的调试信息。
-- **模块调试**：在开发和测试阶段，快速定位特定模块的日志输出，验证代码逻辑。
-- **运维管理**：作为 brpc 内置监控系统的一部分，与 `/health`、`/version` 等服务配合使用，形成微服务可观测性方案。
-
-## 相关概念
+## Related Concepts
 - [[concepts/builtin_service|内置服务]]
 - [[concepts/version|/version]]
 - [[concepts/health|/health]]
 - [[concepts/protobufs|/protobufs]]
+- [[concepts/streaming_log|streaming_log]]
+- [[concepts/log_macros|LOG宏]]
+- [[concepts/throttled_logging|节流日志]]
+- [[concepts/vlog|VLOG（详细日志）]]
+- [[concepts/vlog2|VLOG2]]
 
-## 相关实体
+## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/glog|glog]]
 
-## 来源提及
-- "/vlog: 查看程序中当前可开启的VLOG（对glog无效）。" — [[sources/builtin_service|builtin_service]]
-- "作为其他服务之一，/vlog帮助在不重启服务的情况下开启特定模块的调试日志，极大方便了线上问题排查。" — [[sources/builtin_service|builtin_service]]
+## Mentions in Source
+
+> **Source: [[sources/builtin_service|builtin_service]]**
+> - "/vlog: 查看程序中当前可开启的VLOG（对glog无效）。"
+> - "作为其他服务之一，/vlog帮助在不重启服务的情况下开启特定模块的调试日志，极大方便了线上问题排查。"
+
+> **Source: [[sources/streaming_log|streaming_log]]**
+> - "VLOG(verbose_level)是分层的详细日志，通过两个gflags：*--verbose*和*--verbose_module*控制需要打印的层（注意glog是--v和–vmodule）。"
+> - "VLOG有一个变种VLOG2让用户指定虚拟文件路径"
