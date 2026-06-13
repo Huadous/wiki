@@ -9,7 +9,7 @@
 - [[entities/github-issue-#16239|github-issue-#16239]] `aliases: protobuf issue 16239, protocolbuffers/protobuf#16239` - type: entity
 - [[entities/google3|google3]] `aliases: Google monorepo, google3 codebase, Google3 内部代码库` - type: entity
 - [[entities/protoc-explorer|protoc-explorer]] `aliases: protoc explorer, protoc-explorer 工具` - type: entity
-- [[entities/upb|upb]] `aliases: upb, micro protobuf, upb C runtime` - type: entity
+- [[entities/upb|upb]] `aliases: upb, micro protobuf, upb C runtime, μpb, upb, micro protobuf, upb C runtime` - type: entity
 - [[entities/joshua-humphries|joshua-humphries]] `aliases: Josh Humphries` - type: entity
 - [[entities/netflix|netflix]] `aliases: 奈飞, Netflix, Inc.` - type: entity
 - [[entities/conformanceresponse|conformanceresponse]] `aliases: Conformance Response proto, conformance_testing.ConformanceResponse` - type: entity
@@ -201,6 +201,12 @@
 
 ## 概念
 
+- [[concepts/migrate-to-bytes|migrate-to-bytes]] `aliases: Alternative 3, 迁移为 bytes` - type: concept
+- [[concepts/utf8_validation|utf8_validation]] `aliases: UTF8 validation, utf-8 validation` - type: concept
+- [[concepts/shared-implementations|shared-implementations]] `aliases: 共享实现, Shared Implementations` - type: concept
+- [[concepts/polyglot|polyglot]] `aliases: 多语言运行时场景, Polyglot Runtime Scenario` - type: concept
+- [[concepts/nested-features|nested-features]] `aliases: 嵌套功能, Shared Feature Set Messages` - type: concept
+- [[concepts/descriptor-api|descriptor-api]] `aliases: descriptor APIs, proto descriptor` - type: concept
 - [[concepts/synthetic-message|synthetic-message]] `aliases: synthetic nested message, synthetic message` - type: concept
 - [[concepts/feature-suite|feature-suite]] `aliases: Feature Suite, Per-language features, 每语言功能拆分方案` - type: concept
 - [[concepts/nerf-delimited-encoding-in-2023|nerf-delimited-encoding-in-2023]] `aliases: Nerf Delimited Encoding, 2023 版削弱 Delimited Encoding 方案` - type: concept
@@ -240,9 +246,9 @@
 - [[concepts/拥塞|拥塞]] `aliases: congestion, 拥塞现象` - type: concept
 - [[concepts/source-features|source-features]] `aliases: 源特性, Source Features` - type: concept
 - [[concepts/resolved-features|resolved-features]] `aliases: 已解析特性, Resolved Features` - type: concept
-- [[concepts/runtime-features|runtime-features]] `aliases: 运行时特性, Runtime Features` - type: concept
+- [[concepts/runtime-features|runtime-features]] `aliases: 运行时特性, Runtime Features, Runtime Implementation Features, 运行时特性, Runtime Features` - type: concept
 - [[concepts/generator-features|generator-features]] `aliases: Generator Features, 生成器特性` - type: concept
-- [[concepts/conformance-testing|conformance-testing]] `aliases: Conformance Testing, 一致性测试, conformancetest, Conformance tests, Conformance Testing, 一致性测试, conformancetest` - type: concept
+- [[concepts/conformance-testing|conformance-testing]] `aliases: Conformance Testing, 一致性测试, conformancetest, Conformance tests, Conformance Testing, 一致性测试, conformancetest, Conformance test, Conformance Testing, 一致性测试, conformancetest, Conformance tests, Conformance Testing, 一致性测试, conformancetest` - type: concept
 - [[concepts/descriptor-pool|descriptor-pool]] `aliases: DescriptorPool` - type: concept
 - [[concepts/hyrums-law|hyrums-law]] `aliases: 海勒姆定律, Hyrum's Law` - type: concept
 - [[concepts/包|包]] `aliases: Package, 数据包` - type: concept
@@ -429,14 +435,14 @@
 - [[concepts/c++-apis-for-edition-zero|c++-apis-for-edition-zero]] `aliases: Edition Zero 的 C++ API, C++ APIs for Edition Zero` - type: concept
 - [[concepts/protobuf-editions-design-features|protobuf-editions-design-features]] `aliases: Protobuf Editions 特性设计, Editions Features 设计文档, Protobuf Editions Design: Features` - type: concept
 - [[concepts/edition-zero-json-handling|edition-zero-json-handling]] `aliases: Edition Zero JSON Handling, Edition Zero JSON 处理` - type: concept
-- [[concepts/editions-feature-extension-layout|editions-feature-extension-layout]] `aliases: Editions 特性扩展布局, Feature Extension Layout` - type: concept
+- [[concepts/editions-feature-extension-layout|editions-feature-extension-layout]] `aliases: Editions 特性扩展布局, Feature Extension Layout, Feature Extension, Editions 特性扩展布局, Feature Extension Layout` - type: concept
 - [[concepts/legacy-syntax-editions|legacy-syntax-editions]] `aliases: 遗留语法 Edition, Legacy Syntax Editions` - type: concept
 - [[concepts/editions-group-migration-issues|editions-group-migration-issues]] `aliases: Editions 分组迁移问题, Editions: Group Migration Issues` - type: concept
 - [[concepts/edition-evolution|edition-evolution]] `aliases: Edition 演进, Edition Evolution` - type: concept
 - [[concepts/editions-feature-visibility|editions-feature-visibility]] `aliases: Editions 特性可见性, Editions Feature Visibility` - type: concept
 - [[concepts/edition-zero-converged-semantics|edition-zero-converged-semantics]] `aliases: Edition Zero 收敛语义, Edition Zero: Converged Semantics` - type: concept
 - [[concepts/protobuf-editions-for-schema-producers|protobuf-editions-for-schema-producers]] `aliases: Protobuf Editions for Schema Producers, 针对 Schema 生产者的 Protobuf Editions, Editions Producer Guide, Schema Producer, Protobuf Editions for Schema Producers, 针对 Schema 生产者的 Protobuf Editions, Editions Producer Guide` - type: concept
-- [[concepts/edition-zero-features|edition-zero-features]] `aliases: Edition Zero 特性集, Edition 0 Features, Edition 0 特性, Editions Zero Features, Edition Zero 特性集, Edition 0 Features, Edition 0 特性` - type: concept
+- [[concepts/edition-zero-features|edition-zero-features]] `aliases: Edition Zero 特性集, Edition 0 Features, Edition 0 特性, Editions Zero Features, Edition Zero 特性集, Edition 0 Features, Edition 0 特性, Editions Zero, Edition Zero 特性集, Edition 0 Features, Edition 0 特性, Editions Zero Features, Edition Zero 特性集, Edition 0 Features, Edition 0 特性` - type: concept
 - [[concepts/minimum-required-edition|minimum-required-edition]] `aliases: MRE, 最低必需 Edition` - type: concept
 - [[concepts/edition-lifetimes|edition-lifetimes]] `aliases: Edition 寿命, Edition Lifetimes Document` - type: concept
 - [[concepts/editions-life-of-a-featureset|editions-life-of-a-featureset]] `aliases: Editions: Life of a Featureset, 特性集生命周期, Life of a Featureset, FeatureSet, Editions: Life of a Featureset, 特性集生命周期, Life of a Featureset` - type: concept
@@ -775,7 +781,7 @@
 - [[concepts/elogoff|elogoff]] `aliases: brpc::ELOGOFF, 服务关闭错误码, 优雅关闭信号` - type: concept
 - [[concepts/ema|ema]] `aliases: 指数移动平均, Exponential Moving Average` - type: concept
 - [[concepts/edition|edition]] `aliases: language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, What are Protobuf Editions?, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, What are Protobuf Editions?, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Protocol Buffers Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Rust editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本, Editions, language edition, protobuf edition, Proto编辑器版本, editions, language edition, protobuf edition, Proto编辑器版本` - type: concept
-- [[concepts/edition-2024|edition-2024]] `aliases: 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024, edition 2024, 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024` - type: concept
+- [[concepts/edition-2024|edition-2024]] `aliases: 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024, edition 2024, 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024, edition zero, 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024, edition 2024, 2024 edition, Editions 2024, Edition Zero, 2024 edition, Editions 2024` - type: concept
 - [[concepts/edition-2023|edition-2023]] `aliases: proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, edition 2023, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Edition 2023, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, edition 2023, proto edition 2023, 2023 edition, Protobuf 2023 语言版本, Protobuf Editions, proto edition 2023, 2023 edition, Protobuf 2023 语言版本` - type: concept
 - [[concepts/edge-triggered-mode|edge-triggered-mode]] `aliases: 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered 模式, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode, Edge triggered, 边缘触发, ET, Edge Triggered Mode, Edge Triggered, 边缘触发, ET, Edge Triggered Mode` - type: concept
 - [[concepts/dependency-bloat|dependency-bloat]] `aliases: 依赖膨胀, proto dependency bloat` - type: concept
@@ -827,6 +833,8 @@
 
 ## 来源
 
+- [[sources/editions-editions-feature-extension-layout|editions-editions-feature-extension-layout]] `aliases: Editions 功能扩展布局方案, Feature Extension Layout`
+- [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]] `aliases: Editions Feature Visibility, Feature Visibility for Editions`
 - [[sources/editions-group-migration-issues|editions-group-migration-issues]] `aliases: Editions Group Migration Issues, protobuf edition 2023 delimited encoding proposal`
 - [[sources/auto_concurrency_limiter|auto_concurrency_limiter]] `aliases: Adaptive Concurrency Limiter, brpc 自适应限流`
 - [[sources/avalanche|avalanche]] `aliases: brpc雪崩防护, avalanche protection in brpc`

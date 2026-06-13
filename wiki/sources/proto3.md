@@ -11,6 +11,7 @@ sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
 tags:
   - "document"
 aliases:
@@ -57,3 +58,8 @@ aliases:
 - 提案建议将 [[concepts/proto3|proto3]] 视为 [[concepts/legacy-syntax-editions|Legacy Syntax Editions]] 中的特殊 edition,具体取值为 `EDITION_PROTO3 = 999`。
 - 在 [[concepts/proto3|proto3]] 中,`optional` 关键字会将对应的 [[concepts/features-field-presence|field_presence]] feature 设置为 `EXPLICIT`,即设置显式存在性。
 - [[concepts/proto3|proto3]] 的语法元素（如 `optional` 关键字设置的 `EXPLICIT` presence）与 [[concepts/protobuf-editions|Editions]] 的 [[concepts/feature-inference|feature inference]] 之间存在映射关系,需要通过专门的 [[concepts/feature-inference|feature inference]] 逻辑来正确推断出对应的 feature 行为。
+- [[concepts/proto3|proto3]] 引入了对 [[concepts/proto2|proto2]] 的多项更改,包括字段默认值的设定（如 int32 的 0、string 的空字符串等）以及移除 required 字段。
+- [[concepts/edition-zero|Edition Zero]] 保留了所有 [[concepts/proto2|proto2]]/[[concepts/proto3|proto3]] 行为,这使得 [[concepts/proto3|proto3]] 成为初始版本旨在向后兼容的两个前身标准之一。
+- [[concepts/proto3|proto3]] 与 [[concepts/proto2|proto2]] 一起代表了 [[concepts/protobuf-editions|Editions]] 系统必须保持兼容的现有行为。
+- [[concepts/protobuf-editions|Editions]] 系统的设计目标包括与 [[concepts/proto3|proto3]] 现有行为的兼容性,使得现有用户向新系统的迁移是无缝的。
+- 在 UTF8 验证等 feature 建模方式的讨论中,由于 [[concepts/edition-zero|Edition Zero]] 保留了所有 [[concepts/proto2|proto2]]/[[concepts/proto3|proto3]] 行为,因此无论选择何种 feature 表达方式,都不会产生功能性差异,讨论的焦点仅在于应使用哪些 feature 来控制这些行为。

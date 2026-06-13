@@ -19,6 +19,8 @@ sources:
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
+  - "[[protobuf/editions-editions-feature-extension-layout.md]]"
+  - "[[protobuf/editions-edition-zero-json-handling.md]]"
 tags:
   - "standard"
 aliases:
@@ -53,7 +55,42 @@ aliases:
   - "proto edition 2023"
   - "2023 edition"
   - "Protobuf 2023 语言版本"
+  - "Protobuf editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "edition 2023"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Edition 2023"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "edition 2023"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
+  - "Protobuf Editions"
+  - "proto edition 2023"
+  - "2023 edition"
+  - "Protobuf 2023 语言版本"
 ---
+
+## Description
+Protobuf editions 项目用「editions」来允许 Protobuf 随时间安全地演进，核心机制是「features」——每个 edition 形式上就是一组带有默认值的 feature（如 `enum_type`、`field_presence`）。文件首行以 `edition "2023"` 这样的声明取代了 `syntax = "proto2"/"proto3"`，且 edition 声明必须是文件中第一个非空、非注释的行。editions 体系同时引入了 [[concepts/featureset|FeatureSet]]、[[concepts/feature-gating|Feature gating]]、[[concepts/options-attributes|Options Attributes]] 与 [[concepts/fieldoptions|FieldOptions]] 等基础设施，允许语言绑定基于 options 构建自定义 feature。设计上还存在 [[concepts/feature-inheritance|feature-inheritance]] 机制，并通过扩展全局 features proto 来支持非 protobuf team 拥有的「targeted features」。演进过程需要 [[concepts/large-scale-change|large-scale-change]] 式的迁移，并配套 [[concepts/minimum-required-edition|Minimum Required Edition]] 作为「poison pill」来阻断过老的运行时加载「过新」的描述符。[[concepts/edition-proclamation|Edition Proclamation]] 描述了某个 edition 的发布流程；[[concepts/legacy-syntax-editions|Legacy Syntax Editions]] 则关注如何让旧语法平滑过渡到新版本。Editions 的另一个核心目的是收紧历史遗留的语法角落（[[concepts/stricter-schemas-with-editions|Stricter Schemas with Editions]]），例如通过新增 `feature.xxx_is_a_keyword` 之类的 feature，并在新 edition 中将其默认值从 true 切到 false，以 [[concepts/semantic-patch|Semantic Patch]] 方式渐进收紧校验。Editions 强调 [[concepts/wire-format-compatibility|Wire Format Compatibility]]，因此设计必须兼顾 [[concepts/backward-compatibility|backward-compatibility]] 与 [[concepts/forward-compatibility|forward-compatibility]]，并由 [[concepts/schema-producer|Schema Producer]] 与 [[concepts/schema-consumer|Schema Consumer]] 共同遵守。Edition Zero 是 editions 体系的首个里程碑，用以统一 proto2 与 proto3；其推进过程中曾因 JSON 字段名冲突的遗留问题（[[concepts/json-format-feature|json_format feature]]）而被阻塞——这迫使 json_format 被设计为三态特性（ALLOW / DISALLOW / LEGACY_BEST_EFFORT），以便在保持 wire format 兼容的前提下推进 editions 发布。Edition 2023 默认 `STYLE_LEGACY`，并新增了 `enum_type`、`field_presence` 等 feature；`features-default_symbol_visibility` 默认 `EXPORT_ALL`，同时 `features-enforce_naming_style`、`features-field_presence` 等功能持续迭代。
 
 ## Related Concepts
 - [[concepts/edition-zero|Edition Zero]]
@@ -94,6 +131,11 @@ aliases:
 - [[concepts/featureset|FeatureSet]]
 - [[concepts/delimited-encoding|Delimited encoding]]
 - [[concepts/group-fields|Group fields]]
+- [[concepts/json-format-feature|json_format feature]]
+- [[concepts/json-field-name-conflicts|JSON Field Name Conflicts]]
+- [[concepts/json-format-allow|json_format ALLOW]]
+- [[concepts/json-format-disallow|json_format DISALLOW]]
+- [[concepts/json-format-legacy-best-effort|json_format LEGACY_BEST_EFFORT]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -182,3 +224,12 @@ aliases:
 > - "The problem under edition 2023 is that we've removed the generation of synchronized synthetic messages from the language."
 > - "Nerf Delimited Encoding in 2023 is the quickest path forward to unblock the release of edition 2023."
 > - "No directly relevant information"
+
+> **Source: [[sources/editions-editions-feature-extension-layout|editions-editions-feature-extension-layout]]**
+> - "[What are Protobuf Editions](what-are-protobuf-editions.md) lays out a plan for allowing for more targeted features not owned by the protobuf team."
+> - "It uses extensions of the global features proto to implement this."
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-edition-zero-json-handling|editions-edition-zero-json-handling]]**
+> - "While we had hoped to unify these before Protobuf editions launched, we ended up blocked by some internal use-cases."
+> - "This issue is now blocking the editions launch, since we can't represent this behavior with the current set of Edition Zero features."

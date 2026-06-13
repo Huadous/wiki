@@ -8,6 +8,7 @@ sources:
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
 tags:
   - "product"
 aliases:
@@ -32,6 +33,10 @@ aliases:
 - proto2 — Prototiller 迁移的源语法之一，被 Legacy Syntax Editions 提案视为特殊 edition
 - proto3 — Prototiller 迁移的源语法之一，被 Legacy Syntax Editions 提案视为特殊 edition
 - Feature Inference — 与 Prototiller 默认转换策略相关的概念
+- Resolved Features — Prototiller 转换保证不变的运行时行为层面
+- Unresolved Features — Prototiller 转换会改变的 proto 内部表示层面
+- Large-scale Change — Prototiller 行为保持性所支撑的 Editions 推广策略
+- Hyrum's Law — 用户访问 unresolved features 时会引发的兼容性问题
 - Aliases — Prototiller 被视为该方案的潜在受益者，可用于通过 proto 语言本身指定旧行为以统一处理
 - Delimited encoding — Prototiller 与别名方案的结合被视为长期解决 group 字段 delimited 编码问题的理想途径
 - Group-like fields — Prototiller 配合别名方案长期解决的目标之一
@@ -56,3 +61,7 @@ aliases:
 > - "Fixes all of the problems mentioned above"
 > - "Allows us to specify the old behavior using the proto language, which allows it to be handled by Prototiller"
 > - "We've discussed aliases a lot mostly in the context of `Any`, but they would be useful for any encoding scheme that locks down field/message names."
+
+> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> - "we *expect* that people are only making decisions based on resolved features, and therefore that Prototiller transformations are behavior-preserving (despite changing the unresolved features)."
+> - "If people have easy access to unresolved features though, we can expect a lot of Hyrum's law issues slowing down these large-scale changes."

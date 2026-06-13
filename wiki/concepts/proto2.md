@@ -15,6 +15,7 @@ sources:
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
   - "[[protobuf/editions-group-migration-issues.md]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
 tags:
   - "standard"
 aliases:
@@ -103,3 +104,6 @@ aliases:
 > **Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]**
 > - "Proto2 splits groups into a synthetic nested message with a type name equivalent to the group specification (required to be capitalized), and a field name that's fully lowercased."
 > - "Note that proto2 groups will *always* be 'group-like.'"
+
+> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> - "We've bounced back and forth on how UTF8 validation should be modeled as a feature. None of the proposals resulted in any functional changes, since edition zero preserves all proto2/proto3 behavior, the question was just about what features should be used to control them."

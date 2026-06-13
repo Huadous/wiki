@@ -1005,3 +1005,19 @@
 
 **更新页面**：[[mkruskal-google]], [[protocolbuffersprotobuf]], [[edition-2023]], [[prototiller]], [[delimited-message-encoding]], [[groups]], [[global-features]], [[text-format]], [[proto2]], [[extensions]], [[wire-format]], [[edition-2024]]
 
+
+
+## [2026-06-13] ingest | Editions Feature Visibility
+
+**创建页面**：[[sources/editions-editions-feature-visibility.md]], [[entities/prototiller.md]], [[entities/upb.md]], [[concepts/editions-life-of-a-featureset.md]], [[concepts/resolved-features.md]], [[concepts/editions-feature-visibility.md]], [[concepts/unresolved-features.md]], [[concepts/hyrums-law.md]], [[concepts/descriptor-api.md]], [[concepts/edition-2024.md]], [[concepts/lsc.md]], [[concepts/proto2.md]], [[concepts/proto3.md]], [[concepts/conformance-testing.md]], [[concepts/reflection.md]]
+
+**更新页面**：[[editions]], [[prototiller]], [[editions-life-of-a-featureset]], [[editions-feature-visibility]], [[resolved-features]], [[unresolved-features]], [[hyrums-law]], [[lsc]], [[edition-2024]], [[proto2]], [[proto3]], [[descriptor]], [[reflection]]
+
+
+
+## [2026-06-13] ingest | Editions: Feature Extension Layout
+
+**创建页面**：[[sources/editions-editions-feature-extension-layout.md]], [[entities/mkruskal-google.md]], [[entities/zhangskz.md]], [[entities/upb.md]], [[concepts/edition-zero-features.md]], [[concepts/edition-2023.md]], [[concepts/editions-feature-extension-layout.md]], [[concepts/runtime-features.md]], [[concepts/generator-features.md]], [[concepts/nested-features.md]], [[concepts/polyglot.md]], [[concepts/shared-implementations.md]], [[concepts/utf8_validation.md]], [[concepts/migrate-to-bytes.md]], [[concepts/java-legacy_closed_enum.md]], [[concepts/editions-life-of-a-featureset.md]]
+
+**更新页面**：[[mkruskal-google]], [[zhangskz]], [[upb]], [[edition-2023]], [[generator-features]], [[editions-life-of-a-featureset]], [[java-legacy_closed_enum]]
+

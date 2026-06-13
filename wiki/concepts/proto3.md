@@ -15,6 +15,7 @@ sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-legacy-syntax-editions.md]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
 tags:
   - "standard"
 aliases:
@@ -37,6 +38,8 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 根据 [[sources/editions-life-of-an-edition|editions-life-of-an-edition]] 的说明，与 [[concepts/proto2|Proto2]] 类似，从 proto3 到 Editions 的迁移也是通过 `protoc --upgrade-edition` 工具完成的。该工具会为文件添加适当的 edition 声明（如 `edition = "2023";`）和 `option features.* = ...;` 设置，使其保留原始行为。Editions 机制旨在统一替换 proto2 和 proto3，提供更灵活、可演进的 features 系统；[[concepts/edition-zero|Edition Zero]] 的迁移涉及同时处理这两种旧语法，升级工具能够自动判断源文件是 proto2 还是 proto3，并相应地添加 features 以维持原有语义。
 
 根据 [[sources/editions-legacy-syntax-editions|editions-legacy-syntax-editions]] 的提案，proto3 在 editions 系统中同样被视为"遗留语法"。该提案建议将 proto3 作为 `EDITION_PROTO3 = 999` 的特殊 edition 来处理，使其与 proto2 一样被纳入统一的 editions 框架。proto3 的语法元素（如 `optional` 关键字设置 EXPLICIT presence）与 editions 的 feature 之间存在映射关系，需要通过专门的 feature inference 逻辑来处理。这意味着在从 proto3 向 editions 迁移时，系统需要自动识别 proto3 特有的语法形式（如 `optional` 标记的字段对应 `field_presence = EXPLICIT`），并将其转换为等价的 features 表达。
+
+根据 [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]] 的讨论，由于 [[concepts/edition-zero|Edition Zero]] 保留了所有 proto2/proto3 行为，因此即使在 features 层面进行重新建模（例如 UTF8 校验应该如何作为 feature 表达），相关的提案都不会产生任何功能性变化 —— 这些讨论本质上只是为了确定应该使用哪些 features 来控制已有的行为。这一事实进一步说明了 proto3 的语义在 Editions 系统中被视为必须完全保留的基线（baseline），任何 features 的调整都不得突破该基线所承载的现有行为契约，从而保障现有 proto3 用户向 Editions 迁移的无缝性。
 
 ## Related Concepts
 - [[concepts/proto2|Proto2]]
@@ -70,6 +73,7 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 - [[concepts/enum-type|Enum type]]
 - [[concepts/legacy-syntax-editions|Legacy Syntax Editions]]
 - [[concepts/feature-inference|Feature Inference]]
+- [[concepts/editions-feature-visibility|Editions Feature Visibility]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -136,3 +140,6 @@ Proto3 于2016年发布，是 Protocol Buffers 语言发展中的重要里程碑
 > **Source: [[sources/editions-legacy-syntax-editions|editions-legacy-syntax-editions]]**
 > - "Since early in the design process, we've discussed the possibility of making proto2 and proto3 "special" editions"
 > - "we've discussed the possibility of making proto2 and proto3 "special" editions, but never laid out what exactly it would look like or determined if it was necessary."
+
+> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> - "We've bounced back and forth on how UTF8 validation should be modeled as a feature. None of the proposals resulted in any functional changes, since edition zero preserves all proto2/proto3 behavior, the question was just about what features should be used to control them."

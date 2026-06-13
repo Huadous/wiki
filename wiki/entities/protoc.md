@@ -18,12 +18,20 @@ sources:
   - "[[protobuf/editions-minimum-required-edition.md]]"
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
+  - "[[protobuf/editions-edition-zero-json-handling.md]]"
 tags:
   - "product"
 aliases:
   - "Protocol Buffers compiler"
   - "protoc compiler"
 ---
+
+## Description
+protoc 是 Protobuf 项目的官方编译器工具，负责将 .proto 文件解析为 [[concepts/descriptor-pool|Descriptor Pool]]，并将其分发至各语言后端代码生成器以及特性解析模块。在字段存在性方面，protoc 自 v3.15.0 起默认启用 proto3 的 [[concepts/explicit-presence-discipline|显式存在性]]语义（之前需使用 `--experimental_allow_proto3_optional` 标志）。在 Editions 体系中，protoc 前端承担 [[concepts/feature-resolution|特性解析]]、[[concepts/edition-defaults|版本默认值]]应用以及 [[concepts/features-gc|Features GC]]（通过 `protoc --gc-features`）等关键职责，并将 [[concepts/filedescriptorproto|FileDescriptorProto]] 等描述符传递给代码生成器与后端运行时。protoc 同时是 [[concepts/minimum-required-edition|Minimum Required Edition]] 的判定执行点，相关逻辑完整实现于 protoc 前端。
+
+在 JSON 互操作方面，protoc 是 [[concepts/json_format feature|json_format]] 特性所规定的字段名冲突检测与报告机制的执行点：在 proto3 模式下默认对 JSON 映射进行唯一性校验并发出错误，在 proto2 或启用 `deprecated_legacy_json_field_conflicts` 时则降级为警告；建议的 `json_format` 特性依赖 protoc 在编译期分别触发错误（ALLOW）或警告（LEGACY_BEST_EFFORT），并在 DISALLOW 模式下允许 message 包含非法 JSON 映射的子类型字段。protoc 还能检测嵌套类型违规（例如 ALLOW message 嵌套 DISALLOW 类型）。
+
+此外，protoc 还支持 `--java_out=lite` 生成 [[entities/protocol-buffers-v3-15-0|Protocol Buffers v3.15.0]] 兼容的 Java Lite 代码，并通过对保留字段编号的检查在编译期阻止未来开发者误用。
 
 ## Related Entities
 - [[entities/google-inc|Google Inc.]]
@@ -37,6 +45,8 @@ aliases:
 - [[entities/protobuf-minimum-required-edition|Protobuf Minimum Required Edition]]
 - [[entities/mkruskal-google|mkruskal-google]]
 - [[entities/descriptor.proto|descriptor.proto]]
+- [[entities/edition-zero|Edition Zero]]
+- [[entities/protocolbuffers/protobuf|protocolbuffers/protobuf]]
 
 ## Related Concepts
 - [[concepts/protocol-buffers|Protocol Buffers]]
@@ -71,6 +81,11 @@ aliases:
 - [[concepts/descriptor-pool|Descriptor Pool]]
 - [[concepts/codegenerator|CodeGenerator]]
 - [[concepts/edition-defaults|Edition Defaults]]
+- [[concepts/json-format-feature|json_format feature]]
+- [[concepts/allow|ALLOW]]
+- [[concepts/disallow|DISALLOW]]
+- [[concepts/legacy-best-effort|LEGACY_BEST_EFFORT]]
+- [[concepts/deprecated-legacy-json-field-conflicts|deprecated_legacy_json_field_conflicts]]
 
 ## Mentions in Source
 
@@ -120,3 +135,7 @@ aliases:
 > - "Protoc works by first parsing the input protofiles and building them into a descriptor pool."
 > - "The flaw that all of these design documents suffer from is that protoc can't be the universal source-of-truth for feature resolution under the original design."
 > - "For built-in languages, the resulting descriptors are passed directly to the generator for codegen."
+
+> **Source: [[sources/editions-edition-zero-json-handling|editions-edition-zero-json-handling]]**
+> - "The Protobuf compiler will fail to parse any proto3 files if any JSON conflicts are detected by default"
+> - "Any conflicting JSON mappings will trigger protoc errors, guaranteeing uniqueness."

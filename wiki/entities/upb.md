@@ -2,33 +2,45 @@
 type: entity
 created: 2026-06-13
 updated: 2026-06-13
-sources: ["[[sources/editions-group-migration-issues|editions-group-migration-issues]]"]
-tags: [product]
+sources:
+  - "[[sources/editions-group-migration-issues|editions-group-migration-issues]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
+  - "[[protobuf/editions-editions-feature-extension-layout.md]]"
+tags:
+  - "product"
 aliases:
+  - "upb"
+  - "micro protobuf"
+  - "upb C runtime"
+  - "μpb"
   - "upb"
   - "micro protobuf"
   - "upb C runtime"
 ---
 
-
-# upb
-
-## 基本信息
-- Type: product
-- Source: [[sources/editions-group-migration-issues|editions-group-migration-issues]]
-
-## 描述
-upb 是一个用 C 语言编写的轻量级 Protocol Buffers 实现，常被多个语言运行时（包括 [[sources/json2pb|json2pb]] 生态中的 Ruby、Rust 等）作为底层基础设施使用。在代码生成方面，upb 使用字段名（field name）来生成 API，例如对 proto2 group `MyGroup` 会生成 `Foo_mygroup()` 这样的方法。upb 的行为与 C++、Python、Go 等语言一致，都使用小写的字段名而非消息名。由于 edition 2023 移除了同步合成消息的生成，upb 作为底层运行时受到了 group 字段问题的影响，需要进行协调修改，以适配 [[concepts/edition-2023|Edition 2023]] 的语义。
-
-## 相关实体
+## Related Entities
 无相关实体
 
-## 相关概念
+## Related Concepts
 - [[concepts/codegen|Codegen]]
 - [[concepts/group-fields|Group fields]]
 - [[concepts/delimited-encoding|Delimited encoding]]
 - [[concepts/edition-2023|Edition 2023]]
+- [[concepts/editions-feature-visibility|Editions Feature Visibility]]
+- [[concepts/shared-implementations|Shared Implementations]] *(待确认)*
+- [[concepts/polyglot|Polyglot]] *(待确认)*
+- [[concepts/generator-features|Generator Features]]
+- [[concepts/runtime-implementation-features|Runtime Implementation Features]]
 
-## 来源提及
+## Mentions in Source
 - ** This includes all upb-based runtimes as well (e.g. Ruby, Rust, etc.) — [[sources/editions-group-migration-issues|editions-group-migration-issues]]
 - While using the field name for generated APIs required less special-casing in the generators, the field name ends up producing slightly-less-readable APIs for multi-word camelcased groups. — [[sources/editions-group-migration-issues|editions-group-migration-issues]]
+
+> **Source: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> - "One notable standout here is μpb, which is a runtime *implementation*, but not a full runtime."
+> - "Since μpb only provides APIs to the wrapping runtime in a target language, it's free to expose features anywhere it wants. The wrapping language should be responsible for stripping them out where appropriate."
+
+> **Source: [[sources/editions-editions-feature-extension-layout|editions-editions-feature-extension-layout]]**
+> - "Runtimes like upb and C++ are used as backing implementations of multiple other languages (e.g. Python, Rust, Ruby, PHP)."
+> - "Possible complexity in upb to understand which language's features to respect. UPB is not currently aware of what language it is being used for."
+> - "Limits in-process sharing across languages with shared implementations (e.g. Python upb, PHP upb) in the case of conflicting behaviors."

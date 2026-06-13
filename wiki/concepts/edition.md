@@ -13,6 +13,7 @@ sources:
   - "[[protobuf/editions-life-of-an-edition.md]]"
   - "[[protobuf/editions-java-lite-for-editions.md]]"
   - "[[protobuf/editions-editions-life-of-a-featureset.md]]"
+  - "[[protobuf/editions-editions-feature-visibility.md]]"
 tags:
   - "term"
 aliases:
@@ -276,9 +277,11 @@ aliases:
 ## Description
 Editions 是 Protocol Buffers 提出的一种面向未来的演进机制，灵感直接来源于 [[entities/rust|Rust]] 的 edition 体系——通过按年份编号（如 2023、2024）的发布单元来推进语言/编译器版本的"平行棘轮"式升级。每一个 edition 形式化地等价于一组 [[concepts/features|features]] 的默认值集合，因此 editions 仅修改 features 的默认值，而不会引入新的运行时行为；proto2 与 proto3 本身也因此被理解为这种 feature 集合的两组预设配置。
 
-Editions 的核心目的在于让 [[entities/protocol-buffers|Protocol Buffers]] 能够在不破坏现有生态的前提下安全演化：通过保证同一主版本内解析器向后兼容，允许新版本以更细粒度的 features 灵活引入或废弃特定特性；这种"约每年一次、按需扩张"的设计也是 [[concepts/life-of-an-edition|Life of an Edition]] 文档中所阐述的关键原则。同时，[[concepts/minimum-required-edition|Minimum Required Edition]] 等机制为不同特性设定了最低版本门槛，确保旧实现可以安全拒绝超出能力的描述符。
+Editions 的核心目的在于让 [[entities/protocol-buffers|Protocol Buffers]] 能够在不破坏现有生态的前提下安全演化：通过保证同一主版本内解析器向后兼容，允许新版本以更细粒度的 features 灵活引入或废弃特定特性；这种"约每年一次、按需扩张"的设计也是 [[concepts/life-of-an-edition|Life of an Edition]] 文档中所阐述的关键原则。同时，[[concepts/minimum-required-edition|Minimum Required Edition]] 等机制为不同特性设定了最低版本门槛，确保旧实现可以安全拒绝超出能力的描述符。Editions 团队进一步承诺每年将新一版 Edition 推广到 Google 内部至少 80% 的代码库（按 churn policy 计），这使得 features 暴露方式的稳定性成为关键的设计考量。
 
-然而，editions 并不能凭空落地——它在每种语言中都需要 proto2/proto3 的默认特性才能安全推出（"we would need proto2/proto3 default features in each language to safely roll out editions"），并且必须支持 [[entities/descriptor.proto|descriptor.proto]] 在没有 [[entities/protoc|protoc]] 的情况下构建描述符；这一推进过程被 [[sources/editions-editions-life-of-a-featureset|editions-editions-life-of-a-featureset]] 概括为"FeatureSet 的生命周期"，重点回答了 FeatureSet 在不同处理阶段之间如何传播、若放任不管将不得不放弃整个 editions（"Doing nothing would basically mean abandoning editions"）。围绕这一生命周期，[[concepts/feature-resolution|Feature Resolution]]、[[concepts/option-retention|Option Retention]] 等机制分别承担了特性归并与自定义选项保留的职责，与 [[concepts/edition-defaults|Edition Defaults]] 一同确保从源码到运行时 descriptors 的语义一致性。
+然而，editions 并不能凭空落地——它在每种语言中都需要 proto2/proto3 的默认特性才能安全推出（"we would need proto2/proto3 default features in each language to safely roll out editions"），并且必须支持 [[entities/descriptor.proto|descriptor.proto]] 在没有 [[entities/protoc|protoc]] 的情况下构建描述符；这一推进过程被 [[sources/editions-editions-life-of-a-featureset|editions-editions-life-of-a-featureset]] 概括为"FeatureSet 的生命周期"，重点回答了 FeatureSet 在不同处理阶段之间如何传播——若放任不管将不得不放弃整个 editions（"Doing nothing would basically mean abandoning editions"）。围绕这一生命周期，[[concepts/feature-resolution|Feature Resolution]]、[[concepts/option-retention|Option Retention]] 等机制分别承担了特性归并与自定义选项保留的职责，与 [[concepts/edition-defaults|Edition Defaults]] 一同确保从源码到运行时 descriptors 的语义一致性。
+
+在"生命周期的另一面"——运行时如何向用户暴露 features——则是 [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]] 所聚焦的议题。该文档明确指出，[[sources/editions-editions-life-of-a-featureset|Editions: Life of a FeatureSet]] 负责解决 features 如何传播到运行时的问题，但"what's left under-specified is how the runtimes should expose features to their users"——即 [[concepts/unresolved-features|Unresolved Features]] 在运行时如何收敛为 [[concepts/resolved-features|Resolved Features]]、并通过 [[concepts/descriptor-api|Descriptor API]] 等渠道对用户可见。这一暴露面的稳定与一致，被视作每年 80% 推广目标得以实现的前提。
 
 在工程落地上，[[concepts/edition-proclamation|Edition Proclamation]]、[[concepts/edition-defaults|Edition Defaults]]、[[concepts/edition-total-order|Edition Total Order]]、[[concepts/poison-pill|Poison Pill]] 等概念共同支撑了 editions 的声明周期与互操作性。Editions 体系还要求格式改动必须保持向后兼容——以 Java Lite 为例，其当前实现大量依赖编码中的 `is_proto3` 位，这被识别为对 editions 不友好，因此需要以 [[concepts/edition-zero|Edition Zero]] 为基线，在不破坏现有解析器的前提下用对应 features 替换 `is_proto3` 分支，逐步将 [[concepts/proto2|proto2]]、[[concepts/proto3|proto3]] 时代的硬编码判断迁移到统一的 features 模型之中。
 
@@ -307,6 +310,11 @@ Editions 的核心目的在于让 [[entities/protocol-buffers|Protocol Buffers]]
 - [[concepts/Editions-Zero-Features|Editions Zero Features]]
 - [[concepts/ProtoSyntax|ProtoSyntax]]
 - [[concepts/message-encoding|features.message_encoding]]
+- [[concepts/Editions-Feature-Visibility|Editions Feature Visibility]]
+- [[concepts/resolved-features|Resolved Features]]
+- [[concepts/unresolved-features|Unresolved Features]]
+- [[concepts/descriptor-api|Descriptor API]]
+- [[concepts/large-scale-change|Large-scale Change]]
 
 ## Related Entities
 - [[entities/protocol-buffers|Protocol Buffers]]
@@ -369,3 +377,7 @@ Editions 的核心目的在于让 [[entities/protocol-buffers|Protocol Buffers]]
 > **来源: [[sources/editions-editions-life-of-a-featureset|editions-editions-life-of-a-featureset]]**
 > - "we would need proto2/proto3 default features in each language to safely roll out editions"
 > - "Doing nothing would basically mean abandoning editions."
+
+> **来源: [[sources/editions-editions-feature-visibility|editions-editions-feature-visibility]]**
+> - "While [Editions: Life of a FeatureSet](editions-life-of-a-featureset.md) handles how we propagate features *to* runtimes, what's left under-specified is how the runtimes should expose features to their users."
+> - "The proto team is going to be responsible for rolling out the next edition to internal Google repositories every year (at least 80% of it per our churn policy)."
