@@ -15,6 +15,8 @@ sources:
   - "[[protobuf/editions-protobuf-editions-for-schema-producers.md]]"
   - "[[protobuf/editions-protobuf-editions-design-features.md]]"
   - "[[protobuf/editions-protobuf-design-options-attributes.md]]"
+  - "[[protobuf/editions-minimum-required-edition.md]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
 tags:
   - "standard"
 aliases:
@@ -34,6 +36,13 @@ aliases:
   - "2023 edition"
   - "Protobuf 2023 语言版本"
 ---
+
+## Description
+Protobuf Editions 机制允许 Protobuf 语言以版本（edition）为单位，对其语义以及由代码生成器产出的 API 接口进行可控、可迁移的大规模修改。每个 edition 在形式上被定义为一组 [[concepts/feature|Feature]] 及其默认取值，因此一次语义调整即对应于一组 feature 默认值的切换。该机制的核心设计直接受到 [[entities/rust|Rust]] edition system 的启发，目的是把 Protobuf 生态中长期存在的"语义变更难以平滑迁移"这一痛点，用版本化、可声明、可被工具链识别的方式解决。
+
+在实际工作流中，前端工具 [[entities/protoc|protoc]] 会解析每个 proto 文件顶部声明的 edition（例如 `edition "2023"`），并据此计算该文件应继承的 feature 默认值集合；第三方后端（如 [[entities/grpc|gRPC]]、[[entities/prototiller|prototiller]] 等代码生成器）则依据同一组默认值判断该 proto 文件所属 edition 的新旧与兼容性。这一流水线使得"我使用的 edition 是否比目标运行时所支持的更新"成为一个可机器判定的属性——配合 [[concepts/minimum-required-edition|Minimum Required Edition]] 中的"毒丸"机制，可以让过老的运行时安全地拒绝加载过新的描述符。
+
+围绕这一机制，Protobuf 团队通过 [[concepts/edition-zero|Edition Zero]]、[[concepts/edition|Edition]]、[[concepts/edition-2024|Edition 2024]] 等里程碑推动落地，并辅以 [[concepts/feature-inheritance|feature-inheritance]]、[[concepts/feature-gating|Feature gating]]、[[concepts/reserved-keywords|Reserved keywords]] 等具体技术手段。文档 [[sources/editions-life-of-an-edition|editions-life-of-an-edition]] 进一步将 Editions 抽象为一种"如何设计一次大规模变更（large-scale change）"的工程方法论：每个 edition 的发布都伴随着一次"Edition Proclamation"——宣布针对某一类语言缺陷所采用的修复策略，例如历史上对 `required` 字段的"immolation"（彻底移除）即属于这一思路的典型案例。[[concepts/stricter-schemas-with-editions|Stricter Schemas with Editions]] 备忘录也指出，可以通过为每一种边界情况新增一个 `feature.xxx_is_a_keyword` 之类的 feature，并在后续 edition 中将其默认值翻转为 `true`，从而渐进式地收紧 schema 校验。
 
 ## Related Concepts
 - [[concepts/edition-zero|Edition Zero]]
@@ -66,6 +75,10 @@ aliases:
 - [[concepts/options-attributes|Options Attributes]]
 - [[concepts/custom-options|Custom Options]]
 - [[concepts/fieldoptions|FieldOptions]]
+- [[concepts/minimum-required-edition|Minimum Required Edition]]
+- [[concepts/large-scale-change|Large-scale Change]]
+- [[concepts/edition-proclamation|Edition Proclamation]]
+- [[concepts/immolation-of-required|Immolation of `required`]]
 
 ## Related Entities
 - [[entities/protocol-buffers|protocol-buffers]]
@@ -77,6 +90,7 @@ aliases:
 - [[entities/bazel|bazel]]
 - [[entities/protobuf-team|protobuf team]]
 - [[entities/kfm|@kfm]]
+- [[entities/mcy|@mcy]]
 
 ## Mentions in Source
 
@@ -131,3 +145,12 @@ aliases:
 > - "The [Protobuf Editions](what-are-protobuf-editions.md) project plans to use [custom options](protobuf-editions-design-features.md) to model features and encourage language bindings to build custom features off options as well."
 > - "While the proximal motivation for these options is for use with \"features\" in \"editions\", I believe they provide sufficient general utility that adding them directly to `FieldDescriptorOptions` is warranted."
 > - "No directly relevant information"
+
+> **Source: [[sources/editions-minimum-required-edition|editions-minimum-required-edition]]**
+> - "[Protobuf Editions](what-are-protobuf-editions.md) intends to add the concept of an edition to Protobuf, which will be an approximately-annually incrementing value."
+> - "we can use them as a poison pill for old runtimes that try to load descriptors that are \"too new.\""
+> - "No directly relevant information"
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "How to use Protobuf Editions to construct a large-scale change that modifies the semantics of Protobuf in some way."
+> - "This document describes how to use the Protobuf Editions mechanism (both editions, themselves, and features) for designing migrations and large-scale changes intended to solve a particular kind of defect in the language."

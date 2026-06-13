@@ -877,3 +877,27 @@
 
 **更新页面**：[[edition-2023]], [[protoc]], [[descriptor-proto]], [[features]], [[target-attributes]], [[retention]], [[custom-options]], [[feature-inheritance]]
 
+
+
+## [2026-06-13] ingest | Minimum Required Edition
+
+**创建页面**：[[sources/editions-minimum-required-edition.md]], [[entities/@mcy.md]], [[entities/protocolbuffersprotobuf.md]], [[entities/protoc.md]], [[entities/prototiller.md]], [[concepts/minimum-required-edition.md]], [[concepts/descriptor-proto.md]], [[concepts/filedescriptorproto.md]], [[concepts/edition.md]], [[concepts/poison-pill.md]], [[concepts/edition-total-order.md]], [[concepts/epochs-for-`descriptor-proto`.md]], [[concepts/bootstrapping.md]], [[concepts/breaking-changes.md]]
+
+**更新页面**：[[@mcy]], [[protocolbuffersprotobuf]], [[protoc]], [[edition-2023]], [[prototiller]], [[minimum-required-edition]], [[descriptor-proto]], [[edition]]
+
+
+
+## [2026-06-13] ingest | brpc Client 文档（Client-side documentation）
+
+**创建页面**：[[sources/en_client.md]], [[entities/brpc.md]], [[entities/consul.md]], [[entities/brpc.md]], [[entities/thrift.md]], [[entities/grpc.md]], [[entities/nacos.md]], [[concepts/naming-service.md]], [[entities/brpcdonothing.md]], [[concepts/channel.md]], [[concepts/负载均衡算法（Load Balancer）.md]], [[concepts/一致性哈希.md]], [[concepts/备份请求.md]], [[concepts/熔断.md]], [[concepts/retry.md]], [[concepts/健康检查.md]], [[concepts/bthread.md]], [[concepts/brpccontroller.md]], [[concepts/timeout.md]], [[concepts/身份验证.md]], [[concepts/连接方式.md]], [[concepts/synchronous-call.md]], [[concepts/asynchronous-rpc.md]], [[concepts/compression.md]], [[concepts/lalb.md]], [[concepts/cancel-rpc.md]], [[concepts/channeloptions.md]], [[concepts/round-robin.md]], [[concepts/baidu_std-protocol.md]], [[concepts/naming-service-filter.md]], [[concepts/wr.md]], [[concepts/random.md]], [[concepts/wrr.md]], [[concepts/selectivechannel.md]], [[concepts/brpcjoin.md]], [[concepts/parallelchannel.md]], [[concepts/protocol_h2.md]], [[concepts/protocol_http.md]], [[concepts/brpcnewcallback.md]], [[concepts/protocol_nshead.md]], [[concepts/protocol_redis.md]], [[concepts/protocol_memcache.md]], [[concepts/semi-synchronous-call.md]], [[concepts/socketmap.md]], [[concepts/attachment.md]], [[concepts/log_id.md]], [[concepts/ssl-tls.md]], [[concepts/streaming-rpc.md]], [[concepts/snappy.md]], [[concepts/idempotence.md]], [[concepts/timeout.md]], [[concepts/vip.md]], [[concepts/max_body_size.md]]
+
+**更新页面**：[[brpc]], [[grpc]], [[thrift]], [[channel]], [[naming-service]], [[bns]], [[负载均衡算法（Load Balancer）]], [[一致性哈希]], [[熔断]], [[retry]], [[备份请求]], [[健康检查]], [[brpccontroller]], [[bthread]], [[timeout]], [[身份验证]], [[compression]], [[lalb]], [[channeloptions]], [[baidu_std-protocol]], [[round-robin]], [[parallelchannel]], [[selectivechannel]], [[iobuf]], [[attachment]], [[ssl-tls]], [[streaming_rpc]], [[max_body_size]]
+
+
+
+## [2026-06-13] ingest | 一致性哈希（Consistent Hashing）
+
+**创建页面**：[[sources/consistent_hashing.md]], [[entities/memcached.md]], [[entities/brpc.md]], [[concepts/一致性哈希.md]], [[concepts/murmurhash.md]], [[concepts/虚拟节点.md]], [[concepts/一致性哈希.md]], [[concepts/平衡性.md]], [[concepts/单调性.md]], [[concepts/md5.md]], [[concepts/分散性.md]], [[concepts/负载.md]], [[concepts/雪崩效应.md]], [[concepts/doublybuffereddata.md]]
+
+**更新页面**：[[brpc]], [[memcached]], [[一致性哈希]], [[murmurhash]]
+

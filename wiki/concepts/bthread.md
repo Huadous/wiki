@@ -13,6 +13,7 @@ sources:
   - "[[brpc/load_balancing.md]]"
   - "[[brpc/io.md]]"
   - "[[brpc/en_streaming_log.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "other"
 aliases:
@@ -49,6 +50,10 @@ aliases:
 - [[concepts/命名服务|命名服务]]
 - [[concepts/健康检查|健康检查]]
 - [[concepts/periodicservicervice|PeriodicNamingService]]
+- [[concepts/bthread_mutex_t|bthread_mutex_t]]
+- [[concepts/bthread_concurrency|bthread_concurrency]]
+- [[concepts/channel|Channel]]
+- [[concepts/timeout|Timeout]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -106,3 +111,8 @@ aliases:
 > **Source: [[sources/en_streaming_log|en_streaming_log]]**
 > - "The noflush feature also support bthread so that we can push lots of logs from the server's bthreads without actually print them (using noflush), and flush the whole log at the end of RPC."
 > - "Note that you should not use noflush when implementing an asynchronous method since it will change the underlying bthread, leaving noflush out of function."
+
+> **Source: [[sources/en_client|en_client]]**
+> - "There's no independent thread pool for client in brpc. All Channels and Servers share the same backing threads via bthread."
+> - "Replace pthread lock with bthread lock (bthread_mutex_t)"
+> - "Setting number of worker pthreads in Server works for Client as well if Server is in used."

@@ -35,6 +35,8 @@ sources:
   - "[[brpc/en_streaming_log.md]]"
   - "[[brpc/en_iobuf.md]]"
   - "[[brpc/en_backup_request.md]]"
+  - "[[brpc/en_client.md]]"
+  - "[[brpc/consistent_hashing.md]]"
 tags:
   - "product"
 aliases:
@@ -52,46 +54,25 @@ aliases:
 ---
 
 ## Related Entities
-- [[entities/flatmap|flatmap]] — butil 的高性能容器组件，以空间换速度
-- [[entities/smalltable|smalltable]] — 百度哈希表系列
-- [[entities/cowhashmap|cowhashmap]] — 百度 smalltable 系列的 COW 实现
-- [[entities/alignhashmap|alignhashmap]] — 百度闭链哈希表
-- [[entities/stdmap|stdmap]] — C++ 标准 map，用作 FlatMap 性能对比参照
-- [[entities/homebrew|homebrew]] — macOS 上构建 brpc 的包管理工具
-- [[entities/examplehttp_c++|examplehttp_c++]] — brpc HTTP 客户端示例
-- [[entities/searchrequest|searchrequest]] — protobuf SearchRequest 消息示例
-- [[entities/Apache|Apache]] — brpc 所属的开源软件基金会
-- [[entities/butil|butil]] — brpc 基础库，提供 IOBuf 等核心数据结构
-- [[entities/Kylin|Kylin]] — 早于 brpc 的项目，其 BufHandle 组件被作为 IOBuf 设计改进的对比参照
+- [[entities/Apache|Apache]] — brpc 所属的开源软件基金会，一致性哈希功能作为 brpc 内置能力随 Apache brpc 发布
+- [[entities/butil|butil]] — brpc 基础库，一致性哈希所依赖的底层数据结构与并发原语由其提供
 
 ## Related Concepts
-- [[concepts/iobuf|butil::IOBuf]] — 非连续零拷贝缓冲
-- [[concepts/json2pb|json2pb]] — JSON 与 protobuf 双向转化
-- [[concepts/load_balancing|brpc Naming Service 与负载均衡]] — 服务发现与流量调度
-- [[concepts/memory_management|brpc 内存管理]] — ResourcePool 与 ObjectPool
-- [[concepts/streaming_rpc|流式 RPC]] — Streaming RPC 概念
-- [[concepts/noflush|noflush]] — streaming_log 的 noflush 缓冲策略，日志先缓冲至 RPC 结束统一刷新
-- [[concepts/bthread|bthread]] — brpc 协程模型，streaming_log 将高频日志分散到各 bthread
-- [[concepts/zero_copy_buffer|Zero-copy buffer]] — IOBuf 所采用的核心零拷贝设计思想
-- [[concepts/reference_counting|Reference counting]] — IOBuf 自动管理资源生命周期所依赖的机制
-- [[concepts/backup_request|Backup Request]] — brpc 中通过 Channel 的 backup_request_ms 实现的备份请求机制，主请求超时时自动发送备份请求并采用最先返回的响应
-- [[concepts/channel|Channel]] — brpc 的客户端通道，备份请求功能的载体，通过 ChannelOptions 配置 backup_request_ms
-- [[concepts/selectivechannel|SelectiveChannel]] — brpc 中另一种可结合备份请求使用的通道类型
-- [[concepts/channeloptions|ChannelOptions]] — brpc Channel 的配置选项，包含 backup_request_ms 等参数
-- [[concepts/backup_request_ms|backup_request_ms]] — ChannelOptions 中控制备份请求触发时机的毫秒数阈值
-- [[concepts/cdf|CDF]] — Cumulative Distribution Function，brpc 用于展示请求延迟分布的内省监控指标
-- [[concepts/naming_service|Naming Service]] — brpc 的服务发现机制，为 Channel 选择目标服务器提供依据
-- [[concepts/bvar_latencyrecorder|bvar::LatencyRecorder]] — brpc 提供的延迟记录器，用于采集和分析请求延迟数据
-- [[concepts/asynchronous_rpc|Asynchronous RPC]] — brpc 支持的异步 RPC 模式
-- [[concepts/rpcz|/rpcz]] — brpc 提供的 RPC 内省端点，可查看请求追踪与备份请求触发情况
+- [[concepts/load_balancing|brpc Naming Service 与负载均衡]] — 一致性哈希所属的 brpc 流量调度体系
+- [[concepts/channel|Channel]] — 一致性哈希的启用入口，通过 `Channel.Init` 指定 `load_balancer_name`
+- [[concepts/channeloptions|ChannelOptions]] — Channel 配置选项，与 `load_balancer_name` 配合配置一致性哈希
+- [[concepts/naming_service|Naming Service]] — 为一致性哈希提供服务器列表与节点变化感知
+- [[concepts/consistent_hashing|一致性哈希]] — 本页核心主题，对应的分布式负载均衡理论
+- [[concepts/virtual_node|虚拟节点]] — 在一致性哈希 Hash Ring 上用于均匀分布负载的虚拟副本
+- [[concepts/hash_ring|Hash Ring]] — 一致性哈希的环形哈希空间，brpc 选择有序数组作为其底层存储结构
+- [[concepts/murmurhash3|murmurhash3]] — brpc 一致性哈希内置支持的两种哈希算法之一，对应 `c_murmurhash`
+- [[concepts/md5|md5]] — brpc 一致性哈希内置支持的两种哈希算法之一，对应 `c_md5`
+- [[concepts/doublebuffereddata|DoubleBufferedData]] — brpc 用来保证一致性哈希数据结构线程安全的并发机制
 
 ## Mentions in Source
+> **Source: [[sources/load_balancing|load_balancing]]**
+> - （现有相关引用已保留于 load_balancing 主题页中，本页聚焦 consistent_hashing 来源的新增提及）
 
-> **Source: [[sources/en_iobuf|en_iobuf]]**
-> - "brpc uses butil::IOBuf as data structure for attachment in some protocols and HTTP body."
-> - "If you've used the BufHandle in Kylin before, you should notice the convenience of IOBuf: the former one is badly encapsulated, leaving the internal structure directly in front of users, who must carefully handle the referential countings, very error prone and leading to bugs."
-
-> **Source: [[sources/en_backup_request|en_backup_request]]**
-> - "There are several ways to achieve this in brpc:"
-> - "Channel opens backup request. Channel sends the request to one of the servers and when the response is not returned after ChannelOptions.backup_request_ms ms, it sends to another server, taking the response that coming back first."
-> - "You can look the default cdf(Cumulative Distribution Function) graph of latency provided by brpc, or add it by your own."
+> **Source: [[sources/consistent_hashing|consistent_hashing]]**
+> - "由于节点故障和变化不常发生，我们选择了修改复杂度为O(n)的有序数组来存储hash ring，每次分流使用二分查找来选择对应的机器，由于存储是连续的，查找效率比基于平衡二叉树的实现高。"
+> - "我们内置了分别基于murmurhash3和md5两种hash算法的实现，使用要做两件事：在Channel.Init 时指定*load_balancer_name*为 \"c_murmurhash\" 或 \"c_md5\"。"

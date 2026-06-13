@@ -1,40 +1,40 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
-sources: ["[[sources/editions-what-are-protobuf-editions]]"]
-tags: [method]
+updated: 2026-06-13
+sources:
+  - "[[sources/editions-what-are-protobuf-editions]]"
+  - "[[protobuf/editions-life-of-an-edition.md]]"
+tags:
+  - "method"
 aliases:
+  - "Large-Scale Change"
+  - "大规模变更"
+  - "Large-scale Change"
   - "Large-Scale Change"
   - "大规模变更"
 ---
 
+## Description
+LSC 是 Google 在庞大代码库中执行系统性、可控语义修改的核心方法论，其设计目标是让 Protobuf 之类的语言特性演进能够以自动化、可审计的方式贯穿整个代码库。LSC 的核心是自动化执行，能够对代码库中成千上万个文件进行批量修改，遵循统一的模板以确保所有变更具有一致性和可重复性，便于审计和回滚。每一次 LSC 都遵循相同的标准化流程：先引入新特性 → 在新 edition 中将该特性设为新的默认值 → 等待生态系统迁移 → 最终移除旧特性（破坏性变更）。这种流程使 LSC 在无操作（no-op）迁移场景中效率极高，例如将 feature 设置从显式改为默认值的操作几乎不需要人工介入。文档列举了多种大规模变更模板作为示例，涵盖不同的变更层级：Edition Zero（无功能变更的纯语法迁移）、Immolation of `required`（功能性的特性迁移）、`absl::string_view` Accessors（生成 API 变更）、Group-Encoded Messages（线协议优化），共同说明 LSC 是一种可复用、可组合的迁移框架。
 
-# LSC
-
-## 定义
-LSC（Large-Scale Change，大规模变更）是Google内部用于大规模代码迁移的方法论。它通过自动化批量修改代码的方式，在大型代码库中推广新行为、淘汰旧特性或进行架构升级，从而显著减少人工干预和降低迁移成本。
-
-## 关键特征
-- **大规模自动化**：LSC的核心是自动化执行，能够对代码库中成千上万个文件进行批量修改，远超人工处理的规模和速度。
-- **模板化流程**：LSC操作遵循统一的模板，确保所有变更具有一致性和可重复性，便于审计和回滚。
-- **行为推广**：主要用于推广新的默认行为或淘汰被标记为废弃的特性，例如将显式设置的feature自动转换为默认值。
-- **低风险迁移**：通过精心设计的转换规则和验证机制，LSC能够将大规模迁移的风险降至最低，尤其在像Protobuf Editions这样的无操作（no-op）迁移场景中效率极高。
-
-## 应用
-- **代码库现代化**：在Google庞大的代码库中，LSC被用于将旧的API调用模式统一升级为新版本。
-- **功能淘汰**：如文档所述，“Undesirable features will be LSC'd away”，将不期望的feature通过LSC自动去除，无需开发人员手动逐个修改。
-- **协议升级**：在Protobuf Editions中，LSC是版本迁移的关键工具，用于将feature设置从显式改为默认值，反之亦然，实现不同Edition之间的无缝过渡。
-- **政策推行**：为跨团队、跨项目的技术政策（如编码规范、安全策略）提供自动化的落地手段。
-
-## 相关概念
+## Related Concepts
 - [[concepts/Feature|Feature]]
 - [[concepts/Edition|Edition]]
+- [[concepts/Edition Zero|Edition Zero]]
+- [[concepts/Immolation of required|Immolation of required]]
 
-## 相关实体
+## Related Entities
 - [[entities/Google|Google]]
 - [[entities/Protobuf Editions|Protobuf Editions]]
+- [[entities/protoc|protoc]]
 
-## 来源提及
-- "Undesirable features will be LSC'd away, using the same template as any other feature/edition migration." — [[protobuf/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]
-- "The migration to edition “2025” across google will move very fast as it is a no-op." — [[protobuf/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]
+## Mentions in Source
+
+> **Source: [[sources/editions-what-are-protobuf-editions|editions-what-are-protobuf-editions]]**
+> - "Undesirable features will be LSC'd away, using the same template as any other feature/edition migration."
+> - "The migration to edition "2025" across google will move very fast as it is a no-op."
+
+> **Source: [[sources/editions-life-of-an-edition|editions-life-of-an-edition]]**
+> - "How to use Protobuf Editions to construct a large-scale change that modifies the semantics of Protobuf in some way."
+> - "The following are sketches of large-scale change designs for feature changes we would like to execute, presented as example use-cases."

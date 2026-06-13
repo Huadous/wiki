@@ -8,6 +8,7 @@ sources:
   - "[[sources/en_overview]]"
   - "[[brpc/streaming_rpc.md]]"
   - "[[brpc/server.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "standard"
 aliases:
@@ -33,6 +34,8 @@ aliases:
 - [[concepts/stream|Stream]]
 - [[concepts/attachment|Attachment（附件）]]
 - [[concepts/authentication|身份验证（Authentication）]]
+- [[concepts/channel|Channel]]
+- [[concepts/connection_type|Connection Type（单连接/短连接）]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -47,6 +50,7 @@ aliases:
 - [[entities/streaming_rpc|streaming_rpc]]
 - [[entities/ubrpc|ubrpc]]
 - [[entities/brpc_server|brpc::Server]]
+- [[entities/brpc_channel|brpc::Channel]]
 
 ## Mentions in Source
 
@@ -65,3 +69,7 @@ aliases:
 > **Source: [[sources/server|server]]**
 > - 百度标准协议，显示为"baidu_std"，默认启用。
 > - baidu_std和hulu_pbrpc协议支持传递附件，这段数据由用户自定义，不经过protobuf的序列化。
+
+> **Source: [[sources/en_client|en_client]]**
+> - The default protocol used by Channel is baidu_std, which is changeable by setting ChannelOptions.protocol. The field accepts both enum and string.
+> - PROTOCOL_BAIDU_STD or "baidu_std", which is the standard binary protocol inside Baidu, using single connection by default.

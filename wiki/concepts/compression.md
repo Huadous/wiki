@@ -7,6 +7,7 @@ sources:
   - "[[sources/en_http_service]]"
   - "[[brpc/server.md]]"
   - "[[brpc/http_service.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "method"
 aliases:
@@ -529,6 +530,7 @@ aliases:
 - [[concepts/渐进发送|渐进发送]]
 - [[concepts/http-参数|HTTP参数]]
 - [[concepts/controller|Controller]]
+- [[concepts/channel|Channel]]
 - [[concepts/http-body-compress-threshold|http_body_compress_threshold]]
 - [[concepts/content-encoding|Content-Encoding]]
 - [[concepts/accept-encoding|Accept-Encoding]]
@@ -568,7 +570,7 @@ aliases:
 > - "gzip is not a very fast compression algorithm."
 > - "Not compress http body when it's less than so many bytes."
 > - "Call Controller::set_response_compress_type(brpc::COMPRESS_TYPE_GZIP) to try to compress the http body with gzip. — [[brpc/en_http_service|en_http_service]]"
-> - "The request does not set Accept-encoding or the value does not contain "gzip". — [[brpc/en_http_service|en_http_service]]"
+> - "The request does not set Accept-encoding or the value does not contain \"gzip\". — [[brpc/en_http_service|en_http_service]]"
 > - "Body size is less than the bytes specified by -http_body_compress_threshold (512 by default). — [[brpc/en_http_service|en_http_service]]"
 
 > **Source: [[sources/server]]**
@@ -581,3 +583,11 @@ aliases:
 > - "http服务常对http body进行压缩，可以有效减少网页的传输时间，加快页面的展现速度。 — [[brpc/http_service|http_service]]"
 > - "设置Controller::set_response_compress_type(brpc::COMPRESS_TYPE_GZIP)后将**尝试**用gzip压缩http body。 — [[brpc/http_service|http_service]]"
 > - "body尺寸小于-http_body_compress_threshold指定的字节数，默认是512。 — [[brpc/http_service|http_service]]"
+
+> **Source: [[sources/en_client]]**
+> - "set_request_compress_type() sets compress-type of the request, no compression by default."
+> - "Supported compressions: brpc::CompressTypeSnappy : snappy, brpc::CompressTypeGzip : gzip, brpc::CompressTypeZlib : zlib"
+> - "NOTE: Attachment is not compressed by brpc."
+> - "set_request_compress_type() sets compress-type of the request, no compression by default. — [[brpc/en_client|en_client]]"
+> - "Supported compressions: brpc::CompressTypeSnappy : snappy, brpc::CompressTypeGzip : gzip, brpc::CompressTypeZlib : zlib — [[brpc/en_client|en_client]]"
+> - "NOTE: Attachment is not compressed by brpc. — [[brpc/en_client|en_client]]"

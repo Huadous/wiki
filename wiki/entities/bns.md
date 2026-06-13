@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[sources/en_overview]]"
   - "[[brpc/load_balancing.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "product"
 aliases:
@@ -16,15 +17,16 @@ aliases:
 ---
 
 ## Related Entities
-- [[entities/baidu|baidu]] — BNS 是百度内部开发的命名服务系统
+- [[entities/baidu|baidu]] — BNS 是百度内部开发的命名服务系统，也是百度内部最常用的命名服务
 - [[entities/brpc|brpc]] — BNS 是其可插拔命名服务实现之一，通过 `bns://` 前缀访问；brpc 还提供 `list://` 和 `file://` 等替代方案
 - [[entities/zookeeper|zookeeper]] — BNS 与 ZooKeeper 类似，同为命名服务的实现方案
 - [[entities/etcd|etcd]] — BNS 与 etcd 类似，同为命名服务的实现方案
 
 ## Related Concepts
-- [[concepts/naming-service|naming service]] — BNS 属于命名服务的一种实现
+- [[concepts/naming-service|naming service]] — BNS 属于命名服务的一种实现，且是百度内部最常用的命名服务
 - [[concepts/load-balancing|load balancing]] — BNS 与 brpc 的负载均衡器配合实现机器选择
-- [[concepts/periodicservicenaming|periodic naming service]] — 因 BNS 无事件通知，brpc 通过 `PeriodicNamingService` 定期拉取最新节点列表（默认 5 秒）
+- [[concepts/periodicservicenaming|periodic naming service]] — 因 BNS 无事件通知，brpc 通过 `PeriodicNamingService` 定期拉取最新节点列表（默认 5 秒，可通过 `-ns_access_interval` gflag 调节）
+- [[concepts/channel|channel]] — BNS 中状态位非零的机器不会被加入 Channel 的候选服务器列表
 
 ## Mentions in Source
 
@@ -40,4 +42,7 @@ aliases:
 > **来源：[[sources/load_balancing|load_balancing]]**
 - "bns：没有事件通知，所以我们只能定期去获得最新列表，默认间隔是[5秒](http://brpc.baidu.com:8765/flags/ns_access_interval)。"
 - "bns://<node-name>            # baidu naming service"
-- No directly relevant information
+
+> **来源：[[sources/en_client|en_client]]**
+- "BNS is the most common naming service inside Baidu. In `bns://rdev.matrix.all`, `bns` is protocol and `rdev.matrix.all` is service-name."
+- "If the list in BNS is non-empty, but Channel says `no servers`, the status bit of the machine in BNS is probably non-zero."

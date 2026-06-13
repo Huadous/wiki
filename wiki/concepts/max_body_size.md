@@ -7,6 +7,7 @@ sources:
   - "[[brpc/streaming_log.md]]"
   - "[[brpc/server.md]]"
   - "[[brpc/getting_started.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "term"
 aliases:
@@ -40,9 +41,13 @@ aliases:
 - [[concepts/安全性|安全性 (Security Configuration)]]
 - [[concepts/VLOG|VLOG]]
 - [[concepts/streaming_log|streaming_log]]
-- [[concepts/gflags|gflags]]
 - [[concepts/静态链接|静态链接]]
 - [[concepts/config_brpc.sh|config_brpc.sh]]
+- [[concepts/ChannelOptions|ChannelOptions]]
+- [[concepts/Controller|Controller]]
+- [[concepts/Health Checking|Health Checking]]
+- [[concepts/Connection Type|Connection Type]]
+- [[concepts/Timeout|Timeout]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -76,3 +81,8 @@ aliases:
 > - "gflags: Extensively used to define global options."
 > - "以[gflags](https://github.com/gflags/gflags)为例，它默认不构建共享库，你需要给`cmake`指定选项去改变这一行为："
 > - "gflags: 2.1-2.2.2"
+
+> **Source: [[sources/en_client]]**
+> - "global gflags: for tuning global behaviors, being unchanged generally. Read comments in [/flags](flags.md) before setting."
+> - "gflags makes configurations of global behaviors easier."
+> - "A related gflag is -ns_access_interval"

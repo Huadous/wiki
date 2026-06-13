@@ -1,10 +1,11 @@
 ---
 type: concept
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-06-13
 sources:
   - "[[sources/en_redis_client]]"
   - "[[sources/combo_channel]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "method"
 aliases:
@@ -29,6 +30,9 @@ aliases:
 - [[concepts/partitionchannel|PartitionChannel]]
 - [[concepts/partitionparser|PartitionParser]]
 - [[concepts/dynamicpartitionchannel|DynamicPartitionChannel]]
+- [[concepts/brpc-join|brpc::Join]]
+- [[concepts/异步调用|异步调用]]
+- [[concepts/channel|Channel]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -46,3 +50,6 @@ aliases:
 > - "ParititonChannel只能处理一种分库方法，当用户需要多种分库方法共存，或从一个分库方法平滑地切换为另一种分库方法时，可以使用DynamicPartitionChannel。"
 > - "首先定制PartitionParser。这个例子中tag的形式是N/M，N代表分库的index，M是分库的个数。比如0/3代表一共3个分库，这是第一个。"
 > - "如果分库在不同的命名服务内，那么用户得自行用ParallelChannel组装，即每个sub channel对应一个分库（使用不同的命名服务）。"
+
+> **Source: [[sources/en_client|en_client]]**
+> - "NOTE: ParallelChannel is probably more convenient to launch multiple RPCs in parallel."

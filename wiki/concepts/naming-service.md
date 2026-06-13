@@ -8,6 +8,7 @@ sources:
   - "[[brpc/load_balancing.md]]"
   - "[[brpc/http_client.md]]"
   - "[[brpc/en_backup_request.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "method"
 aliases:
@@ -112,13 +113,22 @@ aliases:
 - [[concepts/channel|Channel]]
 - [[concepts/backup_request|Backup Request]]
 - [[concepts/selectivechannel|SelectiveChannel]]
+- [[concepts/load-balancer|Load Balancer]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
+- [[entities/consul|consul]]
+- [[entities/nacos|nacos]]
 
 ## Mentions in Source
 > **Source: [[sources/en_backup_request|en_backup_request]]**
 > - "When backend servers can be hung in a naming service"
 > - "When backend servers cannot be hung in a naming service"
 > - "If a sub channel corresponds to a cluster, this method does backups between two clusters."
+> - "No directly relevant information"
+
+> **Source: [[sources/en_client|en_client]]**
+> - "Naming service maps a name to a modifiable list of servers."
+> - "Channels created by above Init() get server list from the NamingService specified by `naming_service_url` periodically or driven-by-events"
+> - "General form of `naming_service_url`  is \"protocol://service_name\"."
 > - "No directly relevant information"

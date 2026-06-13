@@ -6,6 +6,7 @@ sources:
   - "[[sources/combo_channel]]"
   - "[[sources/en_overview]]"
   - "[[brpc/load_balancing.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "method"
 aliases:
@@ -60,3 +61,8 @@ aliases:
 
 > **Source: load_balancing (new)**
 > - "No directly relevant information"
+
+> **Source: [[sources/en_client|en_client]]**
+> - "When there're more than one server to access, we need to divide the traffic. The process is called load balancing"
+> - "Algorithms provided by brpc (specified by `load_balancer_name`): rr, wrr, random, wr, la, c_murmurhash or c_md5"
+> - "la: which is locality-aware. Perfer servers with lower latencies"

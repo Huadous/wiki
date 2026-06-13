@@ -5,6 +5,7 @@ updated: 2026-06-13
 sources:
   - "[[sources/http_client]]"
   - "[[brpc/en_backup_request.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "term"
 aliases:
@@ -19,6 +20,11 @@ aliases:
 - [[concepts/channel-options|ChannelOptions]]
 - [[concepts/selective-channel|SelectiveChannel]]
 - [[concepts/backup-request-ms|backup_request_ms]]
+- [[concepts/naming-service|Naming Service]]
+- [[concepts/load-balancer|Load Balancer]]
+- [[concepts/controller|Controller]]
+- [[concepts/connection-type|Connection Type]]
+- [[concepts/health-checking|Health Checking]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -33,3 +39,8 @@ aliases:
 > **Source: [[sources/en_backup_request]]**
 > - "Channel opens backup request. Channel sends the request to one of the servers and when the response is not returned after ChannelOptions.backup_request_ms ms, it sends to another server, taking the response that coming back first."
 > - "Define a SelectiveChannel that sets backup request, in which contains two sub channel."
+
+> **Source: [[sources/en_client]]**
+> - "Channel.Init() is not thread-safe."
+> - "Channel.CallMethod() is thread-safe and a Channel can be used by multiple threads simultaneously."
+> - "Client-side of RPC sends requests. It's called Channel rather than \"Client\" in brpc. A channel represents a communication line to one server or multiple servers, which can be used for calling services."

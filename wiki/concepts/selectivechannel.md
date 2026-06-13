@@ -8,6 +8,7 @@ sources:
   - "[[sources/backup_request]]"
   - "[[brpc/io.md]]"
   - "[[brpc/en_backup_request.md]]"
+  - "[[brpc/en_client.md]]"
 tags:
   - "method"
 aliases:
@@ -22,6 +23,9 @@ aliases:
 - [[concepts/backup-request|backup request]]
 - [[concepts/wait-free-mpsc|Wait-free MPSC 链表]]
 - [[concepts/socket-unique-ptr|SocketUniquePtr]]
+- [[concepts/channel|Channel]]
+- [[concepts/asynchronous-call|异步调用（Asynchronous call）]]
+- [[concepts/parallel-channel|ParallelChannel]]
 
 ## Related Entities
 - [[entities/brpc|brpc]]
@@ -54,3 +58,6 @@ aliases:
 > **Source: [[sources/en_backup_request|en_backup_request]]**
 > - "[Recommended] Define a SelectiveChannel that sets backup request, in which contains two sub channel."
 > - "The visiting process of this SelectiveChannel is similar to the above situation. It will visit one sub channel first. If the response is not returned after channelOptions.backup_request_ms ms, then another sub channel is visited."
+
+> **Source: [[sources/en_client|en_client]]**
+> - "Request can be destroyed immediately after asynchronous CallMethod. (SelectiveChannel is an exception, in the case of SelectiveChannel, the request object must be released after rpc finish)"
