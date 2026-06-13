@@ -1,37 +1,22 @@
 # ── Obsidian Core ──
-# workspace states (different per device)
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
-
-# hotkeys may differ per device
 .obsidian/hotkeys.json
-
-# trash
 .trash/
-
-# OS junk
 **/.DS_Store
 **/Thumbs.db
 
-# ── AI / LLM Plugin Data: embeddings & indexes (large, device-local) ──
-
-# Smart Connections
+# ── AI / LLM Plugin Data ──
 .smart-connections/
 .smart-env/
-
-# Copilot
 .copilot-index/
 .obsidian/copilot-index/
-
-# Local LLM model files (.gguf etc are GB-sized)
 **/*.gguf
 **/*.bin
 **/*.pt
 **/*.onnx
 **/*.safetensors
 /models/
-
-# Generic AI plugin caches
 **/.ai_cache/
 **/.embeddings/
 **/.vectorstore/
@@ -44,13 +29,14 @@
 .env.*.local
 **/api_keys.json
 
-# ── Git plugin local state (changes every commit) ──
+# ── Git plugin local state ──
 .obsidian/plugins/obsidian-git/data.json
+
+# ── Quartz 4 build output ──
+public/
 
 # ── General ──
 node_modules/
 *.log
 *.tmp
-
-# ── Quartz 4 build output ──
-public/
+docs/
